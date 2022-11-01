@@ -1,148 +1,137 @@
-ytd-watch-metadata {
-    display: none !important;
-}
+/* ==UserStyle==
+@name           Youtube Old Layout
+@namespace      USO Archive
+@author         sapondanaisriwan(Adashima#4066)
+@description    `new youtube layout is bad`
+@version        1.0.7
+@license        NO-REDISTRIBUTION
+@preprocessor   uso
+==/UserStyle== */
+@-moz-document domain("youtube.com") {
+    ytd-watch-metadata {
+        display: none !important;
+    }
+    #meta-contents[hidden],
+    #info-contents[hidden] {
+        display: block !important;
+    }
 
-#meta-contents[hidden],
-#info-contents[hidden] {
-    display: block !important;
-}
 
+    /* Permanent fixes */
+    /* Removes second comment section, */
+    #comment-teaser.ytd-watch-metadata {
+        display: none !important;
+    }
+    /* Removes border around creator's name and sub button. NOTE: This part doesn't work as of 1.1, but keeping it for now just in case. */
+    #owner.ytd-watch-metadata {
+        border: none !important;
+    }
+    /* Removes border around creator's name and sub button. */
+    ytd-watch-metadata:not([modern-metapanel]) #owner.ytd-watch-metadata {
+        border: none;
+    }
+    /* Reverts the video title font. */
+    ytd-watch-metadata[smaller-yt-sans-light-title] h1.ytd-watch-metadata {
+        font-family: "Roboto", sans-serif;
+        font-weight: 400 !important;
+        font-size: 18px !important;
+    }
+    ytd-video-primary-info-renderer[use-yt-sans20-light] .title.ytd-video-primary-info-renderer {
+        font-family: "Roboto", sans-serif;
+        font-weight: 400 !important;
+        font-size: 18px !important;
+    }
+    /* Removes the bold letters on upload date and view count. */
+    .yt-formatted-string[style-target="bold"] {
+        font-weight: 400;
+    }
+    ytd-button-renderer {
+        margin-left: 0 !important;
+        font-size: 13px;
+    }
+    ytd-toggle-button-renderer {
+        font-size: 13px !important;
+    }
 
-/* Permanent fixes */
-/* Removes second comment section, */
-#comment-teaser.ytd-watch-metadata {
-    display: none !important;
-}
+    ytd-video-primary-info-renderer {
+        --yt-button-icon-size: 30.6px !important;
+    }
+    ytd-button-renderer.force-icon-button a.ytd-button-renderer {
+        padding-right: 0;
+    }
+    ytd-video-primary-info-renderer {
+        padding-bottom: 10px;
+        position: relative;
+        bottom: 6px;
+    }
+    .ryd-tooltip-bar-container {
+        padding-top: 0;
+        padding-bottom: 0px;
+        top: -8px;
+        bottom: 0;
+    }
+    #top-row.style-scope.ytd-video-secondary-info-renderer {
+        padding-top: 4px;
+    }
 
-/* Removes border around creator's name and sub button. NOTE: This part doesn't work as of 1.1, but keeping it for now just in case. */
-#owner.ytd-watch-metadata {
-    border: none !important;
-}
+    /* remove border */
+    .yt-spec-button-shape-next--size-m,
+    .yt-spec-touch-feedback-shape__stroke {
+        border-radius: 0 !important;
+        border: none !important;
+    }
 
-/* Removes border around creator's name and sub button. */
-ytd-watch-metadata:not([modern-metapanel]) #owner.ytd-watch-metadata {
-    border: none;
-}
+    .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-button.yt-spec-button-shape-next--segmented-end,
+    .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-leading {
+        padding: 10px !important;
+    }
 
-/* Reverts the video title font. */
-ytd-watch-metadata[smaller-yt-sans-light-title] h1.ytd-watch-metadata {
-    font-family: "Roboto", sans-serif;
-    font-weight: 400 !important;
-    font-size: 18px !important;
-}
+    /* remove margin */
+    ytd-download-button-renderer {
+        margin: 0 !important;
+    }
 
-ytd-video-primary-info-renderer[use-yt-sans20-light] .title.ytd-video-primary-info-renderer {
-    font-family: "Roboto", sans-serif;
-    font-weight: 400 !important;
-    font-size: 18px !important;
-}
+    .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-end span {
+        padding-left:6px
+    }
 
-/* Removes the bold letters on upload date and view count. */
-.yt-formatted-string[style-target="bold"] {
-    font-weight: 400;
-}
+    yt-button-shape.ytd-subscribe-button-renderer {
+        background-color: #303030 !important;
+    }
 
-ytd-button-renderer {
-    margin-left: 0 !important;
-    font-size: 13px;
-}
+    .yt-simple-endpoint.style-scope.ytd-subscription-notification-toggle-button-renderer yt-icon-button {
+        background-color: transparent !important;
+    }
 
-ytd-toggle-button-renderer {
-    font-size: 13px !important;
-}
+    .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start::after {
+        display: none;
+    }
 
-ytd-video-primary-info-renderer {
-    --yt-button-icon-size: 30.6px !important;
-}
+    /* Subscribed button*/
+    .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled {
+        color: white !important;
+        background-color: #CC0000 !important;
+    }
 
-ytd-button-renderer.force-icon-button a.ytd-button-renderer {
-    padding-right: 0;
-}
-
-ytd-video-primary-info-renderer {
-    padding-bottom: 10px;
-    position: relative;
-    bottom: 6px;
-}
-
-.ryd-tooltip-bar-container {
-    padding-top: 0;
-    padding-bottom: 0px;
-    top: -8px;
-    bottom: 0;
-}
-
-#top-row.style-scope.ytd-video-secondary-info-renderer {
-    padding-top: 4px;
-}
-
-/* Remove border */
-.yt-spec-button-shape-next--size-m,
-.yt-spec-touch-feedback-shape__stroke {
-    border-radius: 0 !important;
-    border: none !important;
-}
-
-.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-button.yt-spec-button-shape-next--segmented-end,
-.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-leading {
-    padding: 10px !important;
-}
-
-/* Remove margin */
-ytd-download-button-renderer {
-    margin: 0 !important;
-}
-
-.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-end span {
-    padding-left: 10px
-}
-
-yt-button-shape.ytd-subscribe-button-renderer {
-    background-color: #303030 !important;
-}
-
-.yt-simple-endpoint.style-scope.ytd-subscription-notification-toggle-button-renderer yt-icon-button {
-    background-color: transparent !important;
-}
-
-.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start::after {
-    display: none;
-}
-
-/* Subscribe button*/
-.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled {
-    color: white !important;
-    background-color: #CC0000 !important;
-}
-
-.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
-.yt-spec-touch-feedback-shape__fill {
-    background-color: transparent !important;
-}
-
-/* Fixed reply button */
-.yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text {
-    background-color: transparent !important;
-}
-
-/* Square Thumbnail*/
-ytd-thumbnail[size=medium] a.ytd-thumbnail,
-ytd-thumbnail[size=medium]:before,
-.yt-simple-endpoint.inline-block.style-scope.ytd-thumbnail,
-.ytp-videowall-still-round-medium .ytp-videowall-still-image,
-ytd-channel-video-player-renderer[rounded] #player.ytd-channel-video-player-renderer,
-ytd-playlist-thumbnail[size=medium] a.ytd-playlist-thumbnail,
-ytd-playlist-thumbnail[size=medium]:before {
-    border-radius: 0 !important;
-}
-
-/* Menu */
-ytd-multi-page-menu-renderer[sheets-refresh] {
-    border-radius: 0;
-}
-
-/* Fixed Playlist Icon */
-.yt-spec-button-shape-next.yt-spec-button-shape-next--text.yt-spec-button-shape-next--icon-only-default,
-.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--icon-button {
-    background-color: transparent !important;
+    .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+    .yt-spec-touch-feedback-shape__fill {
+        background-color: transparent !important;
+    }
+    
+    /* fix reply button */
+    .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text {
+        background-color: transparent !important;
+    }
+    
+    /* Menu */
+    ytd-multi-page-menu-renderer[sheets-refresh] {
+        border-radius: 0;
+    }
+    
+    /* test */
+   .yt-spec-button-shape-next.yt-spec-button-shape-next--text.yt-spec-button-shape-next--icon-only-default,
+    .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--icon-button {
+        background-color: transparent !important;
+    }
+    
 }
