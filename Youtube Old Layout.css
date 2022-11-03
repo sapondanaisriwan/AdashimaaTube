@@ -3,11 +3,12 @@
 @namespace      USO Archive
 @author         sapondanaisriwan(Adashima#4066)
 @description    `new youtube layout is bad`
-@version        1.0.7
+@version        1.1.2
 @license        NO-REDISTRIBUTION
 @preprocessor   uso
 ==/UserStyle== */
 @-moz-document domain("youtube.com") {
+
     ytd-watch-metadata {
         display: none !important;
     }
@@ -16,13 +17,16 @@
         display: block !important;
     }
 
+    ytd-rich-item-renderer {
+        margin-right: 0 !important;
+    }
 
     /* Permanent fixes */
     /* Removes second comment section, */
     #comment-teaser.ytd-watch-metadata {
         display: none !important;
     }
-    /* Removes border around creator's name and sub button. NOTE: This part doesn't work as of 1.1, but keeping it for now just in case. */
+    /* Removes border around creator's name and sub button. */
     #owner.ytd-watch-metadata {
         border: none !important;
     }
@@ -81,57 +85,90 @@
         border: none !important;
     }
 
+    /* Remove spacing between icons */
     .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-button.yt-spec-button-shape-next--segmented-end,
     .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-leading {
-        padding: 10px !important;
+        padding-right: 0;
     }
 
-    /* remove margin */
+    /* Remove margin */
     ytd-download-button-renderer {
         margin: 0 !important;
     }
 
+    /* Add spacing for dislike counts */
     .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-end span {
-        padding-left:6px
+        padding-left: 6px
     }
 
-    yt-button-shape.ytd-subscribe-button-renderer {
-        background-color: #303030 !important;
-    }
 
-    .yt-simple-endpoint.style-scope.ytd-subscription-notification-toggle-button-renderer yt-icon-button {
-        background-color: transparent !important;
-    }
-
-    .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start::after {
-        display: none;
-    }
-
-    /* Subscribed button*/
-    .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled {
+    /* Add red background color to Subscribed button(not working for light theme user)*/
+    .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled,
+    .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--filled[aria-label="Subscribe to HIM CHANNEL."] {
         color: white !important;
         background-color: #CC0000 !important;
     }
 
+    /* Change color of subscribe button */
+    yt-button-shape.ytd-subscribe-button-renderer {
+        color: white !important;
+        background-color: #303030 !important;
+    }
+    /* Remove background color*/
+    .yt-simple-endpoint.style-scope.ytd-subscription-notification-toggle-button-renderer yt-icon-button {
+        background-color: transparent !important;
+    }
+    .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start::after {
+        display: none;
+    }
     .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
     .yt-spec-touch-feedback-shape__fill {
         background-color: transparent !important;
     }
-    
-    /* fix reply button */
+
+    /* Solved reply button */
     .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text {
         background-color: transparent !important;
     }
-    
-    /* Menu */
-    ytd-multi-page-menu-renderer[sheets-refresh] {
-        border-radius: 0;
+
+    /* Remove rounded */
+    ytd-multi-page-menu-renderer[sheets-refresh],
+    ytd-playlist-panel-renderer[modern-panels]:not([within-miniplayer]) #container.ytd-playlist-panel-renderer,
+    ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #container.ytd-searchbox,
+    ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #container.ytd-searchbox,
+    ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #search-icon-legacy.ytd-searchbox,
+    ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #search-icon-legacy.ytd-searchbox,
+    ytd-thumbnail[size=large] a.ytd-thumbnail,
+    ytd-thumbnail[size=large]:before {
+        border-radius: 0 !important;
     }
-    
-    /* test */
-   .yt-spec-button-shape-next.yt-spec-button-shape-next--text.yt-spec-button-shape-next--icon-only-default,
+
+    /* No rounded thumbnails */
+    ytd-thumbnail[size=medium] a.ytd-thumbnail,
+    ytd-thumbnail[size=medium]:before,
+    .yt-simple-endpoint.inline-block.style-scope.ytd-thumbnail,
+    .ytp-videowall-still-round-medium .ytp-videowall-still-image,
+    ytd-channel-video-player-renderer[rounded] #player.ytd-channel-video-player-renderer,
+    ytd-playlist-thumbnail[size=medium] a.ytd-playlist-thumbnail,
+    ytd-playlist-thumbnail[size=medium]:before,
+    .ytp-player-minimized.ytp-rounded-miniplayer .html5-main-video,
+    .ytp-player-minimized.ytp-rounded-miniplayer .ytp-miniplayer-scrim,
+    .ytp-player-minimized.ytp-rounded-miniplayer.html5-video-player,
+    .ytp-ce-video.ytp-ce-large-round,
+    .ytp-ce-playlist.ytp-ce-large-round,
+    .ytp-ce-large-round .ytp-ce-expanding-overlay-background,
+    ytd-macro-markers-list-item-renderer[rounded] #thumbnail.ytd-macro-markers-list-item-renderer {
+        border-radius: 0 !important;
+    }
+
+    .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start {
+        border-radius: 0 !important;
+        position: relative;
+    }
+
+    /* Playlist */
+    .yt-spec-button-shape-next.yt-spec-button-shape-next--text.yt-spec-button-shape-next--icon-only-default,
     .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--icon-button {
         background-color: transparent !important;
     }
-    
 }
