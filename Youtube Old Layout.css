@@ -1,13 +1,63 @@
 /* ==UserStyle==
 @name           Youtube Old Layout
-@namespace      USO Archive
+@namespace      Youtube Old Layout
 @author         sapondanaisriwan(Adashima#4066)
 @description    `new youtube layout is bad`
-@version        1.1.2
-@license        NO-REDISTRIBUTION
-@preprocessor   uso
+@version        1.1.4
+@license        MIT
+@preprocessor   stylus
+
+@advanced checkbox light-theme "For Light Theme User" 0
+@advanced checkbox hide-download-btn "Hide Download Button" 0
+@advanced checkbox hide-clip-btn "Hide Clip Button" 0
+@advanced checkbox hide-thanks-btn "Hide Thanks Button" 0
+@advanced checkbox old-playlist "Old Playlist" 0
+
 ==/UserStyle== */
 @-moz-document domain("youtube.com") {
+
+    if(hide-download-btn) {
+        ytd-download-button-renderer {
+            display: none;
+        }
+    }
+
+    if (hide-thanks-btn) {
+        yt-button-shape button[aria-label="Thanks"] {
+            display: none;
+        }
+    }
+
+    if (hide-clip-btn) {
+        yt-button-shape button[aria-label="Clip"] {
+            display: none;
+        }
+    }
+
+
+    /* Change color of subscribe button */
+    if (light-theme) {
+        yt-button-shape.ytd-subscribe-button-renderer {
+            color: #82807F !important;
+            background-color: #EFEFEF !important;
+        }
+    }
+    else {
+        yt-button-shape.ytd-subscribe-button-renderer {
+            color: white !important;
+            background-color: #303030 !important;
+        }
+    }
+
+    if old-playlist {
+         // Playlist old layout
+        yt-img-shadow[fit-width] img.yt-img-shadow,
+        .immersive-header-gradient.style-scope.ytd-playlist-header-renderer,
+        .immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer {
+            display: none !important;
+        }
+    }
+
 
     ytd-watch-metadata {
         display: none !important;
@@ -104,16 +154,11 @@
 
     /* Add red background color to Subscribed button(not working for light theme user)*/
     .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled,
-    .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--filled[aria-label="Subscribe to HIM CHANNEL."] {
+    .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--filled[aria-label] {
         color: white !important;
         background-color: #CC0000 !important;
     }
 
-    /* Change color of subscribe button */
-    yt-button-shape.ytd-subscribe-button-renderer {
-        color: white !important;
-        background-color: #303030 !important;
-    }
     /* Remove background color*/
     .yt-simple-endpoint.style-scope.ytd-subscription-notification-toggle-button-renderer yt-icon-button {
         background-color: transparent !important;
@@ -121,25 +166,24 @@
     .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start::after {
         display: none;
     }
+
+
     .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
     .yt-spec-touch-feedback-shape__fill {
         background-color: transparent !important;
     }
-
     /* Solved reply button */
     .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text {
         background-color: transparent !important;
     }
 
-    /* Remove rounded */
+    /* Search box */
     ytd-multi-page-menu-renderer[sheets-refresh],
     ytd-playlist-panel-renderer[modern-panels]:not([within-miniplayer]) #container.ytd-playlist-panel-renderer,
     ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #container.ytd-searchbox,
     ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #container.ytd-searchbox,
     ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #search-icon-legacy.ytd-searchbox,
-    ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #search-icon-legacy.ytd-searchbox,
-    ytd-thumbnail[size=large] a.ytd-thumbnail,
-    ytd-thumbnail[size=large]:before {
+    ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #search-icon-legacy.ytd-searchbox {
         border-radius: 0 !important;
     }
 
@@ -157,8 +201,19 @@
     .ytp-ce-video.ytp-ce-large-round,
     .ytp-ce-playlist.ytp-ce-large-round,
     .ytp-ce-large-round .ytp-ce-expanding-overlay-background,
-    ytd-macro-markers-list-item-renderer[rounded] #thumbnail.ytd-macro-markers-list-item-renderer {
+    ytd-macro-markers-list-item-renderer[rounded] #thumbnail.ytd-macro-markers-list-item-renderer,
+    ytd-thumbnail[size=large] a.ytd-thumbnail,
+    ytd-thumbnail[size=large]:before,
+    ytd-expandable-metadata-renderer[round-container]:not([is-expanded]),
+    ytd-expandable-metadata-renderer[round-container]:not([is-expanded]) #header.ytd-expandable-metadata-renderer:hover,
+    ytd-playlist-thumbnail[size=large] a.ytd-playlist-thumbnail,
+    ytd-playlist-thumbnail[size=large]:before,
+    .image-wrapper.ytd-hero-playlist-thumbnail-renderer {
         border-radius: 0 !important;
+    }
+
+    ytd-expandable-metadata-renderer[round-container]:not([is-expanded]) {
+        --yt-img-border-radius: 0;
     }
 
     .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start {
@@ -166,6 +221,19 @@
         position: relative;
     }
 
+    .player-container.ytd-reel-video-renderer {
+        border-radius: 0 !important;
+    }
+
+    // Remove border around search box
+    .sbdd_b {
+        border-radius: 0 !important;
+    }
+    // #like-button.ytd-comment-action-buttons-renderer, #dislike-button.ytd-comment-action-buttons-renderer {
+    //  --yt-button-icon-size: 16px !important;
+    // }
+    // Remove border around search box/shorts video/playlist
+    // }
     /* Playlist */
     .yt-spec-button-shape-next.yt-spec-button-shape-next--text.yt-spec-button-shape-next--icon-only-default,
     .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--icon-button {
