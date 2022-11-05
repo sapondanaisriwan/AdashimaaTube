@@ -1,9 +1,9 @@
 /* ==UserStyle==
 @name           Youtube Old Layout
-@namespace      Youtube Old Layout
+@namespace      https://userstyles.world/user/sapondanaisriwan
 @author         sapondanaisriwan(Adashima#4066)
 @description    `new youtube layout is bad`
-@version        1.1.5
+@version        1.1.6
 @license        MIT
 @preprocessor   stylus
 
@@ -16,258 +16,261 @@
 ==/UserStyle== */
 @-moz-document domain("youtube.com") {
 
-    :root {
-        --sub-red-btn: #CC0000;
-        --sub-white-btn: #EFEFEF;
-    }
+	:root {
+		--sub-red-btn: #CC0000;
+		--sub-white-btn: #EFEFEF;
+	}
 
-    if(hide-download-btn) {
-        ytd-download-button-renderer {
-            display: none;
-        }
-    }
+	if(hide-download-btn) {
+		ytd-download-button-renderer {
+			display: none;
+		}
+	}
 
-    if (hide-thanks-btn) {
-        yt-button-shape button[aria-label="Thanks"] {
-            display: none;
-        }
-    }
+	if (hide-thanks-btn) {
+		yt-button-shape button[aria-label="Thanks"] {
+			display: none;
+		}
+	}
 
-    if (hide-clip-btn) {
-        yt-button-shape button[aria-label="Clip"] {
-            display: none;
-        }
-    }
-
-
-    /* Change color of subscribe button */
-    if (light-theme) {
-        yt-button-shape.ytd-subscribe-button-renderer {
-            color: #82807F !important;
-            background-color: var(--sub-white-btn) !important;
-        }
-        //         .yt-sans-28.yt-dynamic-sizing-formatted-string {
-        //             font-weight: 500;
-        //         }
-        //         yt-dynamic-sizing-formatted-string div ,
-        //         ytd-dropdown-renderer[no-underline] tp-yt-paper-dropdown-menu-light .tp-yt-paper-dropdown-menu-light[style-target=input],
-        //         .yt-sans-28.yt-dynamic-sizing-formatted-string,
-        //         .metadata-stats.ytd-playlist-byline-renderer,
-        //         ytd-text-inline-expander.ytd-playlist-header-renderer {
-        //             // color: #606060 !important
-        //             color: #000000 !important
-        //         }
-        //         .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal,
-        //         .yt-spec-touch-feedback-shape--overlay-touch-response .yt-spec-touch-feedback-shape__fill,
-        //         .yt-spec-touch-feedback-shape--overlay-touch-response .yt-spec-touch-feedback-shape__fill,
-        //         .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--text {
-        //             color: #000000 !important;
-        //         }
-        //         .immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer {
-        //             background: #f4f4f4 !important;
-        //         }
-    }
-    else {
-        yt-button-shape.ytd-subscribe-button-renderer {
-            color: white !important;
-            background-color: #303030 !important;
-        }
-    }
-
-    if old-playlist {
-        // Playlist old layout
-        yt-img-shadow[fit-width] img.yt-img-shadow,
-        .immersive-header-gradient.style-scope.ytd-playlist-header-renderer,
-        .immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer {
-            display: none !important;
-        } // ytd-button-renderer[button-renderer] {
-        //     position: absolute;
-        // }
-    }
+	if (hide-clip-btn) {
+		yt-button-shape button[aria-label="Clip"] {
+			display: none;
+		}
+	}
 
 
-    ytd-watch-metadata {
-        display: none !important;
-    }
-    #meta-contents[hidden],
-    #info-contents[hidden] {
-        display: block !important;
-    }
+	/* Change color of subscribe button */
+	if (light-theme) {
+		yt-button-shape.ytd-subscribe-button-renderer {
+			color: #82807F !important;
+			background-color: var(--sub-white-btn) !important;
+		} //         .yt-sans-28.yt-dynamic-sizing-formatted-string {
+		//             font-weight: 500;
+		//         }
+		//         yt-dynamic-sizing-formatted-string div ,
+		//         ytd-dropdown-renderer[no-underline] tp-yt-paper-dropdown-menu-light .tp-yt-paper-dropdown-menu-light[style-target=input],
+		//         .yt-sans-28.yt-dynamic-sizing-formatted-string,
+		//         .metadata-stats.ytd-playlist-byline-renderer,
+		//         ytd-text-inline-expander.ytd-playlist-header-renderer {
+		//             // color: #606060 !important
+		//             color: #000000 !important
+		//         }
+		//         .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal,
+		//         .yt-spec-touch-feedback-shape--overlay-touch-response .yt-spec-touch-feedback-shape__fill,
+		//         .yt-spec-touch-feedback-shape--overlay-touch-response .yt-spec-touch-feedback-shape__fill,
+		//         .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--text {
+		//             color: #000000 !important;
+		//         }
+		//         .immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer {
+		//             background: #f4f4f4 !important;
+		//         }
+	}
+	else {
+		yt-button-shape.ytd-subscribe-button-renderer {
+			color: white !important;
+			background-color: #303030 !important;
+		}
+	}
 
-    ytd-rich-item-renderer {
-        margin-right: 0 !important;
-        margin-bottom: 25px !important
-    }
-
-    /* Permanent fixes */
-    /* Removes second comment section, */
-    #comment-teaser.ytd-watch-metadata {
-        display: none !important;
-    }
-    /* Removes border around creator's name and sub button. */
-    #owner.ytd-watch-metadata {
-        border: none !important;
-    }
-    /* Removes border around creator's name and sub button. */
-    ytd-watch-metadata:not([modern-metapanel]) #owner.ytd-watch-metadata {
-        border: none;
-    }
-    /* Reverts the video title font. */
-    ytd-watch-metadata[smaller-yt-sans-light-title] h1.ytd-watch-metadata {
-        font-family: "Roboto", sans-serif;
-        font-weight: 400 !important;
-        font-size: 18px !important;
-    }
-    ytd-video-primary-info-renderer[use-yt-sans20-light] .title.ytd-video-primary-info-renderer {
-        font-family: "Roboto", sans-serif;
-        font-weight: 400 !important;
-        font-size: 18px !important;
-    }
-    /* Removes the bold letters on upload date and view count. */
-    .yt-formatted-string[style-target="bold"] {
-        font-weight: 400;
-    }
-    ytd-button-renderer {
-        margin-left: 0 !important;
-        font-size: 13px;
-    }
-    ytd-toggle-button-renderer {
-        font-size: 13px !important;
-    }
-
-    ytd-video-primary-info-renderer {
-        --yt-button-icon-size: 30.6px !important;
-    }
-    ytd-button-renderer.force-icon-button a.ytd-button-renderer {
-        padding-right: 0;
-    }
-    ytd-video-primary-info-renderer {
-        padding-bottom: 10px;
-        position: relative;
-        bottom: 6px;
-    }
-    .ryd-tooltip-bar-container {
-        padding-top: 0;
-        padding-bottom: 0px;
-        top: -8px;
-        bottom: 0;
-    }
-    #top-row.style-scope.ytd-video-secondary-info-renderer {
-        padding-top: 4px;
-    }
-
-    /* remove border */
-    .yt-spec-button-shape-next--size-m,
-    .yt-spec-touch-feedback-shape__stroke {
-        border-radius: 0 !important;
-        border: none !important;
-    }
-
-    /* Remove spacing between icons */
-    .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-button.yt-spec-button-shape-next--segmented-end,
-    .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-leading {
-        padding-right: 0;
-    }
-
-    /* Remove margin */
-    ytd-download-button-renderer {
-        margin: 0 !important;
-    }
-
-    /* Add spacing for dislike counts */
-    .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-end span {
-        padding-left: 6px
-    }
+	if old-playlist {
+		// Playlist old layout
+		yt-img-shadow[fit-width] img.yt-img-shadow,
+		.immersive-header-gradient.style-scope.ytd-playlist-header-renderer,
+		.immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer {
+			display: none !important;
+		} // ytd-button-renderer[button-renderer] {
+		//     position: absolute;
+		// }
+	}
 
 
-    /* Add red background color to Subscribed button(not working for light theme user)*/
-    .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled,
-    .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--filled[aria-label] {
-        color: white !important;
-        background-color: var(--sub-red-btn) !important;
-    }
+	ytd-watch-metadata {
+		display: none !important;
+	}
+	#meta-contents[hidden],
+	#info-contents[hidden] {
+		display: block !important;
+	}
 
-    /* Remove background color*/
-    .yt-simple-endpoint.style-scope.ytd-subscription-notification-toggle-button-renderer yt-icon-button {
-        background-color: transparent !important;
-    }
-    .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start::after {
-        display: none;
-    }
+	ytd-rich-item-renderer {
+		margin-right: 0 !important;
+		margin-bottom: 25px !important
+	}
+
+	/* Permanent fixes */
+	/* Removes second comment section, */
+	#comment-teaser.ytd-watch-metadata {
+		display: none !important;
+	}
+	/* Removes border around creator's name and sub button. */
+	#owner.ytd-watch-metadata {
+		border: none !important;
+	}
+	/* Removes border around creator's name and sub button. */
+	ytd-watch-metadata:not([modern-metapanel]) #owner.ytd-watch-metadata {
+		border: none;
+	}
+	/* Reverts the video title font. */
+	ytd-watch-metadata[smaller-yt-sans-light-title] h1.ytd-watch-metadata {
+		font-family: "Roboto", sans-serif;
+		font-weight: 400 !important;
+		font-size: 18px !important;
+	}
+	ytd-video-primary-info-renderer[use-yt-sans20-light] .title.ytd-video-primary-info-renderer {
+		font-family: "Roboto", sans-serif;
+		font-weight: 400 !important;
+		font-size: 18px !important;
+	}
+	/* Removes the bold letters on upload date and view count. */
+	.yt-formatted-string[style-target="bold"] {
+		font-weight: 400;
+	}
+	ytd-button-renderer {
+		margin-left: 0 !important;
+		font-size: 13px;
+	}
+	ytd-toggle-button-renderer {
+		font-size: 13px !important;
+	}
+
+	ytd-video-primary-info-renderer {
+		--yt-button-icon-size: 30.6px !important;
+	}
+	ytd-button-renderer.force-icon-button a.ytd-button-renderer {
+		padding-right: 0;
+	}
+	ytd-video-primary-info-renderer {
+		padding-bottom: 10px;
+		position: relative;
+		bottom: 6px;
+	}
+	.ryd-tooltip-bar-container {
+		padding-top: 0;
+		padding-bottom: 0px;
+		top: -8px;
+		bottom: 0;
+	}
+	#top-row.style-scope.ytd-video-secondary-info-renderer {
+		padding-top: 4px;
+	}
+
+	/* remove border */
+	.yt-spec-button-shape-next--size-m,
+	.yt-spec-touch-feedback-shape__stroke {
+		border-radius: 0 !important;
+		border: none !important;
+	}
+
+	/* Remove spacing between icons */
+	.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-button.yt-spec-button-shape-next--segmented-end,
+	.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-leading {
+		padding-right: 0;
+	}
+
+	/* Remove margin */
+	ytd-download-button-renderer {
+		margin: 0 !important;
+	}
+
+	/* Add spacing for dislike counts */
+	.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-end span {
+		padding-left: 6px
+	}
 
 
-    .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
-    .yt-spec-touch-feedback-shape__fill {
-        background-color: transparent !important;
-    }
-    /* Solved reply button */
-    .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text {
-        background-color: transparent !important;
-    }
+	/* Add red background color to Subscribed button(not working for light theme user)*/
+	.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled,
+	.yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--filled[aria-label] {
+		color: white !important;
+		background-color: var(--sub-red-btn) !important;
+	}
 
-    /* Search box */
-    ytd-multi-page-menu-renderer[sheets-refresh],
-    ytd-playlist-panel-renderer[modern-panels]:not([within-miniplayer]) #container.ytd-playlist-panel-renderer,
-    ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #container.ytd-searchbox,
-    ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #container.ytd-searchbox,
-    ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #search-icon-legacy.ytd-searchbox,
-    ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #search-icon-legacy.ytd-searchbox {
-        border-radius: 0 !important;
-    }
+	/* Remove background color*/
+	.yt-simple-endpoint.style-scope.ytd-subscription-notification-toggle-button-renderer yt-icon-button {
+		background-color: transparent !important;
+	}
+	.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start::after {
+		display: none;
+	}
 
-    /* No rounded thumbnails */
-    ytd-thumbnail[size=medium] a.ytd-thumbnail,
-    ytd-thumbnail[size=medium]:before,
-    .yt-simple-endpoint.inline-block.style-scope.ytd-thumbnail,
-    .ytp-videowall-still-round-medium .ytp-videowall-still-image,
-    ytd-channel-video-player-renderer[rounded] #player.ytd-channel-video-player-renderer,
-    ytd-playlist-thumbnail[size=medium] a.ytd-playlist-thumbnail,
-    ytd-playlist-thumbnail[size=medium]:before,
-    .ytp-player-minimized.ytp-rounded-miniplayer .html5-main-video,
-    .ytp-player-minimized.ytp-rounded-miniplayer .ytp-miniplayer-scrim,
-    .ytp-player-minimized.ytp-rounded-miniplayer.html5-video-player,
-    .ytp-ce-video.ytp-ce-large-round,
-    .ytp-ce-playlist.ytp-ce-large-round,
-    .ytp-ce-large-round .ytp-ce-expanding-overlay-background,
-    ytd-macro-markers-list-item-renderer[rounded] #thumbnail.ytd-macro-markers-list-item-renderer,
-    ytd-thumbnail[size=large] a.ytd-thumbnail,
-    ytd-thumbnail[size=large]:before,
-    ytd-expandable-metadata-renderer[round-container]:not([is-expanded]),
-    ytd-expandable-metadata-renderer[round-container]:not([is-expanded]) #header.ytd-expandable-metadata-renderer:hover,
-    ytd-playlist-thumbnail[size=large] a.ytd-playlist-thumbnail,
-    ytd-playlist-thumbnail[size=large]:before,
-    .image-wrapper.ytd-hero-playlist-thumbnail-renderer {
-        border-radius: 0 !important;
-    }
 
-    ytd-expandable-metadata-renderer[round-container]:not([is-expanded]) {
-        --yt-img-border-radius: 0;
-    }
+	.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+	.yt-spec-touch-feedback-shape__fill {
+		background-color: transparent !important;
+	}
+	/* Solved reply button */
+	.yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text {
+		background-color: transparent !important;
+	}
 
-    .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start {
-        border-radius: 0 !important;
-        position: relative;
-    }
+	/* Search box */
+	ytd-multi-page-menu-renderer[sheets-refresh],
+	ytd-playlist-panel-renderer[modern-panels]:not([within-miniplayer]) #container.ytd-playlist-panel-renderer,
+	ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #container.ytd-searchbox,
+	ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #container.ytd-searchbox,
+	ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #search-icon-legacy.ytd-searchbox,
+	ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #search-icon-legacy.ytd-searchbox {
+		border-radius: 0 !important;
+	}
 
-    .player-container.ytd-reel-video-renderer {
-        border-radius: 0 !important;
-    }
-    yt-formatted-string {
-        // Fixed watch page
-        display: inline !important;
-    }
+	/* No rounded thumbnails */
+	ytd-thumbnail[size=medium] a.ytd-thumbnail,
+	ytd-thumbnail[size=medium]:before,
+	.yt-simple-endpoint.inline-block.style-scope.ytd-thumbnail,
+	.ytp-videowall-still-round-medium .ytp-videowall-still-image,
+	ytd-channel-video-player-renderer[rounded] #player.ytd-channel-video-player-renderer,
+	ytd-playlist-thumbnail[size=medium] a.ytd-playlist-thumbnail,
+	ytd-playlist-thumbnail[size=medium]:before,
+	.ytp-player-minimized.ytp-rounded-miniplayer .html5-main-video,
+	.ytp-player-minimized.ytp-rounded-miniplayer .ytp-miniplayer-scrim,
+	.ytp-player-minimized.ytp-rounded-miniplayer.html5-video-player,
+	.ytp-ce-video.ytp-ce-large-round,
+	.ytp-ce-playlist.ytp-ce-large-round,
+	.ytp-ce-large-round .ytp-ce-expanding-overlay-background,
+	ytd-macro-markers-list-item-renderer[rounded] #thumbnail.ytd-macro-markers-list-item-renderer,
+	ytd-thumbnail[size=large] a.ytd-thumbnail,
+	ytd-thumbnail[size=large]:before,
+	ytd-expandable-metadata-renderer[round-container]:not([is-expanded]),
+	ytd-expandable-metadata-renderer[round-container]:not([is-expanded]) #header.ytd-expandable-metadata-renderer:hover,
+	ytd-playlist-thumbnail[size=large] a.ytd-playlist-thumbnail,
+	ytd-playlist-thumbnail[size=large]:before,
+	.image-wrapper.ytd-hero-playlist-thumbnail-renderer {
+		border-radius: 0 !important;
+	}
 
-    yt-button-shape span[role="text"] {
-        text-transform: uppercase;
-    }
-    .sbdd_b {
-        // Remove border around search box
-        border-radius: 0 !important;
-    }
+	ytd-expandable-metadata-renderer[round-container]:not([is-expanded]) {
+		--yt-img-border-radius: 0;
+	}
 
-    /* Playlist */
-    .yt-spec-button-shape-next.yt-spec-button-shape-next--text.yt-spec-button-shape-next--icon-only-default,
-    .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--icon-button {
-        background-color: transparent !important;
-    }
+	.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start {
+		border-radius: 0 !important;
+		position: relative;
+	}
+
+	.player-container.ytd-reel-video-renderer {
+		border-radius: 0 !important;
+	}
+	yt-formatted-string {
+		// Fixed watch page
+		display: inline !important;
+	} // Remove double line on playlits
+	ytd-playlist-video-renderer[can-reorder][is-editable]:hover #reorder.ytd-playlist-video-renderer,
+	ytd-playlist-video-renderer[persistent-drag-handle] #reorder.ytd-playlist-video-renderer {
+		display: none;
+	}
+
+	yt-button-shape span[role="text"] {
+		text-transform: uppercase;
+	}
+	.sbdd_b {
+		// Remove border around search box
+		border-radius: 0 !important;
+	}
+
+	/* Playlist */
+	.yt-spec-button-shape-next.yt-spec-button-shape-next--text.yt-spec-button-shape-next--icon-only-default,
+	.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--icon-button {
+		background-color: transparent !important;
+	}
 }
