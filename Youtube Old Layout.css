@@ -3,7 +3,7 @@
 @namespace      Youtube Old Layout
 @author         sapondanaisriwan(Adashima#4066)
 @description    `new youtube layout is bad`
-@version        1.1.4
+@version        1.1.5
 @license        MIT
 @preprocessor   stylus
 
@@ -15,6 +15,11 @@
 
 ==/UserStyle== */
 @-moz-document domain("youtube.com") {
+
+    :root {
+        --sub-red-btn: #CC0000;
+        --sub-white-btn: #EFEFEF;
+    }
 
     if(hide-download-btn) {
         ytd-download-button-renderer {
@@ -39,8 +44,28 @@
     if (light-theme) {
         yt-button-shape.ytd-subscribe-button-renderer {
             color: #82807F !important;
-            background-color: #EFEFEF !important;
+            background-color: var(--sub-white-btn) !important;
         }
+        //         .yt-sans-28.yt-dynamic-sizing-formatted-string {
+        //             font-weight: 500;
+        //         }
+        //         yt-dynamic-sizing-formatted-string div ,
+        //         ytd-dropdown-renderer[no-underline] tp-yt-paper-dropdown-menu-light .tp-yt-paper-dropdown-menu-light[style-target=input],
+        //         .yt-sans-28.yt-dynamic-sizing-formatted-string,
+        //         .metadata-stats.ytd-playlist-byline-renderer,
+        //         ytd-text-inline-expander.ytd-playlist-header-renderer {
+        //             // color: #606060 !important
+        //             color: #000000 !important
+        //         }
+        //         .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal,
+        //         .yt-spec-touch-feedback-shape--overlay-touch-response .yt-spec-touch-feedback-shape__fill,
+        //         .yt-spec-touch-feedback-shape--overlay-touch-response .yt-spec-touch-feedback-shape__fill,
+        //         .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--text {
+        //             color: #000000 !important;
+        //         }
+        //         .immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer {
+        //             background: #f4f4f4 !important;
+        //         }
     }
     else {
         yt-button-shape.ytd-subscribe-button-renderer {
@@ -50,12 +75,14 @@
     }
 
     if old-playlist {
-         // Playlist old layout
+        // Playlist old layout
         yt-img-shadow[fit-width] img.yt-img-shadow,
         .immersive-header-gradient.style-scope.ytd-playlist-header-renderer,
         .immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer {
             display: none !important;
-        }
+        } // ytd-button-renderer[button-renderer] {
+        //     position: absolute;
+        // }
     }
 
 
@@ -69,6 +96,7 @@
 
     ytd-rich-item-renderer {
         margin-right: 0 !important;
+        margin-bottom: 25px !important
     }
 
     /* Permanent fixes */
@@ -156,7 +184,7 @@
     .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled,
     .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--filled[aria-label] {
         color: white !important;
-        background-color: #CC0000 !important;
+        background-color: var(--sub-red-btn) !important;
     }
 
     /* Remove background color*/
@@ -224,16 +252,19 @@
     .player-container.ytd-reel-video-renderer {
         border-radius: 0 !important;
     }
+    yt-formatted-string {
+        // Fixed watch page
+        display: inline !important;
+    }
 
-    // Remove border around search box
+    yt-button-shape span[role="text"] {
+        text-transform: uppercase;
+    }
     .sbdd_b {
+        // Remove border around search box
         border-radius: 0 !important;
     }
-    // #like-button.ytd-comment-action-buttons-renderer, #dislike-button.ytd-comment-action-buttons-renderer {
-    //  --yt-button-icon-size: 16px !important;
-    // }
-    // Remove border around search box/shorts video/playlist
-    // }
+
     /* Playlist */
     .yt-spec-button-shape-next.yt-spec-button-shape-next--text.yt-spec-button-shape-next--icon-only-default,
     .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--icon-button {
