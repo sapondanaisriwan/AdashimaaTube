@@ -6,14 +6,16 @@
 @homepageURL    https://github.com/sapondanaisriwan/Youtube-Old-Layout
 @supportURL     https://github.com/sapondanaisriwan/Youtube-Old-Layout/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.1.9
+@version        1.2.0
 @license        MIT
 @preprocessor   stylus
 
+@advanced checkbox old-dark-theme "Dark Navigation Bars" 0
 @advanced checkbox hide-download-btn "Hide Download Button" 0
 @advanced checkbox hide-clip-btn "Hide Clip Button" 0
 @advanced checkbox hide-thanks-btn "Hide Thanks Button" 0
-@advanced checkbox remove-bg-playlist "Remove Background Playlist" 0
+@advanced checkbox old-playlist-beta "Old Playlists beta" 0
+@advanced checkbox remove-bg-playlist "Remove Background Playlists" 0
 
 ==/UserStyle== */
 /*
@@ -56,6 +58,50 @@ Support me: https://ko-fi.com/sapondanaisriwan
         // }
     }
 
+    if (old-dark-theme) {
+        html[dark] ytd-masthead {
+            background: rgba(33, 33, 33, 0.98) !important;
+        }
+        html[dark] ytd-mini-guide-renderer {
+            background-color: #212121 !important;
+        }
+        html[dark] ytd-mini-guide-entry-renderer[darker-dark-theme] {
+            background-color: #212121 !important;
+        }
+        html[dark] #guide-content.ytd-app {
+            background: #212121 !important;
+        }
+    }
+
+    if (old-playlist-beta) {
+        .immersive-header-container.style-scope.ytd-playlist-header-renderer {
+            position: fixed !important;
+            height: calc(100vh - var(--ytd-toolbar-height));
+        }
+
+        .immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer {
+            display: block !important;
+            box-sizing: border-box !important;
+            background-color: var(--yt-spec-general-background-a) !important;
+            width: 360px !important;
+            padding: 24px !important;
+            overflow-x: hidden !important;
+            overflow-y: auto !important;
+        } // ytd-browse[mini-guide-visible] ytd-playlist-header-renderer.ytd-browse,
+        // ytd-browse[mini-guide-visible] ytd-playlist-sidebar-renderer.ytd-browse {
+        //     left: 72px;
+        // }
+        .immersive-header-container.style-scope.ytd-playlist-header-renderer {
+            top: 56px;
+            left: 240px;
+            bottom: 0px;
+            margin: 0;
+        }
+
+        .immersive-header-gradient.style-scope.ytd-playlist-header-renderer {
+            background: #181818 !important;
+        }
+    }
 
     ytd-watch-metadata {
         display: none !important;
@@ -222,7 +268,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
     ytd-ghost-grid-renderer[rounded-container] .rich-thumbnail.ytd-ghost-grid-renderer,
     ytcp-img-with-fallback[rounded] #img-with-fallback.ytcp-img-with-fallback,
     ytcp-img-with-fallback[rounded] .container.ytcp-img-with-fallback,
-    ytd-notification-renderer[rounded-thumbnails] .thumbnail-container.ytd-notification-renderer {
+    ytd-notification-renderer[rounded-thumbnails] .thumbnail-container.ytd-notification-renderer,
+    .ytp-autonav-endscreen-upnext-thumbnail.rounded-thumbnail,
+    ytd-video-preview[rounded-container] #video-preview-container.ytd-video-preview,
+    ytd-video-preview[rounded-container] #player-container.ytd-video-preview,
+    ytd-video-preview[rounded-container] #inline-preview-player.ytd-video-preview {
         border-radius: 0 !important;
     } // Remove border around Live chat
     ytd-live-chat-frame[rounded-container],
@@ -244,16 +294,20 @@ Support me: https://ko-fi.com/sapondanaisriwan
     ytd-video-preview[rounded-container] #inline-preview-player.ytd-video-preview {
         border-radius: 0 !important;
     } // Remove border Community post
-    ytd-backstage-post-thread-renderer[rounded-container] {
+    ytd-backstage-post-thread-renderer[rounded-container],
+    yt-img-shadow.ytd-backstage-image-renderer,
+    ytd-backstage-image-renderer[rounded] #image-container.ytd-backstage-image-renderer {
+        border-radius: 0 !important;
+    } // shots
+    ytd-reel-player-overlay-renderer #overlay.ytd-reel-player-overlay-renderer {
         border-radius: 0 !important;
     }
-    // shots
-    ytd-reel-player-overlay-renderer #overlay.ytd-reel-player-overlay-renderer{
-        border-radius: 0 !important;
-    }
-    
+
     ytd-expandable-metadata-renderer[round-container]:not([is-expanded]) {
         --yt-img-border-radius: 0;
+    } // hover playlist
+    ytd-playlist-video-renderer[amsterdam] {
+        border-radius: 0 !important;
     }
 
     .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start {
@@ -261,7 +315,12 @@ Support me: https://ko-fi.com/sapondanaisriwan
         position: relative;
     }
 
-    .player-container.ytd-reel-video-renderer {
+    .player-container.ytd-reel-video-renderer,
+    .ytp-ce-video.ytp-ce-medium-round,
+    .ytp-ce-playlist.ytp-ce-medium-round,
+    .ytp-ce-medium-round .ytp-ce-expanding-overlay-background,
+    ytd-compact-video-renderer[music-metadata-video-lockup],
+    ytd-rich-metadata-renderer[rounded] {
         border-radius: 0 !important;
     } // Fixed watch page
     ytd-rich-grid-media[mini-mode] #video-title.ytd-rich-grid-media {
@@ -281,8 +340,28 @@ Support me: https://ko-fi.com/sapondanaisriwan
     .sbdd_b {
         // Remove border around search box
         border-radius: 0 !important;
-    }
-
+    } // TEST
+    // nav bar
+    //     #like-button.ytd-comment-action-buttons-renderer,
+    //     #dislike-button.ytd-comment-action-buttons-renderer {
+    //         --yt-button-icon-size: 32px;
+    //         text-transform: uppercase;
+    //         font-family: "Roboto", "Arial", sans-serif;
+    //         font-size: 1.2rem;
+    //         line-height: 1.8rem;
+    //         font-weight: 500;
+    //     }
+    //     ytd-playlist-header-renderer.ytd-browse,
+    //     ytd-playlist-sidebar-renderer.ytd-browse,
+    //     ytd-settings-sidebar-renderer.ytd-browse {
+    //         position: fixed !important;
+    //         left: 0;
+    //         height: calc(100vh - var(--ytd-toolbar-height));
+    //         width: 360px
+    //     }
+    .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline {
+        border: 1px solid #3ea6ff !important
+    } // 
     /* Playlist */
     .yt-spec-button-shape-next.yt-spec-button-shape-next--text.yt-spec-button-shape-next--icon-only-default,
     .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--icon-button {
