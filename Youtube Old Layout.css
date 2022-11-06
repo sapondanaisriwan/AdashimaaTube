@@ -218,7 +218,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
     .image-wrapper.ytd-hero-playlist-thumbnail-renderer,
     ytd-ghost-grid-renderer[rounded-container] .rich-thumbnail.ytd-ghost-grid-renderer,
     ytcp-img-with-fallback[rounded] #img-with-fallback.ytcp-img-with-fallback,
-    ytcp-img-with-fallback[rounded] .container.ytcp-img-with-fallback {
+    ytcp-img-with-fallback[rounded] .container.ytcp-img-with-fallback,
+    ytd-notification-renderer[rounded-thumbnails] .thumbnail-container.ytd-notification-renderer {
         border-radius: 0 !important;
     } // Remove border around Live chat
     ytd-live-chat-frame[rounded-container],
