@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/Youtube-Old-Layout
 @supportURL     https://github.com/sapondanaisriwan/Youtube-Old-Layout/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.2.0
+@version        1.2.1
 @license        MIT
 @preprocessor   stylus
 
@@ -210,11 +210,12 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     /* Add red background color to Subscribed button */
     .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled,
-    .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--filled[aria-label] {
+    .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--filled[aria-label^="Subscribe"] {
         color: var(--sub-white--text-btn) !important;
+        background: var(--sub-red-btn) !important;
         background-color: var(--sub-red-btn) !important;
     }
-
+    
     /* Remove background color*/
     .yt-simple-endpoint.style-scope.ytd-subscription-notification-toggle-button-renderer yt-icon-button {
         background-color: transparent !important;
@@ -360,11 +361,35 @@ Support me: https://ko-fi.com/sapondanaisriwan
     //         width: 360px
     //     }
     .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline {
-        border: 1px solid #3ea6ff !important
+        border: 1px solid #3ea6ff !important;
     } // 
     /* Playlist */
     .yt-spec-button-shape-next.yt-spec-button-shape-next--text.yt-spec-button-shape-next--icon-only-default,
     .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--icon-button {
         background-color: transparent !important;
+    } 
+    
+    // Reply button
+    #reply-button-end ytd-button-renderer button{
+        color: #AAAAAA !important;
+        background: transparent 
+    }
+    
+    #segmented-like-button button[aria-pressed="true"] yt-icon *{
+        fill: red !important
+        stroke: none !important; 
+        // filter: invert(16%) sepia(82%) saturate(7406%) hue-rotate(355deg) brightness(98%) contrast(120%) !important;
+    }
+    
+    #segmented-dislike-button button[aria-pressed="true"] yt-icon{
+        fill: red !important
+        // filter: invert(16%) sepia(82%) saturate(7406%) hue-rotate(355deg) brightness(98%) contrast(120%) !important;
+    }
+    
+    // Join button
+    yt-button-shape button[aria-label="Join this channel"] {
+        color: #3ea6ff!important
+        border: 1px solid #3ea6ff !important;
+        padding: 9px 15px !important;
     }
 }
