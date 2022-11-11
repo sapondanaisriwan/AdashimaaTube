@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/Youtube-Old-Layout
 @supportURL     https://github.com/sapondanaisriwan/Youtube-Old-Layout/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.2.1
+@version        1.2.3
 @license        MIT
 @preprocessor   stylus
 
@@ -330,6 +330,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
         border-radius: 0 !important;
     }
 
+    // Home posts section
+    ytd-post-renderer[rounded-container] {
+        border-radius: 0 !important;
+    }
+    
     .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start {
         border-radius: 0 !important;
         position: relative;
@@ -396,4 +401,17 @@ Support me: https://ko-fi.com/sapondanaisriwan
         border: 1px solid #3ea6ff !important;
         padding: 9px 15px !important;
     }
+    
+    // revert comment and like/dislike btn
+    #like-button svg, #dislike-button svg{
+        width: 18px !important;
+        height: 18px !important;
+        
+    }
+
+    // center the search results 
+    ytd-two-column-search-results-renderer {
+        align-items: center;
+    }
+    
 }
