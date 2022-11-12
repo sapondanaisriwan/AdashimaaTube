@@ -6,31 +6,41 @@
 @homepageURL    https://github.com/sapondanaisriwan/Youtube-Old-Layout
 @supportURL     https://github.com/sapondanaisriwan/Youtube-Old-Layout/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.2.3
+@version        1.2.5
 @license        MIT
 @preprocessor   stylus
 
-@advanced checkbox like-dislike-color1 "👍 Enable Custom Like/Dislike Color" 1
-@advanced color like-dislike-color2 "👍 Custom Like/Dislike Color" #3ea6ff
+@advanced select like-dislike-color1 "🛠️ Custom Like/Dislike Color" [
+    "Enabled",
+    "Disabled"
+]
+@advanced color like-dislike-color2 "🎨 Custom Like/Dislike Color" #3ea6ff
 
 @advanced checkbox old-dark-theme "🌑 Dark Navigation Bars" 0
+@advanced checkbox remove-bg-playlist "❌ Remove Background Playlists" 0
+@advanced checkbox remove-text-btn "❌  Remove Text On Buttons" 0
 @advanced checkbox hide-download-btn "🫣 Hide Download Button" 0
 @advanced checkbox hide-clip-btn "🫣 Hide Clip Button" 0
 @advanced checkbox hide-thanks-btn "🫣 Hide Thanks Button" 0
-@advanced checkbox old-playlist-beta "▶️ Old Playlists beta" 0
-@advanced checkbox remove-bg-playlist "🔎 Remove Background Playlists" 0
+@advanced checkbox hide-share-btn "🫣 Hide Share Button" 0
+@advanced checkbox display-full-title "🎦 Display Video Full Title" 1
+
 ==/UserStyle== */
 /*
 Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
 */
 @-moz-document domain("youtube.com") {
-
+    
     :root {
         --sub-red-btn: #CC0000;
         --sub-white--text-btn: #F2F2F2;
         --sub-black-bg-btn: #303030;
     } // custom-like-dislike-color
-    if (like-dislike-color1) {
+    if (like-dislike-color1=="Enabled") {
         #segmented-like-button button[aria-pressed="true"] yt-icon * {
             fill: like-dislike-color2 !important;
             stroke: none;
@@ -59,8 +69,13 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
     }
 
+    if (hide-share-btn) {
+        yt-button-shape button[aria-label="Share"] {
+            display: none;
+        }
+    }
+
     if (remove-bg-playlist) {
-        // Playlist old layout
         yt-img-shadow[fit-width] img.yt-img-shadow,
         .immersive-header-gradient.style-scope.ytd-playlist-header-renderer,
         .immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer {
@@ -83,38 +98,23 @@ Support me: https://ko-fi.com/sapondanaisriwan
         html[dark] #guide-content.ytd-app {
             background: #212121 !important;
         }
-    }
-
-    if (old-playlist-beta) {
-        .immersive-header-container.style-scope.ytd-playlist-header-renderer {
-            position: fixed !important;
-            height: calc(100vh - var(--ytd-toolbar-height));
+    } // Removes text on all buttons except for like/dislike buttons
+    if (remove-text-btn) {
+        #menu-container ytd-button-renderer yt-button-shape button span,
+        #flexible-item-buttons yt-button-shape button span {
+            display: none !important;
         }
-
-        .immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer {
-            display: block !important;
-            box-sizing: border-box !important;
-            background-color: var(--yt-spec-general-background-a) !important;
-            width: 360px !important;
-            padding: 24px !important;
-            overflow-x: hidden !important;
-            overflow-y: auto !important;
-        } // ytd-browse[mini-guide-visible] ytd-playlist-header-renderer.ytd-browse,
-        // ytd-browse[mini-guide-visible] ytd-playlist-sidebar-renderer.ytd-browse {
-        //     left: 72px;
-        // }
-        .immersive-header-container.style-scope.ytd-playlist-header-renderer {
-            top: 56px;
-            left: 240px;
-            bottom: 0px;
-            margin: 0;
-        }
-
-        .immersive-header-gradient.style-scope.ytd-playlist-header-renderer {
-            background: #181818 !important;
+        #flexible-item-buttons yt-button-shape button {
+            padding-left: 8px;
         }
     }
-
+    if (display-full-title) {
+        // Display-full-title video on wacthcpage
+        ytd-rich-grid-media[mini-mode] #video-title.ytd-rich-grid-media, #video-title.ytd-compact-video-renderer {
+            display: inline !important;
+        }
+    }
+    
     ytd-watch-metadata {
         display: none !important;
     }
@@ -185,20 +185,20 @@ Support me: https://ko-fi.com/sapondanaisriwan
         padding-top: 4px;
     }
 
-    /* remove border */
+    /* Removes border */
     .yt-spec-button-shape-next--size-m,
     .yt-spec-touch-feedback-shape__stroke {
         border-radius: 0 !important;
         border: none !important;
     }
 
-    /* Remove spacing between icons */
+    /* Removes spacing between icons */
     .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-button.yt-spec-button-shape-next--segmented-end,
     .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-leading {
         padding-right: 0;
     }
 
-    /* Remove margin */
+    /* Removes margin */
     ytd-download-button-renderer {
         margin: 0 !important;
     }
@@ -228,7 +228,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         background-color: var(--sub-red-btn) !important;
     }
 
-    /* Remove background color*/
+    /* Removes background color*/
     .yt-simple-endpoint.style-scope.ytd-subscription-notification-toggle-button-renderer yt-icon-button {
         background-color: transparent !important;
     }
@@ -287,18 +287,18 @@ Support me: https://ko-fi.com/sapondanaisriwan
     ytd-video-preview[rounded-container] #player-container.ytd-video-preview,
     ytd-video-preview[rounded-container] #inline-preview-player.ytd-video-preview {
         border-radius: 0 !important;
-    } // Remove border around Live chat
+    } // Removes border around Live chat
     ytd-live-chat-frame[rounded-container],
     ytd-live-chat-frame[rounded-container] #show-hide-button.ytd-live-chat-frame ytd-toggle-button-renderer.ytd-live-chat-frame,
     yt-dropdown-menu[modern-dialogs] #menu.yt-dropdown-menu,
     .dropdown-content.tp-yt-paper-menu-button,
     #chatframe {
         border-radius: 0 !important;
-    } // Remove border around pop up
+    } // Removes border around pop up
     ytd-menu-popup-renderer[sheets-refresh],
     tp-yt-paper-dialog[modern] {
         border-radius: 0 !important;
-    } // Removed border around nav bar/menu
+    } // Removes border around nav bar/menu
     ytd-guide-entry-renderer[guide-refresh],
     ytd-guide-entry-renderer[guide-refresh] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:hover,
     ytd-guide-entry-renderer[guide-refresh] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:focus,
@@ -309,7 +309,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     ytd-video-preview[rounded-container] #player-container.ytd-video-preview,
     ytd-video-preview[rounded-container] #inline-preview-player.ytd-video-preview {
         border-radius: 0 !important;
-    } // Remove border Community post
+    } // Removes border Community post
     ytd-backstage-post-thread-renderer[rounded-container],
     yt-img-shadow.ytd-backstage-image-renderer,
     ytd-backstage-image-renderer[rounded] #image-container.ytd-backstage-image-renderer {
@@ -328,13 +328,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
     } // hover playlist
     ytd-playlist-video-renderer[amsterdam] {
         border-radius: 0 !important;
-    }
-
-    // Home posts section
+    } // Home posts section
     ytd-post-renderer[rounded-container] {
         border-radius: 0 !important;
     }
-    
+
     .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start {
         border-radius: 0 !important;
         position: relative;
@@ -347,13 +345,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
     ytd-compact-video-renderer[music-metadata-video-lockup],
     ytd-rich-metadata-renderer[rounded] {
         border-radius: 0 !important;
-    } // Fixed watch page
-    ytd-rich-grid-media[mini-mode] #video-title.ytd-rich-grid-media {
-        display: inline !important;
-    }
+    } 
     yt-formatted-string#index.style-scope.ytd-playlist-video-renderer {
         display: inline !important;
-    } // Remove double line on playlits
+    } // Removes double line on playlits
     ytd-playlist-video-renderer[can-reorder][is-editable]:hover #reorder.ytd-playlist-video-renderer,
     ytd-playlist-video-renderer[persistent-drag-handle] #reorder.ytd-playlist-video-renderer {
         display: none;
@@ -363,55 +358,53 @@ Support me: https://ko-fi.com/sapondanaisriwan
         text-transform: uppercase;
     }
     .sbdd_b {
-        // Remove border around search box
+        // Removes border around search box
         border-radius: 0 !important;
-    } // TEST
-    // nav bar
-    //     #like-button.ytd-comment-action-buttons-renderer,
-    //     #dislike-button.ytd-comment-action-buttons-renderer {
-    //         --yt-button-icon-size: 32px;
-    //         text-transform: uppercase;
-    //         font-family: "Roboto", "Arial", sans-serif;
-    //         font-size: 1.2rem;
-    //         line-height: 1.8rem;
-    //         font-weight: 500;
-    //     }
-    //     ytd-playlist-header-renderer.ytd-browse,
-    //     ytd-playlist-sidebar-renderer.ytd-browse,
-    //     ytd-settings-sidebar-renderer.ytd-browse {
-    //         position: fixed !important;
-    //         left: 0;
-    //         height: calc(100vh - var(--ytd-toolbar-height));
-    //         width: 360px
-    //     }
+    }
+
     .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline {
         border: 1px solid #3ea6ff !important;
-    } // 
+    }
     /* Playlist */
     .yt-spec-button-shape-next.yt-spec-button-shape-next--text.yt-spec-button-shape-next--icon-only-default,
     .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--icon-button {
         background-color: transparent !important;
     } // Reply button
-    #reply-button-end ytd-button-renderer yt-button-shape button {
+    #reply-button-end ytd-button-renderer yt-button-shape button,
+    #reply-button-end > yt-button-renderer > yt-button-shape > button {
         color: #AAA !important;
         background: transparent !important;
+        padding: 0;
     } // Join button
     yt-button-shape button[aria-label="Join this channel"] {
         color: #3ea6ff!important;
         border: 1px solid #3ea6ff !important;
         padding: 9px 15px !important;
-    }
-    
-    // revert comment and like/dislike btn
-    #like-button svg, #dislike-button svg{
+    } // revert comment and like/dislike btn
+    #like-button svg,
+    #dislike-button svg {
         width: 18px !important;
         height: 18px !important;
-        
+    }
+    #toolbar #vote-count-middle {
+        margin: 0;
+    }
+    #creator-heart-button button #hearted-thumbnail {
+        margin-left: 0;
     }
 
-    // center the search results 
-    ytd-two-column-search-results-renderer {
-        align-items: center;
+    #hearted.ytd-creator-heart-renderer {
+        right: 10px !important;
     }
-    
+    #hearted-border.ytd-creator-heart-renderer,
+    {
+        right: 9px !important;
+    } // #hearted-thumbnail.ytd-creator-heart-renderer {
+    //     margin: 0 !important;
+    //     display: block;
+    // }
+    // center the search results 
+    // ytd-two-column-search-results-renderer {
+    //     align-items: center;
+    // }
 }
