@@ -6,35 +6,32 @@
 @homepageURL    https://github.com/sapondanaisriwan/Youtube-Old-Layout
 @supportURL     https://github.com/sapondanaisriwan/Youtube-Old-Layout/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.2.5
+@version        1.2.6
 @license        MIT
 @preprocessor   stylus
 
-@advanced select like-dislike-color1 "🛠️ Custom Like/Dislike Color" [
-    "Enabled",
-    "Disabled"
-]
+@advanced select like-dislike-color1 "🛠️ Custom Like/Dislike Color" ["Enabled", "Disabled"]
 @advanced color like-dislike-color2 "🎨 Custom Like/Dislike Color" #3ea6ff
 
 @advanced checkbox old-dark-theme "🌑 Dark Navigation Bars" 0
 @advanced checkbox remove-bg-playlist "❌ Remove Background Playlists" 0
 @advanced checkbox remove-text-btn "❌  Remove Text On Buttons" 0
+@advanced checkbox hide-share-btn "🫣 Hide Share Button" 0
 @advanced checkbox hide-download-btn "🫣 Hide Download Button" 0
 @advanced checkbox hide-clip-btn "🫣 Hide Clip Button" 0
 @advanced checkbox hide-thanks-btn "🫣 Hide Thanks Button" 0
-@advanced checkbox hide-share-btn "🫣 Hide Share Button" 0
 @advanced checkbox display-full-title "🎦 Display Video Full Title" 1
 
 ==/UserStyle== */
 /*
-Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan 
 Support me: https://ko-fi.com/sapondanaisriwan
 Support me: https://ko-fi.com/sapondanaisriwan
 Support me: https://ko-fi.com/sapondanaisriwan
 Support me: https://ko-fi.com/sapondanaisriwan
 */
 @-moz-document domain("youtube.com") {
-    
+
     :root {
         --sub-red-btn: #CC0000;
         --sub-white--text-btn: #F2F2F2;
@@ -80,25 +77,25 @@ Support me: https://ko-fi.com/sapondanaisriwan
         .immersive-header-gradient.style-scope.ytd-playlist-header-renderer,
         .immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer {
             display: none !important;
-        } // ytd-button-renderer[button-renderer] {
-        //     position: absolute;
-        // }
+        }
     }
 
     if (old-dark-theme) {
-        html[dark] ytd-masthead {
-            background: rgba(33, 33, 33, 0.98) !important;
+        html[dark] {
+            ytd-masthead {
+                background: rgba(33, 33, 33, 0.98) !important;
+            }
+            ytd-mini-guide-renderer,
+            ytd-mini-guide-entry-renderer[darker-dark-theme] {
+                background-color: #212121 !important;
+            }
+            #guide-content.ytd-app {
+                background: #212121 !important;
+            }
         }
-        html[dark] ytd-mini-guide-renderer {
-            background-color: #212121 !important;
-        }
-        html[dark] ytd-mini-guide-entry-renderer[darker-dark-theme] {
-            background-color: #212121 !important;
-        }
-        html[dark] #guide-content.ytd-app {
-            background: #212121 !important;
-        }
-    } // Removes text on all buttons except for like/dislike buttons
+    }
+
+    /* Removes text on all buttons except for like/dislike buttons */
     if (remove-text-btn) {
         #menu-container ytd-button-renderer yt-button-shape button span,
         #flexible-item-buttons yt-button-shape button span {
@@ -107,14 +104,15 @@ Support me: https://ko-fi.com/sapondanaisriwan
         #flexible-item-buttons yt-button-shape button {
             padding-left: 8px;
         }
-    }
+    } // sdf
+    /* Display-full-title video on wacthcpage */
     if (display-full-title) {
-        // Display-full-title video on wacthcpage
-        ytd-rich-grid-media[mini-mode] #video-title.ytd-rich-grid-media, #video-title.ytd-compact-video-renderer {
+        ytd-rich-grid-media[mini-mode] #video-title.ytd-rich-grid-media,
+        #video-title.ytd-compact-video-renderer {
             display: inline !important;
         }
     }
-    
+
     ytd-watch-metadata {
         display: none !important;
     }
@@ -209,20 +207,32 @@ Support me: https://ko-fi.com/sapondanaisriwan
     }
 
 
-    /* Change color of subscribe button */
-    // Light theme users
-    html:not([dark]) yt-button-shape.ytd-subscribe-button-renderer {
-        color: #82807F !important;
-        background-color: var(--sub-white--text-btn) !important;
-    } // Dark theme users
-    html[dark] yt-button-shape.ytd-subscribe-button-renderer {
-        color: #82807F !important;
-        background-color: var(--sub-black-bg-btn) !important;
+    /* Change color of Unsubscribe button */
+    /* Light theme users */
+    html:not([dark]) {
+        #subscribe-button yt-button-shape button[aria-label^=Unsubscribe],
+        #subscribe ytd-subscribe-button-renderer yt-button-shape button[aria-label^=Unsubscribe] {
+            // color: #82807F !important;
+            border-radius: 0;
+            background-color: var(--sub-white--text-btn) !important;
+        }
+    }
+
+    /* Dark theme users */
+    html[dark] {
+        #subscribe-button yt-button-shape button[aria-label^=Unsubscribe],
+        #subscribe ytd-subscribe-button-renderer yt-button-shape button[aria-label^=Unsubscribe] {
+            // color: #82807F !important;
+            border-radius: 0;
+            background-color: var(--sub-black-bg-btn) !important;
+        }
     }
 
     /* Add red background color to Subscribed button */
     .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled,
-    .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--filled[aria-label^="Subscribe"] {
+    .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--filled[aria-label^="Subscribe"],
+    #subscribe ytd-subscribe-button-renderer yt-button-shape button[aria-label^=Subscribe] {
+        border-radius: 0;
         color: var(--sub-white--text-btn) !important;
         background: var(--sub-red-btn) !important;
         background-color: var(--sub-red-btn) !important;
@@ -287,37 +297,56 @@ Support me: https://ko-fi.com/sapondanaisriwan
     ytd-video-preview[rounded-container] #player-container.ytd-video-preview,
     ytd-video-preview[rounded-container] #inline-preview-player.ytd-video-preview {
         border-radius: 0 !important;
-    } // Removes border around Live chat
+    }
+    /* Removes border around Live chat */
     ytd-live-chat-frame[rounded-container],
     ytd-live-chat-frame[rounded-container] #show-hide-button.ytd-live-chat-frame ytd-toggle-button-renderer.ytd-live-chat-frame,
     yt-dropdown-menu[modern-dialogs] #menu.yt-dropdown-menu,
     .dropdown-content.tp-yt-paper-menu-button,
     #chatframe {
         border-radius: 0 !important;
-    } // Removes border around pop up
+    }
+    /* Removes border around pop up */
     ytd-menu-popup-renderer[sheets-refresh],
     tp-yt-paper-dialog[modern] {
         border-radius: 0 !important;
-    } // Removes border around nav bar/menu
+    }
+    /* Removes border around nav bar/menu */
+    // ytd-guide-entry-renderer[guide-refresh] {
+    //     #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer {
+    //         &:hover,
+    //         &:focus {
+    //             border-radius: 0 !important
+    //         }
+    //     }
+    //     yt-interaction .ytd-guide-entry-renderer {
+    //         border-radius: 0 !important;
+    //     }
+    //     border-radius: 0 !important;
+    // } 
     ytd-guide-entry-renderer[guide-refresh],
     ytd-guide-entry-renderer[guide-refresh] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:hover,
     ytd-guide-entry-renderer[guide-refresh] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:focus,
     ytd-guide-entry-renderer[guide-refresh] yt-interaction.ytd-guide-entry-renderer {
         border-radius: 0 !important;
-    } // Gaming
+    }
+    /* Gaming */
     ytd-game-details-renderer[rounded] yt-img-shadow.ytd-game-details-renderer ytd-video-preview[rounded-container] #video-preview-container.ytd-video-preview,
     ytd-video-preview[rounded-container] #player-container.ytd-video-preview,
     ytd-video-preview[rounded-container] #inline-preview-player.ytd-video-preview {
         border-radius: 0 !important;
-    } // Removes border Community post
+    }
+    /* Removes border Community post */
     ytd-backstage-post-thread-renderer[rounded-container],
     yt-img-shadow.ytd-backstage-image-renderer,
     ytd-backstage-image-renderer[rounded] #image-container.ytd-backstage-image-renderer {
         border-radius: 0 !important;
-    } // shots
+    }
+    /* shots */
     ytd-reel-player-overlay-renderer #overlay.ytd-reel-player-overlay-renderer {
         border-radius: 0 !important;
-    } // remove unloaded video thumbnails
+    }
+    /* remove unloaded video thumbnails */
     #home-page-skeleton .rich-thumbnail.rounded-thumbs,
     #home-container-skeleton .rich-thumbnail.rounded-thumbs:before {
         border-radius: 0 !important;
@@ -325,10 +354,12 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     ytd-expandable-metadata-renderer[round-container]:not([is-expanded]) {
         --yt-img-border-radius: 0;
-    } // hover playlist
+    }
+    /* hover playlist */
     ytd-playlist-video-renderer[amsterdam] {
         border-radius: 0 !important;
-    } // Home posts section
+    }
+    /* Home posts section */
     ytd-post-renderer[rounded-container] {
         border-radius: 0 !important;
     }
@@ -345,10 +376,12 @@ Support me: https://ko-fi.com/sapondanaisriwan
     ytd-compact-video-renderer[music-metadata-video-lockup],
     ytd-rich-metadata-renderer[rounded] {
         border-radius: 0 !important;
-    } 
+    }
     yt-formatted-string#index.style-scope.ytd-playlist-video-renderer {
         display: inline !important;
-    } // Removes double line on playlits
+    }
+
+    /* Removes double line on playlits */
     ytd-playlist-video-renderer[can-reorder][is-editable]:hover #reorder.ytd-playlist-video-renderer,
     ytd-playlist-video-renderer[persistent-drag-handle] #reorder.ytd-playlist-video-renderer {
         display: none;
@@ -357,8 +390,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
     yt-button-shape span[role="text"] {
         text-transform: uppercase;
     }
+    /* Removes border around search box */
     .sbdd_b {
-        // Removes border around search box
         border-radius: 0 !important;
     }
 
@@ -369,18 +402,22 @@ Support me: https://ko-fi.com/sapondanaisriwan
     .yt-spec-button-shape-next.yt-spec-button-shape-next--text.yt-spec-button-shape-next--icon-only-default,
     .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--icon-button {
         background-color: transparent !important;
-    } // Reply button
+    }
+    /* Reply button */
     #reply-button-end ytd-button-renderer yt-button-shape button,
     #reply-button-end > yt-button-renderer > yt-button-shape > button {
         color: #AAA !important;
         background: transparent !important;
         padding: 0;
-    } // Join button
-    yt-button-shape button[aria-label="Join this channel"] {
+    }
+    /* Join button */
+    yt-button-shape button[aria-label="Join this channel"],
+    #buttons ytd-toggle-button-renderer yt-button-shape button {
         color: #3ea6ff!important;
         border: 1px solid #3ea6ff !important;
         padding: 9px 15px !important;
-    } // revert comment and like/dislike btn
+    }
+    /* revert comment and like/dislike btn */
     #like-button svg,
     #dislike-button svg {
         width: 18px !important;
@@ -399,11 +436,14 @@ Support me: https://ko-fi.com/sapondanaisriwan
     #hearted-border.ytd-creator-heart-renderer,
     {
         right: 9px !important;
-    } // #hearted-thumbnail.ytd-creator-heart-renderer {
+    } // #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
+    //     justify-content: flex-start;
+    // }
+    // #hearted-thumbnail.ytd-creator-heart-renderer {
     //     margin: 0 !important;
     //     display: block;
     // }
-    // center the search results 
+    // // center the search results 
     // ytd-two-column-search-results-renderer {
     //     align-items: center;
     // }
