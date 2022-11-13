@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/Youtube-Old-Layout
 @supportURL     https://github.com/sapondanaisriwan/Youtube-Old-Layout/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.2.6
+@version        1.2.7
 @license        MIT
 @preprocessor   stylus
 
@@ -15,14 +15,20 @@
 
 @advanced checkbox old-dark-theme "🌑 Dark Navigation Bars" 0
 @advanced checkbox remove-bg-playlist "❌ Remove Background Playlists" 0
-@advanced checkbox remove-text-btn "❌  Remove Text On Buttons" 0
+@advanced checkbox remove-text-btn "❌ Remove Text On Buttons" 0
+@advanced checkbox remove-chips "❌ Remove Chips🍟 idk what does it call. u can tell me via email" 1
 @advanced checkbox hide-share-btn "🫣 Hide Share Button" 0
 @advanced checkbox hide-download-btn "🫣 Hide Download Button" 0
 @advanced checkbox hide-clip-btn "🫣 Hide Clip Button" 0
 @advanced checkbox hide-thanks-btn "🫣 Hide Thanks Button" 0
 @advanced checkbox display-full-title "🎦 Display Video Full Title" 1
+@advanced checkbox fix-search-results  "➡️ Align the search results to the center" 0
 
 ==/UserStyle== */
+
+// @advanced checkbox fix-homepage  "🏠 Homepage 6 video per row" 0
+
+
 /*
 Support me: https://ko-fi.com/sapondanaisriwan 
 Support me: https://ko-fi.com/sapondanaisriwan
@@ -36,7 +42,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
         --sub-red-btn: #CC0000;
         --sub-white--text-btn: #F2F2F2;
         --sub-black-bg-btn: #303030;
-    } // custom-like-dislike-color
+    } 
+
+    /* custom-like-dislike-color */
     if (like-dislike-color1=="Enabled") {
         #segmented-like-button button[aria-pressed="true"] yt-icon * {
             fill: like-dislike-color2 !important;
@@ -104,8 +112,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
         #flexible-item-buttons yt-button-shape button {
             padding-left: 8px;
         }
-    } // sdf
-    /* Display-full-title video on wacthcpage */
+    } 
+    
+    /* Display full title of video on wacthcpage */
     if (display-full-title) {
         ytd-rich-grid-media[mini-mode] #video-title.ytd-rich-grid-media,
         #video-title.ytd-compact-video-renderer {
@@ -113,6 +122,21 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
     }
 
+    /* Center the search results */
+    if (fix-search-results) {
+        ytd-two-column-search-results-renderer {
+            align-items: center;
+        }
+    }
+
+    /* Removes chips */
+    if (remove-chips) {
+        #header ytd-feed-filter-chip-bar-renderer,
+        ytd-watch-next-secondary-results-renderer  yt-related-chip-cloud-renderer {
+            display: none;
+        }
+    }
+    
     ytd-watch-metadata {
         display: none !important;
     }
@@ -121,11 +145,12 @@ Support me: https://ko-fi.com/sapondanaisriwan
         display: block !important;
     }
 
+    
     ytd-rich-item-renderer {
         margin-right: 0 !important;
-        margin-bottom: 25px !important
+        margin-bottom: 25px !important;
     }
-
+    
     /* Permanent fixes */
     /* Removes second comment section, */
     #comment-teaser.ytd-watch-metadata {
@@ -242,6 +267,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     .yt-simple-endpoint.style-scope.ytd-subscription-notification-toggle-button-renderer yt-icon-button {
         background-color: transparent !important;
     }
+
     .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start::after {
         display: none;
     }
@@ -417,7 +443,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         border: 1px solid #3ea6ff !important;
         padding: 9px 15px !important;
     }
-    /* revert comment and like/dislike btn */
+    /* Revert comment and like/dislike btn */
     #like-button svg,
     #dislike-button svg {
         width: 18px !important;
@@ -429,22 +455,61 @@ Support me: https://ko-fi.com/sapondanaisriwan
     #creator-heart-button button #hearted-thumbnail {
         margin-left: 0;
     }
-
+    
+    /* Hearted comment */
     #hearted.ytd-creator-heart-renderer {
         right: 10px !important;
     }
-    #hearted-border.ytd-creator-heart-renderer,
-    {
+    #hearted-border.ytd-creator-heart-renderer {
         right: 9px !important;
-    } // #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
+    }
+
+    /*  Youtube fog kids */
+    // .yt-spec-button-shape-next--disabled {
+    //     cursor: pointer;
+    // }
+    
+    // #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
     //     justify-content: flex-start;
     // }
     // #hearted-thumbnail.ytd-creator-heart-renderer {
     //     margin: 0 !important;
     //     display: block;
     // }
-    // // center the search results 
-    // ytd-two-column-search-results-renderer {
-    //     align-items: center;
+
+    /* Homepage display 6 vidoes per row or we need js?*/
+    // ytd-rich-grid-row #contents {
+    //     display: inline-block;
+    //     margin: 10px 0 0 2%;
+    //     flex-grow: 1;
+    //     width: calc(25% * (1/6) - 10px - 1px);
+    // }
+    // ytd-rich-grid-media {
+    //     display: inline-block !important;
+    // }
+    // ytd-rich-item-renderer {
+    //       width: calc(100% - 10px);
+    // }
+    // ytd-rich-grid-row {
+    //     display: flex;
+    //     flex-wrap: wrap;
+    // }
+    // [page-subtype="home"] ytd-rich-grid-renderer {
+    //     --ytd-rich-grid-items-per-row: 6 !important;
+    // }
+    // #home-page-skeleton .rich-shelf-videos .rich-grid-media-skeleton.mini-mode,
+    // #home-page-skeleton #home-container-media .rich-grid-media-skeleton.mini-mode {
+    //     flex-basis: calc(100%/6 - 16px - 0.01px);
+    //     min-width: calc(100%/6 - 16px - 0.01px);
+    //     max-width: calc(100%/6 - 16px - 0.01px);
+    // }
+    // #home-page-skeleton {
+    //     margin-top: 50px;
+    // }
+    // #home-page-skeleton .rich-shelf-videos,
+    // #home-page-skeleton #home-container-media {
+    //     margin-left: 8vw;
+    //     margin-right: 8vw;
+    //     transform: translate(20px, -2px);
     // }
 }
