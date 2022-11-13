@@ -1,6 +1,10 @@
 
 ## Changelog
 
+### v1.2.7
+- Add "Remove Chips" button
+- Add "Align the search results to center" button
+
 ### v1.2.6 
 Fixed Subscribe button red on channels page, Add some CSS
 
