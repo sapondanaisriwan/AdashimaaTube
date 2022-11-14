@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/Youtube-Old-Layout
 @supportURL     https://github.com/sapondanaisriwan/Youtube-Old-Layout/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.2.7
+@version        1.2.8
 @license        MIT
 @preprocessor   stylus
 
@@ -132,6 +132,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     if (fix-search-results) {
         ytd-two-column-search-results-renderer {
             align-items: center;
+            margin: 0 auto !important;
         }
     }
 
