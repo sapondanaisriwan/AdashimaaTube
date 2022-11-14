@@ -17,7 +17,7 @@ Restore old Youtube layout in 2022 with many customizable options.
 ## Features
 This is why you should consider using Youtube Old Layout! 🥶
 - Revert to the old video container.
-- Removal rounded edges on video thumbnails and the UI.
+- Removal of rounded edges on video thumbnails and the UI.
 - Customizable color of Like/Dislike buttons.
 - Display full title for videos.
 - Display the videos index in playlists.
@@ -25,6 +25,8 @@ This is why you should consider using Youtube Old Layout! 🥶
 - Options to Enabled/Disabled Dark Navigation Bars.
 - Options to remove all text from buttons except the Like/Dislike buttons.
 - Options to hide the buttons for Share, Download, Clip, and Thanks.
+- Options to remove the playlist background and chips.
+- Options to Align the search results to the center.
 
 ## Screenshots
 
@@ -41,7 +43,7 @@ You have to install [Stylus](https://add0n.com/stylus.html) and then click on th
 ## Contributing
 Any contribution is greatly appreciated.
 
-If you really like this project you can tips me for my hard work at 
+If you like this project you can tip me for my hard work at 
 
 [![ko-fi.com](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/sapondanaisriwan)
 
@@ -59,5 +61,3 @@ If you have any feedback, please reach out to me at sapondanaisriwan@gmail.com
 
 ## License
 Code released under the [MIT](https://github.com/sapondanaisriwan/Youtube-Old-Layout/blob/master/LICENSE) license.
-
-<img src="https://img.shields.io/badge/dynamic/json?color=%23193652&label=UserStyles.world&query=total_installs&suffix=%20installs&url=https%3A%2F%2Fuserstyles.world%2Fapi%2Fstyle%2Fstats%2F6944&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsSAAALEgHS3X78AAADGUlEQVQ4y6WTy29UZRiHn/f7zjkz0+m0nUljOxhKHYo0WpRk6qXEFihuWCDRGFamYSULYyLRuNAlrIxGY1y4UeKiAck0NTECYsQmhXKzDdSmF1o1tJ3UC73NMNO5nPN9Lgr6B/gsfot39Ut+zyuIKJQSAKy1GGP4Dw0oASMQWMCKgLUgAg/zIQJCW1u3Tqf3J3p6utxYrBHP0yUIcmNjWf/y5QsyMXHW5HKrgAuURSUSHfFjr79VGR9f9re2pHYdPvzq1uZm7jQ1UU0mCYKAndPTvKy1vZrLycD1G7Nq4W4u/Gxnw/IHH70nya9O3dBaP5MvbpgjL3Srz1Mpq4IgGBkfl6MNDbKtUGBwyxZqk0nL+jrHl5b0qavXKtFq2XMeS00pMcZUFrOmtmNXpX1qygxkMmxEIs6e9nb9eD6vdtTWqoH+fnVuaEhTX6+fWlmxkZ4eUbFam/v6zJD64403j6qa6Eysqyt8YXqa7zMZCWH5q+KzuHSPS78tkBm9RZDNYlZX+a5cttHtKdcUS5NrX3z5jmOKxRkJh1c0MN/XR3rvXvpvT/DD9Yvc/+xjsAZ5+10yT3Tw4ewdFjo7qQFKiYQHWAcIqYaGOADJJKcbG1krVDj07c+8vzvADyyjv/7EYN9x6jWEq9XN/eLxGBB1AIO1BkBVK0S9EHXhMFeOfcpzQ8Mk8nlG9jxPXIOuVrFaUQLCpYInSkUdILDlctkHKq5HSAQDhBobyWxvRRWLBK3bNkVxHNarhleu9JO7OaLmvIgoICit55ebfxmm7ccz1hj7r1jZdJr57m5MOIw2AQURDo6e48DqHNeefhHEKgVQXFxafPT3MY588pqVuRkeaI0bBHi+jxiDrzSxW7fZd/oEFydnWUm2Otr4jgMQ+nPx/uhLJxjb0etLSysYA9ZiAawB7SGzo8jZk1yavGv93Qe0V1cnRCI1DgDGiAv4O590lFKbt81yYA1WQN2bx+7bz/DJQURBbG2t5u9HmpIC4La0HKzp7T2E72+glQuicF0lWrs8+DlrwKJxHGttqZQNyuVi4fz5b/i//ANWH1Ou13STnwAAAABJRU5ErkJggg==" alt="Install through UserStyles.world" title="Install through UserStyles.world"></a>
