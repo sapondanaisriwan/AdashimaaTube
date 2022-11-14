@@ -1,6 +1,13 @@
 
 ## Changelog
 
+### 1.2.8
+- "Remove Chips" option is disabled by default.
+- Customize the color of the like/dislike button work in the comments section.
+- Remove border while hover video preview
+- Remove border around setting button(gear)
+- Remove border around miniplayer
+
 ### v1.2.7
 - Add "Remove Chips" button
 - Add "Align the search results to center" button
