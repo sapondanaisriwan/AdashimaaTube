@@ -1,6 +1,10 @@
 
 ## Changelog
 
+### 1.2.9
+- Fixed aligh the search center results
+- Remove border button at the end of the video
+
 ### 1.2.8
 - "Remove Chips" option is disabled by default.
 - Customize the color of the like/dislike button work in the comments section.
