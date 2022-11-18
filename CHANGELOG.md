@@ -1,6 +1,11 @@
 
 ## Changelog
 
+### 1.3.0
+- Fixed Subscribe button
+- Fixed reply button for users of the Light theme at comments section
+- Fixed "Custom Like/Dislike Color" on Shots 
+
 ### 1.2.9
 - Fixed aligh the search center results
 - Remove border button at the end of the video
