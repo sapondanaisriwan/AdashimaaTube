@@ -23,7 +23,6 @@
 @advanced checkbox hide-thanks-btn "🫣 Hide Thanks Button" 0
 @advanced checkbox display-full-title "🎦 Display Video Full Title" 1
 @advanced checkbox fix-search-results  "➡️ Align the search results to the center" 0
-@advanced checkbox fix-homepage  "🏠 Homepage 6 videos per row" 0
 
 ==/UserStyle== */
 // @advanced checkbox fix-homepage  "🏠 Homepage 6 videos per row" 0
@@ -52,12 +51,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
         #segmented-dislike-button button[aria-pressed="true"] yt-icon {
             fill: like-dislike-color2 !important;
         }
-
         /* Comments section */
         #like-button yt-button-shape button[aria-pressed="true"] yt-icon {
             fill: like-dislike-color2 !important;
-        }
-
+        } // #like-button > yt-button-shape > button > div > yt-icon
+        // #like-button > yt-button-shape > label > button > div > yt-icon > svg
         #dislike-button yt-button-shape button[aria-pressed="true"] yt-icon {
             fill: like-dislike-color2 !important;
         }
@@ -239,32 +237,49 @@ Support me: https://ko-fi.com/sapondanaisriwan
     /* Change color of Unsubscribe button */
     /* Light theme users */
     html:not([dark]) {
-        #subscribe-button yt-button-shape button[aria-label^=Unsubscribe],
-        #subscribe ytd-subscribe-button-renderer yt-button-shape button[aria-label^=Unsubscribe] {
-            // color: #82807F !important;
-            border-radius: 0;
-            background-color: var(--sub-white--text-btn) !important;
+        #channel, // Channels bar at Profile Channels
+        #channel-container, // Profile Channels
+        ytd-video-secondary-info-renderer, // Watch Page
+        ytd-shorts // Shots
+        {
+            #subscribe ytd-subscribe-button-renderer yt-button-shape button[aria-label^=Unsubscribe],
+            #subscribe-button yt-button-shape button[aria-label^=Unsubscribe] {
+                color: #82807F !important;
+                border-radius: 0;
+                background-color: var(--sub-white--text-btn) !important;
+            }
         }
     }
 
     /* Dark theme users */
     html[dark] {
-        #subscribe-button yt-button-shape button[aria-label^=Unsubscribe],
-        #subscribe ytd-subscribe-button-renderer yt-button-shape button[aria-label^=Unsubscribe] {
-            // color: #82807F !important;
-            border-radius: 0;
-            background-color: var(--sub-black-bg-btn) !important;
+        #channel, // Channels bar at Profile Channels
+        #channel-container, // Profile Channels
+        ytd-video-secondary-info-renderer, // Watch Page
+        ytd-shorts // Shots
+        {
+            #subscribe ytd-subscribe-button-renderer yt-button-shape button[aria-label^=Unsubscribe],
+            #subscribe-button yt-button-shape button[aria-label^=Unsubscribe] {
+                color: #82807F !important;
+                border-radius: 0;
+                background-color: var(--sub-black-bg-btn) !important;
+            }
         }
     }
-    
+
     /* Add red background color to Subscribed button */
-    .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled,
-    .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--filled[aria-label^="Subscribe"],
-    #subscribe ytd-subscribe-button-renderer yt-button-shape button[aria-label^=Subscribe] {
-        border-radius: 0;
-        color: var(--sub-white--text-btn) !important;
-        background: var(--sub-red-btn) !important;
-        background-color: var(--sub-red-btn) !important;
+    #channel, // Channels bar at Profile Channels
+    #channel-container, // Profile Channel
+    ytd-video-secondary-info-renderer, // Watch Page
+    ytd-shorts // Shots
+    {
+        #subscribe ytd-subscribe-button-renderer yt-button-shape button,
+        #subscribe-button ytd-subscribe-button-renderer yt-button-shape button {
+            border-radius: 0;
+            color: var(--sub-white--text-btn) !important;
+            background: var(--sub-red-btn) !important;
+            background-color: var(--sub-red-btn) !important;
+        }
     }
 
     /* Removes background color*/
@@ -275,7 +290,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start::after {
         display: none;
     }
-    
+
     .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
     .yt-spec-touch-feedback-shape__fill {
         background-color: transparent !important;
@@ -458,12 +473,24 @@ Support me: https://ko-fi.com/sapondanaisriwan
         background-color: transparent !important;
     }
     /* Reply button */
-    #reply-button-end ytd-button-renderer yt-button-shape button,
-    #reply-button-end > yt-button-renderer > yt-button-shape > button {
-        color: #AAA !important;
-        background: transparent !important;
-        padding: 0;
+    html[dark] {
+        #reply-button-end ytd-button-renderer yt-button-shape button,
+        #reply-button-end > yt-button-renderer > yt-button-shape > button {
+            color: #AAA !important;
+            background: transparent !important;
+            padding: 0;
+        }
     }
+    
+    html:not([dark]) {
+        #reply-button-end ytd-button-renderer yt-button-shape button,
+        #reply-button-end > yt-button-renderer > yt-button-shape > button {
+            color: #606060 !important;
+            background: transparent !important;
+            padding: 0;
+        }
+    }
+    
     /* Join button */
     yt-button-shape button[aria-label="Join this channel"],
     #buttons ytd-toggle-button-renderer yt-button-shape button {
@@ -505,19 +532,18 @@ Support me: https://ko-fi.com/sapondanaisriwan
     // }
     /* Homepage display 6 vidoes per row or it cant be done with css alone so we need js?*/
     // if (fix-homepage) {
-        // ytd-rich-grid-row #contents {
-        //     display: inline-block;
-        //     margin: 10px 0 0 2%;
-        //     flex-grow: 1;
-        //     width: calc(25% * (1/6) - 10px - 1px);
-        // }
-        // // ytd-rich-grid-media {
-        // //     display: inline-block !important;
-        // // }
-        // ytd-rich-item-renderer {
-        //     width: calc(100% - 10px);
-        // }
-
+    // ytd-rich-grid-row #contents {
+    //     display: inline-block;
+    //     margin: 10px 0 0 2%;
+    //     flex-grow: 1;
+    //     width: calc(25% * (1/6) - 10px - 1px);
+    // }
+    // // ytd-rich-grid-media {
+    // //     display: inline-block !important;
+    // // }
+    // ytd-rich-item-renderer {
+    //     width: calc(100% - 10px);
+    // }
     //     ytd-rich-grid-row {
     //         display: flex;
     //         flex-wrap: wrap;
