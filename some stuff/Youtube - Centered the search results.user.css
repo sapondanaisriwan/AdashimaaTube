@@ -1,0 +1,22 @@
+/* ==UserStyle==
+@name           Youtube - Centered the search results
+@author         sapondanaisriwan(Adashima#4066)
+@description    `Centered the search results`
+@namespace      https://userstyles.world/user/sapondanaisriwan
+@version        1.0.1
+@license        MIT
+==/UserStyle== */
+/*
+Support me: https://ko-fi.com/sapondanaisriwan 
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+*/
+
+@-moz-document domain("youtube.com") {
+  ytd-two-column-search-results-renderer {
+    align-items: center;
+    margin: 0 auto !important;
+  }
+}

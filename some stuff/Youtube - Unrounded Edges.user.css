@@ -1,0 +1,160 @@
+/* ==UserStyle==
+@name           Youtube - Unrounded Edges	
+@namespace      Youtube - Unrounded Edges	
+@author         sapondanaisriwan(Adashima#4066)
+@description    `Unrounded Edges`
+@version        1.0.7
+@license        MIT
+==/UserStyle== */
+
+@-moz-document domain("youtube.com") {
+    /* Search box */
+    ytd-multi-page-menu-renderer[sheets-refresh],
+    ytd-playlist-panel-renderer[modern-panels]:not([within-miniplayer]) #container.ytd-playlist-panel-renderer,
+    ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #container.ytd-searchbox,
+    ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #container.ytd-searchbox,
+    ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #search-icon-legacy.ytd-searchbox,
+    ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #search-icon-legacy.ytd-searchbox {
+        border-radius: 0 !important;
+    }
+
+    /* No rounded thumbnails */
+    ytd-thumbnail[size=medium] a.ytd-thumbnail,
+    ytd-thumbnail[size=medium]:before,
+    .yt-simple-endpoint.inline-block.style-scope.ytd-thumbnail,
+    .ytp-videowall-still-round-medium .ytp-videowall-still-image,
+    ytd-channel-video-player-renderer[rounded] #player.ytd-channel-video-player-renderer,
+    ytd-playlist-thumbnail[size=medium] a.ytd-playlist-thumbnail,
+    ytd-playlist-thumbnail[size=medium]:before,
+    .ytp-player-minimized.ytp-rounded-miniplayer .html5-main-video,
+    .ytp-player-minimized.ytp-rounded-miniplayer .ytp-miniplayer-scrim,
+    .ytp-player-minimized.ytp-rounded-miniplayer.html5-video-player,
+    .ytp-ce-video.ytp-ce-large-round,
+    .ytp-ce-playlist.ytp-ce-large-round,
+    .ytp-ce-large-round .ytp-ce-expanding-overlay-background,
+    ytd-macro-markers-list-item-renderer[rounded] #thumbnail.ytd-macro-markers-list-item-renderer,
+    ytd-thumbnail[size=large] a.ytd-thumbnail,
+    ytd-thumbnail[size=large]:before,
+    ytd-expandable-metadata-renderer[round-container]:not([is-expanded]),
+    ytd-expandable-metadata-renderer[round-container]:not([is-expanded]) #header.ytd-expandable-metadata-renderer:hover,
+    ytd-playlist-thumbnail[size=large] a.ytd-playlist-thumbnail,
+    ytd-playlist-thumbnail[size=large]:before,
+    .image-wrapper.ytd-hero-playlist-thumbnail-renderer,
+    ytd-ghost-grid-renderer[rounded-container] .rich-thumbnail.ytd-ghost-grid-renderer,
+    ytcp-img-with-fallback[rounded] #img-with-fallback.ytcp-img-with-fallback,
+    ytcp-img-with-fallback[rounded] .container.ytcp-img-with-fallback,
+    ytd-notification-renderer[rounded-thumbnails] .thumbnail-container.ytd-notification-renderer,
+    .ytp-autonav-endscreen-upnext-thumbnail.rounded-thumbnail,
+    ytd-video-preview[rounded-container] #video-preview-container.ytd-video-preview,
+    ytd-video-preview[rounded-container] #player-container.ytd-video-preview,
+    ytd-video-preview[rounded-container] #inline-preview-player.ytd-video-preview {
+        border-radius: 0 !important;
+    }
+
+    /* Removes border while hover the video */
+    ytd-video-preview:not([has-endorsement]) #inline-preview-player.ytp-rounded-inline-preview .html5-main-video {
+        border-radius: 0 !important;
+    }
+
+    /* Removes border from miniplayer */
+    ytd-miniplayer[rounded-container] #player-container.ytd-miniplayer,
+    ytd-miniplayer[rounded-container] #video-container.ytd-miniplayer .video.ytd-miniplayer,
+    ytd-miniplayer[rounded-container] #card.ytd-miniplayer,
+    ytd-miniplayer[rounded-container] {
+        border-radius: 0 !important;
+    }
+
+    /* Removes border around Live chat */
+    ytd-live-chat-frame[rounded-container],
+    ytd-live-chat-frame[rounded-container] #show-hide-button.ytd-live-chat-frame ytd-toggle-button-renderer.ytd-live-chat-frame,
+    yt-dropdown-menu[modern-dialogs] #menu.yt-dropdown-menu,
+    .dropdown-content.tp-yt-paper-menu-button,
+    #chatframe {
+        border-radius: 0 !important;
+    }
+    /* Removes border around pop up */
+    ytd-menu-popup-renderer[sheets-refresh],
+    tp-yt-paper-dialog[modern] {
+        border-radius: 0 !important;
+    }
+
+    ytd-guide-entry-renderer[guide-refresh],
+    ytd-guide-entry-renderer[guide-refresh] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:hover,
+    ytd-guide-entry-renderer[guide-refresh] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:focus,
+    ytd-guide-entry-renderer[guide-refresh] yt-interaction.ytd-guide-entry-renderer {
+        border-radius: 0 !important;
+    }
+
+    .ytp-sb-subscribe.ytp-sb-rounded,
+    .ytp-sb-unsubscribe.ytp-sb-rounded {
+        border-radius: 0;
+    }
+
+    /* Gaming */
+    ytd-game-details-renderer[rounded] yt-img-shadow.ytd-game-details-renderer ytd-video-preview[rounded-container] #video-preview-container.ytd-video-preview,
+    ytd-video-preview[rounded-container] #player-container.ytd-video-preview,
+    ytd-video-preview[rounded-container] #inline-preview-player.ytd-video-preview {
+        border-radius: 0 !important;
+    }
+    /* Removes border Community post */
+    ytd-backstage-post-thread-renderer[rounded-container],
+    yt-img-shadow.ytd-backstage-image-renderer,
+    ytd-backstage-image-renderer[rounded] #image-container.ytd-backstage-image-renderer {
+        border-radius: 0 !important;
+    }
+    /* shots */
+    ytd-reel-player-overlay-renderer #overlay.ytd-reel-player-overlay-renderer {
+        border-radius: 0 !important;
+    }
+    /* remove unloaded video thumbnails */
+    #home-page-skeleton .rich-thumbnail.rounded-thumbs,
+    #home-container-skeleton .rich-thumbnail.rounded-thumbs:before {
+        border-radius: 0 !important;
+    }
+
+    /* Charpters */
+    ytd-engagement-panel-section-list-renderer[modern-panels] {
+        border-radius: 0 !important;
+    }
+
+    /* the end of the video */
+    .ytp-autonav-endscreen-upnext-button.ytp-autonav-endscreen-upnext-button-rounded {
+        border-radius: 0 !important;
+    }
+
+    a.ytd-search-refinement-card-renderer {
+        border-radius: 0 !important;
+    }
+
+    ytd-expandable-metadata-renderer[round-container]:not([is-expanded]) {
+        --yt-img-border-radius: 0;
+    }
+    /* hover playlist */
+    ytd-playlist-video-renderer[amsterdam] {
+        border-radius: 0 !important;
+    }
+    /* Home posts section */
+    ytd-post-renderer[rounded-container] {
+        border-radius: 0 !important;
+    }
+
+    /* Setting gear icon */
+    .ytp-settings-menu.ytp-rounded-menu,
+    .ytp-screen-mode-menu.ytp-rounded-menu {
+        border-radius: 0 !important;
+    }
+
+    .player-container.ytd-reel-video-renderer,
+    .ytp-ce-video.ytp-ce-medium-round,
+    .ytp-ce-playlist.ytp-ce-medium-round,
+    .ytp-ce-medium-round .ytp-ce-expanding-overlay-background,
+    ytd-compact-video-renderer[music-metadata-video-lockup],
+    ytd-rich-metadata-renderer[rounded] {
+        border-radius: 0 !important;
+    }
+
+    /* Removes border around search box */
+    .sbdd_b {
+        border-radius: 0 !important;
+    }
+}

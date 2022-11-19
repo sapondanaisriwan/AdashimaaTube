@@ -1,0 +1,49 @@
+/* ==UserStyle==
+@name           Youtube Red Subscribe Button
+@author         sapondanaisriwan(Adashima#4066)
+@description    My stupid friend requested me, so I did it.`
+@namespace      https://userstyles.world/user/sapondanaisriwan
+@version        1.0.1
+@license        MIT
+@preprocessor   stylus
+==/UserStyle== */
+@-moz-document domain("youtube.com") {
+  :root {
+    --sub-red-btn: #cc0000;
+    --sub-white--text-btn: #f2f2f2;
+    --sub-black-bg-btn: #303030;
+  }
+
+  /* Change color of Unsubscribe button */
+  /* Light theme users */
+  html:not([dark]) {
+    #subscribe
+      ytd-subscribe-button-renderer
+      yt-button-shape
+      button[aria-label^="Unsubscribe"],
+    #subscribe-button yt-button-shape button[aria-label^="Unsubscribe"] {
+      color: #82807f !important;
+      background-color: var(--sub-white--text-btn) !important;
+    }
+  }
+
+  /* Dark theme users */
+  html[dark] {
+    #subscribe
+      ytd-subscribe-button-renderer
+      yt-button-shape
+      button[aria-label^="Unsubscribe"],
+    #subscribe-button yt-button-shape button[aria-label^="Unsubscribe"] {
+      color: #82807f !important;
+      background-color: var(--sub-black-bg-btn) !important;
+    }
+  }
+
+  /* Add red background color to Subscribed button */
+  #subscribe ytd-subscribe-button-renderer yt-button-shape button,
+  #subscribe-button ytd-subscribe-button-renderer yt-button-shape button {
+    color: var(--sub-white--text-btn) !important;
+    background: var(--sub-red-btn) !important;
+    background-color: var(--sub-red-btn) !important;
+  }
+}
