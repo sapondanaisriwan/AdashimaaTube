@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/Youtube-Old-Layout
 @supportURL     https://github.com/sapondanaisriwan/Youtube-Old-Layout/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.2.9
+@version        1.3.1
 @license        MIT
 @preprocessor   stylus
 
@@ -240,8 +240,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
         #channel, // Channels bar at Profile Channels
         #channel-container, // Profile Channels
         ytd-video-secondary-info-renderer, // Watch Page
-        ytd-shorts // Shots
-        {
+        ytd-shorts, // Shots
+        #content-section {
             #subscribe ytd-subscribe-button-renderer yt-button-shape button[aria-label^=Unsubscribe],
             #subscribe-button yt-button-shape button[aria-label^=Unsubscribe] {
                 color: #82807F !important;
@@ -256,8 +256,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
         #channel, // Channels bar at Profile Channels
         #channel-container, // Profile Channels
         ytd-video-secondary-info-renderer, // Watch Page
-        ytd-shorts // Shots
-        {
+        ytd-shorts, // Shots
+        #content-section {
             #subscribe ytd-subscribe-button-renderer yt-button-shape button[aria-label^=Unsubscribe],
             #subscribe-button yt-button-shape button[aria-label^=Unsubscribe] {
                 color: #82807F !important;
@@ -271,8 +271,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
     #channel, // Channels bar at Profile Channels
     #channel-container, // Profile Channel
     ytd-video-secondary-info-renderer, // Watch Page
-    ytd-shorts // Shots
-    {
+    ytd-shorts, // Shots
+    #content-section {
         #subscribe ytd-subscribe-button-renderer yt-button-shape button,
         #subscribe-button ytd-subscribe-button-renderer yt-button-shape button {
             border-radius: 0;
@@ -410,6 +410,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
         border-radius: 0 !important;
     }
 
+    /* Charpters */
+    ytd-engagement-panel-section-list-renderer[modern-panels] {
+        border-radius: 0 !important;
+    }
+
     /* the end of the video */
     .ytp-autonav-endscreen-upnext-button.ytp-autonav-endscreen-upnext-button-rounded {
         border-radius: 0 !important;
@@ -481,7 +486,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             padding: 0;
         }
     }
-    
+
     html:not([dark]) {
         #reply-button-end ytd-button-renderer yt-button-shape button,
         #reply-button-end > yt-button-renderer > yt-button-shape > button {
@@ -490,14 +495,27 @@ Support me: https://ko-fi.com/sapondanaisriwan
             padding: 0;
         }
     }
-    
+
     /* Join button */
-    yt-button-shape button[aria-label="Join this channel"],
-    #buttons ytd-toggle-button-renderer yt-button-shape button {
-        color: #3ea6ff!important;
-        border: 1px solid #3ea6ff !important;
-        padding: 9px 15px !important;
+    html:not([dark]) {
+        yt-button-shape button[aria-label="Join this channel"],
+        #buttons ytd-toggle-button-renderer yt-button-shape button {
+            color: #065fd4 !important;
+            border: 1px solid #065fd4 !important;
+            padding: 9px 15px !important;
+        }
     }
+
+    html[dark] {
+        yt-button-shape button[aria-label="Join this channel"],
+        #buttons ytd-toggle-button-renderer yt-button-shape button {
+            color: #3ea6ff!important;
+            border: 1px solid #3ea6ff !important;
+            padding: 9px 15px !important;
+        }
+    }
+
+
     /* Revert comment and like/dislike btn */
     #like-button svg,
     #dislike-button svg {
