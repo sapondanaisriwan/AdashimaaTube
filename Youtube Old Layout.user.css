@@ -10,6 +10,7 @@
 @license        MIT
 @preprocessor   stylus
 
+@advanced checkbox ratioBar "(Beta) New Layout with ratio bar" 1
 @advanced select like-dislike-color1 "🛠️ Custom Like/Dislike Color" ["Enabled", "Disabled"]
 @advanced color like-dislike-color2 "🎨 Custom Like/Dislike Color" #3ea6ff
 
@@ -35,80 +36,84 @@ Support me: https://ko-fi.com/sapondanaisriwan
 */
 @-moz-document domain("youtube.com") {
 
-
-    
-    h1.ytd-watch-metadata {
-        font-family: "Roboto", sans-serif;
-        font-weight: 400 !important;
-        font-size: 18px !important;
-    }
-    
-    #owner {
-        //channel
+    ytd-watch-metadata {
         display: none !important;
     }
 
-    #bottom-row {
-        // description
-        display: none !important;
-    }
+    if (ratioBar) {
 
-    // ytd-video-primary-info-renderer #menu ytd-menu-renderer {
-    //     display: none !important;
-    // }
+        ytd-watch-metadata {
+            display: block !important;
+        }
 
-    .ryd-tooltip.ryd-tooltip-new-design {
-        display: block !important;
-    }
-    
-    #menu-container {
-        display: none !important;
-    }
-    
-    ytd-video-primary-info-renderer #container > :not(#info), #menu-container {
-        display: none !important;
-    }
-    
-    ytd-video-primary-info-renderer {
-        padding: 0 !important;
-        position: relative;
-        bottom: 0 !important;
-        border: none;
-        pointer-events: auto; 
-    }
-    
-    ytd-video-secondary-info-renderer {
-        margin-top: -20px;
-    }
-    
-    ytd-watch-metadata > ytd-metadata-row-container-renderer {
-        display: none;
-    }
-    
-    // #info-contents > ytd-video-primary-info-renderer div:not(#info-text) {
-    //     display: none !important;
-    // }
-    
-//     #title > h1 > yt-formatted-string {
-//         // visibility: hidden;
-//         display: none !important;
-//     }
+        h1.ytd-watch-metadata {
+            font-family: "Roboto", sans-serif;
+            font-weight: 400 !important;
+            font-size: 18px !important;
+        }
 
-    
-     .style-scope.ytd-watch-flexy #container #info-text {
-        margin-top: -120px;
-        pointer-events: none; 
-    }
-    
-    #top-row.ytd-watch-metadata,
-    #top-row.ytd-watch-metadata {
-        flex-direction: column-reverse !important;
-    }
-    #ryd-bar {
-        background: lime !important;
-    }
-    #ryd-bar-container {
-        background: red !important;
+        #owner {
+            //channel
+            display: none !important;
+        }
+
+        #bottom-row {
+            // description
+            display: none !important;
+        } // ytd-video-primary-info-renderer #menu ytd-menu-renderer {
+        //     display: none !important;
+        // }
+        .ryd-tooltip.ryd-tooltip-new-design {
+            display: block !important;
+        }
+
+        #menu-container {
+            display: none !important;
+        }
+
+        ytd-video-primary-info-renderer #container > :not(#info),
+        #menu-container {
+            display: none !important;
+        }
+
+        ytd-video-primary-info-renderer {
+            border: none;
+            pointer-events: auto;
+            position: relative;
+            padding: 0 !important;
+            bottom: 0 !important;
+        }
+
+        ytd-video-secondary-info-renderer {
+            margin-top: -20px;
+        }
+
+        ytd-watch-metadata > ytd-metadata-row-container-renderer {
+            display: none;
+        } // #info-contents > ytd-video-primary-info-renderer div:not(#info-text) {
+        //     display: none !important;
+        // }
+        //     #title > h1 > yt-formatted-string {
+        //         // visibility: hidden;
+        //         display: none !important;
+        //     }
+        .style-scope.ytd-watch-flexy #container #info-text {
+            // position: absolute;
+            // bottom: 3.7em !important;
+            margin-top: -8.57em; // 120px
+            // pointer-events: none;
+        }
+
+        #top-row.ytd-watch-metadata,
+        #top-row.ytd-watch-metadata {
+            flex-direction: column-reverse !important;
+        }
+        #ryd-bar {
+            background: lime !important;
+        }
+        #ryd-bar-container {
+            background: red !important;
+        }
     }
 
     :root {
@@ -189,7 +194,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     if (remove-text-btn) {
         #menu-container ytd-button-renderer yt-button-shape button span,
         #flexible-item-buttons yt-button-shape button span,
-        #top-level-buttons-computed > ytd-button-renderer > yt-button-shape > button > div.cbox.yt-spec-button-shape-next--button-text-content > span{
+        #top-level-buttons-computed > ytd-button-renderer > yt-button-shape > button > div.cbox.yt-spec-button-shape-next--button-text-content > span {
             display: none !important;
         }
         #flexible-item-buttons yt-button-shape button {
@@ -219,12 +224,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
         ytd-watch-next-secondary-results-renderer yt-related-chip-cloud-renderer {
             display: none;
         }
-    }
-    
-    // ytd-watch-metadata {
+    } // ytd-watch-metadata {
     //     display: none !important;
     // }
-   
     #meta-contents[hidden],
     #info-contents[hidden] {
         display: block !important;
@@ -278,8 +280,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         padding-bottom: 10px;
         position: relative;
         bottom: 6px;
-    }
-    // .ryd-tooltip-bar-container {
+    } // .ryd-tooltip-bar-container {
     //     padding-top: 0;
     //     padding-bottom: 0px;
     //     top: -8px;
