@@ -1,6 +1,13 @@
 
 ## Changelog
 
+### 1.3.2
+- Add option to display the ratio bar(Beta)
+- Renamed option "Align the search result to center" to "Centered the search result"
+
+### 1.3.1
+- Fixed Like/Dislike on Shotrs
+
 ### 1.3.0
 - Fixed Subscribe button
 - Fixed reply button for users of the Light theme at comments section
