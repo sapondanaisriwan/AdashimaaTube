@@ -45,7 +45,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         --sub-black-bg-btn: #303030;
     }
 
-    /* Watch page */
+    /* Home page */
     /* Makes the container/spacing disappear */
     ytd-rich-grid-renderer #contents {
         ytd-rich-grid-row,
@@ -58,6 +58,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         --ytd-rich-grid-items-per-row: custom_homepage_videos !important;
     }
 
+    /* Ratio bar works with "Return Youtube Dislike" */
     if (ratio_bar=="Enabled") {
 
         ytd-watch-metadata {
@@ -65,6 +66,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             margin-top: 20px !important;
         }
 
+        
         h1.ytd-watch-metadata {
             font-family: "Roboto", sans-serif;
             font-weight: 400 !important;
@@ -223,7 +225,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
     /* Display full title of video on wacthcpage */
     if (display-full-title) {
         ytd-rich-grid-media[mini-mode] #video-title.ytd-rich-grid-media,
-        #video-title.ytd-compact-video-renderer {
+        #video-title.ytd-compact-video-renderer,
+        #video-title.ytd-rich-grid-media {
             display: inline !important;
         }
     }
