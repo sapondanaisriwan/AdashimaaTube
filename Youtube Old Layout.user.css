@@ -6,13 +6,16 @@
 @homepageURL    https://github.com/sapondanaisriwan/Youtube-Old-Layout
 @supportURL     https://github.com/sapondanaisriwan/Youtube-Old-Layout/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.3.2
+@version        1.3.3
 @license        MIT
 @preprocessor   stylus
 
-@advanced checkbox ratioBar "(Beta) New Layout with ratio bar" 1
-@advanced select like-dislike-color1 "🛠️ Custom Like/Dislike Color" ["Enabled", "Disabled"]
-@advanced color like-dislike-color2 "🎨 Custom Like/Dislike Color" #3ea6ff
+@advanced checkbox ratio_bar "(Beta) Ratio Bar" 1
+@advanced select homepage_videos "⚒️ Custom Homepage" ["Enabled", "Disabled"]
+@advanced range custom_homepage_videos'🏠 Number Of Videos Per Row' [6, 1, 10, 1]
+@advanced select like_dislike_color "⚒️ Custom Like/Dislike Color" ["Enabled", "Disabled"]
+@advanced color like_color "👍 Custom Like Color" #3ea6ff
+@advanced color dislike_color "👎 Custom Dislike Color" #3ea6ff
 
 @advanced checkbox old-dark-theme "🌑 Dark Navigation Bars" 0
 @advanced checkbox remove-bg-playlist "❌ Remove Background Playlists" 0
@@ -26,7 +29,6 @@
 @advanced checkbox fix-search-results  "➡️ Centered The Search Results" 0
 
 ==/UserStyle== */
-// @advanced checkbox fix-homepage  "🏠 Homepage 6 videos per row" 0
 /*
 Support me: https://ko-fi.com/sapondanaisriwan 
 Support me: https://ko-fi.com/sapondanaisriwan
@@ -36,34 +38,54 @@ Support me: https://ko-fi.com/sapondanaisriwan
 */
 @-moz-document domain("youtube.com") {
 
+
     ytd-watch-metadata {
         display: none !important;
     }
 
-    /* watch page */
-    ytd-rich-grid-renderer, #contents {
-        ytd-rich-grid-row,
-        ytd-rich-grid-row #contents {
-            display: contents;
+    if (homepage_videos=="Enabled") {
+        /* Watch page */
+        /* Makes the container/spacing disappear */
+        ytd-rich-grid-renderer #contents {
+            ytd-rich-grid-row,
+            ytd-rich-grid-row #contents {
+                display: contents;
+            }
         }
+
+        [page-subtype="home"] ytd-rich-grid-renderer {
+            --ytd-rich-grid-items-per-row: custom_homepage_videos !important;
+        }
+
+        #home-page-skeleton .rich-shelf-videos,
+        #home-page-skeleton #home-container-media {
+            margin: 0 auto;
+            transform: translate(20px, -2px);
+        }
+
+        ytd-rich-grid-renderer {
+            position: relative !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+        } // ytd-rich-grid-row #contents {
+        //     margin: 10px 0 0 2%;
+        //     flex-grow: 1;
+        //     width: calc(25% * (1/6) - 10px - 1px);
+        // }
+        // #home-page-skeleton .rich-shelf-videos .rich-grid-media-skeleton.mini-mode,
+        // #home-page-skeleton #home-container-media .rich-grid-media-skeleton.mini-mode {
+        //     flex-basis: calc(100%/6 - 16px - 0.01px);
+        //     min-width: calc(100%/6 - 16px - 0.01px);
+        //     max-width: calc(100%/6 - 16px - 0.01px);
+        // }
     }
 
-    /* 6 videos per row */
-    [page-subtype="home"] ytd-rich-grid-renderer {
-        --ytd-rich-grid-items-per-row: 6 !important;
-    }
-
-    #home-page-skeleton .rich-shelf-videos,
-    #home-page-skeleton #home-container-media {
-        margin-left: 8vw;
-        margin-right: 8vw;
-        transform: translate(20px, -2px);
-    }
-
-    if (ratioBar) {
+    if (ratio_bar) {
 
         ytd-watch-metadata {
             display: block !important;
+            margin-top: 20px !important;
         }
 
         h1.ytd-watch-metadata {
@@ -143,22 +165,22 @@ Support me: https://ko-fi.com/sapondanaisriwan
     }
 
     /* Custom like/dislike color */
-    if (like-dislike-color1=="Enabled") {
+    if (like_dislike_color=="Enabled") {
         /* Video container */
         #segmented-like-button button[aria-pressed="true"] yt-icon * {
-            fill: like-dislike-color2 !important;
+            fill: like_color !important;
             stroke: none;
         }
         #segmented-dislike-button button[aria-pressed="true"] yt-icon {
-            fill: like-dislike-color2 !important;
+            fill: dislike_color !important;
         }
         /* Comments section */
         #like-button yt-button-shape button[aria-pressed="true"] yt-icon {
-            fill: like-dislike-color2 !important;
+            fill: like_color !important;
         } // #like-button > yt-button-shape > button > div > yt-icon
         // #like-button > yt-button-shape > label > button > div > yt-icon > svg
         #dislike-button yt-button-shape button[aria-pressed="true"] yt-icon {
-            fill: like-dislike-color2 !important;
+            fill: dislike_color !important;
         }
     }
 
