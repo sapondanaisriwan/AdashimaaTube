@@ -1,6 +1,10 @@
 
 ## Changelog
 
+### 1.3.5
+- Fixed Display full title for videos
+- Add option "Border radius" now you can cumtomize
+
 ### 1.3.4
 - Renamed "Custom Like color" to "Like Button Color"
 - Renamed "Custom Dislike color" to "Dislike Button Color"
