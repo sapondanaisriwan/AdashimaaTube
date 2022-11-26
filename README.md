@@ -32,12 +32,22 @@ This is why you should consider using Youtube Old Layout! 🥶
 
 ## Screenshots
 
-### Menu Options
+### Menu Options.
 ![Menu option](https://i.imgur.com/kng4W3d.png)
 
 
 ### Reverted to the old video container.
-![revert watchpage](https://i.imgur.com/LC5kwNe.png)
+![Reverted to the old video container](https://i.imgur.com/LC5kwNe.png)
+
+### Clean Video Container.
+![Clean Video Container](https://i.imgur.com/RAWfG5O.png)
+
+### Unrounded Edges.
+![Unrounded Edges](https://i.imgur.com/8IKW7AE.jpeg)
+
+### Customize Number Of Videos Per Row on Homepage.
+![Customize Number Of Videos Per Row on Homepage.](https://i.imgur.com/PtR5ABL.jpeg)
+
 
 <!-- Options | Old Video Container | Unrounded Edges | Customizable Color Like/Dislike | Display Full Title For Videos | Clean Video Container
 -|-|-|-|-|-
