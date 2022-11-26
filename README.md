@@ -14,6 +14,21 @@ Restore old Youtube layout around 2021-2022 with many customizable options.
  <img src="https://raw.githubusercontent.com/sapondanaisriwan/Youtube-Old-Layout/master/images/Cover2.jpg" width="100%"/>
 </div>
 
+## Table of Contents
+- [AdashimaaTube](#adashimaatube)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+    - [Menu Options](#menu-options)
+  - [Screenshots](#screenshots)
+  - [Installation](#installation)
+  - [Contributing](#contributing)
+  - [FAQ](#faq)
+      - [Q: How to customize colors and enabled/disabled other options?](#q-how-to-customize-colors-and-enableddisabled-other-options)
+  - [Supported extensions](#supported-extensions)
+  - [Feedback](#feedback)
+  - [License](#license)
+
+
 ## Features
 This is why you should consider using AdashimaaTube! 🥶
 - Customize Number Of Videos Per Row on Homepage
