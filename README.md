@@ -30,21 +30,28 @@ This is why you should consider using Youtube Old Layout! 🥶
 - Options to remove the playlist background and chips.
 - Options to Align the search results to the center.
 
+
+<div align="center">
+
+### Menu Options
+
+<img src="https://i.imgur.com/kng4W3d.png" sytle="text-align: center"/>
+</div>
+
 ## Screenshots
 | Reverted Video Container | Unrounded Edges | Clean Video Container |
 |     :---:      |     :---:      |     :---:      |
 | ![](https://i.imgur.com/LC5kwNe.png)  | ![](https://i.imgur.com/8IKW7AE.jpeg)     | ![](https://i.imgur.com/yaT9fMp.png)  |
-| 6 Videos Per Row On Homepage | Display Full Title For Videos  | Centered The Search Results  |
+| **6 Videos Per Row On Homepage** | **Display Full Title For Videos**  | **Centered The Search Results**  |
 | ![](https://i.imgur.com/PtR5ABL.jpeg)  |   ![](https://i.imgur.com/7bzDqov.png)    | ![](https://i.imgur.com/KGxGBaK.png)  |
+| **Display the videos index in playlists** | **Custom Like/Dislike Buttons Color**  | **Increase Font Size**  |
+| ![](https://i.imgur.com/CP8ZCvc.jpg)  |   ![](https://i.imgur.com/sCda3m1.png)    | ![](https://i.imgur.com/8uOFutT.png)  |
 
-### Menu Options
-![](https://i.imgur.com/kng4W3d.png)
-
-
-<!-- Options | Old Video Container | Unrounded Edges | Customizable Color Like/Dislike | Display Full Title For Videos | Clean Video Container
--|-|-|-|-|-
-![Menu Options](https://user-images.githubusercontent.com/64634605/201465174-d82fdd1c-ad7d-49e4-8490-068740e5915a.png) | ![Old video container2](https://user-images.githubusercontent.com/64634605/201465226-0035de2d-77fb-4060-b9f8-1597c9df134b.png)![Old video containerr](https://user-images.githubusercontent.com/64634605/201465195-8bb4197f-d7bd-4292-a792-fecd613109cb.png) ! | ![unrounded edge](https://user-images.githubusercontent.com/64634605/201465711-5697fc15-56fd-4bd8-84a2-1f70f91cb850.png) | ![Like/Dislike](https://user-images.githubusercontent.com/64634605/201466070-595e1d5f-f110-4c2e-b995-62904dee905f.png) ![rainbow](https://user-images.githubusercontent.com/64634605/201466478-5a44ef47-6e17-4554-a9c8-ec22fabae0cf.png) | ![Full title](https://user-images.githubusercontent.com/64634605/201466393-8cb91ae8-9f11-44ea-b895-a35303e938fc.png) | ![clean](https://user-images.githubusercontent.com/64634605/201466637-8bd3a0d4-1fae-4dbd-af44-35293ec38603.png) -->
-
+<!-- | Reverted Video Container | Unrounded Edges | 
+|     :---:      |     :---:      |
+| ![](https://i.imgur.com/LC5kwNe.png)  | ![](https://i.imgur.com/8IKW7AE.jpeg)     |
+| 6 Videos Per Row On Homepage | Display Full Title For Videos  |
+| ![](https://i.imgur.com/PtR5ABL.jpeg)  |   ![](https://i.imgur.com/7bzDqov.png)    | -->
 
 ## Installation
 You have to install [Stylus](https://add0n.com/stylus.html) and then click on the install link below or watch [Video Tutorial](https://www.youtube.com/watch?v=Fpmw1Vh7sz8&t).
