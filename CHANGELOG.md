@@ -1,6 +1,15 @@
 
 ## Changelog
 
+### 1.3.4
+- Renamed "Custom Like color" to "Like Button Color"
+- Renamed "Custom Dislike color" to "Dislike Button Color"
+- Separate, custom colors for the like/dislike buttons
+- Separate, custom colors for the like/dislike ratio bar
+
+### 1.3.3
+- Add "Number Of Videos Per Row" option
+
 ### 1.3.2
 - Add option to display the ratio bar(Beta)
 - Renamed option "Align the search result to center" to "Centered the search result"
