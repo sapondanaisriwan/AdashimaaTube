@@ -2,7 +2,7 @@
 <div align="center">
 <!-- [![Message](badge-url)](your-url) -->
 
-# Youtube Old Layout
+# AdashimaaTube
 Restore old Youtube layout around 2021-2022 with many customizable options.
 
 [![Youtube Old Layout](https://img.shields.io/badge/Install%20directly%20with-Stylus-116b59.svg?longCache=true&style=flat)](https://userstyles.world/api/style/6944.user.css)
@@ -15,7 +15,7 @@ Restore old Youtube layout around 2021-2022 with many customizable options.
 </div>
 
 ## Features
-This is why you should consider using Youtube Old Layout! 🥶
+This is why you should consider using AdashimaaTube! 🥶
 - Customize Number Of Videos Per Row on Homepage
 - Reverted to the old video container.
 - Removal of rounded edges on video thumbnails and the UI.
