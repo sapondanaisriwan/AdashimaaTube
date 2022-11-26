@@ -40,6 +40,26 @@ Support me: https://ko-fi.com/sapondanaisriwan
         display: none !important;
     }
 
+    /* watch page */
+    ytd-rich-grid-renderer, #contents {
+        ytd-rich-grid-row,
+        ytd-rich-grid-row #contents {
+            display: contents;
+        }
+    }
+
+    /* 6 videos per row */
+    [page-subtype="home"] ytd-rich-grid-renderer {
+        --ytd-rich-grid-items-per-row: 6 !important;
+    }
+
+    #home-page-skeleton .rich-shelf-videos,
+    #home-page-skeleton #home-container-media {
+        margin-left: 8vw;
+        margin-right: 8vw;
+        transform: translate(20px, -2px);
+    }
+
     if (ratioBar) {
 
         ytd-watch-metadata {
