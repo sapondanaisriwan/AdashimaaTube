@@ -6,12 +6,13 @@
 @homepageURL    https://github.com/sapondanaisriwan/Youtube-Old-Layout
 @supportURL     https://github.com/sapondanaisriwan/Youtube-Old-Layout/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.3.5
+@version        1.3.6
 @license        MIT
 @preprocessor   stylus
 
 @advanced range custom_homepage_videos'🏠 Number Of Videos Per Row' [6, 1, 10, 1]
-@advanced number custom_border_radius "⚙️ Border radius (px)" [0, 0, 24, 1, 'px']
+@advanced range increase_font_size "⚙️ Font Size (px)" [0, 0, 4, 1, 'px']
+@advanced number custom_border_radius "⚙️ Border Radius (px)" [0, 0, 24, 1, 'px']
 @advanced select ratio_bar "⚒️ Display Ratio Bar (Beta) " ["Enabled", "Disabled"]
 @advanced color like_rb_color "  🎨 Like Ratio Color" #32CD32
 @advanced color dislike_rb_color "  🎨 Dislike Ratio Color" #FF0000
@@ -41,6 +42,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 @-moz-document domain("youtube.com") {
 
     :root {
+        --increase-text: increase_font_size;
         --sub-red-btn: #CC0000;
         --sub-white--text-btn: #F2F2F2;
         --sub-black-bg-btn: #303030;
@@ -58,7 +60,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         h1.ytd-watch-metadata {
             font-family: "Roboto", sans-serif;
             font-weight: 400 !important;
-            font-size: 18px !important;
+            font-size: calc(18px + var(--increase-text)) !important; // line-height: unset;
         }
 
         #owner {
@@ -118,10 +120,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
             flex-direction: column-reverse !important;
         }
         #ryd-bar {
-            background: like_rb_color
+            background: like_rb_color;
         }
         #ryd-bar-container {
-            background: dislike_rb_color
+            background: dislike_rb_color;
         }
     }
     else {
@@ -660,6 +662,50 @@ Support me: https://ko-fi.com/sapondanaisriwan
         --ytd-rich-grid-items-per-row: custom_homepage_videos !important;
     }
 
+    /* Increase font size */
+    /* view count */
+    ytd-video-view-count-renderer[small]/* upload date */
+    #info-strings.ytd-video-primary-info-renderer,
+
+    /* title video */
+    #video-title.ytd-compact-video-renderer,
+    ytd-rich-grid-media[mini-mode] #video-title.ytd-rich-grid-media,
+
+    /* comment section */
+    #content-text.ytd-comment-renderer,
+    
+    yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string,
+    
+    /* description */
+    ytd-expander.ytd-video-secondary-info-renderer
+    {
+        font-size: calc(1.4rem + var(--increase-text)) !important;
+    }
+
+    /* hashtag */
+    #super-title.ytd-watch-metadata,
+    /* channel name*/
+    ytd-video-meta-block:not([rich-meta]) #byline-container.ytd-video-meta-block,
+    #text.ytd-channel-name,
+
+    /* view count and upload date */
+    ytd-video-meta-block:not([rich-meta])[inline-badges] #metadata-line.ytd-video-meta-block,
+    ytd-video-meta-block[rich-meta][mini-mode] #metadata-line.ytd-video-meta-block,
+
+    /* subscribers */
+    #owner-sub-count.ytd-video-owner-renderer
+        
+    /* comment section */
+    .published-time-text.ytd-comment-renderer {
+        // margin-top: var(--increase-text);
+        font-size: calc(1.2rem + var(--increase-text)) !important;
+    }
+
+    #author-text.yt-simple-endpoint.ytd-comment-renderer {
+        font-size: calc(1.3rem + var(--increase-text)) !important;
+    } // html, #home-container-media {
+    //     --ytd-rich-grid-items-per-row: custom_homepage_videos !important;
+    // }
     /*  Youtube fog kids */
     // .yt-spec-button-shape-next--disabled {
     //     cursor: pointer;
