@@ -34,7 +34,6 @@ This is why you should consider using Youtube Old Layout! 🥶
 <div align="center">
 
 ### Menu Options
-
 <img src="https://i.imgur.com/kng4W3d.png" sytle="text-align: center"/>
 </div>
 
