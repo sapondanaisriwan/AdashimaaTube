@@ -32,6 +32,13 @@ This is why you should consider using Youtube Old Layout! 🥶
 
 ## Screenshots
 
+### Menu Options
+![Menu option](https://i.imgur.com/kng4W3d.png)
+
+
+### Reverted to the old video container.
+![revert watchpage](https://i.imgur.com/LC5kwNe.png)
+
 <!-- Options | Old Video Container | Unrounded Edges | Customizable Color Like/Dislike | Display Full Title For Videos | Clean Video Container
 -|-|-|-|-|-
 ![Menu Options](https://user-images.githubusercontent.com/64634605/201465174-d82fdd1c-ad7d-49e4-8490-068740e5915a.png) | ![Old video container2](https://user-images.githubusercontent.com/64634605/201465226-0035de2d-77fb-4060-b9f8-1597c9df134b.png)![Old video containerr](https://user-images.githubusercontent.com/64634605/201465195-8bb4197f-d7bd-4292-a792-fecd613109cb.png) ! | ![unrounded edge](https://user-images.githubusercontent.com/64634605/201465711-5697fc15-56fd-4bd8-84a2-1f70f91cb850.png) | ![Like/Dislike](https://user-images.githubusercontent.com/64634605/201466070-595e1d5f-f110-4c2e-b995-62904dee905f.png) ![rainbow](https://user-images.githubusercontent.com/64634605/201466478-5a44ef47-6e17-4554-a9c8-ec22fabae0cf.png) | ![Full title](https://user-images.githubusercontent.com/64634605/201466393-8cb91ae8-9f11-44ea-b895-a35303e938fc.png) | ![clean](https://user-images.githubusercontent.com/64634605/201466637-8bd3a0d4-1fae-4dbd-af44-35293ec38603.png) -->
