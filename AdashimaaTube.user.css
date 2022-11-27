@@ -708,7 +708,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     #author-text.yt-simple-endpoint.ytd-comment-renderer {
         font-size: calc(1.3rem + var(--increase-text)) !important;
-    } 
+    }
 
 
 
@@ -721,22 +721,38 @@ Support me: https://ko-fi.com/sapondanaisriwan
         margin-left: 0 !important;
         height: calc(100vh - var(--ytd-toolbar-height));
     }
-    
+
     .immersive-header-container.ytd-playlist-header-renderer {
         margin-bottom: 0 !important;
         border-radius: 0 !important;
     }
 
     ytd-playlist-header-renderer {
-        width: 380px !important;
+        width: 388px !important;
     }
-    
-    #page-manager > ytd-browse > ytd-playlist-header-renderer > div > div.immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer > div {
-        background: #181818 !important;
-    }
-    
 
-    // html, #home-container-media {
+    html[dark] {
+        #page-manager > ytd-browse > ytd-playlist-header-renderer > div > div.immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer > div {
+            background: #181818 !important;
+        }
+        // #contents.ytd-rich-grid-renderer,
+        // #contents.ytd-section-list-renderer {
+        //     background: #222222 !important;
+        //     box-shadow: 0 1px 2px rgba(255,255,255,.1) !important;
+        // }
+        // ytd-app[darker-dark-theme] {
+        //      background: #222222 !important;
+        // }
+    }
+    // #page-manager > ytd-watch-flexy {
+    //     display: block !important;
+    // }
+    
+    html:not([dark]) {
+        #page-manager > ytd-browse > ytd-playlist-header-renderer > div > div.immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer > div {
+            background: #F1F1F1 !important;
+        }
+    } // html, #home-container-media {
     //     --ytd-rich-grid-items-per-row: custom_homepage_videos !important;
     // }
     /*  Youtube fog kids */
