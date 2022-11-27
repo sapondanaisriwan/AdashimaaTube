@@ -399,34 +399,39 @@ Support me: https://ko-fi.com/sapondanaisriwan
     ytd-shorts, // Shots
     #content-section,
     #channel-header-container,
-    ytd-button-renderer {
-        #subscribe ytd-subscribe-button-renderer yt-button-shape button,
-        #subscribe-button ytd-subscribe-button-renderer yt-button-shape button {
-            border-radius: custom_border_radius;
-            color: var(--yt-spec-static-brand-white) !important;
-            background-color: var(--yt-spec-brand-button-background) !important; // color: var(--sub-white--text-btn) !important;
-            // background: var(--sub-red-btn) !important;
-            // background-color: var(--sub-red-btn) !important;
+    ytd-button-renderer,
+    #content-container {
+        #buttons,
+        #subscribe,
+        #subscribe-button {
+            ytd-subscribe-button-renderer yt-button-shape button {
+                border-radius: custom_border_radius;
+                color: var(--yt-spec-static-brand-white) !important;
+                background-color: var(--yt-spec-brand-button-background) !important; // color: var(--sub-white--text-btn) !important;
+                // background: var(--sub-red-btn) !important;
+                // background-color: var(--sub-red-btn) !important;   
+            }
         }
     }
-
     /* Change color of Unsubscribe button */
     #channel, // Channels bar at Profile Channels
     #channel-container, // Profile Channels
     ytd-video-secondary-info-renderer, // Watch Page
     ytd-shorts, // Shots
     #content-section,
-    #channel-header-container {
-        #subscribe ytd-subscribe-button-renderer yt-button-shape button[aria-label^=Unsubscribe],
-        #subscribe-button yt-button-shape button[aria-label^=Unsubscribe] {
-            border-radius: custom_border_radius;
-            color: var(--yt-spec-text-secondary) !important;
-            background-color: var(--yt-spec-badge-chip-background) !important; // color: #82807F !important;
-            // background-color: var(--sub-white--text-btn) !important;
+    #channel-header-container,
+    #content-container {
+        #buttons,
+        #subscribe,
+        #subscribe-button {
+            ytd-subscribe-button-renderer yt-button-shape button[aria-label^=Unsubscribe] {
+                border-radius: custom_border_radius;
+                color: var(--yt-spec-text-secondary) !important;
+                background-color: var(--yt-spec-badge-chip-background) !important; // color: #82807F !important;
+                // background-color: var(--sub-white--text-btn) !important;   
+            }
         }
     }
-
-
 
     /* Removes background color */
     .yt-simple-endpoint.style-scope.ytd-subscription-notification-toggle-button-renderer yt-icon-button {
@@ -437,7 +442,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     .yt-spec-button-shape-next--disabled.yt-spec-button-shape-next--tonal {
         background-color: transparent !important;
     }
-    
+
     .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start::after {
         display: none;
     }
@@ -536,7 +541,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
     /* Gaming */
     ytd-game-details-renderer[rounded] yt-img-shadow.ytd-game-details-renderer ytd-video-preview[rounded-container] #video-preview-container.ytd-video-preview,
     ytd-video-preview[rounded-container] #player-container.ytd-video-preview,
-    ytd-video-preview[rounded-container] #inline-preview-player.ytd-video-preview {
+    ytd-video-preview[rounded-container] #inline-preview-player.ytd-video-preview,
+    ytd-game-details-renderer[rounded] yt-img-shadow.ytd-game-details-renderer {
         border-radius: custom_border_radius !important;
     }
     /* Removes border Community post */
