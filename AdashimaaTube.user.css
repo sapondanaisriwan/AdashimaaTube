@@ -630,50 +630,32 @@ Support me: https://ko-fi.com/sapondanaisriwan
     }
 
     .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline {
-        border: 1px solid #3ea6ff !important;
+        border: 1px solid var(--yt-spec-call-to-action) !important;
     }
     /* Playlist */
     .yt-spec-button-shape-next.yt-spec-button-shape-next--text.yt-spec-button-shape-next--icon-only-default,
     .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--icon-button {
         background-color: transparent !important;
     }
-    /* Reply button */
-    html[dark] {
-        #reply-button-end ytd-button-renderer yt-button-shape button,
-        #reply-button-end > yt-button-renderer > yt-button-shape > button {
-            color: #AAA !important;
-            background: transparent !important;
-            padding: 0;
-        }
-    }
 
-    html:not([dark]) {
-        #reply-button-end ytd-button-renderer yt-button-shape button,
-        #reply-button-end > yt-button-renderer > yt-button-shape > button {
-            color: #606060 !important;
-            background: transparent !important;
-            padding: 0;
-        }
+
+
+    /* Reply button */
+    #reply-button-end ytd-button-renderer yt-button-shape button,
+    #reply-button-end > yt-button-renderer > yt-button-shape > button {
+        color: var(--yt-spec-text-secondary) !important;
+        background: transparent !important;
+        padding: 0;
     }
 
     /* Join button */
-    html:not([dark]) {
-        yt-button-shape button[aria-label="Join this channel"],
-        #buttons ytd-toggle-button-renderer yt-button-shape button {
-            color: #065fd4 !important;
-            border: 1px solid #065fd4 !important;
-            padding: 9px 15px !important;
-        }
+    yt-button-shape button[aria-label="Join this channel"],
+    #buttons ytd-toggle-button-renderer yt-button-shape button {
+        color: var(--yt-spec-call-to-action) !important; // #065fd4
+        border: 1px solid var(--yt-spec-call-to-action) !important;
+        padding: 9px 15px !important;
     }
 
-    html[dark] {
-        yt-button-shape button[aria-label="Join this channel"],
-        #buttons ytd-toggle-button-renderer yt-button-shape button {
-            color: #3ea6ff!important;
-            border: 1px solid #3ea6ff !important;
-            padding: 9px 15px !important;
-        }
-    }
 
 
 
@@ -720,10 +702,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         flex-basis: calc(100%/var(--video-per-row) - 16px - 0.01px);
         min-width: calc(100%/var(--video-per-row) - 16px - 0.01px);
         max-width: calc(100%/var(--video-per-row) - 16px - 0.01px);
-    }
-
-
-    // html, #home-container-media {
+    } // html, #home-container-media {
     //     --ytd-rich-grid-items-per-row: custom_homepage_videos !important;
     // }
     /*  Youtube fog kids */
