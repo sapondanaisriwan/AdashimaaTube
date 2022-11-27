@@ -428,11 +428,16 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
 
 
-    /* Removes background color*/
+    /* Removes background color */
     .yt-simple-endpoint.style-scope.ytd-subscription-notification-toggle-button-renderer yt-icon-button {
         background-color: transparent !important;
     }
 
+    /* Save button (Youtube for kids) */
+    .yt-spec-button-shape-next--disabled.yt-spec-button-shape-next--tonal {
+        background-color: transparent !important;
+    }
+    
     .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start::after {
         display: none;
     }
