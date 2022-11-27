@@ -1,36 +1,42 @@
 
 ## Changelog
 
-### 1.3.5
+### v1.3.7
+- Change "Youtube - Old Layout" to "AdashimaaTube"
+
+### v1.3.6
+- Add some CSS
+
+### v1.3.5
 - Fixed Display full title for videos
 - Add option "Border radius" now you can cumtomize
 
-### 1.3.4
+### v1.3.4
 - Renamed "Custom Like color" to "Like Button Color"
 - Renamed "Custom Dislike color" to "Dislike Button Color"
 - Separate, custom colors for the like/dislike buttons
 - Separate, custom colors for the like/dislike ratio bar
 
-### 1.3.3
+### v1.3.3
 - Add "Number Of Videos Per Row" option
 
-### 1.3.2
+### v1.3.2
 - Add option to display the ratio bar(Beta)
 - Renamed option "Align the search result to center" to "Centered the search result"
 
-### 1.3.1
+### v1.3.1
 - Fixed Like/Dislike on Shotrs
 
-### 1.3.0
+### v1.3.0
 - Fixed Subscribe button
 - Fixed reply button for users of the Light theme at comments section
 - Fixed "Custom Like/Dislike Color" on Shots 
 
-### 1.2.9
+### v1.2.9
 - Fixed aligh the search center results
 - Remove border button at the end of the video
 
-### 1.2.8
+### v1.2.8
 - "Remove Chips" option is disabled by default.
 - Customize the color of the like/dislike button work in the comments section.
 - Remove border while hover video preview
@@ -67,19 +73,19 @@ Someone sent me an email to revert the comment like/dislike buttons
 - When you refresh the page, remove border around the unloaded video thumbnails.
 - You can customize the color of the like/dislike button.
 
-### 1.2.0
+### v1.2.0
 - Add "Dark Navigation Bars" button
 - Add "Old Playlists beta" button
 - Removed borders everything I found.
 
-### 1.1.9 
+### v1.1.9 
 Add some CSS
-### 1.1.8
+### v1.1.8
 - Removed "For light theme user" button
 - Removed border around live chat and unloaded thumbnail
 - Rename "Old playlist" to "Remove background playlist"
 
-### 1.1.5
+### v1.1.5
 - The video title was fixed to display the complete title.
 - Uppercase the text below the video.
 - A list of numbers is shown in front of each video in the playlist.
