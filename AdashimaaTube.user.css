@@ -19,6 +19,7 @@
 @advanced color like_color "  👍 Like Button Color" #3ea6ff
 @advanced color dislike_color "  👎 Dislike Button Color" #3ea6ff
 
+@advanced checkbox add_animation "🎬 Animations" 0
 @advanced checkbox old-dark-theme "🌑 Dark Navigation Bars" 0
 @advanced checkbox revert_playlist "▶️ Revert Playlist" 0
 @advanced checkbox display-full-title "🎦 Display Full Title For Video" 0
@@ -47,6 +48,91 @@ Support me: https://ko-fi.com/sapondanaisriwan
         --sub-black-bg-btn: #303030;
     }
 
+
+    if (add_animation) {
+        @keyframes fadeIn {
+            from {
+                opacity: 0
+            }
+            to {
+                opacity: 1
+            }
+        }
+        @keyframes slideInUp {
+            from {
+                transform: translateY(15px);
+                opacity: 0
+            }
+            to {
+                transform: translateY(0px);
+                opacity: 1
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(15px);
+                opacity: 0
+            }
+            to {
+                transform: translateX(0px);
+                opacity: 1
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(-15px);
+                opacity: 0
+            }
+            to {
+                transform: translateX(0px);
+                opacity: 1
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(.98);
+                opacity: 0;
+            }
+            to {
+                transform: none;
+                opacity: 1;
+            }
+        }
+
+        ytd-rich-grid-media,
+        ytd-compact-video-renderer {
+            animation: slideInUp .7s; // animation: fadeIn .7s;
+        }
+
+        ytd-grid-video-renderer,
+        ytd-rich-item-renderer {
+            animation: slideInUp .7s;
+        }
+
+        ytd-watch-metadata[flex-menu-enabled] #actions.ytd-watch-metadata ytd-menu-renderer.ytd-watch-metadata {
+            animation: slideInLeft .7s !important;
+        }
+
+        #title {
+            animation: slideInRight .7s !important;
+        }
+        // .ytp-chrome-top,
+        // .ytp-chrome-bottom {
+        //     animation: slideUp .5s;
+        // } // ytd-video-renderer {
+        //     animation: bounceIn 15s;
+        // }
+        .ytp-chrome-top,
+        .ytp-chrome-bottom {
+            -webkit-transition: all .3s ease-out !important;
+            transition: all .3s ease-out !important; // top: 100%;
+            // position: relative;
+            // height: 100%;
+        }
+    }
 
 
     /* Ratio bar works with "Return Youtube Dislike" */
