@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/Youtube-Old-Layout
 @supportURL     https://github.com/sapondanaisriwan/Youtube-Old-Layout/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.3.8
+@version        1.3.9
 @license        MIT
 @preprocessor   stylus
 
@@ -19,7 +19,7 @@
 @advanced color like_color "  👍 Like Button Color" #3ea6ff
 @advanced color dislike_color "  👎 Dislike Button Color" #3ea6ff
 
-@advanced checkbox add_animation "🎬 Animations" 0
+@advanced checkbox add_animation "🎬 Animations" 1
 @advanced checkbox old-dark-theme "🌑 Dark Navigation Bars" 0
 @advanced checkbox revert_playlist "▶️ Revert Playlist" 0
 @advanced checkbox display-full-title "🎦 Display Full Title For Video" 0
@@ -50,14 +50,14 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
 
     if (add_animation) {
-        @keyframes fadeIn {
-            from {
-                opacity: 0
-            }
-            to {
-                opacity: 1
-            }
-        }
+        // @keyframes fadeIn {
+        //     from {
+        //         opacity: 0
+        //     }
+        //     to {
+        //         opacity: 1
+        //     }
+        // }
         @keyframes slideInUp {
             from {
                 transform: translateY(15px);
@@ -103,21 +103,26 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
 
         ytd-rich-grid-media,
-        ytd-compact-video-renderer {
-            animation: slideInUp .7s; // animation: fadeIn .7s;
-        }
-
+        ytd-compact-video-renderer,
         ytd-grid-video-renderer,
-        ytd-rich-item-renderer {
+        ytd-rich-item-renderer,
+        ytd-comment-renderer,
+        ytd-compact-playlist-renderer,
+        ytd-grid-renderer,
+        ytd-video-renderer,
+        ytd-reel-item-renderer,
+        ytd-video-secondary-info-renderer,
+        ytd-compact-radio-renderer {
             animation: slideInUp .7s;
         }
 
         ytd-watch-metadata[flex-menu-enabled] #actions.ytd-watch-metadata ytd-menu-renderer.ytd-watch-metadata {
-            animation: slideInLeft .7s !important;
+            animation: slideInLeft .7s ;
         }
 
-        #title {
-            animation: slideInRight .7s !important;
+        .style-scope.ytd-watch-flexy #container #info-text,
+        ytd-watch-metadata > div#above-the-fold > #title {
+            animation: slideInRight .7s ;
         }
         // .ytp-chrome-top,
         // .ytp-chrome-bottom {
@@ -125,13 +130,13 @@ Support me: https://ko-fi.com/sapondanaisriwan
         // } // ytd-video-renderer {
         //     animation: bounceIn 15s;
         // }
-        .ytp-chrome-top,
-        .ytp-chrome-bottom {
-            -webkit-transition: all .3s ease-out !important;
-            transition: all .3s ease-out !important; // top: 100%;
-            // position: relative;
-            // height: 100%;
-        }
+        // .ytp-chrome-top,
+        // .ytp-chrome-bottom {
+        //     -webkit-transition: all .3s ease-out !important;
+        //     transition: all .3s ease-out !important; // top: 100%;
+        //     // position: relative;
+        //     // height: 100%;
+        // }
     }
 
 
