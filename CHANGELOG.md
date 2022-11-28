@@ -1,6 +1,10 @@
 
 ## Changelog
 
+### v1.3.9
+- Add "Animations" option
+- Remove "Increase font size" option because it cause many bugs
+
 ### v1.3.8
 - Fixed unloaded videos per row when refresh the homepage.
 - Add "Revert Playlist" option.
