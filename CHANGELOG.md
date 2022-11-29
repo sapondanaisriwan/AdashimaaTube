@@ -1,6 +1,10 @@
 
 ## Changelog
 
+### v1.4.2
+- Fixed watchpage
+![](https://i.imgur.com/hXXjG4l.png)
+
 ### v1.4.1
 - Fixed color of subscribe button
 - Fixed restore old homepage/playlist
