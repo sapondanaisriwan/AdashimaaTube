@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/Youtube-Old-Layout
 @supportURL     https://github.com/sapondanaisriwan/Youtube-Old-Layout/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.3.9
+@version        1.4.0
 @license        MIT
 @preprocessor   stylus
 
@@ -78,16 +78,19 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
 
         if (restore_old_hp) {
-            a#avatar-link {
+            ytd-rich-grid-media a#avatar-link {
                 display: none;
             }
 
-            ytd-rich-grid-renderer > div#contents.style-scope.ytd-rich-grid-renderer {
-                max-width: calc(100% - 2 * 3vw);
+            ytd-rich-grid-renderer > div#contents {
+                max-width: calc(100% - 2 * 4vw);
             }
 
             #contents > ytd-rich-item-renderer {
                 margin: 0 4px 20px 4px
+            }
+            #contents.ytd-rich-grid-renderer {
+                margin-top: 6px !important;
             }
         }
     }
@@ -771,7 +774,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
         background-color: transparent !important;
     }
 
-
+    /* (chip)buttons to sort the videos */
+    yt-chip-cloud-chip-renderer[modern-chips][chip-style] {
+        border-radius: 5px !important;
+    }
+    
 
     /* Reply button */
     #reply-button-end ytd-button-renderer yt-button-shape button,
@@ -811,55 +818,5 @@ Support me: https://ko-fi.com/sapondanaisriwan
     }
     #hearted-border.ytd-creator-heart-renderer {
         right: 9px !important;
-    } // html, #home-container-media {
-    //     --ytd-rich-grid-items-per-row: homepage_video !important;
-    // }
-    /*  Youtube fog kids */
-    // .yt-spec-button-shape-next--disabled {
-    //     cursor: pointer;
-    // }
-    // #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
-    //     justify-content: flex-start;
-    // }
-    // #hearted-thumbnail.ytd-creator-heart-renderer {
-    //     margin: 0 !important;
-    //     display: block;
-    // }
-    /* Homepage display 6 vidoes per row or it cant be done with css alone so we need js?*/
-    // if (fix-homepage) {
-    // ytd-rich-grid-row #contents {
-    //     display: inline-block;
-    //     margin: 10px 0 0 2%;
-    //     flex-grow: 1;
-    //     width: calc(25% * (1/6) - 10px - 1px);
-    // }
-    // // ytd-rich-grid-media {
-    // //     display: inline-block !important;
-    // // }
-    // ytd-rich-item-renderer {
-    //     width: calc(100% - 10px);
-    // }
-    //     ytd-rich-grid-row {
-    //         display: flex;
-    //         flex-wrap: wrap;
-    //     }
-    //     [page-subtype="home"] ytd-rich-grid-renderer {
-    //         --ytd-rich-grid-items-per-row: 6 !important;
-    //     }
-    // #home-page-skeleton .rich-shelf-videos .rich-grid-media-skeleton.mini-mode,
-    // #home-page-skeleton #home-container-media .rich-grid-media-skeleton.mini-mode {
-    //     flex-basis: calc(100%/6 - 16px - 0.01px);
-    //     min-width: calc(100%/6 - 16px - 0.01px);
-    //     max-width: calc(100%/6 - 16px - 0.01px);
-    // }
-    //     #home-page-skeleton {
-    //         margin-top: 50px;
-    //     }
-    //     #home-page-skeleton .rich-shelf-videos,
-    //     #home-page-skeleton #home-container-media {
-    //         margin-left: 8vw;
-    //         margin-right: 8vw;
-    //         transform: translate(20px, -2px);
-    //     }
-    // }
+    }
 }
