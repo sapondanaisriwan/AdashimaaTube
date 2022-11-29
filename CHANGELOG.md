@@ -1,6 +1,11 @@
 
 ## Changelog
 
+#v1.4.0
+- Add "Custom Homepage" option
+- Add "Restore old homepage"
+- Rename "Revert playlist" to "Restore old playlist"
+
 ### v1.3.9
 - Add "Animations" option
 - Remove "Increase font size" option because it cause many bugs
