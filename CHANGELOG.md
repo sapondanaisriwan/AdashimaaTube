@@ -1,7 +1,11 @@
 
 ## Changelog
 
-#v1.4.0
+### v1.4.1
+- Fixed color of subscribe button
+- Fixed restore old homepage/playlist
+
+### v1.4.0
 - Add "Custom Homepage" option
 - Add "Restore old homepage"
 - Rename "Revert playlist" to "Restore old playlist"
