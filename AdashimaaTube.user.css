@@ -529,46 +529,33 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
 
 
-    /* Add red background color to Subscribed button */
-    #channel, // Channels bar at Profile Channels
-    #channel-container, // Profile Channel
-    ytd-video-secondary-info-renderer, // Watch Page
-    ytd-shorts, // Shots
-    #content-section,
-    #channel-header-container,
-    ytd-button-renderer,
-    #content-container {
-        #buttons,
-        #subscribe,
-        #subscribe-button {
-            ytd-subscribe-button-renderer yt-button-shape button {
-                border-radius: custom_border_radius;
-                color: var(--yt-spec-static-brand-white) !important;
-                background-color: var(--yt-spec-brand-button-background) !important; // color: var(--sub-white--text-btn) !important;
-                // background: var(--sub-red-btn) !important;
-                // background-color: var(--sub-red-btn) !important;   
-            }
+    /* Subscribed button */
+    #subscribe,
+    #subscribe-button {
+        /* Red Subscribed button */
+        yt-button-shape button {
+            border-radius: custom_border_radius;
+            color: var(--yt-spec-static-brand-white) !important;
+            background-color: var(--yt-spec-brand-button-background) !important;
+        }
+        /* Unsubscribe button */
+        yt-button-shape button[aria-label^=Unsubscribe] {
+            border-radius: custom_border_radius;
+            color: var(--yt-spec-text-secondary) !important;
+            background-color: var(--yt-spec-badge-chip-background) !important;
         }
     }
-    /* Change color of Unsubscribe button */
-    #channel, // Channels bar at Profile Channels
-    #channel-container, // Profile Channels
-    ytd-video-secondary-info-renderer, // Watch Page
-    ytd-shorts, // Shots
-    #content-section,
-    #channel-header-container,
-    #content-container {
-        #buttons,
-        #subscribe,
-        #subscribe-button {
-            ytd-subscribe-button-renderer yt-button-shape button[aria-label^=Unsubscribe] {
-                border-radius: custom_border_radius;
-                color: var(--yt-spec-text-secondary) !important;
-                background-color: var(--yt-spec-badge-chip-background) !important; // color: #82807F !important;
-                // background-color: var(--sub-white--text-btn) !important;   
-            }
-        }
+
+    /* Shot Unsubscribe button */
+    html[dark] ytd-shorts #subscribe-button yt-button-shape button[aria-label^=Unsubscribe] {
+        background-color: var(--sub-black-bg-btn) !important;
     }
+    html:not([dark]) ytd-shorts #subscribe-button yt-button-shape button[aria-label^=Unsubscribe] {
+        background-color: var(--sub-white--text-btn) !important;
+    }
+
+
+
 
     /* Removes background color */
     .yt-simple-endpoint.style-scope.ytd-subscription-notification-toggle-button-renderer yt-icon-button {
