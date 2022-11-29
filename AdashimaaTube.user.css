@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/Youtube-Old-Layout
 @supportURL     https://github.com/sapondanaisriwan/Youtube-Old-Layout/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.4.0
+@version        1.4.1
 @license        MIT
 @preprocessor   stylus
 
@@ -83,15 +83,16 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 display: none;
             }
 
-            [page-subtype="home"] ytd-rich-grid-renderer > div#contents {
-                max-width: calc(100% - 2 * 3vw);
-            }
-
-            [page-subtype="home"] #contents > ytd-rich-item-renderer {
-                margin: 0 4px 20px 4px
-            }
-            [page-subtype="home"] #contents.ytd-rich-grid-renderer {
-                margin-top: 6px !important;
+            [page-subtype="home"] {
+                ytd-rich-grid-renderer > div#contents {
+                    max-width: calc(100% - 2 * 3vw);
+                }
+                #contents > ytd-rich-item-renderer {
+                    margin: 0 4px 20px 4px
+                }
+                #contents.ytd-rich-grid-renderer {
+                    margin-top: 6px !important;
+                }
             }
         }
     }
