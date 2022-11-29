@@ -10,23 +10,18 @@
 @license        MIT
 @preprocessor   stylus
 
+@advanced range custom_homepage_videos'🏠 Number Of Videos Per Row' [5, 1, 10, 1]
 @advanced range custom_border_radius "⚙️ Border Radius" [0, 0, 24, 1, 'px']
-
-@advanced select cutom_homepage "⚒️ Custom Homepage" ["Enabled", "Disabled"]
-@advanced range hp_video_per_row "  🏠 Number Of Videos Per Row" [5, 1, 10, 1]
-@advanced checkbox restore_old_hp "  🏠 Restore Old Homepage" 1
-
 @advanced select ratio_bar "⚒️ Display Ratio Bar (Beta)" ["Enabled", "Disabled"]
 @advanced color like_rb_color "  🎨 Like Ratio Color" #32CD32
 @advanced color dislike_rb_color "  🎨 Dislike Ratio Color" #FF0000
-
 @advanced select like_dislike_color "⚒️ Custom Like/Dislike Button Color" ["Enabled", "Disabled"]
 @advanced color like_color "  👍 Like Button Color" #3ea6ff
 @advanced color dislike_color "  👎 Dislike Button Color" #3ea6ff
 
 @advanced checkbox add_animation "🎬 Animations" 1
 @advanced checkbox old-dark-theme "🌑 Dark Navigation Bars" 0
-@advanced checkbox restore_old_playlist "▶️ Restore Old Playlist" 0
+@advanced checkbox revert_playlist "▶️ Revert Playlist" 0
 @advanced checkbox display-full-title "🎦 Display Full Title For Video" 0
 @advanced checkbox fix-search-results  "🔎 Centered The Search Results" 0
 @advanced checkbox remove-text-btn "❌ Remove Text On Buttons" 0
@@ -47,50 +42,12 @@ Support me: https://ko-fi.com/sapondanaisriwan
 @-moz-document domain("youtube.com") {
 
     :root {
-        --video-per-row: hp_video_per_row;
+        --video-per-row: custom_homepage_videos;
         --sub-red-btn: #CC0000;
         --sub-white--text-btn: #F2F2F2;
         --sub-black-bg-btn: #303030;
     }
 
-    /* Home page */
-    if (cutom_homepage=="Enabled") {
-
-        /* Custom videos per row on homepage */
-        [page-subtype="home"] ytd-rich-grid-renderer {
-            --ytd-rich-grid-items-per-row: var(--video-per-row) !important;
-        }
-
-        /* Makes the container/spacing disappear */
-        ytd-rich-grid-renderer #contents {
-            ytd-rich-grid-row,
-            ytd-rich-grid-row #contents {
-                display: contents;
-            }
-        }
-
-        /* Display unloaded videos per row when refresh the homepage */
-        #home-page-skeleton .rich-shelf-videos .rich-grid-media-skeleton.mini-mode,
-        #home-page-skeleton #home-container-media .rich-grid-media-skeleton.mini-mode {
-            flex-basis: calc(100%/var(--video-per-row) - 16px - 0.01px);
-            min-width: calc(100%/var(--video-per-row) - 16px - 0.01px);
-            max-width: calc(100%/var(--video-per-row) - 16px - 0.01px);
-        }
-
-        if (restore_old_hp) {
-            a#avatar-link {
-                display: none;
-            }
-
-            ytd-rich-grid-renderer > div#contents.style-scope.ytd-rich-grid-renderer {
-                max-width: calc(100% - 2 * 3vw);
-            }
-
-            #contents > ytd-rich-item-renderer {
-                margin: 0 4px 20px 4px
-            }
-        }
-    }
 
     if (add_animation) {
         // @keyframes fadeIn {
@@ -160,13 +117,14 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
 
         ytd-watch-metadata[flex-menu-enabled] #actions.ytd-watch-metadata ytd-menu-renderer.ytd-watch-metadata {
-            animation: slideInLeft .7s;
+            animation: slideInLeft .7s ;
         }
 
         .style-scope.ytd-watch-flexy #container #info-text,
         ytd-watch-metadata > div#above-the-fold > #title {
-            animation: slideInRight .7s;
-        } // .ytp-chrome-top,
+            animation: slideInRight .7s ;
+        }
+        // .ytp-chrome-top,
         // .ytp-chrome-bottom {
         //     animation: slideUp .5s;
         // } // ytd-video-renderer {
@@ -318,7 +276,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
 
     /* Youtube Playlist */
-    if (restore_old_playlist) {
+    if (revert_playlist) {
         // yt-img-shadow[fit-width] img.yt-img-shadow,
         // .immersive-header-gradient.style-scope.ytd-playlist-header-renderer,
         // .immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer {
@@ -811,8 +769,32 @@ Support me: https://ko-fi.com/sapondanaisriwan
     }
     #hearted-border.ytd-creator-heart-renderer {
         right: 9px !important;
+    }
+
+
+
+    /* Home page */
+    /* Custom videos per row on homepage */
+    [page-subtype="home"] ytd-rich-grid-renderer {
+        --ytd-rich-grid-items-per-row: custom_homepage_videos !important;
+    }
+
+    /* Makes the container/spacing disappear */
+    ytd-rich-grid-renderer #contents {
+        ytd-rich-grid-row,
+        ytd-rich-grid-row #contents {
+            display: contents;
+        }
+    }
+
+    /* Display unloaded videos per row when refresh the homepage */
+    #home-page-skeleton .rich-shelf-videos .rich-grid-media-skeleton.mini-mode,
+    #home-page-skeleton #home-container-media .rich-grid-media-skeleton.mini-mode {
+        flex-basis: calc(100%/var(--video-per-row) - 16px - 0.01px);
+        min-width: calc(100%/var(--video-per-row) - 16px - 0.01px);
+        max-width: calc(100%/var(--video-per-row) - 16px - 0.01px);
     } // html, #home-container-media {
-    //     --ytd-rich-grid-items-per-row: homepage_video !important;
+    //     --ytd-rich-grid-items-per-row: custom_homepage_videos !important;
     // }
     /*  Youtube fog kids */
     // .yt-spec-button-shape-next--disabled {
