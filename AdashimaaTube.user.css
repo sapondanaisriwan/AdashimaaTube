@@ -436,7 +436,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
         ytd-rich-grid-media[mini-mode] #video-title.ytd-rich-grid-media,
         #video-title.ytd-compact-video-renderer,
         #video-title.ytd-rich-grid-media,
-        ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer {
+        ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer,
+        #video-title.ytd-video-renderer,
+        #video-title.ytd-rich-grid-slim-media,
+        #video-title.ytd-grid-playlist-renderer,
+        #video-title.ytd-reel-item-renderer {
             display: inline !important;
         }
     }
@@ -603,7 +607,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     .yt-spec-touch-feedback-shape__fill {
         background-color: transparent !important;
     }
-    /* Solved reply button */
+    /* Fixed reply button */
     .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text {
         background-color: transparent !important;
     }
@@ -806,6 +810,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
         padding: 0;
     }
 
+    .more-button.ytd-backstage-post-renderer,
+    .less-button.ytd-backstage-post-renderer {
+        color: var(--yt-spec-text-secondary) !important;
+    }
+
     /* Join button */
     yt-button-shape button[aria-label="Join this channel"],
     #buttons ytd-toggle-button-renderer yt-button-shape button {
@@ -815,11 +824,16 @@ Support me: https://ko-fi.com/sapondanaisriwan
     }
 
 
-
+    /* Post button*/
+    #post-button yt-button-shape button {
+        background-color: var(--yt-spec-call-to-action) !important; // #065fd4
+    }
 
     /* Revert comment and like/dislike btn */
     #like-button svg,
-    #dislike-button svg {
+    #dislike-button svg,
+    #reply-button-end svg {
+        // color: #AAA !important
         width: 18px !important;
         height: 18px !important;
     }
