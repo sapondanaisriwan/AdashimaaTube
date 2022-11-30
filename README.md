@@ -60,7 +60,7 @@ This is why you should consider using AdashimaaTube! 🥶
 | **Custom Number of Videos Per Row on Homepage** | **Display Full Title For Videos**  | **Centered The Search Results**  |
 | ![](https://i.imgur.com/CewLqcQ.png)  |   ![](https://i.imgur.com/7bzDqov.png)    | ![](https://i.imgur.com/KGxGBaK.png)  |
 | **Display the videos index in playlists** | **Custom Like/Dislike Buttons Color**  | **More Animations**  |
-| ![](https://i.imgur.com/CP8ZCvc.jpg)  |   ![](https://i.imgur.com/sCda3m1.png)    | ![](https://i.imgur.com/pNAxNBp.gif)  |
+| ![](https://i.imgur.com/CP8ZCvc.jpg)  |   ![](https://i.imgur.com/sCda3m1.png)    | ![](https://user-images.githubusercontent.com/64634605/204840268-319b8ab0-0cce-4012-b91a-61925f7c0357.gif)  |
 
 <!-- | Reverted Video Container | Unrounded Edges | 
 |     :---:      |     :---:      |
