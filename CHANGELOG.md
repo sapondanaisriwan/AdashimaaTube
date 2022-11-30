@@ -1,6 +1,9 @@
 
 ## Changelog
 
+### v1.4.4
+- Fixed Subscribe button Inprivate browsing
+
 ### v1.4.3
 - Fixed "Increase video per row" on channel page
 
