@@ -1,6 +1,9 @@
 
 ## Changelog
 
+### v1.4.3
+- Fixed "Increase video per row" on channel page
+
 ### v1.4.2
 - Fixed watchpage
 ![](https://i.imgur.com/hXXjG4l.png)
