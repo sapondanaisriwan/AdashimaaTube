@@ -429,18 +429,26 @@ Support me: https://ko-fi.com/sapondanaisriwan
             padding-left: 8px;
         }
     }
-    
-    
-    
+
+
+
+    /* Remove shorts Don't waste your time with this shit */
+    /* I can't find the way to remove all shorts using css alone / removeAttribute()????? */
     if (remove_shorts) {
         #items ytd-guide-entry-renderer a#endpoint[title="Shorts"],
         #items ytd-mini-guide-entry-renderer[aria-label="Shorts"],
         ytd-video-renderer :has(a#thumbnail[href*="/shorts/"]) {
             display: none;
         }
+        ytd-rich-grid-media,
+        ytd-video-renderer {
+            :has(a#thumbnail[href*="/shorts/"]) {
+                display: none;
+            }
+        }
     }
-    
-    
+
+
 
     /* Display full title of video on wacthcpage */
     if (display-full-title) {
