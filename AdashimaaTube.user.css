@@ -29,8 +29,9 @@
 @advanced checkbox restore_old_playlist "▶️ Restore Old Playlist" 0
 @advanced checkbox display-full-title "🎦 Display Full Title For Videos" 0
 @advanced checkbox fix-search-results  "🔎 Centered The Search Results" 0
-@advanced checkbox remove-text-btn "❌ Remove Text On Buttons" 0
+@advanced checkbox remove_shorts "❌ Remove Shorts" 0
 @advanced checkbox remove-chips "❌ Remove Taps" 0
+@advanced checkbox remove-text-btn "❌ Remove Text On Buttons" 0
 @advanced checkbox hide-share-btn "🫣 Hide Share Button" 0
 @advanced checkbox hide-download-btn "🫣 Hide Download Button" 0
 @advanced checkbox hide-clip-btn "🫣 Hide Clip Button" 0
@@ -86,7 +87,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
             [page-subtype="channels"] {
                 #contents > ytd-rich-item-renderer {
-                    margin: 0 4px 20px 4px
+                    margin: 0 4px 24px 4px !important;
                 }
             }
 
@@ -100,7 +101,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     max-width: calc(100% - 2 * 3vw);
                 }
                 #contents > ytd-rich-item-renderer {
-                    margin: 0 4px 20px 4px
+                    margin: 0 4px 24px 4px
                 }
                 #contents.ytd-rich-grid-renderer {
                     margin-top: 6px !important;
@@ -428,8 +429,18 @@ Support me: https://ko-fi.com/sapondanaisriwan
             padding-left: 8px;
         }
     }
-
-
+    
+    
+    
+    if (remove_shorts) {
+        #items ytd-guide-entry-renderer a#endpoint[title="Shorts"],
+        #items ytd-mini-guide-entry-renderer[aria-label="Shorts"],
+        ytd-video-renderer :has(a#thumbnail[href*="/shorts/"]) {
+            display: none;
+        }
+    }
+    
+    
 
     /* Display full title of video on wacthcpage */
     if (display-full-title) {
