@@ -1,5 +1,8 @@
 
 ## Changelog
+### v1.4.6
+- Add "Remove Shorts" Option
+
 ### v1.4.5
 - Rename "Remove Chips" to "Remove Taps"
 - Add color to post button
