@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/Youtube-Old-Layout
 @supportURL     https://github.com/sapondanaisriwan/Youtube-Old-Layout/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.4.4
+@version        1.4.5
 @license        MIT
 @preprocessor   stylus
 
@@ -27,7 +27,7 @@
 @advanced checkbox add_animation "🎬 More Animations" 1
 @advanced checkbox old-dark-theme "🌑 Dark Navigation Bars" 0
 @advanced checkbox restore_old_playlist "▶️ Restore Old Playlist" 0
-@advanced checkbox display-full-title "🎦 Display Full Title For Video" 0
+@advanced checkbox display-full-title "🎦 Display Full Title For Videos" 0
 @advanced checkbox fix-search-results  "🔎 Centered The Search Results" 0
 @advanced checkbox remove-text-btn "❌ Remove Text On Buttons" 0
 @advanced checkbox remove-chips "❌ Remove Taps" 0
