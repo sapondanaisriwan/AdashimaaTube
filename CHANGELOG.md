@@ -1,5 +1,9 @@
 
 ## Changelog
+### v1.4.5
+- Rename "Remove Chips" to "Remove Taps"
+- Add color to post button
+- Fixed something that was broken(i forgot it)
 
 ### v1.4.4
 - Fixed Subscribe button Inprivate browsing
