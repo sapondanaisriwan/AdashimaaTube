@@ -1,5 +1,7 @@
 
 ## Changelog
+
+### v1.4.7
 - Remove some shorts video on homepage
 - Fixed live chat border
 

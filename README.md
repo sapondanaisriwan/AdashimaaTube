@@ -24,6 +24,7 @@ Restore old Youtube layout in 2021-2022 with many customizable options.
   - [Contributing](#contributing)
   - [FAQ](#faq)
       - [Q: How to customize colors and enabled/disabled other options?](#q-how-to-customize-colors-and-enableddisabled-other-options)
+      - [Q: Why certain options don't work?](#q-why-certain-options-dont-work)
   - [Supported extensions](#supported-extensions)
   - [Feedback](#feedback)
   - [License](#license)
@@ -85,6 +86,10 @@ If you like this project you can tip me for my hard work at
 #### Q: How to customize colors and enabled/disabled other options?
 
 A: You may configure everything by selecting the Stylus icon from your toolbar and then selecting the configure button.
+
+#### Q: Why certain options don't work?
+
+A: Because the selector can select the elements that are in English and no other language. You must switch the language on YouTube to English for it to work.
 
 ## Supported extensions
 - [Return YouTube Dislike](https://www.returnyoutubedislike.com/)
