@@ -93,6 +93,7 @@ A: Because the selector can select the elements that are in English and no other
 
 ## Supported extensions
 - [Return YouTube Dislike](https://www.returnyoutubedislike.com/)
+- [uBlock Origin](https://ublockorigin.com/)
 
 ## Feedback
 If you have any feedback, please reach out to me at sapondanaisriwan@gmail.com

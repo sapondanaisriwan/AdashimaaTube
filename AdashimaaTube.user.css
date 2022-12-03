@@ -31,7 +31,8 @@
 @advanced checkbox fix-search-results  "🔎 Centered The Search Results" 0
 @advanced checkbox remove_shorts "❌ Remove Shorts (Beta)" 0
 @advanced checkbox remove-chips "❌ Remove Taps" 0
-@advanced checkbox remove-text-btn "❌ Remove Text On Buttons" 0
+@advanced checkbox remove_comment "❌ Remove Comments" 0
+@advanced checkbox hide-text-btn "🫣 Hide Text On Buttons" 0
 @advanced checkbox hide-share-btn "🫣 Hide Share Button" 0
 @advanced checkbox hide-download-btn "🫣 Hide Download Button" 0
 @advanced checkbox hide-clip-btn "🫣 Hide Clip Button" 0
@@ -54,6 +55,12 @@ Support me: https://ko-fi.com/sapondanaisriwan
         --sub-black-bg-btn: #303030;
     }
 
+    if (remove_comment) {
+        ytd-comments {
+            display: none;
+        }
+    }
+
     /* Home page */
     if (cutom_homepage=="Enabled") {
 
@@ -70,6 +77,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     }
                 }
             }
+        }
+
+        ytd-rich-section-renderer {
+            display: contents;
         }
 
         /* Display unloaded videos per row when refresh the homepage */
@@ -419,7 +430,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
 
     /* Removes text on all buttons except for like/dislike buttons */
-    if (remove-text-btn) {
+    if (hide-text-btn) {
         #menu-container ytd-button-renderer yt-button-shape button span,
         #flexible-item-buttons yt-button-shape button span,
         #top-level-buttons-computed > ytd-button-renderer > yt-button-shape > button > div.cbox.yt-spec-button-shape-next--button-text-content > span {
@@ -474,8 +485,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     /* Center the search results */
     if (fix-search-results) {
         ytd-two-column-search-results-renderer {
-            align-items: center; 
-            // margin: 0 auto !important;
+            align-items: center; // margin: 0 auto !important;
         }
     }
 
@@ -557,8 +567,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     /* Removes border */
     .yt-spec-button-shape-next--size-m,
     .yt-spec-touch-feedback-shape__stroke {
-        border-radius: custom_border_radius !important;
-        // border: none !important;
+        border-radius: custom_border_radius !important; // border: none !important;
     }
 
     /* Removes spacing between icons */
@@ -691,9 +700,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     ytd-miniplayer[rounded-container] #card.ytd-miniplayer,
     ytd-miniplayer[rounded-container] {
         border-radius: custom_border_radius !important;
-    }
-
-    // #show-hide-button > ytd-toggle-button-renderer > yt-button-shape > button > yt-touch-feedback-shape > div > div.yt-spec-touch-feedback-shape__fill
+    } // #show-hide-button > ytd-toggle-button-renderer > yt-button-shape > button > yt-touch-feedback-shape > div > div.yt-spec-touch-feedback-shape__fill
     /* Removes border around Live chat */
     ytd-live-chat-frame[rounded-container],
     ytd-live-chat-frame[rounded-container] #show-hide-button.ytd-live-chat-frame ytd-toggle-button-renderer.ytd-live-chat-frame,
@@ -702,7 +709,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     #chatframe {
         border-radius: custom_border_radius !important;
     }
-    
+
     /* Removes border around pop up */
     ytd-menu-popup-renderer[sheets-refresh],
     tp-yt-paper-dialog[modern] {
