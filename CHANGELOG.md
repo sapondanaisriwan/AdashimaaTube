@@ -1,5 +1,8 @@
 
 ## Changelog
+- Remove some shorts video on homepage
+- Fixed live chat border
+
 ### v1.4.6
 - Add "Remove Shorts" Option
 
