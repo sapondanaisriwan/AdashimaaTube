@@ -437,14 +437,19 @@ Support me: https://ko-fi.com/sapondanaisriwan
     if (remove_shorts) {
         #items ytd-guide-entry-renderer a#endpoint[title="Shorts"],
         #items ytd-mini-guide-entry-renderer[aria-label="Shorts"],
-        ytd-video-renderer :has(a#thumbnail[href*="/shorts/"]) {
+        ytd-video-renderer :has(a#thumbnail[href*="/shorts/"]),
+        ytd-rich-shelf-renderer[is-shorts] {
             display: none;
         }
         ytd-rich-grid-media,
-        ytd-video-renderer {
-            :has(a#thumbnail[href*="/shorts/"]) {
-                display: none;
+        ytd-video-renderer,
+        ytd-rich-item-renderer {
+            :has(a[href*="/shorts/"]) {
+                display: none !important;
             }
+        }
+        #contents > ytd-rich-item-renderer :has(a[href*="/shorts/"]) {
+            display: none!important;
         }
     }
 
@@ -469,7 +474,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
     /* Center the search results */
     if (fix-search-results) {
         ytd-two-column-search-results-renderer {
-            align-items: center; // margin: 0 auto !important;
+            align-items: center; 
+            // margin: 0 auto !important;
         }
     }
 
@@ -695,6 +701,12 @@ Support me: https://ko-fi.com/sapondanaisriwan
     #chatframe {
         border-radius: custom_border_radius !important;
     }
+    
+    #show-hide-button.ytd-live-chat-frame>ytd-button-renderer.ytd-live-chat-frame, #show-hide-button.ytd-live-chat-frame>ytd-toggle-button-renderer.ytd-live-chat-frame {
+        background-color: var(--yt-spec-brand-background-primary) !important;
+    }
+    
+    
     /* Removes border around pop up */
     ytd-menu-popup-renderer[sheets-refresh],
     tp-yt-paper-dialog[modern] {
