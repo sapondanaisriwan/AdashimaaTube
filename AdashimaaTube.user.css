@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/Youtube-Old-Layout
 @supportURL     https://github.com/sapondanaisriwan/Youtube-Old-Layout/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.4.6
+@version        1.4.7
 @license        MIT
 @preprocessor   stylus
 
@@ -558,7 +558,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     .yt-spec-button-shape-next--size-m,
     .yt-spec-touch-feedback-shape__stroke {
         border-radius: custom_border_radius !important;
-        border: none !important;
+        // border: none !important;
     }
 
     /* Removes spacing between icons */
@@ -693,6 +693,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         border-radius: custom_border_radius !important;
     }
 
+    // #show-hide-button > ytd-toggle-button-renderer > yt-button-shape > button > yt-touch-feedback-shape > div > div.yt-spec-touch-feedback-shape__fill
     /* Removes border around Live chat */
     ytd-live-chat-frame[rounded-container],
     ytd-live-chat-frame[rounded-container] #show-hide-button.ytd-live-chat-frame ytd-toggle-button-renderer.ytd-live-chat-frame,
@@ -701,11 +702,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
     #chatframe {
         border-radius: custom_border_radius !important;
     }
-    
-    #show-hide-button.ytd-live-chat-frame>ytd-button-renderer.ytd-live-chat-frame, #show-hide-button.ytd-live-chat-frame>ytd-toggle-button-renderer.ytd-live-chat-frame {
-        background-color: var(--yt-spec-brand-background-primary) !important;
-    }
-    
     
     /* Removes border around pop up */
     ytd-menu-popup-renderer[sheets-refresh],
