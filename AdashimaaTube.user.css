@@ -460,7 +460,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
         }
         #contents > ytd-rich-item-renderer :has(a[href*="/shorts/"]) {
-            display: none!important;
+            display: none !important;
         }
     }
 
@@ -589,28 +589,25 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
 
     /* Subscribed button */
-    #subscribe,
-    #subscribe-button {
-        yt-button-shape {
-
-            /* Red Subscribed button */
-            button,
-            a[aria-label="Subscribe"] {
-                /* InPrivate */
-                border-radius: custom_border_radius;
-                color: var(--yt-spec-static-brand-white) !important;
-                background-color: var(--yt-spec-brand-button-background) !important;
+        #subscribe,
+        #subscribe-button {
+            yt-button-shape {
+                button,
+                a[aria-label="Subscribe"] {
+                    /* InPrivate */
+                    border-radius: custom_border_radius;
+                    color: var(--yt-spec-static-brand-white) !important;
+                    background-color: var(--yt-spec-brand-button-background) !important;
+                }
+                /* Unsubscribe button */
+                button[aria-label^=Unsubscribe],
+                button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
+                    border-radius: custom_border_radius;
+                    color: var(--yt-spec-text-secondary) !important;
+                    background-color: var(--yt-spec-badge-chip-background) !important;
+                }
             }
-
-            /* Unsubscribe button */
-            button[aria-label^=Unsubscribe] {
-                border-radius: custom_border_radius;
-                color: var(--yt-spec-text-secondary) !important;
-                background-color: var(--yt-spec-badge-chip-background) !important;
-            }
-        }
-    }
-
+        } 
 
     /* Shot Unsubscribe button */
     html[dark] ytd-shorts #subscribe-button yt-button-shape button[aria-label^=Unsubscribe] {
@@ -799,6 +796,28 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     /* Removes border around search box */
     .sbdd_b {
+        border-radius: custom_border_radius !important;
+    }
+
+    ytd-expandable-metadata-renderer[round-container] {
+        border-radius: custom_border_radius !important;
+    }
+
+    /* Timestamp */
+    ytd-macro-markers-list-item-renderer[modern][rounded][layout=MACRO_MARKERS_LIST_ITEM_RENDERER_LAYOUT_VERTICAL] {
+        border-radius: custom_border_radius !important;
+    }
+
+    /* Not interested */
+    ytd-rich-grid-media[rounded-container] #dismissed.ytd-rich-grid-media,
+    #dismissed.ytd-compact-video-renderer {
+        border-radius: custom_border_radius !important;
+    }
+
+    /* Inform news such as covid19 */
+    ytd-clarification-renderer[round-container],
+    ytd-info-panel-container-renderer[rounded-container][has-title] .header.ytd-info-panel-container-renderer,
+    ytd-medical-panel-content-renderer[rounded-container] {
         border-radius: custom_border_radius !important;
     }
 
