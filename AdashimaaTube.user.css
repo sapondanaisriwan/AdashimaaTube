@@ -659,7 +659,32 @@ Support me: https://ko-fi.com/sapondanaisriwan
             button[aria-label^="Inscreva-se em"],
             button[aria-label^="Abonează-te la"],
             button[aria-label^="Prenumerera på"],
-            {
+            button[aria-label^="Հետևել"],
+            button[aria-label^="הרשמה למינוי לערוץ"],
+            button[aria-label$="کو سبسکرائب کریں۔"],
+            button[aria-label^="يمكنك الاشتراك في قناة"],
+            button[aria-label^="مشترک شدن در"],
+            button[aria-label$="को सदस्यता लिनुहोस्।"],
+            button[aria-label$="चे सदस्यत्व घ्या."],
+            button[aria-label$="के सदस्य बनें."],
+            button[aria-label$="ৰ সদস্য হওক।"],
+            button[aria-label$="এ সাবস্ক্রাইব করুন।"],
+            button[aria-label$="ਨੂੰ ਸਬਸਕ੍ਰਾਈਬ ਕਰੋ।"],
+            button[aria-label$="પર સબ્સ્ક્રાઇબ કરો."],
+            button[aria-label$="ସବ୍‍ସ୍କ୍ରାଇବ୍‍ କରିବେ।"],
+            button[aria-label$="சேனலில் குழுசேர்க."],
+            button[aria-label$="సబ్‌స్క్రయిబ్ చేయండి."],
+            button[aria-label$="ಗೆ ಸಬ್‌ಸ್ಕ್ರೈಬ್ ಮಾಡಿ."],
+            button[aria-label$="എന്ന ചാനലിന്‍റെ വരിക്കാരാവുക."],
+            button[aria-label$="වෙත දායක වන්න."],
+            button[aria-label^="ຕິດຕາມ"],
+            button[aria-label$="တွင် စာရင်းသွင်းရန်။"],
+            button[aria-label$="გამოწერა."],
+            button[aria-label^="订阅"], // button[aria-label="ជា&ZeroWidthSpace;វ&ZeroWidthSpace; Elegant Sister (ES) ។"]
+            button[aria-label^="訂閱"],
+            button[aria-label^="ይመዝገቡ።"],
+            button[aria-label$="をチャンネル登録"],
+            button[aria-label$="을(를) 구독합니다."]  {
                 border-radius: custom_border_radius;
                 color: var(--yt-spec-static-brand-white) !important;
                 background-color: var(--yt-spec-brand-button-background) !important;
@@ -792,7 +817,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     .iv-card.ytp-rounded-info {
         border-radius: custom_border_radius !important;
     }
-    
+
     /* Gaming */
     ytd-game-details-renderer[rounded] yt-img-shadow.ytd-game-details-renderer ytd-video-preview[rounded-container] #video-preview-container.ytd-video-preview,
     ytd-video-preview[rounded-container] #player-container.ytd-video-preview,
