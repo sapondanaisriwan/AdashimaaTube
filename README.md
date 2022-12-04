@@ -14,23 +14,24 @@ Restore old Youtube layout in 2021-2022 with many customizable options.
  <img src="https://raw.githubusercontent.com/sapondanaisriwan/Youtube-Old-Layout/master/images/Cover2.jpg" width="100%"/>
 </div>
 
-## Table of Contents
+## 📚 Table of Contents
 - [AdashimaaTube](#adashimaatube)
-  - [Table of Contents](#table-of-contents)
-  - [Features](#features)
-    - [Menu Options](#menu-options)
-  - [Screenshots](#screenshots)
-  - [Installation](#installation)
-  - [Contributing](#contributing)
-  - [FAQ](#faq)
-      - [Q: How to customize colors and enabled/disabled other options?](#q-how-to-customize-colors-and-enableddisabled-other-options)
-      - [Q: Why certain options don't work?](#q-why-certain-options-dont-work)
-  - [Supported extensions](#supported-extensions)
-  - [Feedback](#feedback)
-  - [License](#license)
+  - [📚 Table of Contents](#-table-of-contents)
+  - [⭐ Features](#-features)
+    - [🔧 Menu Options](#-menu-options)
+  - [📷 Screenshots](#-screenshots)
+  - [📂 Installation](#-installation)
+  - [🧑‍💻 Contributing](#-contributing)
+  - [⁉️ FAQ](#️-faq)
+      - [💬 How to customize colors and enabled/disabled other options?](#-how-to-customize-colors-and-enableddisabled-other-options)
+      - [💬 Why certain options don't work?](#-why-certain-options-dont-work)
+  - [✅ Supported extensions](#-supported-extensions)
+  - [💰 Support me](#-support-me)
+  - [✉️ Feedback](#️-feedback)
+  - [©️ License](#️-license)
 
 
-## Features
+## ⭐ Features
 This is why you should consider using AdashimaaTube! 🥶
 - More Animations
 - Red subscribe button.
@@ -50,11 +51,11 @@ This is why you should consider using AdashimaaTube! 🥶
 
 <div align="center">
 
-### Menu Options
+### 🔧 Menu Options
 <img src="https://i.imgur.com/8cJrmv1.png" sytle="text-align: center"/>
 </div>
 
-## Screenshots
+## 📷 Screenshots
 | Restore Old Video Container | The Unrounded Edges | Clean Video Container |
 |     :---:      |     :---:      |     :---:      |
 | ![](https://i.imgur.com/LC5kwNe.png)  | ![](https://i.imgur.com/8IKW7AE.jpeg)     | ![](https://i.imgur.com/yaT9fMp.png)  |
@@ -69,34 +70,35 @@ This is why you should consider using AdashimaaTube! 🥶
 | 6 Videos Per Row On Homepage | Display Full Title For Videos  |
 | ![](https://i.imgur.com/PtR5ABL.jpeg)  |   ![](https://i.imgur.com/7bzDqov.png)    | -->
 
-## Installation
+## 📂 Installation
 You have to install [Stylus](https://add0n.com/stylus.html) and then click on the install link below or watch the [Tutorial](https://www.youtube.com/watch?v=Fpmw1Vh7sz8&t).
 
 [![Install Stylus](https://img.shields.io/badge/Install%20directly%20with-Stylus-116b59.svg?longCache=true&style=fla)](https://userstyles.world/api/style/6944.user.css)
 
-## Contributing
+##  🧑‍💻 Contributing
 Any contribution is greatly appreciated.
 
+## ⁉️ FAQ
+
+#### 💬 How to customize colors and enabled/disabled other options?
+
+You may configure everything by selecting the Stylus icon from your toolbar and then selecting the configure button.
+
+#### 💬 Why certain options don't work?
+
+Because I use specific selector the elements that are in English and no other languages. You must switch the language on YouTube to English for it to work.
+
+## ✅ Supported extensions
+- [Return YouTube Dislike](https://www.returnyoutubedislike.com/)
+- [uBlock Origin](https://ublockorigin.com/)
+
+## 💰 Support me
 If you like this project you can tip me for my hard work at 
 
 [![ko-fi.com](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/sapondanaisriwan)
 
-## FAQ
-
-#### Q: How to customize colors and enabled/disabled other options?
-
-A: You may configure everything by selecting the Stylus icon from your toolbar and then selecting the configure button.
-
-#### Q: Why certain options don't work?
-
-A: Because the selector can select the elements that are in English and no other language. You must switch the language on YouTube to English for it to work.
-
-## Supported extensions
-- [Return YouTube Dislike](https://www.returnyoutubedislike.com/)
-- [uBlock Origin](https://ublockorigin.com/)
-
-## Feedback
+## ✉️ Feedback
 If you have any feedback, please reach out to me at sapondanaisriwan@gmail.com
 
-## License
+## ©️ License
 Code released under the [MIT](https://github.com/sapondanaisriwan/Youtube-Old-Layout/blob/master/LICENSE) license.
