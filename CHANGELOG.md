@@ -1,9 +1,13 @@
 
 ## Changelog
 
+### v1.4.9
+- Fixed the issue from v1.4.8
+![](https://i.imgur.com/2bnl4mP.png)
+
 ### v1.4.8
 -  Remove some of the border
--  Change color of Subscribe/Unsubscribe and Join buttons for users of languages other than English but channel page is broken 🥹
+-  Change color of Subscribe/Unsubscribe and Join buttons for users of languages other than English
 ![](https://i.imgur.com/ImyDFNE.png)
 - Add more bugs 🤡 
 ![](https://i.imgur.com/dPOlLIB.png)
