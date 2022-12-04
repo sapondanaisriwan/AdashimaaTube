@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/Youtube-Old-Layout
 @supportURL     https://github.com/sapondanaisriwan/Youtube-Old-Layout/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.4.7
+@version        1.4.8
 @license        MIT
 @preprocessor   stylus
 
@@ -460,7 +460,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
         }
         #contents > ytd-rich-item-renderer :has(a[href*="/shorts/"]) {
-            display: none!important;
+            display: none !important;
         }
     }
 
@@ -589,6 +589,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
 
     /* Subscribed button */
+    /* Please let me know if you figure out how to change the color of the Sub/Unsub buttons on the channel page without affected the other page. */
     #subscribe,
     #subscribe-button {
         yt-button-shape {
@@ -601,10 +602,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 color: var(--yt-spec-static-brand-white) !important;
                 background-color: var(--yt-spec-brand-button-background) !important;
             }
-
             /* Unsubscribe button */
             button[aria-label^=Unsubscribe],
-            button.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+            button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
                 border-radius: custom_border_radius;
                 color: var(--yt-spec-text-secondary) !important;
                 background-color: var(--yt-spec-badge-chip-background) !important;
@@ -612,22 +612,18 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
     }
 
-
     /* Shot Unsubscribe button */
     html[dark] ytd-shorts #subscribe-button yt-button-shape {
         button[aria-label^=Unsubscribe],
-        button.yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal {
-            color: var(--yt-spec-text-secondary) !important;
+        button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
             background-color: var(--sub-black-bg-btn) !important;
         }
     }
-    html:not([dark]) {
-        ytd-shorts #subscribe-button yt-button-shape {
-            button[aria-label^=Unsubscribe],
-            button.yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal {
-                color: var(--yt-spec-text-secondary) !important;
-                background-color: var(--sub-white--text-btn) !important;
-            }
+
+    html:not([dark]) ytd-shorts #subscribe-button yt-button-shape {
+        button[aria-label^=Unsubscribe],
+        button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
+            background-color: var(--sub-white--text-btn) !important;
         }
     }
 
@@ -822,7 +818,15 @@ Support me: https://ko-fi.com/sapondanaisriwan
     }
 
     /* Not interested */
-    ytd-rich-grid-media[rounded-container] #dismissed.ytd-rich-grid-media {
+    ytd-rich-grid-media[rounded-container] #dismissed.ytd-rich-grid-media,
+    #dismissed.ytd-compact-video-renderer {
+        border-radius: custom_border_radius !important;
+    }
+
+    /* Inform news such as covid19 */
+    ytd-clarification-renderer[round-container],
+    ytd-info-panel-container-renderer[rounded-container][has-title] .header.ytd-info-panel-container-renderer,
+    ytd-medical-panel-content-renderer[rounded-container] {
         border-radius: custom_border_radius !important;
     }
 
@@ -874,8 +878,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     }
 
     /* Join button */
-    #sponsor-button yt-button-shape button // for other language
-    yt-button-shape button[aria-label="Join this channel"],
+    #sponsor-button yt-button-shape button,
     #buttons ytd-toggle-button-renderer yt-button-shape button {
         color: var(--yt-spec-call-to-action) !important; // #065fd4
         border: 1px solid var(--yt-spec-call-to-action) !important;

@@ -1,6 +1,14 @@
 
 ## Changelog
 
+### v1.4.8
+-  Remove some of the border
+-  Change color of Subscribe/Unsubscribe and Join buttons for users of languages other than English but channel page is broken 🥹
+![](https://i.imgur.com/ImyDFNE.png)
+- Add more bugs 🤡 
+![](https://i.imgur.com/dPOlLIB.png)
+Please let me know if you figure out how to change the color of the Sub/Unsub buttons on the channel page without affected the other page
+
 ### v1.4.7
 - Remove some shorts video on homepage
 - Fixed live chat border
