@@ -347,7 +347,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     /* Hide Share button */
     if (hide-share-btn) {
-        yt-button-shape button[aria-label="Share"] {
+        yt-button-shape button[aria-label="Share"],
+        #top-level-buttons-computed > ytd-button-renderer > yt-button-shape > button {
             display: none;
         }
     }
@@ -612,6 +613,60 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
     }
 
+    [page-subtype="channels"] {
+        #subscribe yt-button-shape {
+            button[aria-label^="Subscribe"], //English
+            button[aria-label^="ติดตาม"], // Thai
+            button[aria-label^="Teken in"], // Afrikaans
+            button[aria-label*="kanalına abunə olun"], // Azərbaycan
+            button[aria-label^="Subscribe"], // Bahasa Indonesia
+            button[aria-label^="Langgan"], // Bahasa Malaysia
+            button[aria-label^="Pretplatite se na kanal"], // Bosanski
+            button[aria-label^="Subscriu-te al canal"], // Català
+            button[aria-label*="se k"], // Čeština
+            button[aria-label^="Abonner på"], // Dansk
+            button[aria-label$="abonnieren."], // Deutsch
+            button[aria-label^="Telli"], // Eesti
+            button[aria-label^="Suscribirse"], // Español (España)
+            button[aria-label^="Suscribirme"], // Español (Latinoamérica)
+            button[aria-label^="Harpidetu"], // euskara
+            button[aria-label^="Mag-subscribe sa"], // Filipino
+            button[aria-label^="S'abonner à"], // Français
+            button[aria-label^="Subscribirse"], // galego
+            button[aria-label^="Bhalisela"], // IsiZulu
+            button[aria-label^="Prihlásiť sa na odber kanála"], // Íslenska
+            button[aria-label^="Hefja áskrift að"], // Íslenska
+            button[aria-label^="Iscriviti"], // Italiano
+            button[aria-label^="Fuatilia"], //
+            button[aria-label^="Abonēt kanālu"], //
+            button[aria-label^="Prenumeruoti"], //
+            button[aria-label^="Feliratkozás"], //
+            button[aria-label^="Abonneren op"], //
+            button[aria-label^="Obuna qiling"], //
+            button[aria-label^="Abonohu në"], //
+            button[aria-label^="Đăng ký"], //
+            button[aria-label$="alına abone ol."], //
+            button[aria-label^="Падпісацца на канал"],
+            button[aria-label^="Абониране"],
+            button[aria-label$="каналына жазылыңыз."],
+            button[aria-label$="арнасына жазылу"],
+            button[aria-label^="Претплатете се на"],
+            button[aria-label$="захиалах."],
+            button[aria-label^="Оформить подписку на канал"],
+            button[aria-label^="Пратите канал"],
+            button[aria-label^="Підписатися на канал"],
+            button[aria-label^="Subscrever"],
+            button[aria-label^="Inscreva-se em"],
+            button[aria-label^="Abonează-te la"],
+            button[aria-label^="Prenumerera på"],
+            {
+                border-radius: custom_border_radius;
+                color: var(--yt-spec-static-brand-white) !important;
+                background-color: var(--yt-spec-brand-button-background) !important;
+            }
+        }
+    }
+
     /* Shot Unsubscribe button */
     html[dark] ytd-shorts #subscribe-button yt-button-shape {
         button[aria-label^=Unsubscribe],
@@ -734,6 +789,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
         border-radius: custom_border_radius;
     }
 
+    .iv-card.ytp-rounded-info {
+        border-radius: custom_border_radius !important;
+    }
+    
     /* Gaming */
     ytd-game-details-renderer[rounded] yt-img-shadow.ytd-game-details-renderer ytd-video-preview[rounded-container] #video-preview-container.ytd-video-preview,
     ytd-video-preview[rounded-container] #player-container.ytd-video-preview,
