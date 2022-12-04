@@ -590,7 +590,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
 
     /* Subscribed button */
-    /* Please let me know if you figure out how to change the color of the Sub/Unsub buttons on the channel page without affected the other page. */
     #subscribe,
     #subscribe-button {
         yt-button-shape {
@@ -613,10 +612,13 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
     }
 
+    /* Subscribed button on channels*/
+    /* Please let me know if you can figure out how to make this shorter and cleaner */
     [page-subtype="channels"] {
         #subscribe yt-button-shape {
             button[aria-label^="Subscribe"], //English
             button[aria-label^="ติดตาม"], // Thai
+            button[aria-label^="Pratite kanal"],
             button[aria-label^="Teken in"], // Afrikaans
             button[aria-label*="kanalına abunə olun"], // Azərbaycan
             button[aria-label^="Subscribe"], // Bahasa Indonesia
@@ -633,7 +635,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             button[aria-label^="Mag-subscribe sa"], // Filipino
             button[aria-label^="S'abonner à"], // Français
             button[aria-label^="Subscribirse"], // galego
-            button[aria-label^="Bhalisela"], // IsiZulu
+            button[aria-label^="Bhalisesla"], // IsiZulu
             button[aria-label^="Prihlásiť sa na odber kanála"], // Íslenska
             button[aria-label^="Hefja áskrift að"], // Íslenska
             button[aria-label^="Iscriviti"], // Italiano
@@ -684,7 +686,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
             button[aria-label^="訂閱"],
             button[aria-label^="ይመዝገቡ።"],
             button[aria-label$="をチャンネル登録"],
-            button[aria-label$="을(를) 구독합니다."]  {
+            button[aria-label$="을(를) 구독합니다."],
+            button[aria-label^="Tilaa"],
+            button[aria-label^="Subskrybuj kanał"] {
                 border-radius: custom_border_radius;
                 color: var(--yt-spec-static-brand-white) !important;
                 background-color: var(--yt-spec-brand-button-background) !important;
