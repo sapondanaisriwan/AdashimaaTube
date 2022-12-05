@@ -63,6 +63,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
     }
 
+    #share-button.ytd-comment-action-buttons-renderer {
+        margin: 0;
+    }
+    
     /* Home page */
     if (cutom_homepage=="Enabled") {
 
@@ -402,13 +406,25 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
         html[dark] {
             #page-manager > ytd-browse > ytd-playlist-header-renderer > div > div.immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer > div {
-                background: #181818 !important;
+                background: var(--yt-spec-general-background-a) !important; // #181818
             }
         }
 
         html:not([dark]) {
+            #contents > ytd-playlist-video-list-renderer {
+                // background: var(--yt-spec-general-background-a) !important;
+                background: var(--yt-spec-white-3) !important; // #f1f1f1
+            }
             #page-manager > ytd-browse > ytd-playlist-header-renderer > div > div.immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer > div {
-                background: #F1F1F1 !important;
+                background: var(--yt-spec-white-2) !important; // #f9f9f9
+            }
+
+            /* Shuffle button */
+            .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal {
+                background: var(--yt-spec-base-background);
+                &:hover {
+                    background: var(--yt-spec-static-overlay-filled-hover); // #f9f9f9
+                }
             }
         }
     }
@@ -524,14 +540,14 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
             /* Dark navbar */
             ytd-masthead {
-                background: rgba(33, 33, 33, 0.98) !important;
+                background: var(--yt-spec-brand-background-solid);
             }
             ytd-mini-guide-renderer,
             ytd-mini-guide-entry-renderer[darker-dark-theme] {
-                background-color: #212121 !important;
+                background-color: var(--yt-spec-brand-background-solid);
             }
             #guide-content.ytd-app {
-                background: #212121 !important;
+                background: var(--yt-spec-brand-background-solid) //#212121 !important;
             }
         }
     }
@@ -612,7 +628,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         margin: 0 !important;
     }
 
-    /* Add spacing for dislike counts */
+    /* Add spacing for dislike counts (return youtube dislike)*/
     .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-end span {
         padding-left: 6px
     }
@@ -1020,11 +1036,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
             height: 18px !important;
         }
     }
-    
+
     #reply-button-end > ytd-button-renderer > yt-button-shape > a > div.cbox.yt-spec-button-shape-next--button-text-content {
         color: var(--yt-spec-text-secondary);
     }
-    
+
     #toolbar #vote-count-middle {
         margin: 0;
     }
