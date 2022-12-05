@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.5.1
+@version        1.5.2
 @license        MIT
 @preprocessor   stylus
 
@@ -57,17 +57,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         --sub-black-bg-btn: #303030;
     }
 
-    if (remove_comment) {
-        ytd-comments {
-            display: none;
-        }
-    }
-
-    #share-button.ytd-comment-action-buttons-renderer {
-        margin: 0;
-    }
-    
-    /* Home page */
+    /* Homepage */
     if (cutom_homepage=="Enabled") {
 
         /* Custom videos per row on homepage */
@@ -468,6 +458,14 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
 
 
+    /* Remove comments section */
+    if (remove_comment) {
+        ytd-comments {
+            display: none;
+        }
+    }
+
+
     /* Display full title of video on wacthcpage */
     if (display-full-title) {
         ytd-rich-grid-media[mini-mode] #video-title.ytd-rich-grid-media,
@@ -633,8 +631,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
         padding-left: 6px
     }
 
-
-
+    .yt-spec-touch-feedback-shape--touch-response .yt-spec-touch-feedback-shape__stroke {
+        border: none;
+    } // #segmented-like-button > ytd-toggle-button-renderer > yt-button-shape > button > div.yt-spec-button-shape-next__icon > yt-icon > yt-animated-icon > ytd-lottie-player > lottie-component > svg > g[clip-path] {
+    //     display: none;
+    // }
     /* Subscribed button */
     #subscribe,
     #subscribe-button {
@@ -1035,6 +1036,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
             width: 18px !important;
             height: 18px !important;
         }
+    }
+
+    /* Share button on community page */
+    #share-button.ytd-comment-action-buttons-renderer {
+        margin: 0;
     }
 
     #reply-button-end > ytd-button-renderer > yt-button-shape > a > div.cbox.yt-spec-button-shape-next--button-text-content {
