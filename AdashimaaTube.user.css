@@ -1010,13 +1010,21 @@ Support me: https://ko-fi.com/sapondanaisriwan
     }
 
     /* Revert comment and like/dislike btn */
-    #like-button svg,
-    #dislike-button svg,
-    #reply-button-end svg {
-        // color: #AAA !important
-        width: 18px !important;
-        height: 18px !important;
+    #share-button,
+    #like-button,
+    #dislike-button,
+    #reply-button-end {
+        svg {
+            // color: #AAA !important
+            width: 18px !important;
+            height: 18px !important;
+        }
     }
+    
+    #reply-button-end > ytd-button-renderer > yt-button-shape > a > div.cbox.yt-spec-button-shape-next--button-text-content {
+        color: var(--yt-spec-text-secondary);
+    }
+    
     #toolbar #vote-count-middle {
         margin: 0;
     }
