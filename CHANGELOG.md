@@ -1,6 +1,13 @@
 
 ## Changelog
 
+### v1.5.1
+- Add "Dark Davbar/Search box"
+
+### v1.5.0
+- Add dark search box
+- Remove "Dark navigator bars"
+
 ### v1.4.9
 - Fixed the issue from v1.4.8
 ![](https://i.imgur.com/2bnl4mP.png)
