@@ -1,12 +1,12 @@
 /* ==UserStyle==
 @name           AdashimaaTube
 @author         sapondanaisriwan(Adashima#4066)
-@description    `new youtube layout is bad`
+@description    Please report bugs via my email, github, discord or the discussion section(If I have some free time, I'll fix them)
 @namespace      https://userstyles.world/user/sapondanaisriwan
-@homepageURL    https://github.com/sapondanaisriwan/Youtube-Old-Layout
-@supportURL     https://github.com/sapondanaisriwan/Youtube-Old-Layout/issues
+@homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
+@supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.4.9
+@version        1.5.1
 @license        MIT
 @preprocessor   stylus
 
@@ -24,13 +24,13 @@
 @advanced color like_color "  👍 Like Button Color" #3ea6ff
 @advanced color dislike_color "  👎 Dislike Button Color" #3ea6ff
 
+@advanced checkbox dark_theme "🌑 Dark Navbar/Search Box " 0
 @advanced checkbox add_animation "🎬 More Animations" 1
-@advanced checkbox old-dark-theme "🌑 Dark Navigation Bars" 0
 @advanced checkbox restore_old_playlist "▶️ Restore Old Playlist" 0
 @advanced checkbox display-full-title "🎦 Display Full Title For Videos" 0
 @advanced checkbox fix-search-results  "🔎 Centered The Search Results" 0
 @advanced checkbox remove_shorts "❌ Remove Shorts (Beta)" 0
-@advanced checkbox remove-chips "❌ Remove Taps" 0
+@advanced checkbox remove-taps "❌ Remove Taps" 0
 @advanced checkbox remove_comment "❌ Remove Comments" 0
 @advanced checkbox hide-text-btn "🫣 Hide Text On Buttons" 0
 @advanced checkbox hide-share-btn "🫣 Hide Share Button" 0
@@ -40,6 +40,8 @@
 
 ==/UserStyle== */
 /*
+Please report bugs via my email, github, discord or the discussion section(If I have some free time, I'll fix them)
+Contact: sapondanaisriwan@gmail.com
 Support me: https://ko-fi.com/sapondanaisriwan 
 Support me: https://ko-fi.com/sapondanaisriwan
 Support me: https://ko-fi.com/sapondanaisriwan
@@ -412,23 +414,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
     }
 
 
-    /* Revert nav */
-    if (old-dark-theme) {
-        html[dark] {
-            ytd-masthead {
-                background: rgba(33, 33, 33, 0.98) !important;
-            }
-            ytd-mini-guide-renderer,
-            ytd-mini-guide-entry-renderer[darker-dark-theme] {
-                background-color: #212121 !important;
-            }
-            #guide-content.ytd-app {
-                background: #212121 !important;
-            }
-        }
-    }
-
-
 
     /* Removes text on all buttons except for like/dislike buttons */
     if (hide-text-btn) {
@@ -492,14 +477,64 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
 
 
-    /* Removes chips */
-    if (remove-chips) {
+    /* Removes taps */
+    if (remove-taps) {
         #header ytd-feed-filter-chip-bar-renderer,
         ytd-watch-next-secondary-results-renderer yt-related-chip-cloud-renderer {
             display: none;
         }
     }
 
+
+    /* Dark Navbar/Search box */
+    if (dark_theme) {
+        html[dark] {
+            /* Dark search box credit to Mikey(Vednoc). He is awesome */
+            body > div:last-child > div > div[class] {
+                border: 1px solid #333 !important;
+                background-color: #222 !important;
+            }
+
+            body > div:last-child > div > div[class],
+            body > div:last-child > div > div[class] > div {
+                background-color: #222 !important;
+            }
+            body > div:last-child ul > li,
+            body > div:last-child ul > li span {
+                color: #ccc !important;
+            }
+            body > div:last-child ul > li b {
+                color: #f1f1f1 !important;
+            }
+            body > div:last-child ul > li:hover,
+            body > div:last-child ul > li.sbsb_d {
+                background-color: #333 !important;
+            }
+            body > div:last-child ul > li:last-child {
+                display: none
+            }
+            body > div:last-child ul > li ::before {
+                filter: invert()
+            }
+
+            .sbsb_i {
+                color: rgb(94, 151, 210);
+                text-decoration-color: initial;
+            }
+
+            /* Dark navbar */
+            ytd-masthead {
+                background: rgba(33, 33, 33, 0.98) !important;
+            }
+            ytd-mini-guide-renderer,
+            ytd-mini-guide-entry-renderer[darker-dark-theme] {
+                background-color: #212121 !important;
+            }
+            #guide-content.ytd-app {
+                background: #212121 !important;
+            }
+        }
+    }
 
 
     #meta-contents[hidden],
@@ -555,12 +590,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         padding-bottom: 10px;
         position: relative;
         bottom: 6px;
-    } // .ryd-tooltip-bar-container {
-    //     padding-top: 0;
-    //     padding-bottom: 0px;
-    //     top: -8px;
-    //     bottom: 0;
-    // }
+    }
     #top-row.style-scope.ytd-video-secondary-info-renderer {
         padding-top: 4px;
     }
