@@ -1,6 +1,9 @@
 
 ## Changelog
-
+### v1.5.2
+- Remove more border
+- The Community tap's share button has been fixed
+  
 ### v1.5.1
 - Add "Dark Davbar/Search box"
 
