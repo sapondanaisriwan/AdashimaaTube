@@ -4,6 +4,8 @@
 ### v1.5.3
 - Fixed Join button(Youtube please stop updating. I'm tired)
 
+![](https://i.imgur.com/EBjHWxE.png)
+
 ### v1.5.2
 - Remove more border
 - The Community tap's share button has been fixed
