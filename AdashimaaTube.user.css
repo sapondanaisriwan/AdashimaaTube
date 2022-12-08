@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.5.2
+@version        1.5.3
 @license        MIT
 @preprocessor   stylus
 
@@ -73,10 +73,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     }
                 }
             }
-        }
-
-        ytd-rich-section-renderer {
-            display: contents;
         }
 
         /* Display unloaded videos per row when refresh the homepage */
@@ -662,80 +658,80 @@ Support me: https://ko-fi.com/sapondanaisriwan
     /* Subscribed button on channels*/
     /* Please let me know if you can figure out how to make this shorter and cleaner */
     [page-subtype="channels"] {
-        #subscribe yt-button-shape {
-            button[aria-label^="Subscribe"], //English
-            button[aria-label^="ติดตาม"], // Thai
-            button[aria-label^="Pratite kanal"],
-            button[aria-label^="Teken in"], // Afrikaans
-            button[aria-label*="kanalına abunə olun"], // Azərbaycan
-            button[aria-label^="Subscribe"], // Bahasa Indonesia
-            button[aria-label^="Langgan"], // Bahasa Malaysia
-            button[aria-label^="Pretplatite se na kanal"], // Bosanski
-            button[aria-label^="Subscriu-te al canal"], // Català
-            button[aria-label*="se k"], // Čeština
-            button[aria-label^="Abonner på"], // Dansk
-            button[aria-label$="abonnieren."], // Deutsch
-            button[aria-label^="Telli"], // Eesti
-            button[aria-label^="Suscribirse"], // Español (España)
-            button[aria-label^="Suscribirme"], // Español (Latinoamérica)
-            button[aria-label^="Harpidetu"], // euskara
-            button[aria-label^="Mag-subscribe sa"], // Filipino
-            button[aria-label^="S'abonner à"], // Français
-            button[aria-label^="Subscribirse"], // galego
-            button[aria-label^="Bhalisesla"], // IsiZulu
-            button[aria-label^="Prihlásiť sa na odber kanála"], // Íslenska
-            button[aria-label^="Hefja áskrift að"], // Íslenska
-            button[aria-label^="Iscriviti"], // Italiano
-            button[aria-label^="Fuatilia"], //
-            button[aria-label^="Abonēt kanālu"], //
-            button[aria-label^="Prenumeruoti"], //
-            button[aria-label^="Feliratkozás"], //
-            button[aria-label^="Abonneren op"], //
-            button[aria-label^="Obuna qiling"], //
-            button[aria-label^="Abonohu në"], //
-            button[aria-label^="Đăng ký"], //
-            button[aria-label$="alına abone ol."], //
-            button[aria-label^="Падпісацца на канал"],
-            button[aria-label^="Абониране"],
-            button[aria-label$="каналына жазылыңыз."],
-            button[aria-label$="арнасына жазылу"],
-            button[aria-label^="Претплатете се на"],
-            button[aria-label$="захиалах."],
-            button[aria-label^="Оформить подписку на канал"],
-            button[aria-label^="Пратите канал"],
-            button[aria-label^="Підписатися на канал"],
-            button[aria-label^="Subscrever"],
-            button[aria-label^="Inscreva-se em"],
-            button[aria-label^="Abonează-te la"],
-            button[aria-label^="Prenumerera på"],
-            button[aria-label^="Հետևել"],
-            button[aria-label^="הרשמה למינוי לערוץ"],
-            button[aria-label$="کو سبسکرائب کریں۔"],
-            button[aria-label^="يمكنك الاشتراك في قناة"],
-            button[aria-label^="مشترک شدن در"],
-            button[aria-label$="को सदस्यता लिनुहोस्।"],
-            button[aria-label$="चे सदस्यत्व घ्या."],
-            button[aria-label$="के सदस्य बनें."],
-            button[aria-label$="ৰ সদস্য হওক।"],
-            button[aria-label$="এ সাবস্ক্রাইব করুন।"],
-            button[aria-label$="ਨੂੰ ਸਬਸਕ੍ਰਾਈਬ ਕਰੋ।"],
-            button[aria-label$="પર સબ્સ્ક્રાઇબ કરો."],
-            button[aria-label$="ସବ୍‍ସ୍କ୍ରାଇବ୍‍ କରିବେ।"],
-            button[aria-label$="சேனலில் குழுசேர்க."],
-            button[aria-label$="సబ్‌స్క్రయిబ్ చేయండి."],
-            button[aria-label$="ಗೆ ಸಬ್‌ಸ್ಕ್ರೈಬ್ ಮಾಡಿ."],
-            button[aria-label$="എന്ന ചാനലിന്‍റെ വരിക്കാരാവുക."],
-            button[aria-label$="වෙත දායක වන්න."],
-            button[aria-label^="ຕິດຕາມ"],
-            button[aria-label$="တွင် စာရင်းသွင်းရန်။"],
-            button[aria-label$="გამოწერა."],
-            button[aria-label^="订阅"], // button[aria-label="ជា&ZeroWidthSpace;វ&ZeroWidthSpace; Elegant Sister (ES) ។"]
-            button[aria-label^="訂閱"],
-            button[aria-label^="ይመዝገቡ።"],
-            button[aria-label$="をチャンネル登録"],
-            button[aria-label$="을(를) 구독합니다."],
-            button[aria-label^="Tilaa"],
-            button[aria-label^="Subskrybuj kanał"] {
+        #subscribe yt-button-shape button{
+            &[aria-label^="Subscribe"], //English
+            &[aria-label^="ติดตาม"], // Thai
+            &[aria-label^="Pratite kanal"],
+            &[aria-label^="Teken in"], // Afrikaans
+            &[aria-label*="kanalına abunə olun"], // Azərbaycan
+            &[aria-label^="Subscribe"], // Bahasa Indonesia
+            &[aria-label^="Langgan"], // Bahasa Malaysia
+            &[aria-label^="Pretplatite se na kanal"], // Bosanski
+            &[aria-label^="Subscriu-te al canal"], // Català
+            &[aria-label*="se k"], // Čeština
+            &[aria-label^="Abonner på"], // Dansk
+            &[aria-label$="abonnieren."], // Deutsch
+            &[aria-label^="Telli"], // Eesti
+            &[aria-label^="Suscribirse"], // Español (España)
+            &[aria-label^="Suscribirme"], // Español (Latinoamérica)
+            &[aria-label^="Harpidetu"], // euskara
+            &[aria-label^="Mag-subscribe sa"], // Filipino
+            &[aria-label^="S'abonner à"], // Français
+            &[aria-label^="Subscribirse"], // galego
+            &[aria-label^="Bhalisesla"], // IsiZulu
+            &[aria-label^="Prihlásiť sa na odber kanála"], // Íslenska
+            &[aria-label^="Hefja áskrift að"], // Íslenska
+            &[aria-label^="Iscriviti"], // Italiano
+            &[aria-label^="Fuatilia"], //
+            &[aria-label^="Abonēt kanālu"], //
+            &[aria-label^="Prenumeruoti"], //
+            &[aria-label^="Feliratkozás"], //
+            &[aria-label^="Abonneren op"], //
+            &[aria-label^="Obuna qiling"], //
+            &[aria-label^="Abonohu në"], //
+            &[aria-label^="Đăng ký"], //
+            &[aria-label$="alına abone ol."], //
+            &[aria-label^="Падпісацца на канал"],
+            &[aria-label^="Абониране"],
+            &[aria-label$="каналына жазылыңыз."],
+            &[aria-label$="арнасына жазылу"],
+            &[aria-label^="Претплатете се на"],
+            &[aria-label$="захиалах."],
+            &[aria-label^="Оформить подписку на канал"],
+            &[aria-label^="Пратите канал"],
+            &[aria-label^="Підписатися на канал"],
+            &[aria-label^="Subscrever"],
+            &[aria-label^="Inscreva-se em"],
+            &[aria-label^="Abonează-te la"],
+            &[aria-label^="Prenumerera på"],
+            &[aria-label^="Հետևել"],
+            &[aria-label^="הרשמה למינוי לערוץ"],
+            &[aria-label$="کو سبسکرائب کریں۔"],
+            &[aria-label^="يمكنك الاشتراك في قناة"],
+            &[aria-label^="مشترک شدن در"],
+            &[aria-label$="को सदस्यता लिनुहोस्।"],
+            &[aria-label$="चे सदस्यत्व घ्या."],
+            &[aria-label$="के सदस्य बनें."],
+            &[aria-label$="ৰ সদস্য হওক।"],
+            &[aria-label$="এ সাবস্ক্রাইব করুন।"],
+            &[aria-label$="ਨੂੰ ਸਬਸਕ੍ਰਾਈਬ ਕਰੋ।"],
+            &[aria-label$="પર સબ્સ્ક્રાઇબ કરો."],
+            &[aria-label$="ସବ୍‍ସ୍କ୍ରାଇବ୍‍ କରିବେ।"],
+            &[aria-label$="சேனலில் குழுசேர்க."],
+            &[aria-label$="సబ్‌స్క్రయిబ్ చేయండి."],
+            &[aria-label$="ಗೆ ಸಬ್‌ಸ್ಕ್ರೈಬ್ ಮಾಡಿ."],
+            &[aria-label$="എന്ന ചാനലിന്‍റെ വരിക്കാരാവുക."],
+            &[aria-label$="වෙත දායක වන්න."],
+            &[aria-label^="ຕິດຕາມ"],
+            &[aria-label$="တွင် စာရင်းသွင်းရန်။"],
+            &[aria-label$="გამოწერა."],
+            &[aria-label^="订阅"], // &[aria-label="ជា&ZeroWidthSpace;វ&ZeroWidthSpace; Elegant Sister (ES) ។"]
+            &[aria-label^="訂閱"],
+            &[aria-label^="ይመዝገቡ።"],
+            &[aria-label$="をチャンネル登録"],
+            &[aria-label$="을(를) 구독합니다."],
+            &[aria-label^="Tilaa"],
+            &[aria-label^="Subskrybuj kanał"] {
                 border-radius: custom_border_radius;
                 color: var(--yt-spec-static-brand-white) !important;
                 background-color: var(--yt-spec-brand-button-background) !important;
@@ -844,6 +840,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
     yt-dropdown-menu[modern-dialogs] #menu.yt-dropdown-menu,
     .dropdown-content.tp-yt-paper-menu-button,
     #chatframe {
+        border-radius: custom_border_radius !important;
+    }
+
+    /* Live */
+    .ytp-offline-slate-bar.ytp-rounded-offline-slate {
         border-radius: custom_border_radius !important;
     }
 
@@ -1018,6 +1019,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         color: var(--yt-spec-call-to-action) !important; // #065fd4
         border: 1px solid var(--yt-spec-call-to-action) !important;
         padding: 9px 15px !important;
+        background: transparent;
     }
 
 
