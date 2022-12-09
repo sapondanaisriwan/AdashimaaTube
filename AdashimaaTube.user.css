@@ -48,7 +48,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 Support me: https://ko-fi.com/sapondanaisriwan
 Support me: https://ko-fi.com/sapondanaisriwan
 */
-@-moz-document domain("youtube.com") {
+i=!important @-moz-document domain("youtube.com") {
 
     :root {
         --video-per-row: hp_video_per_row;
@@ -64,7 +64,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         [page-subtype="home"],
         [page-subtype="channels"] {
             ytd-rich-grid-renderer {
-                --ytd-rich-grid-items-per-row: var(--video-per-row) !important;
+                --ytd-rich-grid-items-per-row: var(--video-per-row) i;
                 /* Makes the container/spacing disappear */
                 #contents {
                     ytd-rich-grid-row,
@@ -90,7 +90,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
             [page-subtype="channels"] {
                 #contents > ytd-rich-item-renderer {
-                    margin: 0 4px 24px 4px !important;
+                    margin: 0 4px 24px 4px i;
                 }
             }
 
@@ -107,7 +107,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     margin: 0 4px 24px 4px
                 }
                 #contents.ytd-rich-grid-renderer {
-                    margin-top: 6px !important;
+                    margin-top: 6px i;
                 }
             }
         }
@@ -195,8 +195,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
         // }
         // .ytp-chrome-top,
         // .ytp-chrome-bottom {
-        //     -webkit-transition: all .3s ease-out !important;
-        //     transition: all .3s ease-out !important; // top: 100%;
+        //     -webkit-transition: all .3s ease-out i;
+        //     transition: all .3s ease-out i; // top: 100%;
         //     // position: relative;
         //     // height: 100%;
         // }
@@ -207,13 +207,13 @@ Support me: https://ko-fi.com/sapondanaisriwan
     if (ratio_bar=="Enabled") {
 
         ytd-watch-metadata {
-            display: block !important;
-            margin-top: 20px !important;
+            display: block i;
+            margin-top: 20px i;
         }
 
         #top-row.ytd-watch-metadata {
             border-bottom: 1px solid var(--yt-spec-10-percent-layer);
-            padding-bottom: 10px !important;
+            padding-bottom: 10px i;
         }
 
         ytd-watch-metadata #title {
@@ -224,39 +224,39 @@ Support me: https://ko-fi.com/sapondanaisriwan
         /* Reverts the video title font. */
         h1.ytd-watch-metadata {
             font-family: "Roboto", sans-serif;
-            font-weight: 400 !important;
-            font-size: 18px !important; // line-height: unset;
+            font-weight: 400 i;
+            font-size: 18px i; // line-height: unset;
         }
 
         /* Remove channel */
         #owner {
-            display: none !important;
+            display: none i;
         }
 
         /* Remove description*/
         #bottom-row {
-            display: none !important;
+            display: none i;
         }
 
         .ryd-tooltip.ryd-tooltip-new-design {
-            display: block !important;
+            display: block i;
         }
 
         #menu-container {
-            display: none !important;
+            display: none i;
         }
 
         ytd-video-primary-info-renderer #container > :not(#info),
         #menu-container {
-            display: none !important;
+            display: none i;
         }
 
         ytd-video-primary-info-renderer {
             border: none;
             pointer-events: auto;
             position: relative;
-            padding: 0 !important;
-            bottom: 0 !important;
+            padding: 0 i;
+            bottom: 0 i;
         }
 
         ytd-video-secondary-info-renderer {
@@ -269,13 +269,13 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
         .style-scope.ytd-watch-flexy #container #info-text {
             // position: absolute;
-            // bottom: 3.7em !important;
+            // bottom: 3.7em i;
             margin-top: -115px; // pointer-events: none;
         }
 
         #top-row.ytd-watch-metadata,
         #top-row.ytd-watch-metadata {
-            flex-direction: column-reverse !important;
+            flex-direction: column-reverse i;
         }
 
         #ryd-bar {
@@ -288,7 +288,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     if (ratio_bar=="Disabled") {
         ytd-watch-metadata {
-            display: none !important;
+            display: none i;
         }
     }
 
@@ -299,19 +299,19 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
         /* Video container */
         #segmented-like-button button[aria-pressed="true"] yt-icon * {
-            fill: like_color !important;
+            fill: like_color i;
             stroke: none;
         }
         #segmented-dislike-button button[aria-pressed="true"] yt-icon {
-            fill: dislike_color !important;
+            fill: dislike_color i;
         }
 
         /* Comments section */
         #like-button yt-button-shape button[aria-pressed="true"] yt-icon {
-            fill: like_color !important;
+            fill: like_color i;
         }
         #dislike-button yt-button-shape button[aria-pressed="true"] yt-icon {
-            fill: dislike_color !important;
+            fill: dislike_color i;
         }
     }
 
@@ -328,11 +328,23 @@ Support me: https://ko-fi.com/sapondanaisriwan
         yt-button-shape button[aria-label="Thanks"] {
             display: none;
         }
+
+        /* Not supported on Firefox and Brave */
+        /* Once more, I'd like to thank Mikey(Vednoc) for his assistance in getting the issue resolved. He is very awesome guys */
+        #flexible-item-buttons > ytd-button-renderer > yt-button-shape :has(path[d="M16.5\,3C19.02\,3\,21\,5.19\,21\,7.99c0\,3.7-3.28\,6.94-8.25\,11.86L12\,20.59l-0.74-0.73l-0.04-0.04C6.27\,14.92\,3\,11.69\,3\,7.99 C3\,5.19\,4.98\,3\,7.5\,3c1.4\,0\,2.79\,0.71\,3.71\,1.89L12\,5.9l0.79-1.01C13.71\,3.71\,15.1\,3\,16.5\,3 M16.5\,2c-1.74\,0-3.41\,0.88-4.5\,2.28 C10.91\,2.88\,9.24\,2\,7.5\,2C4.42\,2\,2\,4.64\,2\,7.99c0\,4.12\,3.4\,7.48\,8.55\,12.58L12\,22l1.45-1.44C18.6\,15.47\,22\,12.11\,22\,7.99 C22\,4.64\,19.58\,2\,16.5\,2L16.5\,2z M11.33\,10.86c0.2\,0.14\,0.53\,0.26\,1\,0.36c0.47\,0.1\,0.86\,0.22\,1.18\,0.35 c0.99\,0.4\,1.49\,1.09\,1.49\,2.07c0\,0.7-0.28\,1.27-0.83\,1.71c-0.33\,0.26-0.73\,0.43-1.17\,0.54V17h-2v-1.16 c-0.18-0.05-0.37-0.1-0.53-0.19c-0.46-0.23-0.92-0.55-1.18-0.95C9.15\,14.48\,9.06\,14.24\,9\,14h2c0.05\,0.09\,0.07\,0.18\,0.15\,0.25 c0.23\,0.19\,0.54\,0.29\,0.92\,0.29c0.36\,0\,0.63-0.07\,0.82-0.22s0.28-0.35\,0.28-0.59c0-0.25-0.11-0.45-0.34-0.6s-0.59-0.27-1.1-0.39 c-1.67-0.39-2.51-1.16-2.51-2.34c0-0.68\,0.26-1.26\,0.78-1.71c0.28-0.25\,0.62-0.43\,1-0.54V7h2v1.12c0.46\,0.11\,0.85\,0.29\,1.18\,0.57 C14.59\,9.05\,14.9\,9.48\,15\,10h-2c-0.04-0.09-0.1-0.17-0.16-0.24c-0.17-0.19-0.44-0.29-0.81-0.29c-0.32\,0-0.56\,0.08-0.74\,0.24 c-0.17\,0.16-0.26\,0.36-0.26\,0.6C11.03\,10.53\,11.13\,10.72\,11.33\,10.86z"]) {
+            display: none;
+        }
     }
 
     /* Hide Clip button */
     if (hide-clip-btn) {
         yt-button-shape button[aria-label="Clip"] {
+            display: none;
+        }
+
+        /* Not supported on Firefox and Brave */
+        /* Once more, I'd like to thank Mikey(Vednoc) for his assistance in getting the issue resolved. He is very awesome guys */
+        #flexible-item-buttons > ytd-button-renderer > yt-button-shape :has(path[d="M8\,7c0\,0.55-0.45\,1-1\,1S6\,7.55\,6\,7c0-0.55\,0.45-1\,1-1S8\,6.45\,8\,7z M7\,16c-0.55\,0-1\,0.45-1\,1c0\,0.55\,0.45\,1\,1\,1s1-0.45\,1-1 C8\,16.45\,7.55\,16\,7\,16z M10.79\,8.23L21\,18.44V20h-3.27l-5.76-5.76l-1.27\,1.27C10.89\,15.97\,11\,16.47\,11\,17c0\,2.21-1.79\,4-4\,4 c-2.21\,0-4-1.79-4-4c0-2.21\,1.79-4\,4-4c0.42\,0\,0.81\,0.08\,1.19\,0.2l1.37-1.37l-1.11-1.11C8\,10.89\,7.51\,11\,7\,11c-2.21\,0-4-1.79-4-4 c0-2.21\,1.79-4\,4-4c2.21\,0\,4\,1.79\,4\,4C11\,7.43\,10.91\,7.84\,10.79\,8.23z M10.08\,8.94L9.65\,8.5l0.19-0.58C9.95\,7.58\,10\,7.28\,10\,7 c0-1.65-1.35-3-3-3S4\,5.35\,4\,7c0\,1.65\,1.35\,3\,3\,3c0.36\,0\,0.73-0.07\,1.09-0.21L8.7\,9.55l0.46\,0.46l1.11\,1.11l0.71\,0.71l-0.71\,0.71 L8.9\,13.91l-0.43\,0.43l-0.58-0.18C7.55\,14.05\,7.27\,14\,7\,14c-1.65\,0-3\,1.35-3\,3c0\,1.65\,1.35\,3\,3\,3s3-1.35\,3-3 c0-0.38-0.07-0.75-0.22-1.12l-0.25-0.61L10\,14.8l1.27-1.27l0.71-0.71l0.71\,0.71L18.15\,19H20v-0.15L10.08\,8.94z M17.73\,4H21v1.56 l-5.52\,5.52l-2.41-2.41L17.73\,4z M18.15\,5l-3.67\,3.67l1\,1L20\,5.15V5H18.15z"]) {
             display: none;
         }
     }
@@ -352,25 +364,25 @@ Support me: https://ko-fi.com/sapondanaisriwan
         // yt-img-shadow[fit-width] img.yt-img-shadow,
         // .immersive-header-gradient.style-scope.ytd-playlist-header-renderer,
         // .immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer {
-        //     display: none !important;
+        //     display: none i;
         // }
         ytd-browse[page-subtype=playlist][amsterdam] {
-            padding-top: 0 !important;
+            padding-top: 0 i;
         }
 
         ytd-browse[page-subtype=playlist][amsterdam] ytd-playlist-header-renderer.ytd-browse {
-            margin-left: 0 !important;
+            margin-left: 0 i;
             height: calc(100vh - var(--ytd-toolbar-height));
         }
 
         .immersive-header-container.ytd-playlist-header-renderer {
-            margin-bottom: 0 !important;
-            border-radius: 0 !important;
+            margin-bottom: 0 i;
+            border-radius: 0 i;
         }
 
         [page-subtype="playlist"] ytd-playlist-header-renderer {
-            width: 388px !important;
-            color: var(--yt-spec-text-primary) !important;
+            width: 388px i;
+            color: var(--yt-spec-text-primary) i;
         }
 
         [page-subtype="playlist"] {
@@ -382,27 +394,27 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
             /* Edit title */
             .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--text {
-                color: var(--yt-spec-text-primary) !important;
+                color: var(--yt-spec-text-primary) i;
             }
             .metadata-text-wrapper.ytd-playlist-header-renderer {
-                --yt-endpoint-color: var(--yt-spec-text-primary) !important;
-                --yt-endpoint-hover-color: var(--yt-spec-text-primary) !important;
+                --yt-endpoint-color: var(--yt-spec-text-primary) i;
+                --yt-endpoint-hover-color: var(--yt-spec-text-primary) i;
             }
         }
 
         html[dark] {
             #page-manager > ytd-browse > ytd-playlist-header-renderer > div > div.immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer > div {
-                background: var(--yt-spec-general-background-a) !important; // #181818
+                background: var(--yt-spec-general-background-a) i; // #181818
             }
         }
 
         html:not([dark]) {
             #contents > ytd-playlist-video-list-renderer {
-                // background: var(--yt-spec-general-background-a) !important;
-                background: var(--yt-spec-white-3) !important; // #f1f1f1
+                // background: var(--yt-spec-general-background-a) i;
+                background: var(--yt-spec-white-3) i; // #f1f1f1
             }
             #page-manager > ytd-browse > ytd-playlist-header-renderer > div > div.immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer > div {
-                background: var(--yt-spec-white-2) !important; // #f9f9f9
+                background: var(--yt-spec-white-2) i; // #f9f9f9
             }
 
             /* Shuffle button */
@@ -422,7 +434,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         #menu-container ytd-button-renderer yt-button-shape button span,
         #flexible-item-buttons yt-button-shape button span,
         #top-level-buttons-computed > ytd-button-renderer > yt-button-shape > button > div.cbox.yt-spec-button-shape-next--button-text-content > span {
-            display: none !important;
+            display: none i;
         }
         #flexible-item-buttons yt-button-shape button {
             padding-left: 8px;
@@ -444,11 +456,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
         ytd-video-renderer,
         ytd-rich-item-renderer {
             :has(a[href*="/shorts/"]) {
-                display: none !important;
+                display: none i;
             }
         }
         #contents > ytd-rich-item-renderer :has(a[href*="/shorts/"]) {
-            display: none !important;
+            display: none i;
         }
     }
 
@@ -472,7 +484,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         #video-title.ytd-rich-grid-slim-media,
         #video-title.ytd-grid-playlist-renderer,
         #video-title.ytd-reel-item-renderer {
-            display: inline !important;
+            display: inline i;
         }
     }
 
@@ -481,7 +493,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     /* Center the search results */
     if (fix-search-results) {
         ytd-two-column-search-results-renderer {
-            align-items: center; // margin: 0 auto !important;
+            align-items: center; // margin: 0 auto i;
         }
     }
 
@@ -501,24 +513,24 @@ Support me: https://ko-fi.com/sapondanaisriwan
         html[dark] {
             /* Dark search box credit to Mikey(Vednoc). He is awesome */
             body > div:last-child > div > div[class] {
-                border: 1px solid #333 !important;
-                background-color: #222 !important;
+                border: 1px solid #333 i;
+                background-color: #222 i;
             }
 
             body > div:last-child > div > div[class],
             body > div:last-child > div > div[class] > div {
-                background-color: #222 !important;
+                background-color: #222 i;
             }
             body > div:last-child ul > li,
             body > div:last-child ul > li span {
-                color: #ccc !important;
+                color: #ccc i;
             }
             body > div:last-child ul > li b {
-                color: #f1f1f1 !important;
+                color: #f1f1f1 i;
             }
             body > div:last-child ul > li:hover,
             body > div:last-child ul > li.sbsb_d {
-                background-color: #333 !important;
+                background-color: #333 i;
             }
             body > div:last-child ul > li:last-child {
                 display: none
@@ -541,7 +553,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 background-color: var(--yt-spec-brand-background-solid);
             }
             #guide-content.ytd-app {
-                background: var(--yt-spec-brand-background-solid) //#212121 !important;
+                background: var(--yt-spec-brand-background-solid) //#212121 i;
             }
         }
     }
@@ -549,19 +561,19 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     #meta-contents[hidden],
     #info-contents[hidden] {
-        display: block !important;
+        display: block i;
     } // ytd-rich-item-renderer {
-    //     margin-right: 0 !important;
-    //     margin-bottom: 25px !important;
+    //     margin-right: 0 i;
+    //     margin-bottom: 25px i;
     // }
     /* Permanent fixes */
     /* Removes second comment section, */
     #comment-teaser.ytd-watch-metadata {
-        display: none !important;
+        display: none i;
     }
     /* Removes border around creator's name and sub button. */
     #owner.ytd-watch-metadata {
-        border: none !important;
+        border: none i;
     }
     /* Removes border around creator's name and sub button. */
     ytd-watch-metadata:not([modern-metapanel]) #owner.ytd-watch-metadata {
@@ -570,28 +582,28 @@ Support me: https://ko-fi.com/sapondanaisriwan
     /* Reverts the video title font. */
     ytd-watch-metadata[smaller-yt-sans-light-title] h1.ytd-watch-metadata {
         font-family: "Roboto", sans-serif;
-        font-weight: 400 !important;
-        font-size: 18px !important;
+        font-weight: 400 i;
+        font-size: 18px i;
     }
     ytd-video-primary-info-renderer[use-yt-sans20-light] .title.ytd-video-primary-info-renderer {
         font-family: "Roboto", sans-serif;
-        font-weight: 400 !important;
-        font-size: 18px !important;
+        font-weight: 400 i;
+        font-size: 18px i;
     }
     /* Removes the bold letters on upload date and view count. */
     .yt-formatted-string[style-target="bold"] {
         font-weight: 400;
     }
     ytd-button-renderer {
-        margin-left: 0 !important;
+        margin-left: 0 i;
         font-size: 13px;
     }
     ytd-toggle-button-renderer {
-        font-size: 13px !important;
+        font-size: 13px i;
     }
 
     ytd-video-primary-info-renderer {
-        --yt-button-icon-size: 30.6px !important;
+        --yt-button-icon-size: 30.6px i;
     }
     ytd-button-renderer.force-icon-button a.ytd-button-renderer {
         padding-right: 0;
@@ -608,7 +620,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     /* Removes border */
     .yt-spec-button-shape-next--size-m,
     .yt-spec-touch-feedback-shape__stroke {
-        border-radius: custom_border_radius !important; // border: none !important;
+        border-radius: custom_border_radius i; // border: none i;
     }
 
     /* Removes spacing between icons */
@@ -619,7 +631,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     /* Removes margin */
     ytd-download-button-renderer {
-        margin: 0 !important;
+        margin: 0 i;
     }
 
     /* Add spacing for dislike counts (return youtube dislike)*/
@@ -642,15 +654,15 @@ Support me: https://ko-fi.com/sapondanaisriwan
             a[aria-label="Subscribe"] {
                 /* InPrivate */
                 border-radius: custom_border_radius;
-                color: var(--yt-spec-static-brand-white) !important;
-                background-color: var(--yt-spec-brand-button-background) !important;
+                color: var(--yt-spec-static-brand-white) i;
+                background-color: var(--yt-spec-brand-button-background) i;
             }
             /* Unsubscribe button */
             button[aria-label^=Unsubscribe],
             button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
                 border-radius: custom_border_radius;
-                color: var(--yt-spec-text-secondary) !important;
-                background-color: var(--yt-spec-badge-chip-background) !important;
+                color: var(--yt-spec-text-secondary) i;
+                background-color: var(--yt-spec-badge-chip-background) i;
             }
         }
     }
@@ -658,7 +670,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     /* Subscribed button on channels*/
     /* Please let me know if you can figure out how to make this shorter and cleaner */
     [page-subtype="channels"] {
-        #subscribe yt-button-shape button{
+        #subscribe yt-button-shape button {
             &[aria-label^="Subscribe"], //English
             &[aria-label^="ติดตาม"], // Thai
             &[aria-label^="Pratite kanal"],
@@ -733,8 +745,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
             &[aria-label^="Tilaa"],
             &[aria-label^="Subskrybuj kanał"] {
                 border-radius: custom_border_radius;
-                color: var(--yt-spec-static-brand-white) !important;
-                background-color: var(--yt-spec-brand-button-background) !important;
+                color: var(--yt-spec-static-brand-white) i;
+                background-color: var(--yt-spec-brand-button-background) i;
             }
         }
     }
@@ -743,14 +755,14 @@ Support me: https://ko-fi.com/sapondanaisriwan
     html[dark] ytd-shorts #subscribe-button yt-button-shape {
         button[aria-label^=Unsubscribe],
         button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
-            background-color: var(--sub-black-bg-btn) !important;
+            background-color: var(--sub-black-bg-btn) i;
         }
     }
 
     html:not([dark]) ytd-shorts #subscribe-button yt-button-shape {
         button[aria-label^=Unsubscribe],
         button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
-            background-color: var(--sub-white--text-btn) !important;
+            background-color: var(--sub-white--text-btn) i;
         }
     }
 
@@ -758,12 +770,12 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     /* Removes background color */
     .yt-simple-endpoint.style-scope.ytd-subscription-notification-toggle-button-renderer yt-icon-button {
-        background-color: transparent !important;
+        background-color: transparent i;
     }
 
     /* Save button (Youtube for kids) */
     .yt-spec-button-shape-next--disabled.yt-spec-button-shape-next--tonal {
-        background-color: transparent !important;
+        background-color: transparent i;
     }
 
     .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start::after {
@@ -772,11 +784,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
     .yt-spec-touch-feedback-shape__fill {
-        background-color: transparent !important;
+        background-color: transparent i;
     }
     /* Fixed reply button */
     .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text {
-        background-color: transparent !important;
+        background-color: transparent i;
     }
 
     /* Search box */
@@ -786,7 +798,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #container.ytd-searchbox,
     ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #search-icon-legacy.ytd-searchbox,
     ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #search-icon-legacy.ytd-searchbox {
-        border-radius: custom_border_radius !important;
+        border-radius: custom_border_radius i;
     }
 
     /* No rounded thumbnails */
@@ -819,12 +831,12 @@ Support me: https://ko-fi.com/sapondanaisriwan
     ytd-video-preview[rounded-container] #video-preview-container.ytd-video-preview,
     ytd-video-preview[rounded-container] #player-container.ytd-video-preview,
     ytd-video-preview[rounded-container] #inline-preview-player.ytd-video-preview {
-        border-radius: custom_border_radius !important;
+        border-radius: custom_border_radius i;
     }
 
     /* Removes border while hover the video */
     ytd-video-preview:not([has-endorsement]) #inline-preview-player.ytp-rounded-inline-preview .html5-main-video {
-        border-radius: custom_border_radius !important;
+        border-radius: custom_border_radius i;
     }
 
     /* Removes border from miniplayer */
@@ -832,7 +844,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     ytd-miniplayer[rounded-container] #video-container.ytd-miniplayer .video.ytd-miniplayer,
     ytd-miniplayer[rounded-container] #card.ytd-miniplayer,
     ytd-miniplayer[rounded-container] {
-        border-radius: custom_border_radius !important;
+        border-radius: custom_border_radius i;
     } // #show-hide-button > ytd-toggle-button-renderer > yt-button-shape > button > yt-touch-feedback-shape > div > div.yt-spec-touch-feedback-shape__fill
     /* Removes border around Live chat */
     ytd-live-chat-frame[rounded-container],
@@ -840,25 +852,25 @@ Support me: https://ko-fi.com/sapondanaisriwan
     yt-dropdown-menu[modern-dialogs] #menu.yt-dropdown-menu,
     .dropdown-content.tp-yt-paper-menu-button,
     #chatframe {
-        border-radius: custom_border_radius !important;
+        border-radius: custom_border_radius i;
     }
 
     /* Live */
     .ytp-offline-slate-bar.ytp-rounded-offline-slate {
-        border-radius: custom_border_radius !important;
+        border-radius: custom_border_radius i;
     }
 
     /* Removes border around pop up */
     ytd-menu-popup-renderer[sheets-refresh],
     tp-yt-paper-dialog[modern] {
-        border-radius: custom_border_radius !important;
+        border-radius: custom_border_radius i;
     }
 
     ytd-guide-entry-renderer[guide-refresh],
     ytd-guide-entry-renderer[guide-refresh] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:hover,
     ytd-guide-entry-renderer[guide-refresh] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:focus,
     ytd-guide-entry-renderer[guide-refresh] yt-interaction.ytd-guide-entry-renderer {
-        border-radius: custom_border_radius !important;
+        border-radius: custom_border_radius i;
     }
 
     .ytp-sb-subscribe.ytp-sb-rounded,
@@ -867,7 +879,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     }
 
     .iv-card.ytp-rounded-info {
-        border-radius: custom_border_radius !important;
+        border-radius: custom_border_radius i;
     }
 
     /* Gaming */
@@ -875,36 +887,36 @@ Support me: https://ko-fi.com/sapondanaisriwan
     ytd-video-preview[rounded-container] #player-container.ytd-video-preview,
     ytd-video-preview[rounded-container] #inline-preview-player.ytd-video-preview,
     ytd-game-details-renderer[rounded] yt-img-shadow.ytd-game-details-renderer {
-        border-radius: custom_border_radius !important;
+        border-radius: custom_border_radius i;
     }
     /* Removes border Community post */
     ytd-backstage-post-thread-renderer[rounded-container],
     yt-img-shadow.ytd-backstage-image-renderer,
     ytd-backstage-image-renderer[rounded] #image-container.ytd-backstage-image-renderer {
-        border-radius: custom_border_radius !important;
+        border-radius: custom_border_radius i;
     }
     /* shots */
     ytd-reel-player-overlay-renderer #overlay.ytd-reel-player-overlay-renderer {
-        border-radius: custom_border_radius !important;
+        border-radius: custom_border_radius i;
     }
     /* remove unloaded video thumbnails */
     #home-page-skeleton .rich-thumbnail.rounded-thumbs,
     #home-container-skeleton .rich-thumbnail.rounded-thumbs:before {
-        border-radius: custom_border_radius !important;
+        border-radius: custom_border_radius i;
     }
 
     /* Charpters */
     ytd-engagement-panel-section-list-renderer[modern-panels] {
-        border-radius: custom_border_radius !important;
+        border-radius: custom_border_radius i;
     }
 
     /* the end of the video */
     .ytp-autonav-endscreen-upnext-button.ytp-autonav-endscreen-upnext-button-rounded {
-        border-radius: custom_border_radius !important;
+        border-radius: custom_border_radius i;
     }
 
     a.ytd-search-refinement-card-renderer {
-        border-radius: custom_border_radius !important;
+        border-radius: custom_border_radius i;
     }
 
     ytd-expandable-metadata-renderer[round-container]:not([is-expanded]) {
@@ -912,21 +924,21 @@ Support me: https://ko-fi.com/sapondanaisriwan
     }
     /* hover playlist */
     ytd-playlist-video-renderer[amsterdam] {
-        border-radius: custom_border_radius !important;
+        border-radius: custom_border_radius i;
     }
     /* Home posts section */
     ytd-post-renderer[rounded-container] {
-        border-radius: custom_border_radius !important;
+        border-radius: custom_border_radius i;
     }
 
     /* Setting gear icon */
     .ytp-settings-menu.ytp-rounded-menu,
     .ytp-screen-mode-menu.ytp-rounded-menu {
-        border-radius: custom_border_radius !important;
+        border-radius: custom_border_radius i;
     }
 
     .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start {
-        border-radius: custom_border_radius !important;
+        border-radius: custom_border_radius i;
         position: relative;
     }
 
@@ -936,43 +948,43 @@ Support me: https://ko-fi.com/sapondanaisriwan
     .ytp-ce-medium-round .ytp-ce-expanding-overlay-background,
     ytd-compact-video-renderer[music-metadata-video-lockup],
     ytd-rich-metadata-renderer[rounded] {
-        border-radius: custom_border_radius !important;
+        border-radius: custom_border_radius i;
     }
 
     /* Removes border around search box */
     .sbdd_b {
-        border-radius: custom_border_radius !important;
+        border-radius: custom_border_radius i;
     }
 
     ytd-expandable-metadata-renderer[round-container] {
-        border-radius: custom_border_radius !important;
+        border-radius: custom_border_radius i;
     }
 
     /* Timestamp */
     ytd-macro-markers-list-item-renderer[modern][rounded][layout=MACRO_MARKERS_LIST_ITEM_RENDERER_LAYOUT_VERTICAL] {
-        border-radius: custom_border_radius !important;
+        border-radius: custom_border_radius i;
     }
 
     /* Not interested */
     ytd-rich-grid-media[rounded-container] #dismissed.ytd-rich-grid-media,
     #dismissed.ytd-compact-video-renderer {
-        border-radius: custom_border_radius !important;
+        border-radius: custom_border_radius i;
     }
 
     /* Inform news such as covid19 */
     ytd-clarification-renderer[round-container],
     ytd-info-panel-container-renderer[rounded-container][has-title] .header.ytd-info-panel-container-renderer,
     ytd-medical-panel-content-renderer[rounded-container] {
-        border-radius: custom_border_radius !important;
+        border-radius: custom_border_radius i;
     }
 
     .ytp-sb-subscribe.ytp-sb-rounded,
     .ytp-sb-unsubscribe.ytp-sb-rounded {
-        border-radius: custom_border_radius !important;
+        border-radius: custom_border_radius i;
     }
 
     yt-formatted-string#index.style-scope.ytd-playlist-video-renderer {
-        display: inline !important;
+        display: inline i;
     }
 
     /* Removes double line on playlits */
@@ -986,46 +998,46 @@ Support me: https://ko-fi.com/sapondanaisriwan
     }
 
     .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline {
-        border: 1px solid var(--yt-spec-call-to-action) !important;
+        border: 1px solid var(--yt-spec-call-to-action) i;
     }
     /* Playlist */
     .yt-spec-button-shape-next.yt-spec-button-shape-next--text.yt-spec-button-shape-next--icon-only-default,
     .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--icon-button {
-        background-color: transparent !important;
+        background-color: transparent i;
     }
 
     /* (chip)buttons to sort the videos */
     yt-chip-cloud-chip-renderer[modern-chips][chip-style] {
-        border-radius: 5px !important;
+        border-radius: 5px i;
     }
 
 
     /* Reply button */
     #reply-button-end ytd-button-renderer yt-button-shape button,
     #reply-button-end > yt-button-renderer > yt-button-shape > button {
-        color: var(--yt-spec-text-secondary) !important;
-        background: transparent !important;
+        color: var(--yt-spec-text-secondary) i;
+        background: transparent i;
         padding: 0;
     }
 
     .more-button.ytd-backstage-post-renderer,
     .less-button.ytd-backstage-post-renderer {
-        color: var(--yt-spec-text-secondary) !important;
+        color: var(--yt-spec-text-secondary) i;
     }
 
     /* Join button */
     #sponsor-button yt-button-shape button,
     #buttons ytd-toggle-button-renderer yt-button-shape button {
-        color: var(--yt-spec-call-to-action) !important; // #065fd4
-        border: 1px solid var(--yt-spec-call-to-action) !important;
-        padding: 9px 15px !important;
+        color: var(--yt-spec-call-to-action) i; // #065fd4
+        border: 1px solid var(--yt-spec-call-to-action) i;
+        padding: 9px 15px i;
         background: transparent;
     }
 
 
     /* Post button*/
     #post-button yt-button-shape button {
-        background-color: var(--yt-spec-call-to-action) !important; // #065fd4
+        background-color: var(--yt-spec-call-to-action) i; // #065fd4
     }
 
     /* Revert comment and like/dislike btn */
@@ -1034,9 +1046,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
     #dislike-button,
     #reply-button-end {
         svg {
-            // color: #AAA !important
-            width: 18px !important;
-            height: 18px !important;
+            // color: #AAA i
+            width: 18px i;
+            height: 18px i;
         }
     }
 
@@ -1058,9 +1070,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     /* Hearted comment */
     #hearted.ytd-creator-heart-renderer {
-        right: 10px !important;
+        right: 10px i;
     }
     #hearted-border.ytd-creator-heart-renderer {
-        right: 9px !important;
+        right: 9px i;
     }
 }
