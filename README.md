@@ -90,6 +90,7 @@ Because I use specific selector the elements that are in English and no other la
 
 ## ✅ Supported extensions
 - [Return YouTube Dislike](https://www.returnyoutubedislike.com/)
+- [Thumbnail Rating Bar for YouTube™](https://chrome.google.com/webstore/detail/thumbnail-rating-bar-for/cmlddjbnoehmihdmfhaacemlpgfbpoeb/related)
 - [uBlock Origin](https://ublockorigin.com/)
 
 ## 💰 Support me
