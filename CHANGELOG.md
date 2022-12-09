@@ -1,6 +1,9 @@
 
 ## Changelog
 
+### v1.5.4
+- Fixed hiding buttons options for users of languages other than English (Not supported on Firefox and Brave browser)
+
 ### v1.5.3
 - Fixed Join button(Youtube please stop updating. I'm tired)
 
