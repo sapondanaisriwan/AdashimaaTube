@@ -1,6 +1,15 @@
 
 ## Changelog
 
+### v1.5.5
+- Add "Avatar Roundness" option
+- Add "Remove Game Section" option (Enabled by default)
+- Add "Remove Music Section"option
+- Add "Dark Navigation Bar" option (Enabled by default)
+- Add "Dark Search Box" option
+- Add "Dark Scroll Bar" option (Enabled by default)
+- Renamed "Remove Text on Buttons" to "Hide Text Buttons"
+
 ### v1.5.4
 - Fixed hiding buttons options for users of languages other than English (Not supported on Firefox and Brave browser)
 
