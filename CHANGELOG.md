@@ -1,7 +1,7 @@
-
 ## Changelog
 
 ### v1.5.5
+- Add "Hide Save button" option
 - Add "Avatar Roundness" option
 - Add "Remove Game Section" option (Enabled by default)
 - Add "Remove Music Section"option

@@ -32,7 +32,7 @@
 @advanced checkbox saveBtn                  "  🫣 Hide Save Button" 0
 @advanced checkbox commentSection           "  🫣 Hide Comments Section" 0
 @advanced checkbox textBtn                  "  🫣 Hide Text Buttons" 0
-@advanced checkbox gameSection              "  ❌ Remove Game Section" 0
+@advanced checkbox gameSection              "  ❌ Remove Game Section" 1
 @advanced checkbox musicSection             "  ❌ Remove Music Section" 0
 
 @advanced select customAppearance           "⚒️ Custom Appearance" ["Enabled", "Disabled"]
@@ -66,15 +66,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
         --sub-red-btn: #CC0000;
         --sub-white--text-btn: #F2F2F2;
         --sub-black-bg-btn: #303030;
-    } // .html5-video-player:not(.it-mini-player).ytp-autohide .ytp-chrome-bottom {
-    //     opacity: 1 !important;
-    // }
-    // .html5-video-player:not(.it-mini-player).ytp-autohide .ytp-chrome-bottom .ytp-chrome-controls {
-    //     opacity: 0 !important;
-    // }
-    // .html5-video-player:not(.it-mini-player).ytp-autohide .ytp-chrome-bottom .ytp-progress-bar-container {
-    //     bottom: 0 !important;
-    // }
+    }
+
     /* ⚒️ Custom Homepage */
     if (customHomepage=="Enabled") {
 
