@@ -1,5 +1,8 @@
 ## Changelog
 
+### v1.5.6
+- Add some CSS (I'm not sure what I did.)
+
 ### v1.5.5
 - Add "Hide Save button" option
 - Add "Avatar Roundness" option
