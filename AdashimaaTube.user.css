@@ -520,6 +520,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
         #contents > ytd-rich-item-renderer :has(a[href*="/shorts/"]) {
             display: none i;
         }
+        [page-subtype="channels"]  #contents :has(a[href*="/shorts/"]) {
+            display: none i;
+        }
     }
 
 
