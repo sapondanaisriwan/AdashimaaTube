@@ -1,0 +1,22 @@
+/* ==UserStyle==
+@name           YouTube playlists Display the video index
+@namespace      Display the video index
+@author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan) [Adashima#4066]
+@description    `YouTube playlists Display the video index`
+@version        1.0.0
+@license        MIT
+@preprocessor   stylus
+==/UserStyle== */
+
+@-moz-document domain("youtube.com") {
+  yt-formatted-string#index.style-scope.ytd-playlist-video-renderer {
+    display: inline !important;
+  }
+
+  ytd-playlist-video-renderer[can-reorder][is-editable]:hover
+    #reorder.ytd-playlist-video-renderer,
+  ytd-playlist-video-renderer[persistent-drag-handle]
+    #reorder.ytd-playlist-video-renderer {
+    display: none;
+  }
+}

@@ -1,0 +1,33 @@
+/* ==UserStyle==
+@name           Remove Shorts
+@author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan) [Adashima#4066]
+@description    Please report bugs via my email, github, discord or the discussion section(If I have some free time, I'll fix them)
+@namespace      https://userstyles.world/user/sapondanaisriwan
+@homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
+@supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
+@version        1.0.0
+@license        MIT
+@preprocessor   stylus
+
+==/UserStyle== */
+@-moz-document domain("youtube.com") {
+
+    // Not supported Firefox and Brave browser (others browser i don't know)    
+    #items ytd-guide-entry-renderer a#endpoint[title="Shorts"],
+    #items ytd-mini-guide-entry-renderer[aria-label="Shorts"],
+    ytd-video-renderer :has(a#thumbnail[href*="/shorts/"]),
+    ytd-rich-shelf-renderer[is-shorts],
+    ytd-compact-video-renderer :has(a#thumbnail[href*="/shorts/"]) {
+        display: none !important;
+    }
+    ytd-rich-grid-media,
+    ytd-video-renderer,
+    ytd-rich-item-renderer {
+        :has(a[href*="/shorts/"]) {
+            display: none !important;
+        }
+    }
+    #contents > ytd-rich-item-renderer :has(a[href*="/shorts/"]) {
+        display: none !important;
+    }
+}

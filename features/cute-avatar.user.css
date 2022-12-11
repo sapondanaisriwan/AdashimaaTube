@@ -1,0 +1,103 @@
+/* ==UserStyle==
+@name           Cute Avatar
+@author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan) [Adashima#4066]
+@description    Please report bugs via my email, github, discord or the discussion section(If I have some free time, I'll fix them)
+@namespace      https://userstyles.world/user/sapondanaisriwan
+@homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
+@supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
+@version        1.0.1
+@license        MIT
+@preprocessor   stylus
+
+@advanced range customAvatarRadius          "⚙️ Avatar Roundness" [25, 0, 50, 1, '%']
+==/UserStyle== */
+i=!important //
+/*
+Please report bugs via my email, github, discord or the discussion section(If I have some free time, I'll fix them)
+Contact: sapondanaisriwan@gmail.com
+Support me: https://ko-fi.com/sapondanaisriwan 
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+*/
+@-moz-document domain("youtube.com") {
+    /* ⚙️ Avatar Roundness */
+    #avatar {
+        &.ytd-video-owner-renderer,
+        &.ytd-c4-tabbed-header-renderer,
+        &.ytd-rich-grid-media,
+        &.ytd-reel-player-header-renderer,
+        &.ytd-active-account-header-renderer,
+        &.yt-live-chat-message-input-renderer {
+            border-radius: customAvatarRadius i;
+        }
+    }
+
+    #author-thumbnail {
+        &.ytd-comment-simplebox-renderer,
+        &.ytd-comment-renderer yt-img-shadow.ytd-comment-renderer,
+        &.ytd-creator-heart-renderer {
+            border-radius: customAvatarRadius i;
+        }
+    }
+
+    #hearted-thumbnail.ytd-creator-heart-renderer {
+        border-radius: customAvatarRadius i;
+    }
+
+    #author-photo {
+        &.yt-live-chat-text-message-renderer, // Live chat
+        &.yt-live-chat-paid-message-renderer,
+        &.yt-live-chat-membership-item-renderer {
+            border-radius: customAvatarRadius i;
+        }
+    }
+
+    #creator-photo {
+        &.yt-live-chat-poll-header-renderer,
+        &.yt-live-chat-banner-poll-renderer {
+            border-radius: customAvatarRadius i;
+        }
+        &.ytd-sponsorships-live-chat-header-renderer {
+            --yt-img-border-radius: customAvatarRadius i;
+        }
+    }
+
+    yt-img-shadow {
+        &.ytd-guide-entry-renderer,
+        &.ytd-topbar-menu-button-renderer,
+        &.ytd-channel-renderer,
+        &.ytd-grid-channel-renderer,
+        &.ytd-channel-avatar-editor,
+        &.ytd-video-renderer,
+        &.yt-live-chat-ticker-paid-message-item-renderer,
+        &.yt-live-chat-ticker-sponsor-item-renderer {
+            border-radius: customAvatarRadius i;
+        }
+    }
+    .ytp-ce-channel {
+        border-radius: customAvatarRadius i;
+        .ytp-ce-expanding-image,
+        .ytp-ce-element-shadow {
+            border-radius: customAvatarRadius i;
+        }
+    }
+
+    .avatar {
+        &.ytd-sponsorships-offer-renderer,
+        &.ytd-recognition-shelf-renderer {
+            border-radius: customAvatarRadius i;
+        }
+    }
+
+    .b3-line-item.b3-line-item-hero .b3-line-item-image img,
+    #thumbnail.ytd-profile-column-user-info-renderer,
+    .thumbnail.ytd-notification-renderer,
+    .subscribecard-endscreen .ytp-author-image,
+    #c4-player > div.ytp-player-content.ytp-iv-player-content > div.annotation.annotation-type-custom.iv-branding > button > img,
+    #movie_player > div.ytp-player-content.ytp-iv-player-content > div.annotation.annotation-type-custom.iv-branding > button > img,
+    ytd-commentbox[is-reply][is-backstage-comment] #author-thumbnail.ytd-commentbox {
+        border-radius: customAvatarRadius i;
+    }
+}

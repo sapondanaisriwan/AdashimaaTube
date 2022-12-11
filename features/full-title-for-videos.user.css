@@ -1,0 +1,39 @@
+/* ==UserStyle==
+@name           YouTube - Full Title For Videos
+@author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan) [Adashima#4066]
+@description    Please report bugs via my email, github, discord or the discussion section(If I have some free time, I'll fix them)
+@namespace      https://userstyles.world/user/sapondanaisriwan
+@homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
+@supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues@version
+@version        1.0.3
+@license        MIT
+@preprocessor   stylus
+==/UserStyle== */
+/*
+Support me: https://ko-fi.com/sapondanaisriwan 
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+*/
+@-moz-document domain("youtube.com") {
+    ytd-grid-video-renderer,
+    ytd-rich-grid-media[mini-mode] {
+        #video-title {
+            &.yt-simple-endpoint.ytd-grid-video-renderer,
+            &.ytd-rich-grid-media {
+                display: inline !important;
+            }
+        }
+    }
+    #video-title {
+        &.ytd-compact-video-renderer,
+        &.ytd-rich-grid-media,
+        &.ytd-video-renderer,
+        &.ytd-rich-grid-slim-media,
+        &.ytd-grid-playlist-renderer,
+        &.ytd-reel-item-renderer {
+            display: inline !important;
+        }
+    }
+}

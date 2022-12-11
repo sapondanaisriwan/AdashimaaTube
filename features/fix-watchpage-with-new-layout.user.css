@@ -1,0 +1,70 @@
+/* ==UserStyle==
+@name           Youtube - Fix New Layout
+@author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan) [Adashima#4066]
+@description    Please report bugs via my email, github, discord or the discussion section(If I have some free time, I'll fix them)
+@namespace      https://userstyles.world/user/sapondanaisriwan
+@homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
+@supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
+@version        1.0.1
+@license        MIT
+@preprocessor   stylus
+==/UserStyle== */
+@-moz-document domain("youtube.com") {
+
+    #top-row.ytd-watch-metadata {
+        flex-direction: column-reverse !important;
+    }
+
+    #owner.ytd-watch-metadata {
+        justify-content: space-between !important
+    }
+
+    ytd-video-owner-renderer[watch-metadata-refresh] {
+        display: contents;
+    }
+
+    #info > yt-attributed-string > span > span {
+        &:nth-child(-n+4) {
+            // &:nth-child(4),
+            // &:nth-child(3),
+            // &:nth-child(2),
+            // &:nth-child(1)
+            display: none !important;
+        }
+    } // fix border for return youtube dislike 
+    ytd-watch-metadata[flex-menu-enabled] #actions.ytd-watch-metadata {
+        border-bottom: 1px solid var(--yt-spec-10-percent-layer);
+        padding-bottom: 10px;
+    } // for return youtube dislike 
+    #top-row {
+        border: none !important;
+    }
+
+    ytd-watch-metadata {
+        display: block !important;
+    }
+
+    #info-contents[hidden] {
+        display: block !important;
+    }
+
+    .style-scope.ytd-watch-flexy #container #info-text {
+        position: absolute;
+        top: 40px;
+    }
+
+    ytd-video-primary-info-renderer {
+        padding: 0 !important;
+        border: none;
+    }
+
+    ytd-video-primary-info-renderer #container > :not(#info),
+    #menu-container {
+        display: none !important;
+    }
+
+    ytd-page-manager ytd-comments {
+        position: relative;
+        bottom: 20px !important;
+    }
+}

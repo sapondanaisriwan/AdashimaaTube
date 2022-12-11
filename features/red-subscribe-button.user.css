@@ -1,0 +1,146 @@
+/* ==UserStyle==
+@name           Youtube - Red Subscribe Button
+@author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan) [Adashima#4066]
+@description    Please report bugs via my email, github, discord or the discussion section(If I have some free time, I'll fix them)
+@namespace      https://userstyles.world/user/sapondanaisriwan
+@homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
+@supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
+@version        1.0.4
+@license        MIT
+@preprocessor   stylus
+==/UserStyle== */
+/*
+Please report bugs via my email, github, discord or the discussion section(If I have some free time, I'll fix them)
+Contact: sapondanaisriwan@gmail.com
+Support me: https://ko-fi.com/sapondanaisriwan 
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+*/
+@-moz-document domain("youtube.com") {
+    :root {
+        --sub-red-btn: #CC0000;
+        --sub-white--text-btn: #F2F2F2;
+        --sub-black-bg-btn: #303030;
+    }
+
+    /* Subscribed button */
+    #subscribe,
+    #subscribe-button {
+        yt-button-shape {
+
+            /* Red Subscribed button */
+            button,
+            a[aria-label="Subscribe"] {
+                /* InPrivate */
+                color: var(--yt-spec-static-brand-white) !important;
+                background-color: var(--yt-spec-brand-button-background) !important;
+            }
+            /* Unsubscribe button */
+            button[aria-label^=Unsubscribe],
+            button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
+                color: var(--yt-spec-text-secondary) !important;
+                background-color: var(--yt-spec-badge-chip-background) !important;
+            }
+        }
+    }
+
+    /* Subscribed button on channels*/
+    /* Please let me know if you can figure out how to make this shorter and cleaner */
+    [page-subtype="channels"] {
+        #subscribe yt-button-shape button {
+            &[aria-label^="Subscribe"], //English
+            &[aria-label^="ติดตาม"], // Thai
+            &[aria-label^="Pratite kanal"],
+            &[aria-label^="Teken in"], // Afrikaans
+            &[aria-label*="kanalına abunə olun"], // Azərbaycan
+            &[aria-label^="Subscribe"], // Bahasa Indonesia
+            &[aria-label^="Langgan"], // Bahasa Malaysia
+            &[aria-label^="Pretplatite se na kanal"], // Bosanski
+            &[aria-label^="Subscriu-te al canal"], // Català
+            &[aria-label*="se k"], // Čeština
+            &[aria-label^="Abonner på"], // Dansk
+            &[aria-label$="abonnieren."], // Deutsch
+            &[aria-label^="Telli"], // Eesti
+            &[aria-label^="Suscribirse"], // Español (España)
+            &[aria-label^="Suscribirme"], // Español (Latinoamérica)
+            &[aria-label^="Harpidetu"], // euskara
+            &[aria-label^="Mag-subscribe sa"], // Filipino
+            &[aria-label^="S'abonner à"], // Français
+            &[aria-label^="Subscribirse"], // galego
+            &[aria-label^="Bhalisesla"], // IsiZulu
+            &[aria-label^="Prihlásiť sa na odber kanála"], // Íslenska
+            &[aria-label^="Hefja áskrift að"], // Íslenska
+            &[aria-label^="Iscriviti"], // Italiano
+            &[aria-label^="Fuatilia"], //
+            &[aria-label^="Abonēt kanālu"], //
+            &[aria-label^="Prenumeruoti"], //
+            &[aria-label^="Feliratkozás"], //
+            &[aria-label^="Abonneren op"], //
+            &[aria-label^="Obuna qiling"], //
+            &[aria-label^="Abonohu në"], //
+            &[aria-label^="Đăng ký"], //
+            &[aria-label$="alına abone ol."], //
+            &[aria-label^="Падпісацца на канал"],
+            &[aria-label^="Абониране"],
+            &[aria-label$="каналына жазылыңыз."],
+            &[aria-label$="арнасына жазылу"],
+            &[aria-label^="Претплатете се на"],
+            &[aria-label$="захиалах."],
+            &[aria-label^="Оформить подписку на канал"],
+            &[aria-label^="Пратите канал"],
+            &[aria-label^="Підписатися на канал"],
+            &[aria-label^="Subscrever"],
+            &[aria-label^="Inscreva-se em"],
+            &[aria-label^="Abonează-te la"],
+            &[aria-label^="Prenumerera på"],
+            &[aria-label^="Հետևել"],
+            &[aria-label^="הרשמה למינוי לערוץ"],
+            &[aria-label$="کو سبسکرائب کریں۔"],
+            &[aria-label^="يمكنك الاشتراك في قناة"],
+            &[aria-label^="مشترک شدن در"],
+            &[aria-label$="को सदस्यता लिनुहोस्।"],
+            &[aria-label$="चे सदस्यत्व घ्या."],
+            &[aria-label$="के सदस्य बनें."],
+            &[aria-label$="ৰ সদস্য হওক।"],
+            &[aria-label$="এ সাবস্ক্রাইব করুন।"],
+            &[aria-label$="ਨੂੰ ਸਬਸਕ੍ਰਾਈਬ ਕਰੋ।"],
+            &[aria-label$="પર સબ્સ્ક્રાઇબ કરો."],
+            &[aria-label$="ସବ୍‍ସ୍କ୍ରାଇବ୍‍ କରିବେ।"],
+            &[aria-label$="சேனலில் குழுசேர்க."],
+            &[aria-label$="సబ్‌స్క్రయిబ్ చేయండి."],
+            &[aria-label$="ಗೆ ಸಬ್‌ಸ್ಕ್ರೈಬ್ ಮಾಡಿ."],
+            &[aria-label$="എന്ന ചാനലിന്‍റെ വരിക്കാരാവുക."],
+            &[aria-label$="වෙත දායක වන්න."],
+            &[aria-label^="ຕິດຕາມ"],
+            &[aria-label$="တွင် စာရင်းသွင်းရန်။"],
+            &[aria-label$="გამოწერა."],
+            &[aria-label^="订阅"], // &[aria-label="ជា&ZeroWidthSpace;វ&ZeroWidthSpace; Elegant Sister (ES) ។"]
+            &[aria-label^="訂閱"],
+            &[aria-label^="ይመዝገቡ።"],
+            &[aria-label$="をチャンネル登録"],
+            &[aria-label$="을(를) 구독합니다."],
+            &[aria-label^="Tilaa"],
+            &[aria-label^="Subskrybuj kanał"] {
+                color: var(--yt-spec-static-brand-white) !important;
+                background-color: var(--yt-spec-brand-button-background) !important;
+            }
+        }
+    }
+
+    /* Shorts Unsubscribe button */
+    html[dark] ytd-shorts #subscribe-button yt-button-shape button {
+        &[aria-label^=Unsubscribe],
+        &.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
+            background-color: var(--sub-black-bg-btn) !important;
+        }
+    }
+
+    html:not([dark]) ytd-shorts #subscribe-button yt-button-shape button {
+        &[aria-label^=Unsubscribe],
+        &.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
+            background-color: var(--sub-white--text-btn) !important;
+        }
+    }
+}
