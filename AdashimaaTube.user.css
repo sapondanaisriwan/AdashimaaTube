@@ -1,12 +1,12 @@
 /* ==UserStyle==
-@name           AdashimaaTube
-@author         sapondanaisriwan <Adashima#4066> (https://github.com/sapondanaisriwan)
+@name           `AdashimaaTube
+@author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan) [Adashima#4066]
 @description    Please report bugs via my email, github, discord or the discussion section(If I have some free time, I'll fix them)
 @namespace      https://userstyles.world/user/sapondanaisriwan
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.5.5
+@version        1.5.6
 @license        MIT
 @preprocessor   stylus
 
@@ -40,7 +40,7 @@
 @advanced checkbox searchBox                "  🌑 Dark Search Box" 0
 @advanced checkbox scroll_Bar               "  🌑 Dark Scroll Bar" 1
 
-@advanced select customRaitoBar             "⚒️ Display Ratio Bar (Beta)" ["Enabled", "Disabled"]
+@advanced select customRatioBar             "⚒️ Display Ratio Bar (Beta)" ["Enabled", "Disabled"]
 @advanced color likeRBColor                 "  🎨 Like Ratio Color" #32CD32
 @advanced color dislikeRBColor              "  🎨 Dislike Ratio Color" #FF0000
 
@@ -135,6 +135,25 @@ Support me: https://ko-fi.com/sapondanaisriwan
         //         opacity: 1
         //     }
         // }
+        @keyframes bounceIn {
+            0% {
+                transform: scale(1.3);
+                opacity: 0
+            }
+            30% {
+                transform: scale(.99);
+                opacity: 1
+            }
+            60% {
+                transform: scale(1.1);
+                opacity: 1
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1
+            }
+        }
+
         @keyframes slideInUp {
             from {
                 transform: translateY(15px);
@@ -170,7 +189,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
         @keyframes scaleIn {
             from {
-                transform: scale(.98);
+                transform: scale(.95);
                 opacity: 0;
             }
             to {
@@ -189,7 +208,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
         ytd-video-renderer,
         ytd-reel-item-renderer,
         ytd-video-secondary-info-renderer,
-        ytd-compact-radio-renderer {
+        ytd-compact-radio-renderer,
+        yt-horizontal-list-renderer {
             animation: slideInUp .7s;
         }
 
@@ -200,25 +220,14 @@ Support me: https://ko-fi.com/sapondanaisriwan
         .style-scope.ytd-watch-flexy #container #info-text,
         ytd-watch-metadata > div#above-the-fold > #title {
             animation: slideInRight .7s;
-        } // .ytp-chrome-top,
-        // .ytp-chrome-bottom {
-        //     animation: slideUp .5s;
-        // } // ytd-video-renderer {
-        //     animation: bounceIn 15s;
-        // }
-        // .ytp-chrome-top,
-        // .ytp-chrome-bottom {
-        //     -webkit-transition: all .3s ease-out i;
-        //     transition: all .3s ease-out i; // top: 100%;
-        //     // position: relative;
-        //     // height: 100%;
-        // }
+        }
+        
     }
 
 
     /* ⚒️ Display Ratio Bar (Beta) */
     /* Ratio bar works with "Return Youtube Dislike" */
-    if (customRaitoBar=="Enabled") {
+    if (customRatioBar=="Enabled") {
 
         ytd-watch-metadata {
             display: block i;
@@ -303,7 +312,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     }
 
     /* ⚒️ Display Ratio Bar (Beta) */
-    if (customRaitoBar=="Disabled") {
+    if (customRatioBar=="Disabled") {
         ytd-watch-metadata {
             display: none i;
         }
@@ -497,7 +506,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
         #items ytd-guide-entry-renderer a#endpoint[title="Shorts"],
         #items ytd-mini-guide-entry-renderer[aria-label="Shorts"],
         ytd-video-renderer :has(a#thumbnail[href*="/shorts/"]),
-        ytd-rich-shelf-renderer[is-shorts] {
+        ytd-rich-shelf-renderer[is-shorts],
+        ytd-compact-video-renderer :has(a#thumbnail[href*="/shorts/"]) {
             display: none;
         }
         ytd-rich-grid-media,
@@ -721,10 +731,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
     .subscribecard-endscreen .ytp-author-image,
     #c4-player > div.ytp-player-content.ytp-iv-player-content > div.annotation.annotation-type-custom.iv-branding > button > img,
     #movie_player > div.ytp-player-content.ytp-iv-player-content > div.annotation.annotation-type-custom.iv-branding > button > img,
-    ytd-commentbox[is-reply][is-backstage-comment] #author-thumbnail.ytd-commentbox {
+    ytd-commentbox[is-reply][is-backstage-comment] #author-thumbnail.ytd-commentbox,
+    ytd-comment-replies-renderer #creator-thumbnail.ytd-comment-replies-renderer yt-img-shadow.ytd-comment-replies-renderer {
         border-radius: customAvatarRadius i;
     }
-
 
 
 
