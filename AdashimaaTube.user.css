@@ -503,8 +503,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
         /* These rules won't be applied in browsers that don't support :has() */
         /* https://www.youtube.com/results?search_query=shorts */
-        ytd-video-renderer,
-        
+        ytd-video-renderer[is-search]
         /* Remove shorts from watch page*/
         #contents > ytd-compact-video-renderer,
         #items > ytd-reel-item-renderer {
