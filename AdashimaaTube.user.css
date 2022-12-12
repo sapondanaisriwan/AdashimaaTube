@@ -503,10 +503,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
         /* These rules won't be applied in browsers that don't support :has() */
         /* https://www.youtube.com/results?search_query=shorts */
-        ytd-video-renderer[is-search]
-        /* Remove shorts from watch page*/
+        ytd-video-renderer[is-search]/* Remove shorts from watch page*/
         #contents > ytd-compact-video-renderer,
-        #items > ytd-reel-item-renderer {
+        #items > ytd-reel-item-renderer,
+        #related > ytd-watch-next-secondary-results-renderer > #items > ytd-compact-video-renderer {
             &:has(#dismissible > ytd-thumbnail > a#thumbnail[href^="/shorts/"]) {
                 display: none;
             }
@@ -516,7 +516,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         ytd-rich-grid-renderer[is-shorts-grid] {
             display: none;
         }
-
+        
         /* https://www.youtube.com/@MrBeast2/featured */
         #contents > ytd-item-section-renderer > #contents ytd-reel-shelf-renderer:has(yt-horizontal-list-renderer > #scroll-container > #items > ytd-reel-item-renderer #dismissible > ytd-thumbnail > a#thumbnail[href^="/shorts/"]) {
             display: none;
