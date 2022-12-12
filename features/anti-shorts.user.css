@@ -1,33 +1,48 @@
 /* ==UserStyle==
 @name           Remove Shorts
-@author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan) [Adashima#4066]
+@author         sapondanaisriwan <Adashima#4066> (https://github.com/sapondanaisriwan)
 @description    Please report bugs via my email, github, discord or the discussion section(If I have some free time, I'll fix them)
 @namespace      https://userstyles.world/user/sapondanaisriwan
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
-@version        1.0.0
+@version        1.0.1
 @license        MIT
 @preprocessor   stylus
 
 ==/UserStyle== */
 @-moz-document domain("youtube.com") {
 
-    // Not supported Firefox and Brave browser (others browser i don't know)    
-    #items ytd-guide-entry-renderer a#endpoint[title="Shorts"],
-    #items ytd-mini-guide-entry-renderer[aria-label="Shorts"],
-    ytd-video-renderer :has(a#thumbnail[href*="/shorts/"]),
-    ytd-rich-shelf-renderer[is-shorts],
-    ytd-compact-video-renderer :has(a#thumbnail[href*="/shorts/"]) {
-        display: none !important;
-    }
-    ytd-rich-grid-media,
-    ytd-video-renderer,
-    ytd-rich-item-renderer {
-        :has(a[href*="/shorts/"]) {
-            display: none !important;
+    /* These rules won't be applied in browsers that don't support :has() */
+    /* https://www.youtube.com/results?search_query=shorts */
+    ytd-video-renderer[is-search]/* Remove shorts from watch page*/
+    #contents > ytd-compact-video-renderer,
+    #items > ytd-reel-item-renderer {
+        &:has(#dismissible > ytd-thumbnail > a#thumbnail[href^="/shorts/"]) {
+            display: none;
         }
     }
-    #contents > ytd-rich-item-renderer :has(a[href*="/shorts/"]) {
-        display: none !important;
+
+    /* https://www.youtube.com/@MrBeast2/shorts */
+    ytd-rich-grid-renderer[is-shorts-grid] {
+        display: none;
+    }
+
+    /* https://www.youtube.com/@MrBeast2/featured */
+    #contents > ytd-item-section-renderer > #contents ytd-reel-shelf-renderer:has(yt-horizontal-list-renderer > #scroll-container > #items > ytd-reel-item-renderer #dismissible > ytd-thumbnail > a#thumbnail[href^="/shorts/"]) {
+        display: none;
+    }
+    ytd-rich-section-renderer:has(#content > ytd-rich-shelf-renderer[is-shorts]) {
+        display: none;
+    }
+    #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer,
+    ytd-mini-guide-entry-renderer[guide-refresh] a.ytd-mini-guide-entry-renderer {
+        &[title="Shorts"] {
+            display: none;
+        }
+    }
+
+    /* https://www.youtube.com/hashtag/shorts */
+    [page-subtype="hashtag-landing-page"] > #primary > ytd-rich-grid-renderer #contents > ytd-rich-grid-row > #contents > ytd-rich-item-renderer:has(#content > ytd-rich-grid-media > #dismissible > ytd-thumbnail > a#thumbnail[href^="/shorts/"]) {
+        display: none;
     }
 }
