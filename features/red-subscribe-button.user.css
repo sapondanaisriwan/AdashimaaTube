@@ -27,7 +27,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     /* Subscribed button */
     #subscribe,
-    #subscribe-button {
+    #subscribe-button,
+    ytd-subscribe-button-renderer {
         yt-button-shape {
 
             /* Red Subscribed button */

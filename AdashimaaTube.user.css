@@ -516,7 +516,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         ytd-rich-grid-renderer[is-shorts-grid] {
             display: none;
         }
-        
+
         /* https://www.youtube.com/@MrBeast2/featured */
         #contents > ytd-item-section-renderer > #contents ytd-reel-shelf-renderer:has(yt-horizontal-list-renderer > #scroll-container > #items > ytd-reel-item-renderer #dismissible > ytd-thumbnail > a#thumbnail[href^="/shorts/"]) {
             display: none;
@@ -836,12 +836,12 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     .yt-spec-touch-feedback-shape--touch-response .yt-spec-touch-feedback-shape__stroke {
         border: none;
-    } // #segmented-like-button > ytd-toggle-button-renderer > yt-button-shape > button > div.yt-spec-button-shape-next__icon > yt-icon > yt-animated-icon > ytd-lottie-player > lottie-component > svg > g[clip-path] {
-    //     display: none;
-    // }
+    } 
+
     /* Subscribed button */
     #subscribe,
-    #subscribe-button {
+    #subscribe-button,
+    ytd-subscribe-button-renderer {
         yt-button-shape {
 
             /* Red Subscribed button */
