@@ -1,5 +1,9 @@
 ## Changelog
 
+### v1.5.8
+- Remove more Shorts
+- Change color of Subscribe/Unsubscribe button again (9999th)
+
 ### v1.5.7
 - Resolved a slow site issue caused by the "remove shorts" option 🥲
  
