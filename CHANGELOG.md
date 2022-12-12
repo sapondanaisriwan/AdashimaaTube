@@ -1,5 +1,8 @@
 ## Changelog
 
+### v1.5.7
+- Resolved a slow site issue caused by the "remove shorts" option 🥲
+ 
 ### v1.5.6
 - Add some CSS (I'm not sure what I did.)
 
