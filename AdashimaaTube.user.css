@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.5.7
+@version        1.5.8
 @license        MIT
 @preprocessor   stylus
 
@@ -84,6 +84,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     }
                 }
             }
+        }
+
+        /* Remove the blank video thumbnail is an advertisement video that was deleted by an AdBlock extension, such as uBlock Origin, AdBlock, Adblock Plus, and others */
+        #contents > ytd-rich-item-renderer:has(#content > ytd-ad-slot-renderer) {
+            display: none;
         }
 
         /* Display unloaded videos per row when refresh the homepage */
@@ -836,7 +841,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     .yt-spec-touch-feedback-shape--touch-response .yt-spec-touch-feedback-shape__stroke {
         border: none;
-    } 
+    }
 
     /* Subscribed button */
     #subscribe,
