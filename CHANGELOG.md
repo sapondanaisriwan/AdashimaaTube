@@ -4,6 +4,8 @@
 - Remove more Shorts
 - Change color of Subscribe/Unsubscribe button again (9999th)
 ![](https://i.imgur.com/TKGxpHo.png)
+- Remove the blank video thumbnail is an advertisement video that was deleted by an AdBlock extension, such as uBlock Origin, AdBlock, Adblock Plus, and others
+![](https://i.imgur.com/Y8uUJxM.jpeg)
 
 ### v1.5.7
 - Resolved a slow site issue caused by the "remove shorts" option 🥲
