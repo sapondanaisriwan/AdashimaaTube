@@ -753,7 +753,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
     #c4-player > div.ytp-player-content.ytp-iv-player-content > div.annotation.annotation-type-custom.iv-branding > button > img,
     #movie_player > div.ytp-player-content.ytp-iv-player-content > div.annotation.annotation-type-custom.iv-branding > button > img,
     ytd-commentbox[is-reply][is-backstage-comment] #author-thumbnail.ytd-commentbox,
-    ytd-comment-replies-renderer #creator-thumbnail.ytd-comment-replies-renderer yt-img-shadow.ytd-comment-replies-renderer {
+    ytd-comment-replies-renderer #creator-thumbnail.ytd-comment-replies-renderer yt-img-shadow.ytd-comment-replies-renderer,
+    #author-thumbnail.ytd-commentbox,
+    ytd-commentbox[is-reply][is-backstage-comment] #author-thumbnail.ytd-commentbox {
         border-radius: customAvatarRadius i;
     }
 
@@ -850,15 +852,15 @@ Support me: https://ko-fi.com/sapondanaisriwan
         yt-button-shape {
 
             /* Red Subscribed button */
-            button,
-            a[aria-label="Subscribe"] {
+            button {
+                // a[aria-label="Subscribe"] {
                 /* InPrivate */
                 border-radius: customBorderRadius;
                 color: var(--yt-spec-static-brand-white) i;
                 background-color: var(--yt-spec-brand-button-background) i;
             }
             /* Unsubscribe button */
-            button[aria-label^=Unsubscribe],
+            // button[aria-label^=Unsubscribe],
             button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
                 border-radius: customBorderRadius;
                 color: var(--yt-spec-text-secondary) i;
