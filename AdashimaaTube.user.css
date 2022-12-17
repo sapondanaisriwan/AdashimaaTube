@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.5.8
+@version        1.5.9
 @license        MIT
 @preprocessor   stylus
 
@@ -280,7 +280,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
         ytd-video-primary-info-renderer {
             border: none;
-            pointer-events: auto;
             position: relative;
             padding: 0 i;
             bottom: 0 i;
@@ -295,14 +294,16 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
 
         .style-scope.ytd-watch-flexy #container #info-text {
-            // position: absolute;
-            // bottom: 3.7em i;
-            margin-top: -115px; // pointer-events: none;
+            margin-top: -115px;
         }
 
         #top-row.ytd-watch-metadata,
         #top-row.ytd-watch-metadata {
             flex-direction: column-reverse i;
+        }
+
+        .ryd-tooltip-bar-container {
+            right: -6px
         }
 
         /* 🎨 Like Ratio Color */
@@ -322,14 +323,12 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
     }
 
-
-
     /* ⚒️ Custom Like/Dislike Button Color */
     if (customLikeDislike=="Enabled") {
 
         /* Video container */
         /* 👍 Like Button Color */
-        #segmented-like-button button[aria-pressed="true"] yt-icon * {
+        #segmented-like-button button[aria-pressed="true"] yt-icon path {
             fill: likeBtnColor i;
             stroke: none;
         }
@@ -753,9 +752,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     #c4-player > div.ytp-player-content.ytp-iv-player-content > div.annotation.annotation-type-custom.iv-branding > button > img,
     #movie_player > div.ytp-player-content.ytp-iv-player-content > div.annotation.annotation-type-custom.iv-branding > button > img,
     ytd-commentbox[is-reply][is-backstage-comment] #author-thumbnail.ytd-commentbox,
-    ytd-comment-replies-renderer #creator-thumbnail.ytd-comment-replies-renderer yt-img-shadow.ytd-comment-replies-renderer,
-    #author-thumbnail.ytd-commentbox,
-    ytd-commentbox[is-reply][is-backstage-comment] #author-thumbnail.ytd-commentbox {
+    ytd-comment-replies-renderer #creator-thumbnail.ytd-comment-replies-renderer yt-img-shadow.ytd-comment-replies-renderer {
         border-radius: customAvatarRadius i;
     }
 
@@ -852,15 +849,15 @@ Support me: https://ko-fi.com/sapondanaisriwan
         yt-button-shape {
 
             /* Red Subscribed button */
-            button {
-                // a[aria-label="Subscribe"] {
+            button,
+            a[aria-label="Subscribe"] {
                 /* InPrivate */
                 border-radius: customBorderRadius;
                 color: var(--yt-spec-static-brand-white) i;
                 background-color: var(--yt-spec-brand-button-background) i;
             }
             /* Unsubscribe button */
-            // button[aria-label^=Unsubscribe],
+            button[aria-label^=Unsubscribe],
             button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
                 border-radius: customBorderRadius;
                 color: var(--yt-spec-text-secondary) i;
@@ -1276,5 +1273,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
     }
     #hearted-border.ytd-creator-heart-renderer {
         right: 9px i;
+    }
+
+    /* Fix overlapping elements */
+    #contents.ytd-rich-grid-renderer {
+        margin-top: 24px i;
     }
 }
