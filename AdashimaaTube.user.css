@@ -19,7 +19,7 @@
 @advanced checkbox restoreOldPlaylist       "▶️ Restore Old Playlist" 0
 @advanced checkbox removeShorts             "❌ Remove Shorts (Beta)" 0
 @advanced checkbox removeTaps               "❌ Remove Taps" 0
-@advanced checkbox watchedOverlay           "👀 Watched Overlay" 1 
+@advanced checkbox watchedOverlay           "👀 Watched Overlay" 0
 
 @advanced select customHomepage             "⚒️ Custom Homepage" ["Enabled", "Disabled"]
 @advanced range videoPerRow                 "  🏠 Number Of Videos Per Row" [5, 1, 10, 1]
