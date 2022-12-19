@@ -1,5 +1,9 @@
 ## Changelog
 
+### v1.6.0
+- Add "Watched Overlay" Option
+- Add "Blue Verified Badge"
+
 ### v1.5.9
 - Fixed overlapping elements
 ![](https://user-images.githubusercontent.com/64634605/208242399-fb6c4ece-4648-4b2d-8b05-3f336f5ec7d1.png)
