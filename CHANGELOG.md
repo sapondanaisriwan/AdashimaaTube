@@ -1,4 +1,6 @@
 ## Changelog
+### v1.6.1
+- "Watched Overlay" option is disabled by default.
 
 ### v1.6.0
 - Add "Watched Overlay" Option
