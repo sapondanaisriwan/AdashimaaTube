@@ -1,4 +1,9 @@
 ## Changelog
+
+### v1.6.2
+- Renamed "Remove Shorts" to "Anti-Shorts"
+- Add "Colorize Thumbs" option since Return Youtube Dislike broken
+
 ### v1.6.1
 - "Watched Overlay" option is disabled by default.
 

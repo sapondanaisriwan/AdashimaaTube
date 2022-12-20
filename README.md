@@ -35,22 +35,24 @@ Restore old Youtube layout in 2021-2022 with many customizable options.
 
 ## ⭐ Features
 This is why you should consider using AdashimaaTube! 🥶
-- More Animations
-- Red subscribe button.
-- Customize Number Of Videos Per Row on Homepage.
-- Restore to the old video container.
-- Removal of rounded edges on video thumbnails and the UI.
-- Customizable Avatar Roundness and Border Radius.
+- Anit-Shorts.
+- Blue verified badge.
+- Customizable avatar roundness and border radius.
 - Customizable color of Like/Dislike buttons.
 - Customizable color of Like/Dislike ratio bar.
+- Customize number of videos per row on Homepage.
 - Display full title for videos.
 - Display the videos index in playlists.
+- More animations.
 - Options to Enabled/Disabled Dark Navigation Bar, Dark Search Box and Dark Scroll Bar.
 - Options to remove all text from buttons except the Like/Dislike buttons.
-- Options to remove taps and shorts.
+- Options to remove taps.
 - Options to hide the buttons for Share, Download, Clip, Thanks and Save.
 - Options to Align the search results to the center.
-
+- Red subscribe button.
+- Restore to the old video container.
+- Removal of rounded edges on video thumbnails and the UI.
+- Watched Overlay.
 
 <div align="center">
 
