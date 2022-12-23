@@ -6,9 +6,11 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.6.2
+@version        1.6.3
 @license        MIT
 @preprocessor   stylus
+
+@advanced checkbox sortByOldest             "🔃 Sort by Oldest (Beta)" 0
 
 @advanced checkbox removeShorts             "❌ Anti-Shorts (Beta)" 0
 @advanced range customAvatarRadius          "⚙️ Avatar Roundness" [50, 0, 50, 1, '%']
@@ -17,7 +19,7 @@
 @advanced checkbox centeredSearchResults    "🔎 Centered The Search Results" 0
 @advanced checkbox displayFullTitle         "🎦 Display Full Title For Videos" 0
 @advanced checkbox moreAnimation            "🎬 More Animations" 1
-@advanced checkbox restoreOldPlaylist       "▶️ Restore Old Playlist" 0
+@advanced checkbox restoreOldPlaylist       "▶️ Restore Old Playlist" 1
 @advanced checkbox removeTaps               "❌ Remove Taps" 0
 @advanced checkbox watchedOverlay           "👀 Watched Overlay" 0
 
@@ -43,8 +45,8 @@
 
 @advanced select customLikeDislike          "⚒️ Custom Like/Dislike Button Color" ["Enabled", "Disabled"]
 @advanced checkbox customThumbs             "  🗿 Colorize Thumbs" 0
-@advanced color likeBtnColor                "  👍 Like Button Color" #32CD32 //default color #3ea6ff
-@advanced color dislikeBtnColor             "  👎 Dislike Button Color" #FF0000
+@advanced color likeBtnColor                "  👍 Like Button Color" #3ea6ff //default color #3ea6ff
+@advanced color dislikeBtnColor             "  👎 Dislike Button Color" #3ea6ff
 
 @advanced select customRatioBar             "⚒️ Display Ratio Bar (Beta)" ["Enabled", "Disabled"]
 @advanced color likeRBColor                 "  🎨 Like Ratio Color" #32CD32
@@ -52,6 +54,7 @@
 
 
 ==/UserStyle== */
+//@advanced checkbox searchResultsColumn      "🔎 Search Results In A Grid Layout" 0
 i=!important //
 /*
 Please report bugs via my email, github, discord or the discussion section(If I have some free time, I'll fix them)
@@ -69,8 +72,16 @@ Support me: https://ko-fi.com/sapondanaisriwan
         --sub-red-btn: #CC0000;
         --sub-white--text-btn: #F2F2F2;
         --sub-black-bg-btn: #303030;
-    }
-
+    } // ytd-section-list-renderer:not([hide-bottom-separator]):not([page-subtype=history]):not([page-subtype=memberships-and-purchases]):not([page-subtype=ypc-offers]) #contents.ytd-section-list-renderer > *.ytd-section-list-renderer:not(:last-child):not(ytd-page-introduction-renderer):not([item-dismissed]).ytd-section-list-renderer:not([has-destination-shelf-renderer]).ytd-section-list-renderer:not(ytd-minor-moment-header-renderer) {
+    //     display: flex;
+    //     flex-wrap: wrap;
+    //     margin-top: 24px;
+    //     #list.ytd-playlist-renderer,
+    //     #view-more.ytd-playlist-renderer,
+    //     #description-text.ytd-video-renderer {
+    //         display: none;
+    //     }
+    // }
     if (verifiedBadge) {
         path[d="M12\,2C6.5\,2\,2\,6.5\,2\,12c0\,5.5\,4.5\,10\,10\,10s10-4.5\,10-10C22\,6.5\,17.5\,2\,12\,2z M9.8\,17.3l-4.2-4.1L7\,11.8l2.8\,2.7L17\,7.4 l1.4\,1.4L9.8\,17.3z"] {
             color: rgb(29, 155, 240);
@@ -102,8 +113,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
                     font-family: "Roboto", sans-serif;
                     font-size: 1.2rem i;
-                    font-weight: inherit;
-
+                    font-weight: inherit; // Top left
                     position: absolute;
                     top: 0;
                     left: 0;
@@ -129,11 +139,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
         [page-subtype="channels"] {
             ytd-rich-grid-renderer {
                 --ytd-rich-grid-items-per-row: var(--video-per-row) i;
-                /* Makes the container/spacing disappear */
+                /* Set to be treated as if they were the children of their parent element */
                 #contents {
                     ytd-rich-grid-row,
                     ytd-rich-grid-row #contents {
-                        display: contents;
+                        display: contents i;
                     }
                 }
             }
@@ -180,6 +190,14 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     margin-top: 6px i;
                 }
             }
+        }
+    }
+
+    if (sortByOldest) {
+        [page-subtype="channels"] #contents.ytd-rich-grid-renderer {
+            justify-content: left;
+            flex-direction: row-reverse; // เรียงจาก ขวาไปซ้าย จากเดิม ซ้ายไปขวา
+            flex-wrap: wrap-reverse i; // จัดให้ Flex Item ดันลงมาด้านล่าง และเรียงจากล่างขึ้นบน 
         }
     }
 
@@ -352,7 +370,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
         #top-row.ytd-watch-metadata,
         #top-row.ytd-watch-metadata {
-            flex-direction: column-reverse i;
+            flex-direction: column-reverse i; // bottom to top vertical
         }
 
         .ryd-tooltip-bar-container {
@@ -383,9 +401,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
         /* 👍 Like Button Color */
         #segmented-like-button button {
             &[aria-pressed="false"] yt-icon path {
-                if (customThumbs) {
-                    stroke: likeBtnColor i;
-                }
+                stroke: likeBtnColor if customThumbs // if (customThumbs) {
+                //     stroke: likeBtnColor i;
+                // }
             }
 
             &[aria-pressed="true"] yt-icon path {
@@ -396,9 +414,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         /* 👎 Dislike Button Color */
         #segmented-dislike-button button {
             &[aria-pressed="false"] yt-icon path {
-                if (customThumbs) {
-                    fill: dislikeBtnColor i;
-                }
+                fill: dislikeBtnColor if customThumbs // if (customThumbs) {}            
             }
 
             &[aria-pressed="true"] yt-icon path {
@@ -1346,3 +1362,80 @@ Support me: https://ko-fi.com/sapondanaisriwan
         margin-top: 24px i;
     }
 }
+// @-moz-document url-prefix(".+") {
+//     if (searchResultsColumn) {
+//         ytd-two-column-browse-results-renderer[page-subtype="channels"] {
+//             > div.ytd-two-column-browse-results-renderer#primary {
+//                 ytd-section-list-renderer:not(ytd-shelf-renderer) {
+//                     > #contents {
+//                         display: flex;
+//                         flex-wrap: wrap;
+//                         margin-top: 24px;
+//                     }
+//                     #content.ytd-playlist-renderer {
+//                         flex: none i;
+//                     }
+
+//                     ytd-item-section-renderer,
+//                     #contents > ytd-playlist-renderer,
+//                     #dismissible.ytd-video-renderer {
+//                         display: contents i;
+//                     }
+
+//                     .ytd-item-section-renderer#contents,
+//                     ytd-video-renderer:not([use-search-ui]) {
+//                         max-width: var(--ytd-rich-grid-mini-item-max-width);
+//                     }
+
+//                     /* video info */
+//                     .text-wrapper.ytd-video-renderer {
+//                         width: 246px;
+//                         max-width: var(--ytd-rich-grid-mini-item-max-width);
+//                     }
+
+//                     /* title */
+//                     h3 {
+//                         &.title-and-badge,
+//                         &.ytd-playlist-renderer {
+//                             margin: 12px 0 4px 0;
+//                         }
+//                     }
+
+//                     ytd-video-renderer:not([use-search-ui]) ytd-thumbnail.ytd-video-renderer,
+//                     ytd-playlist-renderer:not([is-search]) ytd-playlist-thumbnail.ytd-playlist-renderer {
+//                         margin-right: 0 i;
+//                     }
+
+//                     #contents > ytd-video-renderer,
+//                     #contents > ytd-playlist-renderer {
+//                         margin: 0 4px 24px 4px i;
+//                     }
+
+//                     #video-title.ytd-video-renderer,
+//                     #video-title.ytd-playlist-renderer {
+//                         display: block i;
+//                         font-size: 1.4rem i;
+//                         line-height: 2rem i;
+//                         font-weight: 500 i;
+//                         max-height: 4rem i;
+//                     }
+
+//                     /* 3 dot */
+//                     ytd-menu-renderer.ytd-video-renderer {
+//                         margin-top: 0;
+//                     }
+
+//                     /* hide description and list info */
+//                     #list.ytd-playlist-renderer,
+//                     #view-more.ytd-playlist-renderer,
+//                     #description-text.ytd-video-renderer {
+//                         display: none;
+//                     }
+//                     ytd-section-list-renderer:not([hide-bottom-separator]):not([page-subtype=history]):not([page-subtype=memberships-and-purchases]):not([page-subtype=ypc-offers]) #contents.ytd-section-list-renderer > *.ytd-section-list-renderer:not(:last-child):not(ytd-page-introduction-renderer):not([item-dismissed]).ytd-section-list-renderer:not([has-destination-shelf-renderer]).ytd-section-list-renderer:not(ytd-minor-moment-header-renderer) {
+//                         border: none i;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
