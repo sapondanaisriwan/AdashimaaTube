@@ -1,4 +1,6 @@
 ## Changelog
+### v1.6.3
+- Add "Sort by Oldest" option
 
 ### v1.6.2
 - Renamed "Remove Shorts" to "Anti-Shorts"
