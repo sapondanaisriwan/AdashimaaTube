@@ -1,4 +1,9 @@
 ## Changelog
+### v1.6.4
+- Remove "Custom Ratio bar"
+- Add "Search Results In A Grid Layout" option
+- Add "Number Of Videos Per Row" option
+
 ### v1.6.3
 - Add "Sort by Oldest" option
 
