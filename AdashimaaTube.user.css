@@ -48,7 +48,7 @@
 
 @advanced select customLikeDislike          "⚒️ Custom Like/Dislike Button Color" ["Enabled", "Disabled"]
 @advanced checkbox customThumbs             "  🗿 Colorize Thumbs" 0
-@advanced color likeBtnColor                "  👍 Like Button Color" #3ea6ff //default color #3ea6ff
+@advanced color likeBtnColor                "  👍 Like Button Color" #3ea6ff
 @advanced color dislikeBtnColor             "  👎 Dislike Button Color" #3ea6ff
 
 ==/UserStyle== */
@@ -444,10 +444,16 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
         /* 🔃 Sort by Oldest (Beta) */
         if (sortByOldest) {
-            [page-subtype="channels"] #contents.ytd-rich-grid-renderer {
-                justify-content: left;
-                flex-direction: row-reverse; // เรียงจาก ขวาไปซ้าย จากเดิม ซ้ายไปขวา
-                flex-wrap: wrap-reverse i; // จัดให้ Flex Item ดันลงมาด้านล่าง และเรียงจากล่างขึ้นบน 
+            [page-subtype="channels"] {
+                #contents {
+                    &.ytd-rich-grid-renderer {
+                        flex-wrap: wrap-reverse;
+                    }
+                    &.ytd-rich-grid-row {
+                        justify-content: flex-end;
+                        flex-direction: row-reverse;// เรียงจาก ขวาไปซ้าย จากเดิม ซ้ายไปขวา
+                    }
+                }
             }
         }
     }
@@ -1324,6 +1330,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
     if (customCP=="Enabled" && searchResultsColumn) {
         // ytd-two-column-browse-results-renderer[page-subtype="channels"] {
         //     > div.ytd-two-column-browse-results-renderer#primary {
+        body {
+            overflow-x: hidden i;
+        }
         ytd-section-list-renderer {
             > #contents {
                 display: flex;
@@ -1383,7 +1392,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
             // #metadata.ytd-video-meta-block {
             //     display: block;
             // }
-
             ytd-video-meta-block[watch-feed-big-thumbs]:not(.grid).byline-separated #separator.ytd-video-meta-block,
             ytd-video-meta-block:not(.grid):not(.compact).byline-separated #separator.ytd-video-meta-block,
             .ytd-video-meta-block[meta-block].ytd-video-meta-block:not(.grid):not(.compact).byline-separated #separator.ytd-video-meta-block {
@@ -1393,7 +1401,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             #channel-name.ytd-video-meta-block {
                 display: none;
             }
-            
+
             /* 3 dot */
             ytd-menu-renderer.ytd-video-renderer {
                 margin-top: 0;

@@ -60,6 +60,11 @@ This is why you should consider using AdashimaaTube! 🥶
 <img src="https://i.imgur.com/FiGRqoE.png" sytle="text-align: center"/>
 </div>
 
+
+| Restore Old Video Container | The Unrounded Edges |
+|     :---:      |     :---:      |
+| ![](https://i.imgur.com/LC5kwNe.png)  | ![](https://i.imgur.com/8IKW7AE.jpeg)|
+
 ## 📷 Screenshots
 | Restore Old Video Container | The Unrounded Edges | Clean Video Container |
 |     :---:      |     :---:      |     :---:      |
