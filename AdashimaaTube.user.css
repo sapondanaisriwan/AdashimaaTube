@@ -10,7 +10,7 @@
 @license        MIT
 @preprocessor   stylus
 
-@advanced checkbox removeShorts             "❌ Anti-Shorts (Beta)" 0
+@advanced checkbox antiShorts             "❌ Anti-Shorts (Beta)" 0
 @advanced range customAvatarRadius          "⚙️ Avatar Roundness" [50, 0, 50, 1, '%']
 @advanced range customBorderRadius          "⚙️ Border Radius" [0, 0, 24, 1, 'px']
 @advanced checkbox verifiedBadge            "✅ Blue Verified Badge" 0
@@ -72,9 +72,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
         --sub-black-bg-btn: #303030;
     }
 
+    
     /* ❌ Remove Shorts (Beta) */
     /* I can't find the way to remove all shorts using css alone */
-    if (removeShorts) {
+    if (antiShorts) {
 
         /* These rules won't be applied in browsers that don't support :has() */
         /* https://www.youtube.com/results?search_query=shorts */
@@ -111,6 +112,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
         [page-subtype="hashtag-landing-page"] > #primary > ytd-rich-grid-renderer #contents > ytd-rich-grid-row > #contents > ytd-rich-item-renderer:has(#content > ytd-rich-grid-media > #dismissible > ytd-thumbnail > a#thumbnail[href^="/shorts/"]) {
             display: none;
         }
+        
+        ytd-shorts {
+            display: none;
+        }
+        
     }
 
 
