@@ -1,4 +1,10 @@
 ## Changelog
+### v1.6.5
+- Fix duplicate video come from other channels.
+
+![](https://user-images.githubusercontent.com/64634605/209620255-76bad9c4-138a-4f65-be52-7a89b019d331.gif)
+- Remove more Shorts and borders.
+
 ### v1.6.4
 - Remove "Custom Ratio bar"
 - Add "Search Results In A Grid Layout" option
