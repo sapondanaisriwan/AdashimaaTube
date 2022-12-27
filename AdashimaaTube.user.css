@@ -6,11 +6,11 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.6.4
+@version        1.6.5
 @license        MIT
 @preprocessor   stylus
 
-@advanced checkbox antiShorts             "❌ Anti-Shorts (Beta)" 0
+@advanced checkbox antiShorts               "❌ Anti-Shorts (Beta)" 0
 @advanced range customAvatarRadius          "⚙️ Avatar Roundness" [50, 0, 50, 1, '%']
 @advanced range customBorderRadius          "⚙️ Border Radius" [0, 0, 24, 1, 'px']
 @advanced checkbox verifiedBadge            "✅ Blue Verified Badge" 0
@@ -456,6 +456,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             [page-subtype="channels"] {
                 #contents {
                     &.ytd-rich-grid-renderer {
+                        // flex-flow shorthand
                         flex-wrap: wrap-reverse; // เรียงจาก ล่างขึ้นบน จากเดิม บนลงล่าง
                         flex-direction: row-reverse; // เรียงจาก ขวาไปซ้าย จากเดิม ซ้ายไปขวา
                         justify-content: flex-end;
