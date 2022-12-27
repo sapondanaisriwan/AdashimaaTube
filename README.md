@@ -13,7 +13,7 @@ Restore old Youtube layout in 2021-2022 with many customizable options.
 [![Forks](https://img.shields.io/github/forks/sapondanaisriwan/Youtube-Old-Layout?style=flat-square)](https://github.com/sapondanaisriwan/Youtube-Old-Layout/network/members) 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
- <img src="https://i.imgur.com/zx20Cse.jpeg" width="100%"/>
+ <img src="https://userstyles.world/preview/6944/3.webp" width="100%"/>
 </div>
 
 ## 📚 Table of Contents
@@ -60,6 +60,7 @@ This is why you should consider using AdashimaaTube! 🥶
 ### 🔧 Menu Options
 <img src="https://i.imgur.com/XufBf6g.png" sytle="text-align: center"/>
 </div>
+<!-- sort by oldest -->
 
 ## 📷 Screenshots
 | Restore Old Video Container | Centered the search results |
@@ -68,7 +69,7 @@ This is why you should consider using AdashimaaTube! 🥶
 | **Increase video on Home page** | **Increase video on Channel page** |
 |     ![](https://i.imgur.com/rVMqzso.jpeg)      |     ![](https://i.imgur.com/ZgfjHFm.png)      |
 | **Sort by oldest** | **Display full title for videos** |
-|     ![](https://i.imgur.com/jVSGC84.png)      |     ![](https://i.imgur.com/7bzDqov.png)      |
+|     ![](https://i.imgur.com/pTSgSL5.png)      |     ![](https://i.imgur.com/7bzDqov.png)      |
 | **Watched overlay** | **Clean Video Container** |
 |     ![](https://i.imgur.com/rVZ5JVL.png)      |     ![](https://i.imgur.com/m2iiTls.png)      |
 | **More Animations** | **Search results in a grid layout** |
