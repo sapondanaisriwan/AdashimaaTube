@@ -72,7 +72,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
         --sub-black-bg-btn: #303030;
     }
 
-    
     /* ❌ Remove Shorts (Beta) */
     /* I can't find the way to remove all shorts using css alone */
     if (antiShorts) {
@@ -112,11 +111,17 @@ Support me: https://ko-fi.com/sapondanaisriwan
         [page-subtype="hashtag-landing-page"] > #primary > ytd-rich-grid-renderer #contents > ytd-rich-grid-row > #contents > ytd-rich-item-renderer:has(#content > ytd-rich-grid-media > #dismissible > ytd-thumbnail > a#thumbnail[href^="/shorts/"]) {
             display: none;
         }
-        
+
         ytd-shorts {
             display: none;
         }
-        
+
+        /* trending */
+        [page-subtype="trending"] #grid-container.ytd-expanded-shelf-contents-renderer > ytd-video-renderer {
+            &:has(#dismissible.ytd-video-renderer > ytd-thumbnail a#thumbnail[href^="/shorts/"]) {
+                display: none;
+            }
+        }
     }
 
 
@@ -379,10 +384,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
             ytd-rich-grid-renderer {
                 --ytd-rich-grid-items-per-row: var(--video-per-row-homepage) i;
                 /* Set to be treated as if they were the children of their parent element */
-                > #contents > ytd-rich-grid-row {
-                    display: contents i;
-                    > #contents {
-                        display: contents i;
+                #contents {
+                    max-width: calc(100% - 2 * 3vw);
+                    ytd-rich-grid-row,
+                    ytd-rich-grid-row #contents {
+                        display: contents;
                     }
                 }
             }
@@ -407,20 +413,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 display: none;
             }
 
-            [page-subtype="channels"] {
-                #contents > ytd-rich-item-renderer {
-                    margin: 0 4px 24px 4px i;
-                }
-            }
-
             [page-subtype="home"] {
 
                 ytd-rich-grid-media a#avatar-link {
                     display: none;
-                }
-
-                ytd-rich-grid-renderer > div#contents {
-                    max-width: calc(100% - 2 * 3vw);
                 }
                 #contents > ytd-rich-item-renderer {
                     margin: 0 4px 24px 4px
@@ -439,12 +435,19 @@ Support me: https://ko-fi.com/sapondanaisriwan
             ytd-rich-grid-renderer {
                 --ytd-rich-grid-items-per-row: var(--video-per-row-channelpage) i;
                 /* Set to be treated as if they were the children of their parent element */
-                > #contents > ytd-rich-grid-row {
-                    display: contents i;
-                    > #contents {
-                        display: contents i;
+                #contents {
+                    ytd-rich-grid-row,
+                    ytd-rich-grid-row #contents {
+                        display: contents;
                     }
                 }
+            }
+        }
+
+
+        [page-subtype="channels"] {
+            #contents > ytd-rich-item-renderer {
+                margin: 0 4px 24px 4px i;
             }
         }
 
@@ -911,7 +914,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 background-color: var(--yt-spec-brand-button-background) i;
             }
             /* Unsubscribe button */
-            button[aria-label^=Unsubscribe],
             button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
                 border-radius: customBorderRadius;
                 color: var(--yt-spec-text-secondary) i;
@@ -1006,14 +1008,12 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     /* Shorts Unsubscribe button */
     html[dark] ytd-shorts #subscribe-button yt-button-shape button {
-        &[aria-label^=Unsubscribe],
         &.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
             background-color: var(--sub-black-bg-btn) i;
         }
     }
 
     html:not([dark]) ytd-shorts #subscribe-button yt-button-shape button {
-        &[aria-label^=Unsubscribe],
         &.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
             background-color: var(--sub-white--text-btn) i;
         }
@@ -1145,7 +1145,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
     /* Removes border Community post */
     ytd-backstage-post-thread-renderer[rounded-container],
     yt-img-shadow.ytd-backstage-image-renderer,
-    ytd-backstage-image-renderer[rounded] #image-container.ytd-backstage-image-renderer {
+    ytd-backstage-image-renderer[rounded] #image-container.ytd-backstage-image-renderer,
+    ytd-backstage-post-dialog-renderer[is-creation-dialog][rounded-container] {
         border-radius: customBorderRadius i;
     }
     /* shots */
@@ -1377,8 +1378,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 margin-right: 0 i;
             }
 
-            #contents > ytd-video-renderer,
-            #contents > ytd-playlist-renderer {
+            #contents.ytd-item-section-renderer {
                 margin: 0 4px 24px 4px i;
             }
 
