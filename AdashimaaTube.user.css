@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           `AdashimaaTube
 @author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan) [Adashima#4066]
-@description    Please report bugs via my email, github, discord or the discussion section(If I have some free time, I'll fix them)
+@description    Please report bugs via github issues or my email (If I have some free time, I'll fix them)
 @namespace      https://userstyles.world/user/sapondanaisriwan
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
@@ -38,7 +38,7 @@
 @advanced checkbox saveBtn                  "  🫣 Hide Save Button" 0
 @advanced checkbox commentSection           "  🫣 Hide Comments Section" 0
 @advanced checkbox textBtn                  "  🫣 Hide Text Buttons" 0
-@advanced checkbox likeAnimation            "  ❌ Remove Like Animation" 1
+@advanced checkbox endCards                 "  🫣 Hide End Cards" 0
 @advanced checkbox gameSection              "  ❌ Remove Game Section" 1
 @advanced checkbox musicSection             "  ❌ Remove Music Section" 0
 
@@ -73,7 +73,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
         --sub-black-bg-btn: #303030;
     }
 
-
     /* ❌ Remove Shorts (Beta) */
     /* I can't find the way to remove all shorts using css alone */
     if (antiShorts) {
@@ -98,9 +97,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
         #contents > ytd-item-section-renderer > #contents ytd-reel-shelf-renderer:has(yt-horizontal-list-renderer > #scroll-container > #items > ytd-reel-item-renderer #dismissible > ytd-thumbnail > a#thumbnail[href^="/shorts/"]) {
             display: none;
         }
+
         ytd-rich-section-renderer:has(#content > ytd-rich-shelf-renderer[is-shorts]) {
             display: none;
         }
+
         #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer,
         ytd-mini-guide-entry-renderer[guide-refresh] a.ytd-mini-guide-entry-renderer {
             &[title="Shorts"] {
@@ -114,6 +115,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             > #primary > ytd-rich-grid-renderer #contents > ytd-rich-grid-row > #contents > ytd-rich-item-renderer:has(#content > ytd-rich-grid-media > #dismissible > ytd-thumbnail > a#thumbnail[href^="/shorts/"]) {
                 display: none;
             }
+
             ytd-rich-grid-renderer {
                 /* Set to be treated as if they were the children of their parent element */
                 #contents {
@@ -166,6 +168,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 }
             }
         }
+
         #video-title {
             &.ytd-compact-video-renderer,
             &.ytd-rich-grid-media,
@@ -194,14 +197,17 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 transform: scale(1.3);
                 opacity: 0
             }
+
             30% {
                 transform: scale(.99);
                 opacity: 1
             }
+
             60% {
                 transform: scale(1.1);
                 opacity: 1
             }
+
             100% {
                 transform: scale(1);
                 opacity: 1
@@ -213,6 +219,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 transform: translateY(15px);
                 opacity: 0
             }
+
             to {
                 transform: translateY(0px);
                 opacity: 1
@@ -224,6 +231,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 transform: translateX(15px);
                 opacity: 0
             }
+
             to {
                 transform: translateX(0px);
                 opacity: 1
@@ -235,6 +243,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 transform: translateX(-15px);
                 opacity: 0
             }
+
             to {
                 transform: translateX(0px);
                 opacity: 1
@@ -246,6 +255,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 transform: scale(.95);
                 opacity: 0;
             }
+
             to {
                 transform: none;
                 opacity: 1;
@@ -310,6 +320,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--text {
                 color: var(--yt-spec-text-primary) i;
             }
+
             .metadata-text-wrapper.ytd-playlist-header-renderer {
                 --yt-endpoint-color: var(--yt-spec-text-primary) i;
                 --yt-endpoint-hover-color: var(--yt-spec-text-primary) i;
@@ -327,6 +338,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 // background: var(--yt-spec-general-background-a) i;
                 background: var(--yt-spec-white-3) i; // #f1f1f1
             }
+
             #page-manager > ytd-browse > ytd-playlist-header-renderer > div > div.immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer > div {
                 background: var(--yt-spec-white-2) i; // #f9f9f9
             }
@@ -366,6 +378,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
                 height: 100%;
             }
+
             > div#progress {
                 &::before {
                     color: var(--yt-spec-static-brand-white);
@@ -431,9 +444,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 ytd-rich-grid-media a#avatar-link {
                     display: none;
                 }
+
                 #contents > ytd-rich-item-renderer {
                     margin: 0 4px 24px 4px
                 }
+
                 #contents.ytd-rich-grid-renderer {
                     margin-top: 6px i;
                 }
@@ -538,15 +553,19 @@ Support me: https://ko-fi.com/sapondanaisriwan
             #top-level-buttons-computed > ytd-button-renderer > yt-button-shape > button > div.cbox.yt-spec-button-shape-next--button-text-content > span {
                 display: none i;
             }
+
             #flexible-item-buttons yt-button-shape button {
                 padding-left: 8px;
             }
         }
 
-        if (likeAnimation) {
-            // ??
+        /* 🫣 Hide End Cards */
+        if (endCards) {
+            .ytp-ce-element.ytp-ce-element-show {
+                visibility: hidden;
+            }
         }
-        
+
         /* ❌ Remove Music Section */
         if (musicSection) {
             #items > ytd-video-description-music-section-renderer {
@@ -571,10 +590,12 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 ytd-masthead {
                     background: var(--yt-spec-brand-background-solid);
                 }
+
                 ytd-mini-guide-renderer,
                 ytd-mini-guide-entry-renderer[darker-dark-theme] {
                     background-color: var(--yt-spec-brand-background-solid);
                 }
+
                 #guide-content.ytd-app {
                     background: var(--yt-spec-brand-background-solid) //#212121 i;
                 }
@@ -592,22 +613,27 @@ Support me: https://ko-fi.com/sapondanaisriwan
                         background-color: #222 i;
                     }
                 }
+
                 ul {
                     > li {
                         color: #ccc i;
                         span {
                             color: #ccc i;
                         }
+
                         b {
                             color: #f1f1f1 i;
                         }
+
                         &:hover,
                         &.sbsb_d {
                             background-color: #333 i;
                         }
+
                         &:last-child {
                             display: none;
                         }
+
                         ::before {
                             filter: invert();
                         }
@@ -629,12 +655,15 @@ Support me: https://ko-fi.com/sapondanaisriwan
             background-color: #252829;
             color: #a9a298;
         }
+
         ::-webkit-scrollbar-thumb {
             background-color: #484d50;
         }
+
         ::-webkit-scrollbar-thumb:active {
             background-color: #4b5053;
         }
+
         ::-webkit-scrollbar-corner {
             background-color: #1d1f20;
         }
@@ -657,6 +686,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 stroke: likeBtnColor i;
             }
         }
+
         /* 👎 Dislike Button Color */
         #segmented-dislike-button button {
             &[aria-pressed="false"] yt-icon path {
@@ -673,6 +703,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         #like-button yt-button-shape button[aria-pressed="true"] yt-icon {
             fill: likeBtnColor i;
         }
+
         /* 👎 Dislike Button Color */
         #dislike-button yt-button-shape button[aria-pressed="true"] yt-icon {
             fill: dislikeBtnColor i;
@@ -717,6 +748,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         &.yt-live-chat-banner-poll-renderer {
             border-radius: customAvatarRadius i;
         }
+
         &.ytd-sponsorships-live-chat-header-renderer {
             --yt-img-border-radius: customAvatarRadius i;
         }
@@ -734,6 +766,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             border-radius: customAvatarRadius i;
         }
     }
+
     .ytp-ce-channel {
         border-radius: customAvatarRadius i;
         .ytp-ce-expanding-image,
@@ -845,33 +878,40 @@ Support me: https://ko-fi.com/sapondanaisriwan
     #comment-teaser.ytd-watch-metadata {
         display: none i;
     }
+
     /* Removes border around creator's name and sub button. */
     #owner.ytd-watch-metadata {
         border: none i;
     }
+
     /* Removes border around creator's name and sub button. */
     ytd-watch-metadata:not([modern-metapanel]) #owner.ytd-watch-metadata {
         border: none;
     }
+
     /* Reverts the video title font. */
     ytd-watch-metadata[smaller-yt-sans-light-title] h1.ytd-watch-metadata {
         font-family: "Roboto", sans-serif;
         font-weight: 400 i;
         font-size: 18px i;
     }
+
     ytd-video-primary-info-renderer[use-yt-sans20-light] .title.ytd-video-primary-info-renderer {
         font-family: "Roboto", sans-serif;
         font-weight: 400 i;
         font-size: 18px i;
     }
+
     /* Removes the bold letters on upload date and view count. */
     .yt-formatted-string[style-target="bold"] {
         font-weight: 400;
     }
+
     ytd-button-renderer {
         margin-left: 0 i;
         font-size: 13px;
     }
+
     ytd-toggle-button-renderer {
         font-size: 13px i;
     }
@@ -879,14 +919,17 @@ Support me: https://ko-fi.com/sapondanaisriwan
     ytd-video-primary-info-renderer {
         --yt-button-icon-size: 30.6px i;
     }
+
     ytd-button-renderer.force-icon-button a.ytd-button-renderer {
         padding-right: 0;
     }
+
     ytd-video-primary-info-renderer {
         padding-bottom: 10px;
         position: relative;
         bottom: 6px;
     }
+
     #top-row.style-scope.ytd-video-secondary-info-renderer {
         padding-top: 4px;
     }
@@ -931,6 +974,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 color: var(--yt-spec-static-brand-white) i;
                 background-color: var(--yt-spec-brand-button-background) i;
             }
+
             /* Unsubscribe button */
             button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
                 border-radius: customBorderRadius;
@@ -1057,6 +1101,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     .yt-spec-touch-feedback-shape__fill {
         background-color: transparent i;
     }
+
     /* Fixed reply button */
     .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text {
         background-color: transparent i;
@@ -1160,6 +1205,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     ytd-game-details-renderer[rounded] yt-img-shadow.ytd-game-details-renderer {
         border-radius: customBorderRadius i;
     }
+
     /* Removes border Community post */
     ytd-backstage-post-thread-renderer[rounded-container],
     yt-img-shadow.ytd-backstage-image-renderer,
@@ -1167,10 +1213,12 @@ Support me: https://ko-fi.com/sapondanaisriwan
     ytd-backstage-post-dialog-renderer[is-creation-dialog][rounded-container] {
         border-radius: customBorderRadius i;
     }
+
     /* shots */
     ytd-reel-player-overlay-renderer #overlay.ytd-reel-player-overlay-renderer {
         border-radius: customBorderRadius i;
     }
+
     /* remove unloaded video thumbnails */
     #home-page-skeleton .rich-thumbnail.rounded-thumbs,
     #home-container-skeleton .rich-thumbnail.rounded-thumbs:before {
@@ -1194,10 +1242,12 @@ Support me: https://ko-fi.com/sapondanaisriwan
     ytd-expandable-metadata-renderer[round-container]:not([is-expanded]) {
         --yt-img-border-radius: customBorderRadius;
     }
+
     /* hover playlist */
     ytd-playlist-video-renderer[amsterdam] {
         border-radius: customBorderRadius i;
     }
+
     /* Home posts section */
     ytd-post-renderer[rounded-container] {
         border-radius: customBorderRadius i;
@@ -1272,6 +1322,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline {
         border: 1px solid var(--yt-spec-call-to-action) i;
     }
+
     /* Playlist */
     .yt-spec-button-shape-next.yt-spec-button-shape-next--text.yt-spec-button-shape-next--icon-only-default,
     .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--icon-button {
@@ -1336,6 +1387,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     #toolbar #vote-count-middle {
         margin: 0;
     }
+
     #creator-heart-button button #hearted-thumbnail {
         margin-left: 0;
     }
@@ -1344,10 +1396,12 @@ Support me: https://ko-fi.com/sapondanaisriwan
     #hearted.ytd-creator-heart-renderer {
         right: 10px i;
     }
+
     #hearted-border.ytd-creator-heart-renderer {
         right: 9px i;
     }
 }
+
 @-moz-document regexp("^https?://www.youtube\\.com\\/@.*/search(.*)?") {
 
     if (customCP=="Enabled" && searchResultsColumn) {
@@ -1356,12 +1410,14 @@ Support me: https://ko-fi.com/sapondanaisriwan
         body {
             overflow-x: hidden i;
         }
+
         ytd-section-list-renderer {
             > #contents {
                 display: flex;
                 flex-wrap: wrap;
                 margin-top: 24px;
             }
+
             #content.ytd-playlist-renderer {
                 flex: none i;
             }
@@ -1435,6 +1491,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             #description-text.ytd-video-renderer {
                 display: none;
             }
+
             &:not([hide-bottom-separator]):not([page-subtype=history]):not([page-subtype=memberships-and-purchases]):not([page-subtype=ypc-offers]) #contents.ytd-section-list-renderer > *.ytd-section-list-renderer:not(:last-child):not(ytd-page-introduction-renderer):not([item-dismissed]).ytd-section-list-renderer:not([has-destination-shelf-renderer]).ytd-section-list-renderer:not(ytd-minor-moment-header-renderer) {
                 border: none i;
             }
