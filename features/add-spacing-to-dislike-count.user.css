@@ -12,4 +12,7 @@
     .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-end span {
         padding-left: 6px
     }
+    .ryd-tooltip-bar-container {
+        right: -6px
+    }
 }
