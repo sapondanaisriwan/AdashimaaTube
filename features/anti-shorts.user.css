@@ -1,7 +1,7 @@
 /* ==UserStyle==
-@name           Remove Shorts
+@name           Anti-Shorts
 @author         sapondanaisriwan <Adashima#4066> (https://github.com/sapondanaisriwan)
-@description    Please report bugs via my email, github, discord or the discussion section(If I have some free time, I'll fix them)
+@description    Please report bugs via github issues or my email (If I have some free time, I'll fix them)
 @namespace      https://userstyles.world/user/sapondanaisriwan
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
@@ -16,7 +16,8 @@
     /* https://www.youtube.com/results?search_query=shorts */
     ytd-video-renderer[is-search]/* Remove shorts from watch page*/
     #contents > ytd-compact-video-renderer,
-    #items > ytd-reel-item-renderer {
+    #items > ytd-reel-item-renderer,
+    #related > ytd-watch-next-secondary-results-renderer > #items > ytd-compact-video-renderer {
         &:has(#dismissible > ytd-thumbnail > a#thumbnail[href^="/shorts/"]) {
             display: none;
         }
@@ -31,9 +32,11 @@
     #contents > ytd-item-section-renderer > #contents ytd-reel-shelf-renderer:has(yt-horizontal-list-renderer > #scroll-container > #items > ytd-reel-item-renderer #dismissible > ytd-thumbnail > a#thumbnail[href^="/shorts/"]) {
         display: none;
     }
+
     ytd-rich-section-renderer:has(#content > ytd-rich-shelf-renderer[is-shorts]) {
         display: none;
     }
+
     #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer,
     ytd-mini-guide-entry-renderer[guide-refresh] a.ytd-mini-guide-entry-renderer {
         &[title="Shorts"] {
@@ -41,8 +44,32 @@
         }
     }
 
+
     /* https://www.youtube.com/hashtag/shorts */
-    [page-subtype="hashtag-landing-page"] > #primary > ytd-rich-grid-renderer #contents > ytd-rich-grid-row > #contents > ytd-rich-item-renderer:has(#content > ytd-rich-grid-media > #dismissible > ytd-thumbnail > a#thumbnail[href^="/shorts/"]) {
+    [page-subtype="hashtag-landing-page"] {
+        > #primary > ytd-rich-grid-renderer #contents > ytd-rich-grid-row > #contents > ytd-rich-item-renderer:has(#content > ytd-rich-grid-media > #dismissible > ytd-thumbnail > a#thumbnail[href^="/shorts/"]) {
+            display: none;
+        }
+
+        ytd-rich-grid-renderer {
+            /* Set to be treated as if they were the children of their parent element */
+            #contents {
+                ytd-rich-grid-row,
+                ytd-rich-grid-row #contents {
+                    display: contents;
+                }
+            }
+        }
+    }
+
+    ytd-shorts {
         display: none;
+    }
+
+    /* trending */
+    [page-subtype="trending"] #grid-container.ytd-expanded-shelf-contents-renderer > ytd-video-renderer {
+        &:has(#dismissible.ytd-video-renderer > ytd-thumbnail a#thumbnail[href^="/shorts/"]) {
+            display: none;
+        }
     }
 }
