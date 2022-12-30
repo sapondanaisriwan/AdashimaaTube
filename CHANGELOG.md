@@ -1,4 +1,11 @@
 ## Changelog
+### v1.6.7
+- Remove more shorts on Subscriptions.
+- Fixed "Search results in a grid layout".
+- Add "Subscriptions in a grid layout" options.
+
+![](https://i.imgur.com/VfnoLdg.png)
+
 ### v1.6.6
 - Add "Hide end cards" options.
 - Rename "Restore old homepage" to "Hide Channel profile".
