@@ -27,6 +27,7 @@ Restore old Youtube layout in 2021-2022 with many customizable options.
   - [⁉️ FAQ](#️-faq)
       - [💬 How do I access the settings menu?](#-how-do-i-access-the-settings-menu)
       - [💬 Why certain options don't work?](#-why-certain-options-dont-work)
+      - [💬 Why sometimes the ratio bar has disappeared randomly?](#-why-sometimes-the-ratio-bar-has-disappeared-randomly)
   - [✅ Supported extensions](#-supported-extensions)
   - [💰 Support me](#-support-me)
   - [✉️ Feedback](#️-feedback)
@@ -38,6 +39,7 @@ This is why you should consider using AdashimaaTube! 🥶
 - Anit-Shorts.
 - Sort by oldest.
 - Search results in a grid layout.
+- Subscriptions in a grid layout.
 - Blue verified badge.
 - Customizable avatar roundness and border radius.
 - Customizable color of Like/Dislike buttons.
@@ -60,7 +62,7 @@ This is why you should consider using AdashimaaTube! 🥶
 ### 🔧 Menu Options
 <img src="https://i.imgur.com/XufBf6g.png" sytle="text-align: center"/>
 </div>
-<!-- sort by oldest -->
+
 
 ## 📷 Screenshots
 | Restore Old Video Container | Centered the search results |
@@ -72,10 +74,10 @@ This is why you should consider using AdashimaaTube! 🥶
 |     ![](https://i.imgur.com/pTSgSL5.png)      |     ![](https://i.imgur.com/7bzDqov.png)      |
 | **Watched overlay** | **Clean Video Container** |
 |     ![](https://i.imgur.com/rVZ5JVL.png)      |     ![](https://i.imgur.com/m2iiTls.png)      |
-| **More Animations** | **Search results in a grid layout** |
-|     ![](https://user-images.githubusercontent.com/64634605/204840268-319b8ab0-0cce-4012-b91a-61925f7c0357.gif)      |     ![](https://i.imgur.com/IpFsA5P.png)      |
-| **Anti-Shorts** | 
-|     ![](https://userstyles.world/preview/7687/0.webp)      |
+| **Subscriptions in a grid layout** | **Search results in a grid layout** |
+|     ![](https://i.imgur.com/EnnjIrR.png)      |     ![](https://i.imgur.com/IpFsA5P.png)      |
+| **Anti-Shorts** | **More Animations** |
+|     ![](https://i.imgur.com/eDLCDxX.png)      |     [](https://user-images.githubusercontent.com/64634605/204840268-319b8ab0-0cce-4012-b91a-61925f7c0357.gif)      |
 
 ## 📂 Installation
 You have to install [Stylus](https://add0n.com/stylus.html) and then click on the install link below or watch the [Tutorial](https://www.youtube.com/watch?v=Fpmw1Vh7sz8&t).
@@ -94,10 +96,22 @@ Any contribution is greatly appreciated.
 #### 💬 How do I access the settings menu?
 
 You may configure everything by selecting the Stylus icon from your toolbar and then selecting the configure button.
+![](https://i.imgur.com/9avAZH0.png)
 
 #### 💬 Why certain options don't work?
 
-Because some browser doesn't support a CSS pseudo-class yet, like `:has`.
+Because some browser don't support a CSS pseudo-class yet, like `:has`.
+
+However, by following these steps, you can enable Firefox's has() selector.
+1. Go to the Firefox `about:config` page.
+![](https://i.imgur.com/mvb0eKR.png)
+2. Search and toggle `layout.css.has-selector.enabled`.
+![](https://i.imgur.com/Zcz4SnR.png)
+
+#### 💬 Why sometimes the ratio bar has disappeared randomly?
+It's a bug.
+
+![](https://i.imgur.com/6gMeVJh.png)
 
 ## ✅ Supported extensions
 - [uBlock Origin](https://ublockorigin.com/)
