@@ -109,7 +109,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
         }
 
-
         /* https://www.youtube.com/hashtag/shorts */
         [page-subtype="hashtag-landing-page"] {
             > #primary > ytd-rich-grid-renderer #contents > ytd-rich-grid-row > #contents > ytd-rich-item-renderer:has(#content > ytd-rich-grid-media > #dismissible > ytd-thumbnail > a#thumbnail[href^="/shorts/"]) {
@@ -268,7 +267,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
         ytd-reel-item-renderer,
         ytd-video-secondary-info-renderer,
         ytd-compact-radio-renderer,
-        yt-horizontal-list-renderer {
+        yt-horizontal-list-renderer,
+        ytd-section-list-renderer #contents.ytd-item-section-renderer {
             animation: slideInUp .7s;
         }
 
@@ -1431,7 +1431,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
 
             /* video info */
-            .text-wrapper.ytd-video-renderer {
+            .text-wrapper.ytd-video-renderer,
+            #video-title.ytd-playlist-renderer {
                 width: 246px;
                 max-width: var(--ytd-rich-grid-mini-item-max-width);
             }
