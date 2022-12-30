@@ -71,6 +71,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         --sub-red-btn: #CC0000;
         --sub-white--text-btn: #F2F2F2;
         --sub-black-bg-btn: #303030;
+        --ayo-chill: calc(100%/var(--video-per-row-homepage) - 16px - 0.01px)
     }
 
     /* ❌ Remove Shorts (Beta) */
@@ -425,12 +426,21 @@ Support me: https://ko-fi.com/sapondanaisriwan
             display: none;
         }
 
+        .ghost-card.ytd-ghost-grid-renderer {
+            margin: 0 4px 24px 4px i;
+        }
+
+        .ghost-grid.ytd-ghost-grid-renderer {
+            margin: 0;
+        }
+
         /* Display unloaded videos per row when refresh the homepage */
         #home-page-skeleton .rich-shelf-videos .rich-grid-media-skeleton.mini-mode,
         #home-page-skeleton #home-container-media .rich-grid-media-skeleton.mini-mode {
-            flex-basis: calc(100%/var(--video-per-row-homepage) - 16px - 0.01px);
-            min-width: calc(100%/var(--video-per-row-homepage) - 16px - 0.01px);
-            max-width: calc(100%/var(--video-per-row-homepage) - 16px - 0.01px);
+            margin: 0 4px;
+            flex-basis: var(--ayo-chill);
+            min-width: var(--ayo-chill);
+            max-width: var(--ayo-chill)
         }
 
         /* 🏠 Restore Old Homepage */
@@ -506,6 +516,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
         /*  🫣 Hide Thanks button */
         if (thanksBtn) {
+
+            #flexible-item-buttons > ytd-button-renderer > yt-button-shape :has(path[d="M16.5\,3C19.02\,3\,21\,5.19\,21\,7.99c0\,3.7-3.28\,6.94-8.25\,11.86L12\,20.59l-0.74-0.73l-0.04-0.04C6.27\,14.92\,3\,11.69\,3\,7.99 C3\,5.19\,4.98\,3\,7.5\,3c1.4\,0\,2.79\,0.71\,3.71\,1.89L12\,5.9l0.79-1.01C13.71\,3.71\,15.1\,3\,16.5\,3 M16.5\,2c-1.74\,0-3.41\,0.88-4.5\,2.28 C10.91\,2.88\,9.24\,2\,7.5\,2C4.42\,2\,2\,4.64\,2\,7.99c0\,4.12\,3.4\,7.48\,8.55\,12.58L12\,22l1.45-1.44C18.6\,15.47\,22\,12.11\,22\,7.99 C22\,4.64\,19.58\,2\,16.5\,2L16.5\,2z M11.33\,10.86c0.2\,0.14\,0.53\,0.26\,1\,0.36c0.47\,0.1\,0.86\,0.22\,1.18\,0.35 c0.99\,0.4\,1.49\,1.09\,1.49\,2.07c0\,0.7-0.28\,1.27-0.83\,1.71c-0.33\,0.26-0.73\,0.43-1.17\,0.54V17h-2v-1.16 c-0.18-0.05-0.37-0.1-0.53-0.19c-0.46-0.23-0.92-0.55-1.18-0.95C9.15\,14.48\,9.06\,14.24\,9\,14h2c0.05\,0.09\,0.07\,0.18\,0.15\,0.25 c0.23\,0.19\,0.54\,0.29\,0.92\,0.29c0.36\,0\,0.63-0.07\,0.82-0.22s0.28-0.35\,0.28-0.59c0-0.25-0.11-0.45-0.34-0.6s-0.59-0.27-1.1-0.39 c-1.67-0.39-2.51-1.16-2.51-2.34c0-0.68\,0.26-1.26\,0.78-1.71c0.28-0.25\,0.62-0.43\,1-0.54V7h2v1.12c0.46\,0.11\,0.85\,0.29\,1.18\,0.57 C14.59\,9.05\,14.9\,9.48\,15\,10h-2c-0.04-0.09-0.1-0.17-0.16-0.24c-0.17-0.19-0.44-0.29-0.81-0.29c-0.32\,0-0.56\,0.08-0.74\,0.24 c-0.17\,0.16-0.26\,0.36-0.26\,0.6C11.03\,10.53\,11.13\,10.72\,11.33\,10.86z"]) {
+                display: none;
+            }
+
             /* Not supported on Firefox and Brave */
             /* Once more, I'd like to thank Mikey(Vednoc) for his assistance in getting the issue resolved. He is very awesome guys */
             #flexible-item-buttons > ytd-button-renderer > yt-button-shape :has(path[d="M16.5\,3C19.02\,3\,21\,5.19\,21\,7.99c0\,3.7-3.28\,6.94-8.25\,11.86L12\,20.59l-0.74-0.73l-0.04-0.04C6.27\,14.92\,3\,11.69\,3\,7.99 C3\,5.19\,4.98\,3\,7.5\,3c1.4\,0\,2.79\,0.71\,3.71\,1.89L12\,5.9l0.79-1.01C13.71\,3.71\,15.1\,3\,16.5\,3 M16.5\,2c-1.74\,0-3.41\,0.88-4.5\,2.28 C10.91\,2.88\,9.24\,2\,7.5\,2C4.42\,2\,2\,4.64\,2\,7.99c0\,4.12\,3.4\,7.48\,8.55\,12.58L12\,22l1.45-1.44C18.6\,15.47\,22\,12.11\,22\,7.99 C22\,4.64\,19.58\,2\,16.5\,2L16.5\,2z M11.33\,10.86c0.2\,0.14\,0.53\,0.26\,1\,0.36c0.47\,0.1\,0.86\,0.22\,1.18\,0.35 c0.99\,0.4\,1.49\,1.09\,1.49\,2.07c0\,0.7-0.28\,1.27-0.83\,1.71c-0.33\,0.26-0.73\,0.43-1.17\,0.54V17h-2v-1.16 c-0.18-0.05-0.37-0.1-0.53-0.19c-0.46-0.23-0.92-0.55-1.18-0.95C9.15\,14.48\,9.06\,14.24\,9\,14h2c0.05\,0.09\,0.07\,0.18\,0.15\,0.25 c0.23\,0.19\,0.54\,0.29\,0.92\,0.29c0.36\,0\,0.63-0.07\,0.82-0.22s0.28-0.35\,0.28-0.59c0-0.25-0.11-0.45-0.34-0.6s-0.59-0.27-1.1-0.39 c-1.67-0.39-2.51-1.16-2.51-2.34c0-0.68\,0.26-1.26\,0.78-1.71c0.28-0.25\,0.62-0.43\,1-0.54V7h2v1.12c0.46\,0.11\,0.85\,0.29\,1.18\,0.57 C14.59\,9.05\,14.9\,9.48\,15\,10h-2c-0.04-0.09-0.1-0.17-0.16-0.24c-0.17-0.19-0.44-0.29-0.81-0.29c-0.32\,0-0.56\,0.08-0.74\,0.24 c-0.17\,0.16-0.26\,0.36-0.26\,0.6C11.03\,10.53\,11.13\,10.72\,11.33\,10.86z"]) {
@@ -718,7 +733,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
         &.ytd-rich-grid-media,
         &.ytd-reel-player-header-renderer,
         &.ytd-active-account-header-renderer,
-        &.yt-live-chat-message-input-renderer {
+        &.yt-live-chat-message-input-renderer,
+        &.ytd-shelf-renderer {
             border-radius: customAvatarRadius i;
         }
     }
@@ -805,6 +821,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         padding-bottom: 10px i;
     }
 
+    /* Move a title videos down */
     ytd-watch-metadata #title {
         position: relative;
         bottom: -4px
@@ -827,16 +844,13 @@ Support me: https://ko-fi.com/sapondanaisriwan
         display: none i;
     }
 
-    .ryd-tooltip.ryd-tooltip-new-design {
-        display: block i;
-    }
-
+    /* Removes toolbar menu such as share download thanks clip and save btn*/
     #menu-container {
         display: none i;
     }
 
-    ytd-video-primary-info-renderer #container > :not(#info),
-    #menu-container {
+    /* Removes videos title*/
+    ytd-video-primary-info-renderer #container > :not(#info) {
         display: none i;
     }
 
@@ -847,6 +861,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         bottom: 0 i;
     }
 
+    /* Move description up */
     ytd-video-secondary-info-renderer {
         margin-top: -20px;
     }
@@ -855,6 +870,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         display: none;
     }
 
+    /* Move view count, date and description up */
     .style-scope.ytd-watch-flexy #container #info-text {
         margin-top: -115px;
     }
@@ -863,17 +879,16 @@ Support me: https://ko-fi.com/sapondanaisriwan
         flex-direction: column-reverse i; // bottom to top vertical
     }
 
+    /* Moved the ratio bar to the right of its normal position. */
     .ryd-tooltip-bar-container {
         right: -6px
     }
-
 
     #meta-contents[hidden],
     #info-contents[hidden] {
         display: block i;
     }
 
-    /* Permanent fixes */
     /* Removes second comment section, */
     #comment-teaser.ytd-watch-metadata {
         display: none i;
