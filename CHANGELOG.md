@@ -1,4 +1,12 @@
 ## Changelog
+### v1.6.6
+- Add "Hide end cards" options.
+- Rename "Restore old homepage" to "Hide Channel profile".
+- Remove unloaded video preview from homepage.
+- Move arrow icon to center on Shorts.
+
+![](https://i.imgur.com/i2SN3KP.png)
+
 ### v1.6.5
 - Fix duplicate video come from other channels.
 
