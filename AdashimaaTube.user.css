@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.6.6
+@version        1.6.7
 @license        MIT
 @preprocessor   stylus
 
@@ -19,6 +19,7 @@
 @advanced checkbox moreAnimation            "🎬 More Animations" 1
 @advanced checkbox restoreOldPlaylist       "▶️ Restore Old Playlist" 1
 @advanced checkbox removeTaps               "❌ Remove Taps" 0
+@advanced checkbox subscriptionsGrid        "📄 Subscriptions In A Grid Layout" 1
 @advanced checkbox watchedOverlay           "👀 Watched Overlay" 0
 
 @advanced select customHP                   "⚒️ Custom Home Page" ["Enabled", "Disabled"]
@@ -28,7 +29,7 @@
 @advanced select customCP                   "⚒️ Custom Channel Page" ["Enabled", "Disabled"]
 @advanced range videoPerRowCP               "  🏠 Number Of Videos Per Row" [5, 1, 10, 1]
 @advanced checkbox sortByOldest             "  🔃 Sort by Oldest (Beta)" 0
-@advanced checkbox searchResultsColumn      "  🔎 Search Results In A Grid Layout (Beta)" 0
+@advanced checkbox searchResultsColumn      "  🔎 Search Results In A Grid Layout" 1
 
 @advanced select customVideoDetails         "⚒️ Custom Video Details" ["Enabled", "Disabled"]
 @advanced checkbox shareBtn                 "  🫣 Hide Share Button" 0
@@ -73,7 +74,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         --sub-black-bg-btn: #303030;
     }
 
-    /* ❌ Remove Shorts (Beta) */
+    /* ❌ Anti-Shorts (Beta) */
     /* I can't find the way to remove all shorts using css alone */
     if (antiShorts) {
 
@@ -82,7 +83,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
         ytd-video-renderer[is-search]/* Remove shorts from watch page*/
         #contents > ytd-compact-video-renderer,
         #items > ytd-reel-item-renderer,
-        #related > ytd-watch-next-secondary-results-renderer > #items > ytd-compact-video-renderer {
+        #related > ytd-watch-next-secondary-results-renderer > #items > ytd-compact-video-renderer,
+        #items > ytd-grid-video-renderer {
             &:has(#dismissible > ytd-thumbnail > a#thumbnail[href^="/shorts/"]) {
                 display: none;
             }
@@ -353,6 +355,81 @@ Support me: https://ko-fi.com/sapondanaisriwan
         display: none if removeTaps;
     }
 
+    /* 📄 Subscriptions In A Grid Layout */
+    if (subscriptionsGrid) {
+        ytd-two-column-browse-results-renderer > #primary.ytd-two-column-browse-results-renderer > ytd-section-list-renderer.ytd-two-column-browse-results-renderer > #contents.ytd-section-list-renderer {
+            ytd-expanded-shelf-contents-renderer {
+                display: flex;
+                flex-direction: column;
+            }
+
+            ytd-channel-renderer {
+                width: var(--ytd-grid-1-columns-width) i;
+            }
+
+            /* Remove description */
+            #description.ytd-channel-renderer {
+                display: none;
+            }
+
+            /* Remove videos count*/
+            #metadata.ytd-channel-renderer > span:nth-last-child(-n+2) {
+                display: none;
+            }
+
+            #content-section.ytd-channel-renderer {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            #info-section.ytd-channel-renderer {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            /* Channel profile */
+            yt-img-shadow.ytd-channel-renderer {
+                width: 103px;
+                height: 103px;
+
+                /* Centered the channel profile */
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+
+            /* Centered the subscribers */
+            #info.ytd-channel-renderer {
+                padding: 0;
+                align-items: center;
+            }
+
+            /* Add margin top to subscribe button*/
+            ytd-subscription-notification-toggle-button-renderer-next.ytd-subscribe-button-renderer > yt-button-shape {
+                margin-top: 16px;
+            }
+
+            #channel-title.ytd-channel-renderer {
+                margin: 4px auto; // Centered the channel title
+                font-size: 1.4rem;
+                font-weight: 500;
+                max-height: 2rem;
+                line-height: 2rem;
+            }
+
+            #avatar-section.ytd-channel-renderer {
+                margin-right: 0px;
+            }
+
+            #grid-container.ytd-expanded-shelf-contents-renderer > *.ytd-expanded-shelf-contents-renderer:not(:last-child) {
+                margin-bottom: 24px;
+            }
+        }
+    }
+
     /* 👀 Watched Overlay */
     if (watchedOverlay) {
         #overlays > ytd-thumbnail-overlay-resume-playback-renderer {
@@ -432,10 +509,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
             max-width: calc(100%/var(--video-per-row-homepage) - 16px - 0.01px);
         }
 
-        /* Remove the blank video thumbnail is an advertisement video that was deleted by an AdBlock extension, such as uBlock Origin, AdBlock, Adblock Plus, and others */
-        // #contents > ytd-rich-item-renderer:has(#content > ytd-ad-slot-renderer) {
-        //     display: none;
-        // }
         [page-subtype="home"] {
             #contents > ytd-rich-item-renderer {
                 margin: 0 4px 24px 4px;
@@ -489,15 +562,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
         /* 🔃 Sort by Oldest (Beta) */
         if (sortByOldest) {
-            [page-subtype="channels"] {
-                #contents {
-                    &.ytd-rich-grid-renderer {
-                        // flex-flow shorthand
-                        flex-wrap: wrap-reverse; // เรียงจาก ล่างขึ้นบน จากเดิม บนลงล่าง
-                        flex-direction: row-reverse; // เรียงจาก ขวาไปซ้าย จากเดิม ซ้ายไปขวา
-                        justify-content: flex-end;
-                    }
-                }
+            [page-subtype="channels"] #contents.ytd-rich-grid-renderer {
+                // flex-flow short hand
+                flex-wrap: wrap-reverse; // เรียงจาก ล่างขึ้นบน จากเดิม บนลงล่าง
+                flex-direction: row-reverse; // เรียงจาก ขวาไปซ้าย จากเดิม ซ้ายไปขวา
+                justify-content: flex-end;
             }
         }
     }
@@ -632,9 +701,17 @@ Support me: https://ko-fi.com/sapondanaisriwan
     /* 🌑 Dark Scroll Bar */
     if (scroll_Bar) {
         /* scrollbar */
-        ::-webkit-scrollbar {
-            background-color: #252829;
-            color: #a9a298;
+        html[dark] {
+            ::-webkit-scrollbar {
+                background-color: #252829;
+                color: #a9a298;
+            }
+        }
+
+        html:not([dark]) {
+            ::-webkit-scrollbar {
+                color: #a9a298;
+            }
         }
 
         ::-webkit-scrollbar-thumb {
@@ -1287,6 +1364,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     .ytp-sb-subscribe.ytp-sb-rounded,
     .ytp-sb-unsubscribe.ytp-sb-rounded {
+        border-radius: customBorderRadius i;
+    }
+
+    ytd-universal-watch-card-renderer[rounded] #header.ytd-universal-watch-card-renderer {
         border-radius: customBorderRadius i;
     }
 
