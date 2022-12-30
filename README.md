@@ -77,7 +77,7 @@ This is why you should consider using AdashimaaTube! 🥶
 | **Subscriptions in a grid layout** | **Search results in a grid layout** |
 |     ![](https://i.imgur.com/EnnjIrR.png)      |     ![](https://i.imgur.com/IpFsA5P.png)      |
 | **Anti-Shorts** | **More Animations** |
-|     ![](https://i.imgur.com/eDLCDxX.png)      |     [](https://user-images.githubusercontent.com/64634605/204840268-319b8ab0-0cce-4012-b91a-61925f7c0357.gif)      |
+|     ![](https://i.imgur.com/eDLCDxX.png)      |     ![](https://user-images.githubusercontent.com/64634605/204840268-319b8ab0-0cce-4012-b91a-61925f7c0357.gif)      |
 
 ## 📂 Installation
 You have to install [Stylus](https://add0n.com/stylus.html) and then click on the install link below or watch the [Tutorial](https://www.youtube.com/watch?v=Fpmw1Vh7sz8&t).
