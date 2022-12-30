@@ -1,5 +1,6 @@
 ## Changelog
 ### v1.6.7
+- Remove more border.
 - Remove more shorts on Subscriptions.
 - Fixed "Search results in a grid layout".
 - Add "Subscriptions in a grid layout" options.
