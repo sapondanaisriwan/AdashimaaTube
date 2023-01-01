@@ -10,11 +10,11 @@
 @license        MIT
 @preprocessor   stylus
 
-@advanced checkbox antiShorts               "❌ Anti-Shorts (Beta)" 0
+@advanced checkbox antiShorts               "❌ Anti-Shorts" 1
 @advanced range customAvatarRadius          "⚙️ Avatar Roundness" [50, 0, 50, 1, '%']
 @advanced range customBorderRadius          "⚙️ Border Radius" [0, 0, 24, 1, 'px']
 @advanced checkbox verifiedBadge            "✅ Blue Verified Badge" 0
-@advanced checkbox centeredSearchResults    "🔎 Centered The Search Results" 0
+@advanced checkbox centeredSearchResults    "🔎 Centered The Search Results" 1
 @advanced checkbox displayFullTitle         "🎦 Display Full Title For Videos" 0
 @advanced checkbox moreAnimation            "🎬 More Animations" 1
 @advanced checkbox restoreOldPlaylist       "▶️ Restore Old Playlist" 1
@@ -28,7 +28,7 @@
 
 @advanced select customCP                   "⚒️ Custom Channel Page" ["Enabled", "Disabled"]
 @advanced range videoPerRowCP               "  🏠 Number Of Videos Per Row" [5, 1, 10, 1]
-@advanced checkbox sortByOldest             "  🔃 Sort by Oldest (Beta)" 0
+@advanced checkbox sortByOldest             "  🔃 Sort by Oldest" 0
 @advanced checkbox searchResultsColumn      "  🔎 Search Results In A Grid Layout" 1
 
 @advanced select customVideoDetails         "⚒️ Custom Video Details" ["Enabled", "Disabled"]
