@@ -25,6 +25,7 @@ Restore old Youtube layout in 2021-2022 with many customizable options.
   - [📂 Installation](#-installation)
   - [🧑‍💻 Contributing](#-contributing)
   - [⁉️ FAQ](#️-faq)
+      - [💬 What's AdashimaaTube-Lite?](#-whats-adashimaatube-lite)
       - [💬 How do I access the settings menu?](#-how-do-i-access-the-settings-menu)
       - [💬 Why certain options don't work?](#-why-certain-options-dont-work)
       - [💬 Why sometimes the ratio bar has disappeared randomly?](#-why-sometimes-the-ratio-bar-has-disappeared-randomly)
@@ -92,6 +93,12 @@ You have to install [Stylus](https://add0n.com/stylus.html) and then click on th
 Any contribution is greatly appreciated.
 
 ## ⁉️ FAQ
+
+#### 💬 What's AdashimaaTube-Lite?
+
+AdashimaaTube-Lite is suitable for general users who don't like having a lot of customization options and it include all the important features of AdashimaaTube.
+
+![](https://i.imgur.com/KGVVeMS.png)
 
 #### 💬 How do I access the settings menu?
 
