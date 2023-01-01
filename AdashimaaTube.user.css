@@ -1533,98 +1533,96 @@ Support me: https://ko-fi.com/sapondanaisriwan
 @-moz-document regexp("^https?://www.youtube\\.com\\/@.*/search(.*)?") {
 
     if (customCP=="Enabled" && searchResultsColumn) {
-        // ytd-two-column-browse-results-renderer[page-subtype="channels"] {
-        //     > div.ytd-two-column-browse-results-renderer#primary {
-        body {
-            overflow-x: hidden i;
-        }
+        ytd-section-list-renderer.ytd-two-column-browse-results-renderer[page-subtype="channels"] #contents.ytd-section-list-renderer {
+            display: flex;
+            flex-wrap: wrap;
+            ytd-item-section-renderer.ytd-section-list-renderer > #contents.ytd-item-section-renderer {
+                // margin: 0 4px 24px 4px i;
+                /* Playlist */
+                & > ytd-playlist-renderer.ytd-item-section-renderer {
+                    flex-direction: column;
 
-        ytd-section-list-renderer {
-            > #contents {
-                display: flex;
-                flex-wrap: wrap;
-                margin-top: 24px;
-            }
+                    > #content.ytd-playlist-renderer {
+                        overflow: visible;
+                        width: 246px;
 
-            #content.ytd-playlist-renderer {
-                flex: none i;
-            }
+                        /* Remove playlist description */
+                        > #list.ytd-playlist-renderer {
+                            display: none;
+                        }
 
-            ytd-item-section-renderer,
-            #contents > ytd-playlist-renderer,
-            #dismissible.ytd-video-renderer {
-                display: contents i;
-            }
+                        /* Force "VIEW MORE" new line */
+                        > #view-more.ytd-playlist-renderer {
+                            display: block;
+                        }
 
-            .ytd-item-section-renderer#contents,
-            ytd-video-renderer:not([use-search-ui]) {
-                max-width: var(--ytd-rich-grid-mini-item-max-width);
-            }
+                        > a.yt-simple-endpoint.ytd-playlist-renderer {
+                            > h3.ytd-playlist-renderer {
 
-            /* video info */
-            .text-wrapper.ytd-video-renderer,
-            #video-title.ytd-playlist-renderer {
-                width: 246px;
-                max-width: var(--ytd-rich-grid-mini-item-max-width);
-            }
+                                /* Add marin top and bottom for video title */
+                                margin: 8px 0;
 
-            /* title */
-            h3 {
-                &.title-and-badge,
-                &.ytd-playlist-renderer {
-                    margin: 12px 0 4px 0;
+                                /* Revert video title to it should be */
+                                > #video-title.ytd-playlist-renderer {
+                                    font-size: 1.4rem;
+                                    line-height: 2rem;
+                                    font-weight: 500;
+                                }
+                            }
+
+                            /* Remove Author's channel */
+                            > ytd-video-meta-block#meta.ytd-playlist-renderer > #metadata.ytd-video-meta-block > #byline-container.ytd-video-meta-block > ytd-channel-name#channel-name.ytd-video-meta-block {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+
+                /* Normal Video */
+                & > ytd-video-renderer.ytd-item-section-renderer #dismissible.ytd-video-renderer {
+                    display: flex;
+                    flex-direction: column;
+
+                    .text-wrapper.ytd-video-renderer {
+                        width: 246px;
+
+                        /* Remove description */
+                        > #description-text.ytd-video-renderer {
+                            display: none;
+                        }
+
+                        /* 3 dot */
+                        ytd-menu-renderer.ytd-video-renderer {
+                            margin-top: 0 i;
+                        }
+
+                        > #meta.ytd-video-renderer > #title-wrapper.ytd-video-renderer > h3.title-and-badge.ytd-video-renderer {
+
+                            /* Add marin top and bottom for video title */
+                            margin: 8px 0;
+
+                            /* Revert video title to it should be */
+                            > #video-title.ytd-video-renderer {
+                                font-size: 1.4rem;
+                                line-height: 2rem;
+                                font-weight: 500;
+                            }
+                        }
+
+                        > #meta.ytd-video-renderer > ytd-video-meta-block.ytd-video-renderer > #metadata.ytd-video-meta-block {
+
+                            /* Remove Author's channel */
+                            > #byline-container.ytd-video-meta-block > #channel-name.ytd-video-meta-block {
+                                display: none;
+                            }
+                        }
+                    }
                 }
             }
-
-            ytd-video-renderer:not([use-search-ui]) ytd-thumbnail.ytd-video-renderer,
-            ytd-playlist-renderer:not([is-search]) ytd-playlist-thumbnail.ytd-playlist-renderer {
-                margin-right: 0 i;
-            }
-
-            #contents.ytd-item-section-renderer {
-                margin: 0 4px 24px 4px i;
-            }
-
-            #video-title.ytd-video-renderer,
-            #video-title.ytd-playlist-renderer {
-                display: block i;
-                font-size: 1.4rem i;
-                line-height: 2rem i;
-                font-weight: 500 i;
-                max-height: 4rem i;
-            }
-
-
-            /* force new line */
-            // #metadata.ytd-video-meta-block {
-            //     display: block;
-            // }
-            ytd-video-meta-block[watch-feed-big-thumbs]:not(.grid).byline-separated #separator.ytd-video-meta-block,
-            ytd-video-meta-block:not(.grid):not(.compact).byline-separated #separator.ytd-video-meta-block,
-            .ytd-video-meta-block[meta-block].ytd-video-meta-block:not(.grid):not(.compact).byline-separated #separator.ytd-video-meta-block {
-                display: none;
-            }
-
-            #channel-name.ytd-video-meta-block {
-                display: none;
-            }
-
-            /* 3 dot */
-            ytd-menu-renderer.ytd-video-renderer {
-                margin-top: 0;
-            }
-
-            /* hide description and list info */
-            #list.ytd-playlist-renderer,
-            #view-more.ytd-playlist-renderer,
-            #description-text.ytd-video-renderer {
-                display: none;
-            }
-
-            &:not([hide-bottom-separator]):not([page-subtype=history]):not([page-subtype=memberships-and-purchases]):not([page-subtype=ypc-offers]) #contents.ytd-section-list-renderer > *.ytd-section-list-renderer:not(:last-child):not(ytd-page-introduction-renderer):not([item-dismissed]).ytd-section-list-renderer:not([has-destination-shelf-renderer]).ytd-section-list-renderer:not(ytd-minor-moment-header-renderer) {
-                border: none i;
-            }
         }
-    } //     }
-    // }
+
+        ytd-section-list-renderer:not([hide-bottom-separator]):not([page-subtype=history]):not([page-subtype=memberships-and-purchases]):not([page-subtype=ypc-offers]) #contents.ytd-section-list-renderer > *.ytd-section-list-renderer:not(:last-child):not(ytd-page-introduction-renderer):not([item-dismissed]).ytd-section-list-renderer:not([has-destination-shelf-renderer]).ytd-section-list-renderer:not(ytd-minor-moment-header-renderer) {
+            border: none i;
+        }
+    }
 }
