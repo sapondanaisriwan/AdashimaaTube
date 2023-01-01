@@ -1,4 +1,14 @@
 ## Changelog
+### v1.6.8
+- Add "Hide Bell Icon" options.
+- Remove more border raidus.
+- Bring back "custom colors for ratio bar" option.
+
+![](https://i.imgur.com/kNbkSQ5.png)
+
+- Change color of Subscribe button to red again 🤯.
+![](https://i.imgur.com/EHrTOFC.png)
+
 ### v1.6.7
 - Remove more border.
 - Remove more shorts on Subscriptions.
