@@ -60,7 +60,7 @@ This is why you should consider using AdashimaaTube! 🥶
 <div align="center">
 
 ### 🔧 Menu Options
-<img src="https://i.imgur.com/XufBf6g.png" sytle="text-align: center"/>
+<img src="https://i.imgur.com/ZI2vrh3.png" sytle="text-align: center"/>
 </div>
 
 
