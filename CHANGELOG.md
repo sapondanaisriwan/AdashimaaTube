@@ -1,4 +1,9 @@
 ## Changelog
+
+### v1.6.9
+- "Anti-Shorts" and "Centered the search results" are enabled by default.
+- I hope you enjoy this project and maybe there won't be any more updates. 😊
+
 ### v1.6.8
 - Add "Hide Bell Icon" options.
 - Remove more border raidus.
