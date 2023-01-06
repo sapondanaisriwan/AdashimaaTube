@@ -3,6 +3,7 @@
 ### v1.7.0
 - Add "Restore Old Icon"
 - Remove "Blue Verified Badge" and "Restore Old Playlist" Options.
+- Rename "Avatar Roundness" to "Profile Roundness".
 
 ### v1.6.9
 - "Anti-Shorts" and "Centered the search results" are enabled by default.
