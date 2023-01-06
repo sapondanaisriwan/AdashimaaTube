@@ -4,6 +4,7 @@
 - Add "Restore Old Icon"
 - Remove "Blue Verified Badge" and "Restore Old Playlist" Options.
 - Rename "Avatar Roundness" to "Profile Roundness".
+- Fixed Profile is rounded while typing in the comment section.
 
 ### v1.6.9
 - "Anti-Shorts" and "Centered the search results" are enabled by default.
