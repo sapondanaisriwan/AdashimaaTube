@@ -1,8 +1,11 @@
 ## Changelog
 
+### v1.7.0
+- Add "Restore Old Icon"
+- Remove "Blue Verified Badge" and "Restore Old Playlist" Options.
+
 ### v1.6.9
 - "Anti-Shorts" and "Centered the search results" are enabled by default.
-- I hope you enjoy this project and maybe there won't be any more updates. 😊
 
 ### v1.6.8
 - Add "Hide Bell Icon" options.
