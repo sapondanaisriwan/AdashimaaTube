@@ -1,5 +1,14 @@
 ## Changelog
 
+### v1.7.1
+- Remove more border radius.
+- Remove "Hide Bell Icon"
+- Revert back to the old subscribed button.
+![](https://i.imgur.com/vy8ytLo.png)
+
+- Add more the old icons and fixed the "Like" button.
+![](https://i.imgur.com/uItY5oH.png)
+
 ### v1.7.0
 - Add "Restore Old Icon"
 - Remove "Blue Verified Badge" and "Restore Old Playlist" Options.
