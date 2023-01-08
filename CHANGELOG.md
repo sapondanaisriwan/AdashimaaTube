@@ -2,10 +2,10 @@
 
 ### v1.7.2
 - Add "Remove Like Animation" option.
-![new bug](https://i.imgur.com/XINGCsZ.gif)
 
+![new bug](https://i.imgur.com/XINGCsZ.gif)
+- Remove more border radius and shorts.
 - Removes bell icon from the channel feed in subscription.
-- Remove more border radius.
 - Fixed the input text color for light theme users when you enable the "Restore Old Playlist" option.
 ![](https://i.imgur.com/lTokKrD.png)
 
