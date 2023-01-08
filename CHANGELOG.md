@@ -1,5 +1,19 @@
 ## Changelog
 
+### v1.7.2
+- Add "Remove Like Animation" option.
+![new bug](https://i.imgur.com/XINGCsZ.gif)
+
+- Removes bell icon from the channel feed in subscription.
+- Remove more border radius.
+- Fixed the input text color for light theme users when you enable the "Restore Old Playlist" option.
+![](https://i.imgur.com/lTokKrD.png)
+
+- Fixed "Centered the search results".
+![](https://i.imgur.com/RlInnzM.jpeg)
+
+- Bring back "Blue Check Mark" and "Restore Old Playlist" because some people don't like the last 2 update.
+
 ### v1.7.1
 - Remove more border radius.
 - Remove "Hide Bell Icon"
