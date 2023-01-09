@@ -19,15 +19,15 @@
 @advanced checkbox restoreOldPlaylist       "▶️ Restore Old Playlist" 1
 @advanced checkbox restoreOldIcon           "🧓 Restore Old Icons (Beta)" 0
 @advanced checkbox removeTaps               "❌ Remove Taps" 0
-@advanced checkbox subscriptionsGrid        "📄 Subscriptions In A Grid Layout" 1
+@advanced checkbox subscriptionsGrid        "📄 Subsc In A Grid" 1
 @advanced checkbox watchedOverlay           "👀 Watched Overlay" 0
 
 @advanced select customHP                   "⚒️ Custom Home Page" ["Enabled", "Disabled"]
-@advanced range videoPerRowHP               "  🏠 Number Of Videos Per Row" [5, 1, 10, 1]
+@advanced range videoPerRowHP               "  🏠 Videos Per Row" [5, 1, 10, 1]
 @advanced checkbox displayProfile           "  🧔 Hide Channel Profile" 1
 
 @advanced select customCP                   "⚒️ Custom Channel Page" ["Enabled", "Disabled"]
-@advanced range videoPerRowCP               "  🏠 Number Of Videos Per Row" [5, 1, 10, 1]
+@advanced range videoPerRowCP               "  🏠 Videos Per Row" [5, 1, 10, 1]
 @advanced checkbox sortByOldest             "  🔃 Sort by Oldest" 0
 @advanced checkbox searchResultsColumn      "  🔎 Search Results In A Grid" 1
 
@@ -38,7 +38,7 @@
 @advanced checkbox clipBtn                  "  ✂️ Hide Clip Button" 0
 @advanced checkbox thanksBtn                "  🙏 Hide Thanks Button" 0
 @advanced checkbox saveBtn                  "  💾 Hide Save Button" 0
-@advanced checkbox commentSection           "  💬 Hide Comments Section" 0
+@advanced checkbox commentSection           "  💬 Hide Comments" 0
 @advanced checkbox textBtn                  "  💬 Hide Text Buttons" 0
 @advanced checkbox endCards                 "  💳 Hide End Cards" 0
 @advanced checkbox gameSection              "  🎮 Hide Game Section" 1
