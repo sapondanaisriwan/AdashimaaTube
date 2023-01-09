@@ -1,0 +1,94 @@
+/* ==UserStyle==
+@name           `Subscriptions In A Grid Layout
+@author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan) [Adashima#4066]
+@description    Please report bugs via github issues or my email (If I have some free time, I'll fix them)
+@namespace      https://userstyles.world/user/sapondanaisriwan
+@homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
+@supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
+@version        1.0.0
+@license        MIT
+@preprocessor   stylus
+@advanced checkbox subscriptionsGrid        "📄 Subscriptions In A Grid Layout" 1
+==/UserStyle== */
+i=!important;
+@-moz-document domain("youtube.com") {
+    /* 📄 Subscriptions In A Grid Layout */
+    if (subscriptionsGrid) {
+        ytd-two-column-browse-results-renderer > #primary.ytd-two-column-browse-results-renderer > ytd-section-list-renderer.ytd-two-column-browse-results-renderer > #contents.ytd-section-list-renderer {
+            ytd-expanded-shelf-contents-renderer {
+                display: flex;
+                flex-direction: column;
+            }
+
+            ytd-channel-renderer {
+                width: var(--ytd-grid-1-columns-width) i;
+            }
+
+            /* Remove description */
+            #description.ytd-channel-renderer {
+                display: none;
+            }
+
+            /* Remove videos count*/
+            #metadata.ytd-channel-renderer > span:nth-last-child(-n + 2) {
+                display: none;
+            }
+
+            #content-section.ytd-channel-renderer {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            #info-section.ytd-channel-renderer {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            /* Channel profile */
+            yt-img-shadow.ytd-channel-renderer {
+                width: 103px;
+                height: 103px;
+
+                /* Centered the channel profile */
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+
+            /* Centered the subscribers */
+            #info.ytd-channel-renderer {
+                padding: 0;
+                align-items: center;
+            }
+
+            /* Add margin top to subscribe button*/
+            ytd-subscription-notification-toggle-button-renderer-next.ytd-subscribe-button-renderer > yt-button-shape {
+                margin-top: 0px;
+            }
+
+            #channel-title.ytd-channel-renderer {
+                margin: 4px auto; // Centered the channel title
+                font-size: 1.4rem;
+                font-weight: 500;
+                max-height: 2rem;
+                line-height: 2rem;
+            }
+
+            #avatar-section.ytd-channel-renderer {
+                margin-right: 0px;
+            }
+
+            #grid-container.ytd-expanded-shelf-contents-renderer > *.ytd-expanded-shelf-contents-renderer:not(:last-child) {
+                margin-bottom: 24px;
+            }
+
+            /* Remove bell icon */
+            #notification-preference-button {
+                display: none;
+            }
+        }
+    }
+}

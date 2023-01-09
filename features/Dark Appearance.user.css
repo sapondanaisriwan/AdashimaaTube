@@ -16,15 +16,18 @@
 i=!important
 @-moz-document domain("youtube.com") {
     /* 🌑 Dark Navigation Bar */
-    if (navigationBar) {
+       /* 🌑 Dark Navigation Bar */
+       if (navigationBar) {
         html[dark] {
             ytd-masthead {
                 background: var(--yt-spec-brand-background-solid);
             }
+
             ytd-mini-guide-renderer,
             ytd-mini-guide-entry-renderer[darker-dark-theme] {
                 background-color: var(--yt-spec-brand-background-solid);
             }
+
             #guide-content.ytd-app {
                 background: var(--yt-spec-brand-background-solid) //#212121 i;
             }
@@ -42,22 +45,27 @@ i=!important
                     background-color: #222 i;
                 }
             }
+
             ul {
                 > li {
                     color: #ccc i;
                     span {
                         color: #ccc i;
                     }
+
                     b {
                         color: #f1f1f1 i;
                     }
+
                     &:hover,
                     &.sbsb_d {
                         background-color: #333 i;
                     }
+
                     &:last-child {
                         display: none;
                     }
+
                     ::before {
                         filter: invert();
                     }
@@ -74,16 +82,27 @@ i=!important
     /* 🌑 Dark Scroll Bar */
     if (scroll_Bar) {
         /* scrollbar */
-        ::-webkit-scrollbar {
-            background-color: #252829;
-            color: #a9a298;
+        html[dark] {
+            ::-webkit-scrollbar {
+                background-color: #252829;
+                color: #a9a298;
+            }
         }
+
+        html:not([dark]) {
+            ::-webkit-scrollbar {
+                color: #a9a298;
+            }
+        }
+
         ::-webkit-scrollbar-thumb {
             background-color: #484d50;
         }
+
         ::-webkit-scrollbar-thumb:active {
             background-color: #4b5053;
         }
+
         ::-webkit-scrollbar-corner {
             background-color: #1d1f20;
         }

@@ -1,0 +1,106 @@
+/* ==UserStyle==
+@name           Restore old playlist
+@author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan) [Adashima#4066]
+@description    Please report bugs via my email, github, discord or the discussion section(If I have some free time, I'll fix them)
+@namespace      https://userstyles.world/user/sapondanaisriwan
+@homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
+@supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
+@version        1.0.0
+@license        MIT
+@preprocessor   stylus
+
+==/UserStyle== */
+i=!important //
+/*
+Please report bugs via my email, github, discord or the discussion section(If I have some free time, I'll fix them)
+Contact: sapondanaisriwan@gmail.com
+Support me: https://ko-fi.com/sapondanaisriwan 
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+*/
+@-moz-document url-prefix("https://www.youtube.com/playlist?list=") {
+    /* ▶️ Restore Old Playlist */
+    if (restoreOldPlaylist) {
+        ytd-browse[page-subtype=playlist][amsterdam] {
+            padding-top: 0 i;
+        }
+
+        ytd-browse[page-subtype=playlist][amsterdam] ytd-playlist-header-renderer.ytd-browse {
+            margin-left: 0 i;
+            height: calc(100vh - var(--ytd-toolbar-height));
+        }
+
+        [page-subtype="playlist"] {
+
+            .immersive-header-container.ytd-playlist-header-renderer {
+                margin-bottom: 0 i;
+                border-radius: 0 i;
+            }
+
+            ytd-playlist-header-renderer {
+                width: 388px i;
+                color: var(--yt-spec-text-primary) i;
+            }
+
+            ytd-text-inline-expander.ytd-playlist-header-renderer,
+            yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string:visited,
+            #dropdown-trigger > div#input,
+            .metadata-stats.ytd-playlist-byline-renderer,
+            .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal,
+
+            /* Edit title */
+            .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--text {
+                color: var(--yt-spec-text-primary) i;
+            }
+
+            .metadata-text-wrapper.ytd-playlist-header-renderer {
+                --yt-endpoint-color: var(--yt-spec-text-primary) i;
+                --yt-endpoint-hover-color: var(--yt-spec-text-primary) i;
+            }
+        }
+
+        html[dark] [page-subtype="playlist"] {
+            div.immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer > div {
+                background: var(--yt-spec-general-background-a) i; // #181818
+            }
+        }
+
+        html:not([dark]) [page-subtype="playlist"] {
+            #contents > ytd-playlist-video-list-renderer {
+                background: var(--yt-spec-white-3) i; // #f1f1f1
+            }
+
+            div.immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer > div {
+                background: var(--yt-spec-white-2) i; // #f9f9f9
+            }
+
+            /* Shuffle button */
+            .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal {
+                background: var(--yt-spec-base-background);
+                &:hover {
+                    background: var(--yt-spec-static-overlay-filled-hover); // #f9f9f9
+                }
+            }
+
+            /* Change color of input text */
+            iron-input.tp-yt-paper-input > input.tp-yt-paper-input,
+            textarea.tp-yt-iron-autogrow-textarea {
+                color: var(--yt-spec-text-primary) i;
+            }
+
+            /* Edit description (placeholder) */
+            #labelAndInputContainer.tp-yt-paper-input-container > label,
+            #labelAndInputContainer.tp-yt-paper-input-container > .paper-input-label {
+                color: var(--yt-spec-text-secondary);
+            }
+
+            /* Change border bottom color to black */
+            .unfocused-line.tp-yt-paper-input-container,
+            .focused-line.tp-yt-paper-input-container {
+                border-bottom-color: var(--yt-spec-text-primary) i;
+            }
+        }
+    }
+}

@@ -30,26 +30,28 @@ Support me: https://ko-fi.com/sapondanaisriwan
     #subscribe-button,
     ytd-subscribe-button-renderer {
         yt-button-shape {
-
             /* Red Subscribed button */
             button,
             a[aria-label="Subscribe"] {
                 /* InPrivate */
-                color: var(--yt-spec-static-brand-white) !important;
-                background-color: var(--yt-spec-brand-button-background) !important;
+                border-radius: var(--BorderRadius);
+                color: var(--yt-spec-static-brand-white) i;
+                background-color: var(--yt-spec-brand-button-background) i;
             }
+
             /* Unsubscribe button */
-            button[aria-label^=Unsubscribe],
             button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
-                color: var(--yt-spec-text-secondary) !important;
-                background-color: var(--yt-spec-badge-chip-background) !important;
+                border-radius: var(--BorderRadius);
+                color: var(--yt-spec-text-secondary) i;
+                background-color: var(--yt-spec-badge-chip-background) i;
             }
         }
     }
 
     /* Subscribed button on channels*/
     /* Please let me know if you can figure out how to make this shorter and cleaner */
-    [page-subtype="channels"] {
+    [page-subtype="channels"],
+    #channel.ytd-grid-channel-renderer {
         #subscribe yt-button-shape button {
             &[aria-label^="Subscribe"], //English
             &[aria-label^="ติดตาม"], // Thai
@@ -124,24 +126,23 @@ Support me: https://ko-fi.com/sapondanaisriwan
             &[aria-label$="을(를) 구독합니다."],
             &[aria-label^="Tilaa"],
             &[aria-label^="Subskrybuj kanał"] {
-                color: var(--yt-spec-static-brand-white) !important;
-                background-color: var(--yt-spec-brand-button-background) !important;
+                border-radius: var(--BorderRadius);
+                color: var(--yt-spec-static-brand-white) i;
+                background-color: var(--yt-spec-brand-button-background) i;
             }
         }
     }
 
     /* Shorts Unsubscribe button */
     html[dark] ytd-shorts #subscribe-button yt-button-shape button {
-        &[aria-label^=Unsubscribe],
         &.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
-            background-color: var(--sub-black-bg-btn) !important;
+            background-color: var(--sub-black-bg-btn) i;
         }
     }
 
     html:not([dark]) ytd-shorts #subscribe-button yt-button-shape button {
-        &[aria-label^=Unsubscribe],
         &.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
-            background-color: var(--sub-white--text-btn) !important;
+            background-color: var(--sub-white--text-btn) i;
         }
     }
 }

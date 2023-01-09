@@ -1,0 +1,55 @@
+/* ==UserStyle==
+@name           `Watched Overlay
+@author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan) [Adashima#4066]
+@description    Please report bugs via github issues or my email (If I have some free time, I'll fix them)
+@namespace      https://userstyles.world/user/sapondanaisriwan
+@homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
+@supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
+@version        1.0.0
+@license        MIT
+@preprocessor   stylus
+@advanced checkbox watchedOverlay           "👀 Watched Overlay" 1
+==/UserStyle== */
+i=!important;
+@-moz-document domain("youtube.com") {
+    /* 👀 Watched Overlay */
+    if (watchedOverlay) {
+        #overlays > ytd-thumbnail-overlay-resume-playback-renderer {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            background: rgba(90, 90, 90, 0.7) i;
+
+            &::before {
+                content: " ";
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                height: 100%;
+            }
+
+            > div#progress {
+                &::before {
+                    color: var(--yt-spec-static-brand-white);
+                    content: "watched";
+                    text-transform: uppercase;
+
+                    font-family: "Roboto", sans-serif;
+                    font-size: 1.2rem i;
+                    font-weight: inherit; // Top left
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+
+                    background-color: var(--yt-spec-static-overlay-background-heavy);
+                    letter-spacing: var(--yt-badge-letter-spacing, 0.5px);
+                    margin: 4px;
+                    padding: 3px 4px;
+                    border-radius: 4px;
+                }
+            }
+        }
+    }
+}

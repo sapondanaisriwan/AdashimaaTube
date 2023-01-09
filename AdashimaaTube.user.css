@@ -465,7 +465,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             position: absolute;
             top: 0;
             height: 100%;
-            background: rgba(90, 90, 90, 0.7) !important;
+            background: rgba(90, 90, 90, 0.7) i;
 
             &::before {
                 content: " ";

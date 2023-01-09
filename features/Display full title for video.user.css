@@ -8,6 +8,9 @@
 @version        1.0.3
 @license        MIT
 @preprocessor   stylus
+
+@advanced checkbox displayFullTitle         "🎦 Display Full Title For Videos" 1
+
 ==/UserStyle== */
 /*
 Support me: https://ko-fi.com/sapondanaisriwan 
@@ -17,15 +20,17 @@ Support me: https://ko-fi.com/sapondanaisriwan
 Support me: https://ko-fi.com/sapondanaisriwan
 */
 @-moz-document domain("youtube.com") {
+    /* 🎦 Display Full Title For Videos */
     ytd-grid-video-renderer,
     ytd-rich-grid-media[mini-mode] {
         #video-title {
             &.yt-simple-endpoint.ytd-grid-video-renderer,
             &.ytd-rich-grid-media {
-                display: inline !important;
+                display: inline if displayFullTitle;
             }
         }
     }
+
     #video-title {
         &.ytd-compact-video-renderer,
         &.ytd-rich-grid-media,
@@ -33,7 +38,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         &.ytd-rich-grid-slim-media,
         &.ytd-grid-playlist-renderer,
         &.ytd-reel-item-renderer {
-            display: inline !important;
+            display: inline if displayFullTitle;
         }
     }
 }

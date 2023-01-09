@@ -15,8 +15,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
 */
 
 @-moz-document domain("youtube.com") {
-  ytd-two-column-search-results-renderer {
-    align-items: center;
-    /* margin: 0 auto !important; */
+    /* 🔎 Centered The Search Results */
+    ytd-two-column-search-results-renderer {
+      align-items: center if centeredSearchResults;
   }
 }

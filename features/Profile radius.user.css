@@ -22,6 +22,17 @@ Support me: https://ko-fi.com/sapondanaisriwan
 Support me: https://ko-fi.com/sapondanaisriwan
 */
 @-moz-document domain("youtube.com") {
+
+    :root {
+        --video-per-row-homepage: videoPerRowHP;
+        --video-per-row-channelpage: videoPerRowCP;
+        --sub-red-btn: #CC0000;
+        --sub-white--text-btn: #F2F2F2;
+        --sub-black-bg-btn: #303030;
+        --profile-radius: customProfileRadius;
+        --BorderRadius: customBorderRadius;
+    }
+
     /* ⚙️ Avatar Roundness */
     #avatar {
         &.ytd-video-owner-renderer,
@@ -29,38 +40,44 @@ Support me: https://ko-fi.com/sapondanaisriwan
         &.ytd-rich-grid-media,
         &.ytd-reel-player-header-renderer,
         &.ytd-active-account-header-renderer,
-        &.yt-live-chat-message-input-renderer {
-            border-radius: customAvatarRadius i;
+        &.yt-live-chat-message-input-renderer,
+        &.ytd-shelf-renderer,
+        &.ytd-topic-channel-details-renderer {
+            border-radius: var(--profile-radius) i;
         }
     }
 
     #author-thumbnail {
         &.ytd-comment-simplebox-renderer,
         &.ytd-comment-renderer yt-img-shadow.ytd-comment-renderer,
-        &.ytd-creator-heart-renderer {
-            border-radius: customAvatarRadius i;
+        &.ytd-creator-heart-renderer,
+        &.ytd-backstage-post-renderer yt-img-shadow.ytd-backstage-post-renderer,
+        &.ytd-commentbox,
+        ytd-commentbox[is-reply][is-backstage-comment] #author-thumbnail.ytd-commentbox {
+            border-radius: var(--profile-radius) i;
         }
     }
 
     #hearted-thumbnail.ytd-creator-heart-renderer {
-        border-radius: customAvatarRadius i;
+        border-radius: var(--profile-radius) i;
     }
 
     #author-photo {
         &.yt-live-chat-text-message-renderer, // Live chat
         &.yt-live-chat-paid-message-renderer,
         &.yt-live-chat-membership-item-renderer {
-            border-radius: customAvatarRadius i;
+            border-radius: var(--profile-radius) i;
         }
     }
 
     #creator-photo {
         &.yt-live-chat-poll-header-renderer,
         &.yt-live-chat-banner-poll-renderer {
-            border-radius: customAvatarRadius i;
+            border-radius: var(--profile-radius) i;
         }
+
         &.ytd-sponsorships-live-chat-header-renderer {
-            --yt-img-border-radius: customAvatarRadius i;
+            --yt-img-border-radius: var(--profile-radius) i;
         }
     }
 
@@ -73,21 +90,22 @@ Support me: https://ko-fi.com/sapondanaisriwan
         &.ytd-video-renderer,
         &.yt-live-chat-ticker-paid-message-item-renderer,
         &.yt-live-chat-ticker-sponsor-item-renderer {
-            border-radius: customAvatarRadius i;
+            border-radius: var(--profile-radius) i;
         }
     }
+
     .ytp-ce-channel {
-        border-radius: customAvatarRadius i;
+        border-radius: var(--profile-radius) i;
         .ytp-ce-expanding-image,
         .ytp-ce-element-shadow {
-            border-radius: customAvatarRadius i;
+            border-radius: var(--profile-radius) i;
         }
     }
 
     .avatar {
         &.ytd-sponsorships-offer-renderer,
         &.ytd-recognition-shelf-renderer {
-            border-radius: customAvatarRadius i;
+            border-radius: var(--profile-radius) i;
         }
     }
 
@@ -97,7 +115,25 @@ Support me: https://ko-fi.com/sapondanaisriwan
     .subscribecard-endscreen .ytp-author-image,
     #c4-player > div.ytp-player-content.ytp-iv-player-content > div.annotation.annotation-type-custom.iv-branding > button > img,
     #movie_player > div.ytp-player-content.ytp-iv-player-content > div.annotation.annotation-type-custom.iv-branding > button > img,
-    ytd-commentbox[is-reply][is-backstage-comment] #author-thumbnail.ytd-commentbox {
-        border-radius: customAvatarRadius i;
+    ytd-commentbox[is-reply][is-backstage-comment] #author-thumbnail.ytd-commentbox,
+    ytd-comment-replies-renderer #creator-thumbnail.ytd-comment-replies-renderer yt-img-shadow.ytd-comment-replies-renderer,
+    .channel-avatar.ytd-ghost-grid-renderer {
+        border-radius: var(--profile-radius) i;
+    }
+
+    /* Unloaded element */
+    #home-page-skeleton .channel-avatar,
+    .channel-avatar.ytd-ghost-grid-renderer {
+        border-radius: var(--profile-radius) i;
+    }
+
+    /* Create post in community tab */
+    #dialog-header.ytd-backstage-post-dialog-renderer #header-author-thumbnail.ytd-backstage-post-dialog-renderer {
+        border-radius: var(--profile-radius) i;
+    }
+
+    /* Youtube studio */
+    .image-thumbnail.ytcp-navigation-drawer {
+        border-radius: var(--profile-radius) i;
     }
 }
