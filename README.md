@@ -7,7 +7,7 @@ Restore old Youtube layout in 2021-2022 with many customizable options.
 
 [![AdashimaaTube](https://img.shields.io/badge/Install%20directly%20with-Stylus-116b59.svg?longCache=true&style=flat)](https://userstyles.world/api/style/6944.user.css)
 [![Install Count](https://img.shields.io/badge/dynamic/json?color=%23193652&label=UserStyles.world&query=total_installs&suffix=%20installs&url=https%3A%2F%2Fuserstyles.world%2Fapi%2Fstyle%2Fstats%2F6944&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsSAAALEgHS3X78AAADGUlEQVQ4y6WTy29UZRiHn/f7zjkz0+m0nUljOxhKHYo0WpRk6qXEFihuWCDRGFamYSULYyLRuNAlrIxGY1y4UeKiAck0NTECYsQmhXKzDdSmF1o1tJ3UC73NMNO5nPN9Lgr6B/gsfot39Ut+zyuIKJQSAKy1GGP4Dw0oASMQWMCKgLUgAg/zIQJCW1u3Tqf3J3p6utxYrBHP0yUIcmNjWf/y5QsyMXHW5HKrgAuURSUSHfFjr79VGR9f9re2pHYdPvzq1uZm7jQ1UU0mCYKAndPTvKy1vZrLycD1G7Nq4W4u/Gxnw/IHH70nya9O3dBaP5MvbpgjL3Srz1Mpq4IgGBkfl6MNDbKtUGBwyxZqk0nL+jrHl5b0qavXKtFq2XMeS00pMcZUFrOmtmNXpX1qygxkMmxEIs6e9nb9eD6vdtTWqoH+fnVuaEhTX6+fWlmxkZ4eUbFam/v6zJD64403j6qa6Eysqyt8YXqa7zMZCWH5q+KzuHSPS78tkBm9RZDNYlZX+a5cttHtKdcUS5NrX3z5jmOKxRkJh1c0MN/XR3rvXvpvT/DD9Yvc/+xjsAZ5+10yT3Tw4ewdFjo7qQFKiYQHWAcIqYaGOADJJKcbG1krVDj07c+8vzvADyyjv/7EYN9x6jWEq9XN/eLxGBB1AIO1BkBVK0S9EHXhMFeOfcpzQ8Mk8nlG9jxPXIOuVrFaUQLCpYInSkUdILDlctkHKq5HSAQDhBobyWxvRRWLBK3bNkVxHNarhleu9JO7OaLmvIgoICit55ebfxmm7ccz1hj7r1jZdJr57m5MOIw2AQURDo6e48DqHNeefhHEKgVQXFxafPT3MY588pqVuRkeaI0bBHi+jxiDrzSxW7fZd/oEFydnWUm2Otr4jgMQ+nPx/uhLJxjb0etLSysYA9ZiAawB7SGzo8jZk1yavGv93Qe0V1cnRCI1DgDGiAv4O590lFKbt81yYA1WQN2bx+7bz/DJQURBbG2t5u9HmpIC4La0HKzp7T2E72+glQuicF0lWrs8+DlrwKJxHGttqZQNyuVi4fz5b/i//ANWH1Ou13STnwAAAABJRU5ErkJggg==)](https://userstyles.world/style/6944/youtube-old-layout)
-[![install count](https://img.shields.io/badge/Userstyles.org-4.8k%20installs-green.svg?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAFH0lEQVRIx5VWa4xdZRVda3/n3Ll37szcMqXDSIW2dqaAJhoHiI1VomhMQIKERBJMoEYFDTH8RaMhioYYf4AxUcMPf4CSiCaamFgkU2zCY0pp2vFBaEpbWgodwHYeHe7ccx/n28sfd2bo497xsn+e7ztrfXvvtR/EirlmIv5jaok53jdh19sGoTcTSSu21l2SlobsE18AQACuA8CiaxGIpOk8eNj+WZyuszcCp9ONYp6GdOxajl1nuR91ZY4FUDgfvc3AsaEOL0Vnp0xGQqYk5n7kQLxxkFGHXIfZ7YUSSO56q41HEoAktIHgqx8vtggPfQMmnCK8E7IASC5H7ZLC2XqrEc3dXXqvHr/127/e+uhTr7w1K1m3cJnorYy5/43MdZHHBKPHEydm777zsVojgiqG8NJD35Bw66NPvjtfi7TomnpwZ3+h0DFgcpAwsKWOx3Iz3fft3zVzJQkSBBrbMTmz0IwwE01aymLndIgwEkq6OUhadGRZA9DWqy770dduLM26QBBfnrjqL/tfjRZHK+X1g2knCUSh7/hg+eBlla4EglaTNzo8NP6ZzcmLZ9qP/f5tO26/fmy22tg+vpFmAtt6J9SCTg5WpjcMz5bSIABI1pQ13y+fSh8oCC6YfNvoCBQNiTzS6LSTA8XpDcNzfSVRABKH+P8I2kJq80iuy0s4lQF68fDMD//8LMDUuPOmHQNf+excf9FBEIQbKCyjA7AeWwAEjVVAGMJ8871qvVWtN+ez1i/+NPl6tQ4Y2faXF2R8LQ8uqCCWk5mB/unh4aMj6z9eU72eHXn2oGhnjr05dGmFofNbE/RsAo59dGSmmg6Wip++65Z6lh3efZDk2o3Q1sAjbDkLbYnIP1nxINDI1EAtF5Ct1W27ErgQvbladBAIDCR5wuX8czWCuX9ADyRICwtLTzz+cpY1AH7q+rFgAaTALeUWQBFJuYRgBPY99czCO3OIHRtCJwJjkHTH7b/59a92A3bFFZWv3nmdFNunE5W8DZQ4b37g6zlw9tTp33/35zOvvaEePXA5yQ9fuc5IQCdPzs3NZ/Dl38spEoBUpB/eczAFROsr9RXLRUi954BPPP7NPS98L00CGX75yCRt5aZsfF1Gt9jKX5/6p4wTt33u3id/vG7jCNhjDggQDhYLSVoIgKq1hugGVReKk3/Y9sJDn3eDt1pOSNrwkY1yWrCOkydZqw+teJw3NPnHjx3YvSlbSkOwKB/OCoQRq3e6zuzkomIiIMmNSa2auhPAG4dGp5a2gmYB7Wl5dv9ocWKxl/K8gCAaLMuK+yc37/v7psXFQmw9vKJbnRuA2tSm0sS/eySgRLLZrJVe/sfWvbvGq4sFM9FARgmk1fO35+qvpFau9G11Cmq8e/pIffq/LlhAoAjvppekkWF6z6app7edne8zE2lmAigHGQrJYK1ZX2wc33t8Z7DSzde8RORvzu/51zsP4pGYWqoYB0YvVei6liQ/u+8WRAlcxj1Py9y+5bHnjt7RijWyPeREJ83guYCWmlffcO36LR/qtvEEkj/9TqNVS71bt1IU4IoAzAKcIaE75ZHyjT94HgVYiB0FSjFXtJHLg3vsLtZAhmCFYAUi0OgOALSAkFb3brakucbiVbSC1etIS0Cv6y3PlfzSvisDuy9e4GDSb/c/nGz/YtJeSmkC1fsIamaWVwvnVRnbo8NdKqOIxFb2Bh36yT3jecvlH2DGGdW/48Twl46dE3c4kCoMFQY39A/fsH7sfxp3h2W0x2spAAAAAElFTkSuQmCC)](https://userstyles.org/styles/247047/old-youtube-layout-2021-2022-adashimaatube)
+[![install count](https://img.shields.io/badge/Userstyles.org-5.1k%20installs-green.svg?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAFH0lEQVRIx5VWa4xdZRVda3/n3Ll37szcMqXDSIW2dqaAJhoHiI1VomhMQIKERBJMoEYFDTH8RaMhioYYf4AxUcMPf4CSiCaamFgkU2zCY0pp2vFBaEpbWgodwHYeHe7ccx/n28sfd2bo497xsn+e7ztrfXvvtR/EirlmIv5jaok53jdh19sGoTcTSSu21l2SlobsE18AQACuA8CiaxGIpOk8eNj+WZyuszcCp9ONYp6GdOxajl1nuR91ZY4FUDgfvc3AsaEOL0Vnp0xGQqYk5n7kQLxxkFGHXIfZ7YUSSO56q41HEoAktIHgqx8vtggPfQMmnCK8E7IASC5H7ZLC2XqrEc3dXXqvHr/127/e+uhTr7w1K1m3cJnorYy5/43MdZHHBKPHEydm777zsVojgiqG8NJD35Bw66NPvjtfi7TomnpwZ3+h0DFgcpAwsKWOx3Iz3fft3zVzJQkSBBrbMTmz0IwwE01aymLndIgwEkq6OUhadGRZA9DWqy770dduLM26QBBfnrjqL/tfjRZHK+X1g2knCUSh7/hg+eBlla4EglaTNzo8NP6ZzcmLZ9qP/f5tO26/fmy22tg+vpFmAtt6J9SCTg5WpjcMz5bSIABI1pQ13y+fSh8oCC6YfNvoCBQNiTzS6LSTA8XpDcNzfSVRABKH+P8I2kJq80iuy0s4lQF68fDMD//8LMDUuPOmHQNf+excf9FBEIQbKCyjA7AeWwAEjVVAGMJ8871qvVWtN+ez1i/+NPl6tQ4Y2faXF2R8LQ8uqCCWk5mB/unh4aMj6z9eU72eHXn2oGhnjr05dGmFofNbE/RsAo59dGSmmg6Wip++65Z6lh3efZDk2o3Q1sAjbDkLbYnIP1nxINDI1EAtF5Ct1W27ErgQvbladBAIDCR5wuX8czWCuX9ADyRICwtLTzz+cpY1AH7q+rFgAaTALeUWQBFJuYRgBPY99czCO3OIHRtCJwJjkHTH7b/59a92A3bFFZWv3nmdFNunE5W8DZQ4b37g6zlw9tTp33/35zOvvaEePXA5yQ9fuc5IQCdPzs3NZ/Dl38spEoBUpB/eczAFROsr9RXLRUi954BPPP7NPS98L00CGX75yCRt5aZsfF1Gt9jKX5/6p4wTt33u3id/vG7jCNhjDggQDhYLSVoIgKq1hugGVReKk3/Y9sJDn3eDt1pOSNrwkY1yWrCOkydZqw+teJw3NPnHjx3YvSlbSkOwKB/OCoQRq3e6zuzkomIiIMmNSa2auhPAG4dGp5a2gmYB7Wl5dv9ocWKxl/K8gCAaLMuK+yc37/v7psXFQmw9vKJbnRuA2tSm0sS/eySgRLLZrJVe/sfWvbvGq4sFM9FARgmk1fO35+qvpFau9G11Cmq8e/pIffq/LlhAoAjvppekkWF6z6app7edne8zE2lmAigHGQrJYK1ZX2wc33t8Z7DSzde8RORvzu/51zsP4pGYWqoYB0YvVei6liQ/u+8WRAlcxj1Py9y+5bHnjt7RijWyPeREJ83guYCWmlffcO36LR/qtvEEkj/9TqNVS71bt1IU4IoAzAKcIaE75ZHyjT94HgVYiB0FSjFXtJHLg3vsLtZAhmCFYAUi0OgOALSAkFb3brakucbiVbSC1etIS0Cv6y3PlfzSvisDuy9e4GDSb/c/nGz/YtJeSmkC1fsIamaWVwvnVRnbo8NdKqOIxFb2Bh36yT3jecvlH2DGGdW/48Twl46dE3c4kCoMFQY39A/fsH7sfxp3h2W0x2spAAAAAElFTkSuQmCC)](https://userstyles.org/styles/247047/old-youtube-layout-2021-2022-adashimaatube)
 
 [![Star](https://img.shields.io/github/stars/sapondanaisriwan/Youtube-Old-Layout)](https://github.com/sapondanaisriwan/Youtube-Old-Layout/stargazers)
 [![Forks](https://img.shields.io/github/forks/sapondanaisriwan/Youtube-Old-Layout?style=flat-square)](https://github.com/sapondanaisriwan/Youtube-Old-Layout/network/members) 
@@ -38,30 +38,25 @@ Restore old Youtube layout in 2021-2022 with many customizable options.
 ## ⭐ Features
 This is why you should consider using AdashimaaTube! 🥶
 - Anit-Shorts.
-- Sort by oldest.
-- Search results in a grid layout.
-- Subscriptions in a grid layout.
-- Blue verified badge.
-- Customizable avatar roundness and border radius.
-- Customizable color of Like/Dislike buttons.
-- Customize number of videos per row on Homepage/Channelpage
+- Blue check mark.
+- Customizable profile radius and border radius.
+- Customizable number of videos per row on Homepage and Channel Page
 - Display full title for videos.
-- Display the videos index in playlists.
 - More animations.
-- Options to Enabled/Disabled Dark Navigation Bar, Dark Search Box and Dark Scroll Bar.
-- Options to remove all text from buttons except the Like/Dislike buttons.
-- Options to remove taps.
-- Options to hide the buttons for Share, Download, Clip, Thanks and Save.
+- Options to change color navigation bar, search Box and scroll Bar to a dark color.
+- Options to remove taps and remove all text from buttons except the Like/Dislike buttons.
+- Options to hide the buttons for Share, Download, Clip, Thanks, Save, Comments, End cards, Game Section and Music Section.
 - Options to Align the search results to the center.
 - Red subscribe button.
-- Restore to the old video container.
-- Removal of rounded edges on video thumbnails and the UI.
+- Restore to the old video container and the old icons.
+- Sort by oldest.
+- Subscriptions/Search results in a grid layout.
 - Watched Overlay.
 
 <div align="center">
 
 ### 🔧 Menu Options
-<img src="https://i.imgur.com/ZI2vrh3.png" sytle="text-align: center"/>
+<img src="https://i.imgur.com/zOzdrrn.png" sytle="text-align: center"/>
 </div>
 
 
@@ -103,7 +98,8 @@ AdashimaaTube-Lite is suitable for general users who don't like having a lot of 
 #### 💬 How do I access the settings menu?
 
 You may configure everything by selecting the Stylus icon from your toolbar and then selecting the configure button.
-![](https://i.imgur.com/9avAZH0.png)
+<!-- ![setting](https://user-images.githubusercontent.com/64634605/211510142-03215de6-b8e8-44ca-9293-7f6d4170e1c2.gif) -->
+https://user-images.githubusercontent.com/64634605/211511625-53eae03e-3e5c-4c15-af37-35170863d243.mp4
 
 #### 💬 Why certain options don't work?
 
@@ -111,9 +107,9 @@ Because some browser don't support a CSS pseudo-class yet, like `:has`.
 
 However, by following these steps, you can enable Firefox's has() selector.
 1. Go to the Firefox `about:config` page.
-![](https://i.imgur.com/mvb0eKR.png)
 2. Search and toggle `layout.css.has-selector.enabled`.
-![](https://i.imgur.com/Zcz4SnR.png)
+
+https://user-images.githubusercontent.com/64634605/211511323-bafff5a2-3a78-4c06-983a-e32eea227838.mp4
 
 #### 💬 Why sometimes the ratio bar has disappeared randomly?
 It's a bug.
