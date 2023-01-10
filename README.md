@@ -44,7 +44,7 @@ This is why you should consider using AdashimaaTube! 🥶
 - Display full title for videos.
 - More animations.
 - Options to change color navigation bar, search Box and scroll Bar to a dark color.
-- Options to remove taps and remove all text from buttons except the Like/Dislike buttons.
+- Options to remove taps, like animation and remove all text from buttons except the Like/Dislike buttons.
 - Options to hide the buttons for Share, Download, Clip, Thanks, Save, Comments, End cards, Game Section and Music Section.
 - Options to Align the search results to the center.
 - Red subscribe button.
@@ -59,21 +59,22 @@ This is why you should consider using AdashimaaTube! 🥶
 <img src="https://i.imgur.com/zOzdrrn.png" sytle="text-align: center"/>
 </div>
 
-
 ## 📷 Screenshots
-| Restore Old Video Container | Centered the search results |
+| **Before** | **After** |
 |     :---:      |     :---:      |
-| ![](https://i.imgur.com/jMfiHS6.jpeg)  | ![](https://i.imgur.com/6mme7QH.png)|
-| **Increase video on Home page** | **Increase video on Channel page** |
-|     ![](https://i.imgur.com/rVMqzso.jpeg)      |     ![](https://i.imgur.com/ZgfjHFm.png)      |
-| **Sort by oldest** | **Display full title for videos** |
-|     ![](https://i.imgur.com/pTSgSL5.png)      |     ![](https://i.imgur.com/7bzDqov.png)      |
-| **Watched overlay** | **Clean Video Container** |
-|     ![](https://i.imgur.com/rVZ5JVL.png)      |     ![](https://i.imgur.com/m2iiTls.png)      |
-| **Subscriptions in a grid layout** | **Search results in a grid layout** |
-|     ![](https://i.imgur.com/EnnjIrR.png)      |     ![](https://i.imgur.com/IpFsA5P.png)      |
-| **Anti-Shorts** | **More Animations** |
-|     ![](https://i.imgur.com/eDLCDxX.png)      |     ![](https://user-images.githubusercontent.com/64634605/204840268-319b8ab0-0cce-4012-b91a-61925f7c0357.gif)      |
+| ![](https://i.imgur.com/wZuheYe.png)  | ![](https://i.imgur.com/gR7JQZw.png)|
+| ![](https://i.imgur.com/rjp8QFD.png)  | ![](https://i.imgur.com/jTzRUs8.png) |
+| ![](https://i.imgur.com/RliK9va.png)  | ![](https://i.imgur.com/EwaDES1.png) |
+| ![](https://i.imgur.com/jQr4neI.png)  | ![](https://i.imgur.com/RjK0DUB.png) |
+| ![](https://i.imgur.com/9RO0BsL.png)  | ![](https://i.imgur.com/beszS3i.png) |
+| **Anti-Shorts**  | **Display full title for videos** |
+| ![](https://i.imgur.com/eDLCDxX.png)  | ![](https://i.imgur.com/7bzDqov.png) |
+| **Sort by oldest**  | **Watched overlay** |
+| ![](https://i.imgur.com/pTSgSL5.png))  | ![](https://i.imgur.com/rVZ5JVL.png) |
+| **Clean Video Container**  | **More Animations** |
+| ![](https://i.imgur.com/m2iiTls.png)  | ![](https://user-images.githubusercontent.com/64634605/204840268-319b8ab0-0cce-4012-b91a-61925f7c0357.gif) |
+| **Restore Old Icons** |
+| ![](https://i.imgur.com/Tt20AIK.png) |
 
 ## 📂 Installation
 You have to install [Stylus](https://add0n.com/stylus.html) and then click on the install AdashimaaTube below.
@@ -85,6 +86,12 @@ You have to install [Stylus](https://add0n.com/stylus.html) and then click on th
 [![Install Stylus](https://img.shields.io/badge/Install%20AdashimaaTube%20with-Stylus-116b59.svg?longCache=true&style=fla)](https://userstyles.world/style/6944/old-youtube-layout-in-2021-2022)
 
 https://user-images.githubusercontent.com/64634605/211514908-83d88cf8-3e07-4d34-8069-9013bb99d8d7.mp4
+
+If you are Firefox users you need to follow these steps
+1. Go to the Firefox `about:config` page.
+2. Search and toggle `layout.css.has-selector.enabled`.
+
+https://user-images.githubusercontent.com/64634605/211511323-bafff5a2-3a78-4c06-983a-e32eea227838.mp4
 
 ##  🧑‍💻 Contributing
 Any contribution is greatly appreciated.
