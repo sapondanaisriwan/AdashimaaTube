@@ -1,8 +1,11 @@
 ## Changelog
 
+### v1.7.4
+- Remove "Restore old playlist" and "Custom Colors For Like/Dislike" (It made the menu setting being messy)
+
 ### v1.7.3
 - Resolved a slow site issue caused by my mistake
-- Remove "Custom colors for ratio bar"(It made the memu setting being messy and it's useless without Return Youtube Dislike)
+- Remove "Custom colors for ratio bar"(It made the menu setting being messy and it's useless without Return Youtube Dislike)
 
 ### v1.7.2
 - Add "Remove Like Animation" option.
