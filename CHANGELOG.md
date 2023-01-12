@@ -1,5 +1,8 @@
 ## Changelog
 
+### v1.7.5
+- Add "Like and Dislike Colors" option.
+
 ### v1.7.4
 - Remove "Restore old playlist" and "Custom Colors For Like/Dislike" (It made the menu setting being messy)
 
