@@ -1,5 +1,20 @@
 ## Changelog
 
+### v1.7.6
+- Fixed "Remove like animation" option.
+
+![](https://i.imgur.com/RFDM3jN.png)
+
+- Add "Old background" option.
+![](https://i.imgur.com/MDX6W3C.jpeg)
+![](https://i.imgur.com/ykdOnkU.jpeg)
+
+- Move down the view count.
+![](https://i.imgur.com/AUR1rDm.png)
+
+- Make text appear in all-uppercase.
+![](https://i.imgur.com/nU7ON7k.png)
+
 ### v1.7.5
 - Add "Like and Dislike Colors" option.
 
