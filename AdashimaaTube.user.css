@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.7.5
+@version        1.7.6
 @license        MIT
 @preprocessor   stylus
 
@@ -45,7 +45,7 @@
 
 @advanced select customAppearance           "⚒️ Custom Appearance" ["Enabled", "Disabled"]
 @advanced select   likeDislike              "  🎨 Like/Dislike colors" {'Navy Blue': 'blueLD', 'Classic': 'classic', 'None': 'none'}
-@advanced checkbox oldBackground            "  🧓 Old Background" 1
+@advanced checkbox oldBackground            "  🖼️ Old Background" 1
 @advanced checkbox navigationBar            "  🌑 Dark Navigation Bar" 1
 @advanced checkbox searchBox                "  🌑 Dark Search Box" 0
 @advanced checkbox scroll_Bar               "  🌑 Dark Scroll Bar" 1
@@ -244,31 +244,30 @@ Support me: https://ko-fi.com/sapondanaisriwan
         ytd-watch-metadata > div#above-the-fold > #title {
             animation: slideInRight .7s;
         }
-    } // #f1f1f1
+    }
+
+
+
     /* ▶️ Restore Old Playlist */
-    ytd-playlist-sidebar-renderer {
-        background-color: var(--yt-spec-general-background-a) i;
-    }
-
-    ytd-browse[page-subtype="playlist"][amsterdam] {
-        padding-top: 0;
-    }
-
-    ytd-browse[page-subtype="playlist"][amsterdam] ytd-playlist-header-renderer.ytd-browse {
-        margin-left: 0;
-        height: calc(100vh - var(--ytd-toolbar-height) - 24px);
-    }
-
-    .immersive-header-gradient,
-    .immersive-header-background-wrapper.ytd-playlist-header-renderer {
-        background: none i;
-    }
-
-    /* Remove border around the playlists */
-    .immersive-header-container.ytd-playlist-header-renderer {
-        border-radius: 0;
-    }
-
+    //     ytd-playlist-header-renderer {
+    //         background-color: var(--yt-spec-general-background-a) i;
+    //     }
+    //     ytd-browse[page-subtype="playlist"][amsterdam] {
+    //         padding-top: 0;
+    //     }
+    //     ytd-browse[page-subtype="playlist"][amsterdam] ytd-playlist-header-renderer.ytd-browse {
+    //         // margin-left: 0;
+    //         height: calc(100vh - var(--ytd-toolbar-height) - 24px);
+    //     }
+    //     .immersive-header-gradient,
+    //     .immersive-header-background-wrapper.ytd-playlist-header-renderer {
+    //         background: none i;
+    //     }
+    //     /* Remove border around the playlists */
+    //     .immersive-header-container.ytd-playlist-header-renderer {
+    //         border-radius: 0;
+    //         margin-bottom: 0 i;
+    //     }
     ytd-browse[darker-dark-theme][page-subtype="playlist"],
     ytd-browse[darker-dark-theme][page-subtype="show"],
     ytd-browse[darker-dark-theme][page-subtype="playlist"] ytd-two-column-browse-results-renderer.ytd-browse,
@@ -276,71 +275,105 @@ Support me: https://ko-fi.com/sapondanaisriwan
     ytd-browse[darker-dark-theme][page-subtype="playlist"][background-refresh],
     ytd-browse[darker-dark-theme][page-subtype="show"][background-refresh] {
         background: var(--yt-spec-general-background-b) i;
-    } //     ytd-browse[page-subtype=playlist][amsterdam] {
-    //         padding-top: 0 i;
-    //     }
-    //     ytd-browse[page-subtype=playlist][amsterdam] ytd-playlist-header-renderer.ytd-browse {
-    //         margin-left: 0 i;
-    //         height: calc(100vh - var(--ytd-toolbar-height));
-    //     }
-    //     [page-subtype="playlist"] {
-    //         .immersive-header-container.ytd-playlist-header-renderer {
-    //             margin-bottom: 0 i;
-    //             border-radius: 0 i;
-    //         }
-    //         ytd-playlist-header-renderer {
-    //             width: 388px i;
-    //             color: var(--yt-spec-text-primary) i;
-    //         }
-    //         ytd-text-inline-expander.ytd-playlist-header-renderer,
-    //         yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string:visited,
-    //         #dropdown-trigger > div#input,
-    //         .metadata-stats.ytd-playlist-byline-renderer,
-    //         .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal,
-    //         /* Edit title */
-    //         .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--text {
-    //             color: var(--yt-spec-text-primary) i;
-    //         }
-    //         .metadata-text-wrapper.ytd-playlist-header-renderer {
-    //             --yt-endpoint-color: var(--yt-spec-text-primary) i;
-    //             --yt-endpoint-hover-color: var(--yt-spec-text-primary) i;
-    //         }
-    //     }
-    //     html[dark] [page-subtype="playlist"] {
-    //         div.immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer > div {
-    //             background: var(--yt-spec-general-background-a) i; // #181818
-    //         }
-    //     }
-    //     html:not([dark]) [page-subtype="playlist"] {
-    //         #contents > ytd-playlist-video-list-renderer {
-    //             background: var(--yt-spec-white-3) i; // #f1f1f1
-    //         }
-    //         div.immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer > div {
-    //             background: var(--yt-spec-white-2) i; // #f9f9f9
-    //         }
-    //         /* Shuffle button */
-    //         .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal {
-    //             background: var(--yt-spec-base-background);
-    //             &:hover {
-    //                 background: var(--yt-spec-static-overlay-filled-hover); // #f9f9f9
-    //             }
-    //         }
-    //         /* Change color of input text */
-    //         iron-input.tp-yt-paper-input > input.tp-yt-paper-input,
-    //         textarea.tp-yt-iron-autogrow-textarea {
-    //             color: var(--yt-spec-text-primary) i;
-    //         }
-    //         /* Edit description (placeholder) */
-    //         #labelAndInputContainer.tp-yt-paper-input-container > label,
-    //         #labelAndInputContainer.tp-yt-paper-input-container > .paper-input-label {
-    //             color: var(--yt-spec-text-secondary);
-    //         }
-    //         /* Change border bottom color to black */
-    //         .unfocused-line.tp-yt-paper-input-container,
-    //         .focused-line.tp-yt-paper-input-container {
-    //             border-bottom-color: var(--yt-spec-text-primary) i;
-    //         }
-    //     }
+    } // ytd-browse[page-subtype="playlist"][amsterdam] ytd-playlist-header-renderer.ytd-browse {
+    //     // margin-left: 0;
+    //     height: calc(100vh - var(--ytd-toolbar-height));
+    // }
+    // .blurred-image.ytd-playlist-header-renderer {
+    //     display: none;
+    // }
+    .yt-sans-28.yt-dynamic-sizing-formatted-string,
+    yt-text-input-form-field-renderer[component-style="INLINE_FORM_STYLE_TITLE"][amsterdam] tp-yt-paper-input.yt-text-input-form-field-renderer .input-content.tp-yt-paper-input-container > input,
+    yt-text-input-form-field-renderer[component-style="INLINE_FORM_STYLE_TITLE"][amsterdam] tp-yt-paper-input.yt-text-input-form-field-renderer .input-content.tp-yt-paper-input-container > iron-input,
+    yt-text-input-form-field-renderer[component-style="INLINE_FORM_STYLE_TITLE"][amsterdam] tp-yt-paper-input.yt-text-input-form-field-renderer .input-content.tp-yt-paper-input-container > textarea,
+    yt-text-input-form-field-renderer[component-style="INLINE_FORM_STYLE_TITLE"][amsterdam] tp-yt-paper-input.yt-text-input-form-field-renderer .input-content.tp-yt-paper-input-container > iron-autogrow-textarea,
+    yt-text-input-form-field-renderer[component-style="INLINE_FORM_STYLE_TITLE"][amsterdam] tp-yt-paper-input.yt-text-input-form-field-renderer .input-content.tp-yt-paper-input-container > .paper-input-input {
+        font-family: "Roboto", "Arial", sans-serif i;
+        font-size: 2.4rem;
+        line-height: 3.2rem;
+        font-weight: 400;
+    }
+
+    ytd-browse[page-subtype=playlist][amsterdam] {
+        padding-top: 0 i;
+    }
+
+    ytd-browse[page-subtype=playlist][amsterdam] ytd-playlist-header-renderer.ytd-browse {
+        margin-left: 0 i;
+        height: calc(100vh - var(--ytd-toolbar-height));
+    }
+
+    [page-subtype="playlist"] {
+        .immersive-header-container.ytd-playlist-header-renderer {
+            margin-bottom: 0 i;
+            border-radius: 0 i;
+        }
+
+        ytd-playlist-header-renderer {
+            width: 388px i;
+            color: var(--yt-spec-text-primary) i;
+        }
+
+        ytd-text-inline-expander.ytd-playlist-header-renderer,
+        yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string:visited,
+        #dropdown-trigger > div#input,
+        .metadata-stats.ytd-playlist-byline-renderer,
+        .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal,
+        /* Edit title */
+        .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--text {
+            color: var(--yt-spec-text-primary) i;
+        }
+
+        .metadata-text-wrapper.ytd-playlist-header-renderer {
+            --yt-endpoint-color: var(--yt-spec-text-primary) i;
+            --yt-endpoint-hover-color: var(--yt-spec-text-primary) i;
+        }
+    }
+
+    html[dark] [page-subtype="playlist"] {
+        div.immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer > div {
+            background: var(--yt-spec-general-background-a) i; // #181818
+        }
+    }
+
+    html:not([dark]) [page-subtype="playlist"] {
+        #contents > ytd-playlist-video-list-renderer {
+            background: var(--yt-spec-white-3) i; // #f1f1f1
+        }
+
+        div.immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer > div {
+            background: var(--yt-spec-white-2) i; // #f9f9f9
+        }
+
+        /* Shuffle button */
+        .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal {
+            background: var(--yt-spec-base-background);
+            &:hover {
+                background: var(--yt-spec-static-overlay-filled-hover); // #f9f9f9
+            }
+        }
+
+        /* Change color of input text */
+        iron-input.tp-yt-paper-input > input.tp-yt-paper-input,
+        textarea.tp-yt-iron-autogrow-textarea {
+            color: var(--yt-spec-text-primary) i;
+        }
+
+        /* Edit description (placeholder) */
+        #labelAndInputContainer.tp-yt-paper-input-container > label,
+        #labelAndInputContainer.tp-yt-paper-input-container > .paper-input-label {
+            color: var(--yt-spec-text-secondary);
+        }
+
+        /* Change border bottom color to black */
+        .unfocused-line.tp-yt-paper-input-container,
+        .focused-line.tp-yt-paper-input-container {
+            border-bottom-color: var(--yt-spec-text-primary) i;
+        }
+    }
+
+
+
     /* ❌ Remove Taps */
     #header ytd-feed-filter-chip-bar-renderer,
     ytd-watch-next-secondary-results-renderer yt-related-chip-cloud-renderer {
@@ -582,7 +615,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         html:not([dark]) ytd-segmented-like-dislike-button-renderer #segmented-like-button button[aria-pressed="true"] yt-icon {
             filter: invert(0) if (likeDislike=="none");
         }
-    
+
         /*  ⬇️ Hide Download Button */
         ytd-download-button-renderer {
             display: none if downloadBtn;
@@ -1019,7 +1052,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     /* Move view count, date and description up */
     .style-scope.ytd-watch-flexy #container #info-text {
-        margin-top: -115px;
+        margin-top: -105px;
     }
 
     #top-row.ytd-watch-metadata {
@@ -1626,6 +1659,14 @@ Support me: https://ko-fi.com/sapondanaisriwan
     #navigation-button-down.ytd-shorts {
         bottom: unset;
         top: 50%;
+    }
+
+    /* Guide title */
+    ytd-guide-section-renderer[guide-refresh] #guide-section-title.ytd-guide-section-renderer {
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
     }
 
     if (restoreOldIcon) {
