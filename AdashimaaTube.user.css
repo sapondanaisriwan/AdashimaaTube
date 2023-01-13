@@ -606,14 +606,14 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 filter: invert(51%) sepia(96%) saturate(1268%) hue-rotate(185deg) brightness(101%) contrast(103%) if (likeDislike=="blueLD");
                 filter: invert(58%) sepia(42%) saturate(5218%) hue-rotate(87deg) brightness(119%) contrast(125%) if (likeDislike=="classic");
             }
-        }
 
-        html[dark] ytd-segmented-like-dislike-button-renderer #segmented-like-button button[aria-pressed="true"] yt-icon {
-            filter: invert() if (likeDislike=="none");
-        }
+            html[dark] ytd-segmented-like-dislike-button-renderer #segmented-like-button button[aria-pressed="true"] yt-icon {
+                filter: invert() if (likeDislike=="none");
+            }
 
-        html:not([dark]) ytd-segmented-like-dislike-button-renderer #segmented-like-button button[aria-pressed="true"] yt-icon {
-            filter: invert(0) if (likeDislike=="none");
+            html:not([dark]) ytd-segmented-like-dislike-button-renderer #segmented-like-button button[aria-pressed="true"] yt-icon {
+                filter: invert(0) if (likeDislike=="none");
+            }
         }
 
         /*  ⬇️ Hide Download Button */
