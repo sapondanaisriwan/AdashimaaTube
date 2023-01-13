@@ -1,0 +1,82 @@
+ytd-watch-metadata {
+    display: block i;
+    margin-top: 20px i;
+}
+
+#top-row.ytd-watch-metadata {
+    border-bottom: 1px solid var(--yt-spec-10-percent-layer);
+    padding-bottom: 10px i;
+}
+
+/* Move a title videos down */
+ytd-watch-metadata #title {
+    position: relative;
+    bottom: -4px
+}
+
+/* Reverts the video title font. */
+h1.ytd-watch-metadata {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400 i;
+    font-size: 18px i; // line-height: unset;
+}
+
+/* Remove channel */
+#owner {
+    display: none i;
+}
+
+/* Remove description*/
+#bottom-row {
+    display: none i;
+}
+
+/* Removes toolbar menu such as share download thanks clip and save btn*/
+#menu-container {
+    display: none i;
+}
+
+/* Removes videos title*/
+ytd-video-primary-info-renderer #container > :not(#info) {
+    display: none i;
+}
+
+ytd-video-primary-info-renderer {
+    border: none;
+    position: relative;
+    padding: 0 i;
+    bottom: 0 i;
+}
+
+/* Move description up */
+ytd-video-secondary-info-renderer {
+    margin-top: -20px;
+}
+
+ytd-watch-metadata > ytd-metadata-row-container-renderer {
+    display: none;
+}
+
+/* Move view count, date and description up */
+.style-scope.ytd-watch-flexy #container #info-text {
+    margin-top: -115px;
+}
+
+#top-row.ytd-watch-metadata {
+    flex-direction: column-reverse i; // bottom to top vertical
+}
+
+/* Moved the ratio bar to the right of its normal position. */
+.ryd-tooltip-bar-container {
+    right: -6px
+}
+
+#meta-contents[hidden],
+#info-contents[hidden] {
+    display: block i;
+}
+
+/* Revert back the old subscribed button */
+yt-button-shape.ytd-subscribe-button-renderer[hidden] {
+    display: block i;
+}
