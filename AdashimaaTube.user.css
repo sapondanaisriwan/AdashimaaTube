@@ -16,7 +16,7 @@
 @advanced checkbox centeredSearchResults    "🔎 Centered Search Results" 1
 @advanced checkbox displayFullTitle         "🎦 Display Full Title For Videos" 0
 @advanced checkbox moreAnimation            "🎬 More Animations" 1
-@advanced checkbox restoreOldIcon           "🧓 Restore Old Icons (Beta)" 0
+@advanced checkbox restoreOldIcon           "🧓 Old Icons (Beta)" 0
 @advanced checkbox removeTaps               "❌ Remove Taps" 0
 @advanced checkbox subscriptionsGrid        "📄 Subsc In A Grid" 1
 @advanced checkbox watchedOverlay           "👀 Watched Overlay" 0
@@ -44,11 +44,8 @@
 @advanced checkbox musicSection             "  🎵 Hide Music Section" 0
 
 @advanced select customAppearance           "⚒️ Custom Appearance" ["Enabled", "Disabled"]
-@advanced select   likeDislike              "  🎨 Like/Dislike colors" {
-    'Navy Blue': 'blueLD',
-    'Classic': 'classic',
-    'None': 'none'
-}
+@advanced select   likeDislike              "  🎨 Like/Dislike colors" {'Navy Blue': 'blueLD', 'Classic': 'classic', 'None': 'none'}
+@advanced checkbox oldBackground            "  🧓 Old Background" 1
 @advanced checkbox navigationBar            "  🌑 Dark Navigation Bar" 1
 @advanced checkbox searchBox                "  🌑 Dark Search Box" 0
 @advanced checkbox scroll_Bar               "  🌑 Dark Scroll Bar" 1
@@ -72,12 +69,17 @@ Support me: https://ko-fi.com/sapondanaisriwan
         --video-per-row-channelpage: videoPerRowCP;
         --profile-radius: customProfileRadius;
         --BorderRadius: customBorderRadius;
+
         --sub-red-btn: #CC0000;
         --sub-white--text-btn: #F2F2F2;
         --sub-black-bg-btn: #303030;
         --color1: #3ea6ff;
         --like-lime: #00FF00;
         --dislike-red: #FF0000;
+
+        --dark-yt-spec-general-background-a: #181818;
+        --dark-yt-spec-brand-background-primary: rgba(33, 33, 33, 0.98);
+        --dark--yt-spec-10-percent-layer: rgba(255, 255, 255, 0.1);
     }
 
     /* ❌ Anti-Shorts (Beta) */
@@ -460,7 +462,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
         [page-subtype="home"] {
             ytd-rich-grid-renderer {
                 --ytd-rich-grid-items-per-row: var(--video-per-row-homepage) i;
-                margin: 0 4px 24px 4px;
                 #contents {
                     max-width: calc(100% - 2 * 3vw);
 
@@ -625,6 +626,56 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     /* "⚒️ Custom Appearance" */
     if (customAppearance=="Enabled") {
+
+        if (oldBackground) {
+            ytd-app[darker-dark-theme] {
+                background: var(--yt-spec-general-background-a) i;
+            }
+
+            ytd-browse[page-subtype="channels"] {
+                background: var(--yt-spec-general-background-b) i;
+            }
+
+            [page-subtype="home"] #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
+                background-color: var(--yt-spec-brand-background-primary) i;
+                border-top: 1px solid var(--yt-spec-10-percent-layer) i;
+                border-bottom: 1px solid var(--yt-spec-10-percent-layer) i;
+            }
+
+            ytd-c4-tabbed-header-renderer[darker-dark-theme] {
+                --yt-lightsource-section1-color: var(--yt-spec-general-background-a);
+            }
+
+            /* Tap arrow */
+            ytd-feed-filter-chip-bar-renderer[is-dark-theme] #left-arrow.ytd-feed-filter-chip-bar-renderer::after {
+                background: linear-gradient(to right, var(--yt-spec-brand-background-primary) 20%, rgba(33, 33, 33, 0) 80%) i;
+            }
+
+            ytd-feed-filter-chip-bar-renderer[darker-dark-theme][is-dark-theme] #right-arrow.ytd-feed-filter-chip-bar-renderer::before {
+                background: linear-gradient(to left, var(--yt-spec-brand-background-primary) 20%, rgba(33, 33, 33, 0) 80%);
+            }
+
+            /* Tap arrow */
+            ytd-feed-filter-chip-bar-renderer[darker-dark-theme] #left-arrow-button.ytd-feed-filter-chip-bar-renderer,
+            ytd-feed-filter-chip-bar-renderer[darker-dark-theme] #right-arrow-button.ytd-feed-filter-chip-bar-renderer {
+                background-color: var(--yt-spec-brand-background-primary) i;
+            }
+
+            /* Right Tap arrow on the watch page */
+            yt-chip-cloud-renderer[is-dark-theme] #right-arrow.yt-chip-cloud-renderer::before {
+                background: linear-gradient(to left, var(--ytd-chip-cloud-background, var(--yt-spec-general-background-a)) 10%, rgba(24, 24, 24, 0) 90%) i;
+            }
+
+            yt-chip-cloud-renderer[darker-dark-theme] #left-arrow-button.yt-chip-cloud-renderer,
+            yt-chip-cloud-renderer[darker-dark-theme] #right-arrow-button.yt-chip-cloud-renderer {
+                background: var(--ytd-chip-cloud-background, var(--yt-spec-general-background-a)) i;
+            }
+
+            /* Left Tap arrow on the watch page */
+            yt-chip-cloud-renderer[darker-dark-theme][is-dark-theme] #left-arrow.yt-chip-cloud-renderer::after {
+                background: linear-gradient(to right, var(--ytd-chip-cloud-background, var(--yt-spec-general-background-a)) 10%, rgba(24, 24, 24, 0) 90%);
+            }
+        }
 
         /* 🌑 Dark Navigation Bar */
         if (navigationBar) {
