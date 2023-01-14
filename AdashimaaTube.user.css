@@ -160,24 +160,28 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
 
     /* 🎦 Display Full Title For Videos */
-    ytd-grid-video-renderer,
-    ytd-rich-grid-media[mini-mode] {
-        #video-title {
-            &.yt-simple-endpoint.ytd-grid-video-renderer,
-            &.ytd-rich-grid-media {
-                display: inline-block if displayFullTitle;
+    if displayFullTitle {
+        ytd-grid-video-renderer,
+        ytd-rich-grid-media[mini-mode] {
+            #video-title {
+                &.yt-simple-endpoint.ytd-grid-video-renderer,
+                &.ytd-rich-grid-media {
+                    max-height: unset i;
+                    -webkit-line-clamp: unset i;
+                }
             }
         }
-    }
 
-    #video-title {
-        &.ytd-compact-video-renderer,
-        &.ytd-rich-grid-media,
-        &.ytd-video-renderer,
-        &.ytd-rich-grid-slim-media,
-        &.ytd-grid-playlist-renderer,
-        &.ytd-reel-item-renderer {
-            display: inline-block if displayFullTitle;
+        #video-title {
+            &.ytd-compact-video-renderer,
+            &.ytd-rich-grid-media,
+            &.ytd-video-renderer,
+            &.ytd-rich-grid-slim-media,
+            &.ytd-grid-playlist-renderer,
+            &.ytd-reel-item-renderer {
+                max-height: unset i;
+                -webkit-line-clamp: unset i;
+            }
         }
     }
 
