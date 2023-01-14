@@ -1,4 +1,4 @@
-/* ==UserStyle==
+    /* ==UserStyle==
 @name           `AdashimaaTube
 @author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan) [Adashima#4066]
 @description    Please report bugs via github issues or my email (If I have some free time, I'll fix them)
@@ -1599,6 +1599,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     #buttons ytd-toggle-button-renderer yt-button-shape button {
         color: var(--yt-spec-call-to-action) i; // #065fd4
         border: 1px solid var(--yt-spec-call-to-action) i;
+        border-radius: var(--BorderRadius);
         padding: 9px 15px i;
         background: t;
     }
@@ -1673,6 +1674,32 @@ Support me: https://ko-fi.com/sapondanaisriwan
         letter-spacing: 0.5px;
     }
 
+    /* Quality videos (HD/4k/8k/10k/20k/100k) lol */
+    .ytp-swatch-color-white {
+        color: var(--dislike-red) i;
+    }
+
+    /* Hide the parentheses not working if you hover them */
+    //         .ytp-menu-label-secondary {
+    //             position: relative;
+    //             &::before {
+    //                 content: "ㅤ"; // invisible text
+    //                 position: absolute;
+    //                 right: -1px;
+    //                 width: 5px i;
+    //                 background-color: rgba(28, 28, 28, .9);
+    //             }
+    //             &:hover::before {
+    //                 background-color: rgba(255, 255, 255, .1) i;
+    //             }
+    //             &::after {
+    //                 content: "ㅤ"; // invisible text
+    //                 position: absolute;
+    //                 left: -1px;
+    //                 width: 5px i;
+    //                 background-color: rgba(28, 28, 28, .9);
+    //             }
+    //         }
     if (restoreOldIcon) {
 
         /* Disliked */
