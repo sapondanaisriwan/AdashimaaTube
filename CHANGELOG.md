@@ -1,5 +1,11 @@
 ## Changelog
 
+### v1.7.7
+- Fixed display full title for videos.
+- Change the color of "HD/2k/4k/8k".
+
+![](https://i.imgur.com/G9Pmfeh.png)
+
 ### v1.7.6
 - Fixed "Remove like animation" option.
 
