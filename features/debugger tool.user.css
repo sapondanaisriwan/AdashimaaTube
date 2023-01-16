@@ -1,0 +1,30 @@
+/* ==UserStyle==
+@name           Debugger Tool
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    Just a debugger Tool
+@author         Me
+@preprocessor   stylus
+
+@advanced checkbox debugOL	"Debug: Outline" 1
+@advanced checkbox debugBG	"Debug: background" 0
+
+==/UserStyle== */
+i=!important;
+
+* {
+	if (debugOL) {
+		box-sizing: border-box;
+		outline: 1px solid limegreen i;
+	}
+
+	if (debugBG) {
+
+		box-sizing: border-box;
+		background: rgb(0 100 0 / 0.05) i;
+	}
+}
+
+.NeverGonnaGiveYouUp_NeverLetYouDown {
+	color: red;
+}
