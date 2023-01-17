@@ -1,5 +1,13 @@
 ## Changelog
 
+### v1.7.8
+- Bring back the "Old Playlists" because some people combine Dark Reader, Dark Mode, Turn Off the Lights, and other styles or extensions to AdashimaaTube. Now you can choose whatever you want.
+- Move down the video container a little bit.
+- Make the profile channel bigger.
+- Sort by button to uppercase.
+
+![](https://i.imgur.com/A2OmyYD.png)
+
 ### v1.7.7
 - Fixed display full title for videos.
 - Change the color of "HD/2k/4k/8k".
