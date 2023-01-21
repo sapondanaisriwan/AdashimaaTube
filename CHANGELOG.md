@@ -1,5 +1,11 @@
 ## Changelog
 
+### v1.7.9
+- Bring back the "Colors Thumbs" option.
+- Fixed Search results in a grid layout.
+
+![](https://i.imgur.com/G3DNUvb.jpeg)
+
 ### v1.7.8
 - Bring back the "Old Playlists" because some people combine Dark Reader, Dark Mode, Turn Off the Lights, and other styles or extensions to AdashimaaTube. Now you can choose whatever you want.
 - Move down the video container a little bit.
@@ -27,6 +33,7 @@
 ![](https://i.imgur.com/AUR1rDm.png)
 
 - Make text appear in all-uppercase.
+
 ![](https://i.imgur.com/nU7ON7k.png)
 
 ### v1.7.5
