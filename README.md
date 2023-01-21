@@ -13,7 +13,7 @@ Restore old Youtube layout in 2021-2022 with many customizable options.
 [![Forks](https://img.shields.io/github/forks/sapondanaisriwan/Youtube-Old-Layout?style=flat-square)](https://github.com/sapondanaisriwan/Youtube-Old-Layout/network/members) 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
- <img src="https://userstyles.world/preview/6944/3.webp" width="100%"/>
+ <img src="https://i.imgur.com/pZphNW9.jpeg" width="100%"/>
 </div>
 
 ## 📚 Table of Contents
