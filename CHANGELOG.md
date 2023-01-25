@@ -1,5 +1,11 @@
 ## Changelog
 
+### v1.8.0
+- Fixed "Old playlists" and "Old blackground" (YOUTUBE PLEASE STOP UPDATING)
+
+T-post 😎
+![](https://i.imgur.com/OPqvkOE.jpeg)
+
 ### v1.7.9
 - Bring back the "Colors Thumbs" option.
 - Fixed Search results in a grid layout.
