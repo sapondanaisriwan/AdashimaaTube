@@ -1,7 +1,7 @@
 ## Changelog
 
-### 1.8.1
-- Add the "DISLIKE" text button for people who don't use Return Youtube Dislike.
+### v1.8.1
+- Add option to display the "DISLIKE" text button for people who don't use Return Youtube Dislike.
 
 ![](https://i.imgur.com/WGn5REa.png)
 
