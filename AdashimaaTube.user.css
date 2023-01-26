@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.8.0
+@version        1.8.1
 @license        MIT
 @preprocessor   stylus
 
@@ -44,6 +44,7 @@
 
 @advanced select customAppearance           "⚒️ Custom Appearance" ["Enabled", "Disabled"]
 @advanced checkbox colorizeThumbs           "  👍 Thumbs colors" 0;
+@advanced checkbox displayDislikeText       "  👎 Display Dislike Text" 0
 @advanced select likeDislike                "  🎨 Like/Dislike colors" {'None': 'none', 'Navy Blue': 'blueLD', 'Classic': 'classic'}
 @advanced checkbox oldBackground            "  🖼️ Old Background" 1
 @advanced checkbox oldPlaylists             "  🧓 Old Playlists" 1
@@ -76,16 +77,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
         --color1: #3ea6ff;
         --like-lime: #00FF00;
         --dislike-red: #FF0000;
-    }
-
-    #segmented-dislike-button > ytd-toggle-button-renderer > yt-button-shape > button {
-        &:not(:has(span#text))::after {
-            content: 'DISLIKE';
-            padding-left: 6px;
-            ../:not(:has(span#text)) {
-                margin: 0 16px;
-            }
-        }
     }
 
     html[dark] {
@@ -671,6 +662,23 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     /* "⚒️ Custom Appearance" */
     if (customAppearance=="Enabled") {
+
+        /* 👎 Display 'DISLIKE' Text */
+        if (displayDislikeText) {
+            #segmented-dislike-button > ytd-toggle-button-renderer > yt-button-shape > button {
+                &:not(:has(span#text)) {
+
+                    & {
+                        margin: 0 16px;
+                    }
+
+                    &::after {
+                        content: 'DISLIKE';
+                        padding-left: 6px;
+                    }
+                }
+            }
+        }
 
         if (oldBackground) {
 
