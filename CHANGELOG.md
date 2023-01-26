@@ -1,5 +1,10 @@
 ## Changelog
 
+### 1.8.1
+- Add the "DISLIKE" text button for people who don't use Return Youtube Dislike.
+
+![](https://i.imgur.com/WGn5REa.png)
+
 ### v1.8.0
 - Fixed "Old playlists" and "Old blackground" (YOUTUBE PLEASE STOP UPDATING)
 

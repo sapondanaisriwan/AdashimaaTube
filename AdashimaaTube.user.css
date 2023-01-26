@@ -78,6 +78,16 @@ Support me: https://ko-fi.com/sapondanaisriwan
         --dislike-red: #FF0000;
     }
 
+    #segmented-dislike-button > ytd-toggle-button-renderer > yt-button-shape > button {
+        &:not(:has(span#text))::after {
+            content: 'DISLIKE';
+            padding-left: 6px;
+            ../:not(:has(span#text)) {
+                margin: 0 16px;
+            }
+        }
+    }
+
     html[dark] {
         --yt-spec-general-background-a: #181818;
         --yt-spec-general-background-b: #0f0f0f;
