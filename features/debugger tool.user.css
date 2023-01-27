@@ -10,6 +10,9 @@
 @advanced checkbox debugBG	"Debug: background" 0
 
 ==/UserStyle== */
+
+/* setTimeout(function(){debugger;}, 5000) */
+
 i=!important;
 
 * {
