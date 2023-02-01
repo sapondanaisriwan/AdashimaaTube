@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.8.2
+@version        1.8.3
 @license        MIT
 @preprocessor   stylus
 
@@ -26,6 +26,8 @@
 
 @advanced select customCP                   "⚒️ Custom Channel Page" ["Enabled", "Disabled"]
 @advanced range videoPerRowCP               "  🏠 Videos Per Row" [5, 1, 10, 1]
+@advanced checkbox channelHandle            "  🫣 Hide Channel Handle" 0
+@advanced checkbox displayVideoCount        "  📻 Display Video Count" 0
 @advanced checkbox sortByOldest             "  🔃 Sort by Oldest" 0
 @advanced checkbox searchResultsColumn      "  🔎 Search Results In A Grid" 1
 
@@ -552,6 +554,16 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
         }
 
+        /* Show video count */
+        #videos-count[hidden] {
+            display: block i if displayVideoCount;
+        }
+
+        /* Hide channel handle > @username... */
+        #channel-handle > yt-attributed-string > span {
+            display: none i if channelHandle;
+        }
+
         /* 🔃 Sort by Oldest (Beta) */
         if (sortByOldest) {
             [page-subtype="channels"] #contents.ytd-rich-grid-renderer {
@@ -634,10 +646,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
         /* 🫣 Hide Text Buttons */
         /* Removes text on all buttons except for like/dislike buttons */
-        #menu-container ytd-button-renderer yt-button-shape button span,
-        #flexible-item-buttons yt-button-shape button span,
-        #top-level-buttons-computed > ytd-button-renderer > yt-button-shape > button > div.cbox.yt-spec-button-shape-next--button-text-content > span {
-            display: none if textBtn;
+        #top-level-buttons-computed > ytd-button-renderer,
+        #flexible-item-buttons {
+            \yt-button-shape > button span {
+                display: none if textBtn;
+            }
         }
 
         #flexible-item-buttons yt-button-shape button {
@@ -1179,7 +1192,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     /* Sort -> SORT */
     yt-dropdown-menu[modern-buttons] #label.yt-dropdown-menu,
-    yt-dropdown-menu[modern-buttons] #icon-label.yt-dropdown-menu {
+    yt-dropdown-menu[modern-buttons] #icon-label.yt-dropdown-menu,
+
+    /* Dislike */
+    #segmented-dislike-button > ytd-toggle-button-renderer > yt-button-shape > button > #text {
         text-transform: uppercase;
     }
 
@@ -1322,9 +1338,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     /* Search box */
     ytd-multi-page-menu-renderer[sheets-refresh],
     ytd-playlist-panel-renderer[modern-panels]:not([within-miniplayer]) #container.ytd-playlist-panel-renderer,
-    ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #container.ytd-searchbox,
     ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #container.ytd-searchbox,
-    ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #search-icon-legacy.ytd-searchbox,
     ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #search-icon-legacy.ytd-searchbox,
 
     /* No rounded thumbnails */
@@ -1467,12 +1481,34 @@ Support me: https://ko-fi.com/sapondanaisriwan
     ytd-mini-guide-entry-renderer[guide-refresh],
 
     ytd-universal-watch-card-renderer[rounded] #hero.ytd-universal-watch-card-renderer,
-    .ytp-videowall-still-round-large .ytp-videowall-still-image {
+    .ytp-videowall-still-round-large .ytp-videowall-still-image,
+
+    /* Donation */
+    ytd-donation-shelf-renderer[modern-panels],
+
+    .ytp-tooltip.ytp-rounded-tooltip.ytp-text-detail.ytp-preview {
         border-radius: var(--BorderRadius) i;
     }
 
     ytd-expandable-metadata-renderer[round-container]:not([is-expanded]) {
         --yt-img-border-radius: var(--BorderRadius);
+    }
+
+    ytd-guide-entry-renderer[guide-refresh] tp-yt-paper-item.ytd-guide-entry-renderer {
+        --paper-item-focused-before-border-radius: var(--BorderRadius);
+    }
+
+    .ytp-tooltip.ytp-rounded-tooltip.ytp-text-detail.ytp-preview .ytp-tooltip-bg {
+        border-top-left-radius: var(--BorderRadius);
+        border-bottom-left-radius: var(--BorderRadius);
+    }
+
+    ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #search-icon-legacy.ytd-searchbox {
+        border-radius: 0 var(--BorderRadius) var(--BorderRadius) 0 i;
+    }
+
+    ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #container.ytd-searchbox {
+        border-radius: var(--BorderRadius) 0 0 var(--BorderRadius) i;
     }
 
     /* Album (https://www.youtube.com/results?search_query=ddto) */
