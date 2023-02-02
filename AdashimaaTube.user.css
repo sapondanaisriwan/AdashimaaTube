@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.8.3
+@version        1.8.4
 @license        MIT
 @preprocessor   stylus
 
@@ -560,7 +560,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
 
         /* Hide channel handle > @username... */
-        #channel-handle > yt-attributed-string > span {
+        #channel-handle {
             display: none i if channelHandle;
         }
 
@@ -1195,7 +1195,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
     yt-dropdown-menu[modern-buttons] #icon-label.yt-dropdown-menu,
 
     /* Dislike */
-    #segmented-dislike-button > ytd-toggle-button-renderer > yt-button-shape > button > #text {
+    #segmented-dislike-button > ytd-toggle-button-renderer > yt-button-shape > button > #text,
+ 
+    /* Translate -> TRANSLATE */
+    #top-level-buttons-computed > div > button > span,
+    div[name="translate_btn"] > button[class] {
         text-transform: uppercase;
     }
 
@@ -1586,10 +1590,19 @@ Support me: https://ko-fi.com/sapondanaisriwan
         margin: 0;
     }
 
-    #reply-button-end > ytd-button-renderer > yt-button-shape > a > div.cbox.yt-spec-button-shape-next--button-text-content {
+    /* Change color of reply button */
+    #reply-button-end > ytd-button-renderer > yt-button-shape > a > div.cbox.yt-spec-button-shape-next--button-text-content,
+ 
+    /* Change color of translate button */
+    div[name="translate_btn"] > button[class] {
         color: var(--yt-spec-text-secondary);
     }
 
+    /* Removes bg from translate button */
+    .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text:hover {
+        background-color: t i;
+    }
+    
     /* Change the liked comment to gray */
     ytd-comment-action-buttons-renderer[system-icons][is-liked] #vote-count-left.ytd-comment-action-buttons-renderer,
     ytd-comment-action-buttons-renderer[system-icons][is-liked] #vote-count-middle.ytd-comment-action-buttons-renderer {
@@ -1608,18 +1621,17 @@ Support me: https://ko-fi.com/sapondanaisriwan
     #hearted.ytd-creator-heart-renderer {
         right: 10px i;
     }
-
     #hearted-border.ytd-creator-heart-renderer {
         right: 9px i;
     }
 
-    /* centered the arrow icon */
+    /* Centered the arrow icon */
     #navigation-button-up.ytd-shorts {
         bottom: 50%;
         top: unset;
     }
 
-    /* centered the arrow icon */
+    /* Centered the arrow icon */
     #navigation-button-down.ytd-shorts {
         bottom: unset;
         top: 50%;
