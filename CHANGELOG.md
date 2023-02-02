@@ -1,5 +1,9 @@
 ## Changelog
 
+### v1.8.4
+- Fix hide channel handles.
+- Support YouTube Comment Translation Button thanks to [linkwanngo](https://github.com/linkwanggo).
+
 ### v1.8.3
 - Add option to display the video count.
 
