@@ -29,7 +29,7 @@ Restore old Youtube layout in 2021-2022 with many customizable options.
       - [💬 How do I access the settings menu?](#-how-do-i-access-the-settings-menu)
       - [💬 Why certain options don't work?](#-why-certain-options-dont-work)
       - [💬 Why sometimes the ratio bar has disappeared randomly?](#-why-sometimes-the-ratio-bar-has-disappeared-randomly)
-  - [✅ Supported extensions](#-supported-extensions)
+  - [✅ Supported extensions and scripts](#-supported-extensions-and-scripts)
   - [💰 Support me](#-support-me)
   - [✉️ Feedback](#️-feedback)
   - [©️ License](#️-license)
@@ -125,10 +125,11 @@ It's a bug.
 
 ![](https://i.imgur.com/6gMeVJh.png)
 
-## ✅ Supported extensions
+## ✅ Supported extensions and scripts
 - [uBlock Origin](https://ublockorigin.com/)
 - [Return YouTube Dislike](https://www.returnyoutubedislike.com/)
 - [Thumbnail Rating Bar for YouTube™](https://chrome.google.com/webstore/detail/thumbnail-rating-bar-for/cmlddjbnoehmihdmfhaacemlpgfbpoeb/related)
+- [YouTube Comment Translation Button](https://greasyfork.org/en/scripts/456108)
 
 ## 💰 Support me
 If you like this project you can tip me for my hard work at 
