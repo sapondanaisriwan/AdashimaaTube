@@ -1,22 +1,19 @@
 /* ==UserStyle==
-@name           Youtube - Unrounded Edges
-@author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan) [Adashima#4066]
-@description    Please report bugs via my email, github, discord or the discussion section(If I have some free time, I'll fix them)
+@name           Customize border roundness
+@author         sapondanaisriwan <Adashima#4066> (https://github.com/sapondanaisriwan)
+@description    Please report bugs via github issues or my email (If I have some free time, I'll fix them)
 @namespace      https://userstyles.world/user/sapondanaisriwan
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
-@version        1.0.9
+@version        1.0.0
 @license        MIT
 @preprocessor   stylus
 
 @advanced range customBorderRadius          "⚙️ Border Radius" [0, 0, 24, 1, 'px']
 
 ==/UserStyle== */
-
-i=!important
-
 /*
-Please report bugs via my email, github, discord or the discussion section(If I have some free time, I'll fix them)
+Please report bugs via my email, github issue and discord(If I have some free time, I'll fix them)
 Contact: sapondanaisriwan@gmail.com
 Support me: https://ko-fi.com/sapondanaisriwan 
 Support me: https://ko-fi.com/sapondanaisriwan
@@ -25,15 +22,16 @@ Support me: https://ko-fi.com/sapondanaisriwan
 Support me: https://ko-fi.com/sapondanaisriwan
 */
 @-moz-document domain("youtube.com") {
+
+    /* Variables */
+    i=!important;
+    t=transparent;
+
     /* Search box */
     ytd-multi-page-menu-renderer[sheets-refresh],
     ytd-playlist-panel-renderer[modern-panels]:not([within-miniplayer]) #container.ytd-playlist-panel-renderer,
-    ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #container.ytd-searchbox,
     ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #container.ytd-searchbox,
-    ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #search-icon-legacy.ytd-searchbox,
-    ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #search-icon-legacy.ytd-searchbox {
-        border-radius: customBorderRadius i;
-    }
+    ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #search-icon-legacy.ytd-searchbox,
 
     /* No rounded thumbnails */
     ytd-thumbnail[size=medium] a.ytd-thumbnail,
@@ -64,151 +62,144 @@ Support me: https://ko-fi.com/sapondanaisriwan
     .ytp-autonav-endscreen-upnext-thumbnail.rounded-thumbnail,
     ytd-video-preview[rounded-container] #video-preview-container.ytd-video-preview,
     ytd-video-preview[rounded-container] #player-container.ytd-video-preview,
-    ytd-video-preview[rounded-container] #inline-preview-player.ytd-video-preview {
-        border-radius: customBorderRadius i;
-    }
+    ytd-video-preview[rounded-container] #inline-preview-player.ytd-video-preview,
 
     /* Removes border while hover the video */
-    ytd-video-preview:not([has-endorsement]) #inline-preview-player.ytp-rounded-inline-preview .html5-main-video {
-        border-radius: customBorderRadius i;
-    }
+    ytd-video-preview:not([has-endorsement]) #inline-preview-player.ytp-rounded-inline-preview .html5-main-video,
 
     /* Removes border from miniplayer */
     ytd-miniplayer[rounded-container] #player-container.ytd-miniplayer,
     ytd-miniplayer[rounded-container] #video-container.ytd-miniplayer .video.ytd-miniplayer,
     ytd-miniplayer[rounded-container] #card.ytd-miniplayer,
-    ytd-miniplayer[rounded-container] {
-        border-radius: customBorderRadius i;
-    } // #show-hide-button > ytd-toggle-button-renderer > yt-button-shape > button > yt-touch-feedback-shape > div > div.yt-spec-touch-feedback-shape__fill
+    ytd-miniplayer[rounded-container], // #show-hide-button > ytd-toggle-button-renderer > yt-button-shape > button > yt-touch-feedback-shape > div > div.yt-spec-touch-feedback-shape__fill
     /* Removes border around Live chat */
     ytd-live-chat-frame[rounded-container],
     ytd-live-chat-frame[rounded-container] #show-hide-button.ytd-live-chat-frame ytd-toggle-button-renderer.ytd-live-chat-frame,
     yt-dropdown-menu[modern-dialogs] #menu.yt-dropdown-menu,
     .dropdown-content.tp-yt-paper-menu-button,
-    #chatframe {
-        border-radius: customBorderRadius i;
-    }
+    #chatframe,
 
     /* Live */
-    .ytp-offline-slate-bar.ytp-rounded-offline-slate {
-        border-radius: customBorderRadius i;
-    }
+    .ytp-offline-slate-bar.ytp-rounded-offline-slate,
 
     /* Removes border around pop up */
     ytd-menu-popup-renderer[sheets-refresh],
-    tp-yt-paper-dialog[modern] {
-        border-radius: customBorderRadius i;
-    }
+    tp-yt-paper-dialog[modern],
 
     ytd-guide-entry-renderer[guide-refresh],
     ytd-guide-entry-renderer[guide-refresh] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:hover,
     ytd-guide-entry-renderer[guide-refresh] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:focus,
-    ytd-guide-entry-renderer[guide-refresh] yt-interaction.ytd-guide-entry-renderer {
-        border-radius: customBorderRadius i;
-    }
+    ytd-guide-entry-renderer[guide-refresh] yt-interaction.ytd-guide-entry-renderer,
 
     .ytp-sb-subscribe.ytp-sb-rounded,
-    .ytp-sb-unsubscribe.ytp-sb-rounded {
-        border-radius: customBorderRadius;
-    }
+    .ytp-sb-unsubscribe.ytp-sb-rounded,
 
-    .iv-card.ytp-rounded-info {
-        border-radius: customBorderRadius i;
-    }
+    .iv-card.ytp-rounded-info,
 
     /* Gaming */
     ytd-game-details-renderer[rounded] yt-img-shadow.ytd-game-details-renderer ytd-video-preview[rounded-container] #video-preview-container.ytd-video-preview,
     ytd-video-preview[rounded-container] #player-container.ytd-video-preview,
     ytd-video-preview[rounded-container] #inline-preview-player.ytd-video-preview,
-    ytd-game-details-renderer[rounded] yt-img-shadow.ytd-game-details-renderer {
-        border-radius: customBorderRadius i;
-    }
+    ytd-game-details-renderer[rounded] yt-img-shadow.ytd-game-details-renderer,
+
     /* Removes border Community post */
     ytd-backstage-post-thread-renderer[rounded-container],
     yt-img-shadow.ytd-backstage-image-renderer,
-    ytd-backstage-image-renderer[rounded] #image-container.ytd-backstage-image-renderer {
-        border-radius: customBorderRadius i;
-    }
+    ytd-backstage-image-renderer[rounded] #image-container.ytd-backstage-image-renderer,
+    ytd-backstage-post-dialog-renderer[is-creation-dialog][rounded-container],
+
     /* shots */
-    ytd-reel-player-overlay-renderer #overlay.ytd-reel-player-overlay-renderer {
-        border-radius: customBorderRadius i;
-    }
+    ytd-reel-player-overlay-renderer #overlay.ytd-reel-player-overlay-renderer,
+
     /* remove unloaded video thumbnails */
     #home-page-skeleton .rich-thumbnail.rounded-thumbs,
-    #home-container-skeleton .rich-thumbnail.rounded-thumbs:before {
-        border-radius: customBorderRadius i;
-    }
+    #home-container-skeleton .rich-thumbnail.rounded-thumbs:before,
 
     /* Charpters */
-    ytd-engagement-panel-section-list-renderer[modern-panels] {
-        border-radius: customBorderRadius i;
-    }
+    ytd-engagement-panel-section-list-renderer[modern-panels],
 
     /* the end of the video */
-    .ytp-autonav-endscreen-upnext-button.ytp-autonav-endscreen-upnext-button-rounded {
-        border-radius: customBorderRadius i;
-    }
+    .ytp-autonav-endscreen-upnext-button.ytp-autonav-endscreen-upnext-button-rounded,
 
-    a.ytd-search-refinement-card-renderer {
-        border-radius: customBorderRadius i;
-    }
+    a.ytd-search-refinement-card-renderer,
 
-    ytd-expandable-metadata-renderer[round-container]:not([is-expanded]) {
-        --yt-img-border-radius: customBorderRadius;
-    }
     /* hover playlist */
-    ytd-playlist-video-renderer[amsterdam] {
-        border-radius: customBorderRadius i;
-    }
+    ytd-playlist-video-renderer[amsterdam],
+
     /* Home posts section */
-    ytd-post-renderer[rounded-container] {
-        border-radius: customBorderRadius i;
-    }
+    ytd-post-renderer[rounded-container],
 
     /* Setting gear icon */
     .ytp-settings-menu.ytp-rounded-menu,
-    .ytp-screen-mode-menu.ytp-rounded-menu {
-        border-radius: customBorderRadius i;
-    }
+    .ytp-screen-mode-menu.ytp-rounded-menu,
 
+    .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start,
     .player-container.ytd-reel-video-renderer,
     .ytp-ce-video.ytp-ce-medium-round,
     .ytp-ce-playlist.ytp-ce-medium-round,
     .ytp-ce-medium-round .ytp-ce-expanding-overlay-background,
     ytd-compact-video-renderer[music-metadata-video-lockup],
-    ytd-rich-metadata-renderer[rounded] {
-        border-radius: customBorderRadius i;
-    }
+    ytd-rich-metadata-renderer[rounded],
 
     /* Removes border around search box */
-    .sbdd_b {
-        border-radius: customBorderRadius i;
-    }
+    .sbdd_b,
 
-    ytd-expandable-metadata-renderer[round-container] {
-        border-radius: customBorderRadius i;
-    }
+    ytd-expandable-metadata-renderer[round-container],
 
     /* Timestamp */
-    ytd-macro-markers-list-item-renderer[modern][rounded][layout=MACRO_MARKERS_LIST_ITEM_RENDERER_LAYOUT_VERTICAL] {
-        border-radius: customBorderRadius i;
-    }
+    ytd-macro-markers-list-item-renderer[modern][rounded][layout=MACRO_MARKERS_LIST_ITEM_RENDERER_LAYOUT_VERTICAL],
 
     /* Not interested */
     ytd-rich-grid-media[rounded-container] #dismissed.ytd-rich-grid-media,
-    #dismissed.ytd-compact-video-renderer {
-        border-radius: customBorderRadius i;
-    }
+    #dismissed.ytd-compact-video-renderer,
 
     /* Inform news such as covid19 */
     ytd-clarification-renderer[round-container],
     ytd-info-panel-container-renderer[rounded-container][has-title] .header.ytd-info-panel-container-renderer,
-    ytd-medical-panel-content-renderer[rounded-container] {
-        border-radius: customBorderRadius i;
-    }
+    ytd-medical-panel-content-renderer[rounded-container],
 
     .ytp-sb-subscribe.ytp-sb-rounded,
-    .ytp-sb-unsubscribe.ytp-sb-rounded {
-        border-radius: customBorderRadius i;
+    .ytp-sb-unsubscribe.ytp-sb-rounded,
+
+    ytd-universal-watch-card-renderer[rounded] #header.ytd-universal-watch-card-renderer,
+
+    /* video preview on music section */
+    ytd-carousel-item-renderer[rounded] #pagination-thumbnails.ytd-carousel-item-renderer button.ytd-carousel-item-renderer yt-img-shadow.ytd-carousel-item-renderer,
+
+    /* video game thumbnail */
+    yt-channel-thumbnail-with-link-renderer[style_=CHANNEL_THUMBNAIL_STYLE_BOXART_ROUNDED] #avatar.yt-channel-thumbnail-with-link-renderer,
+
+    /* Collapse Navbar */
+    ytd-mini-guide-entry-renderer[guide-refresh],
+
+    ytd-universal-watch-card-renderer[rounded] #hero.ytd-universal-watch-card-renderer,
+    .ytp-videowall-still-round-large .ytp-videowall-still-image,
+
+    /* Donation */
+    ytd-donation-shelf-renderer[modern-panels],
+
+    .ytp-tooltip.ytp-rounded-tooltip.ytp-text-detail.ytp-preview {
+        border-radius: var(--BorderRadius) i;
+    }
+
+    ytd-expandable-metadata-renderer[round-container]:not([is-expanded]) {
+        --yt-img-border-radius: var(--BorderRadius);
+    }
+
+    ytd-guide-entry-renderer[guide-refresh] tp-yt-paper-item.ytd-guide-entry-renderer {
+        --paper-item-focused-before-border-radius: var(--BorderRadius);
+    }
+
+    .ytp-tooltip.ytp-rounded-tooltip.ytp-text-detail.ytp-preview .ytp-tooltip-bg {
+        border-top-left-radius: var(--BorderRadius);
+        border-bottom-left-radius: var(--BorderRadius);
+    }
+
+    ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #search-icon-legacy.ytd-searchbox {
+        border-radius: 0 var(--BorderRadius) var(--BorderRadius) 0 i;
+    }
+
+    ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #container.ytd-searchbox {
+        border-radius: var(--BorderRadius) 0 0 var(--BorderRadius) i;
     }
 }
