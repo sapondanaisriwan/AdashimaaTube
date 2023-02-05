@@ -5,19 +5,32 @@
 @namespace      https://userstyles.world/user/sapondanaisriwan
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
-@version        1.0.1
+@version        1.0.0
 @license        MIT
 @preprocessor   stylus
-
 ==/UserStyle== */
+/*
+Please report bugs via my email, github issue and discord(If I have some free time, I'll fix them)
+Contact: sapondanaisriwan@gmail.com
+Support me: https://ko-fi.com/sapondanaisriwan 
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+*/
 @-moz-document domain("youtube.com") {
+
+    /* Variables */
+    i=!important;
+    t=transparent;
 
     /* These rules won't be applied in browsers that don't support :has() */
     /* https://www.youtube.com/results?search_query=shorts */
     ytd-video-renderer[is-search]/* Remove shorts from watch page*/
     #contents > ytd-compact-video-renderer,
     #items > ytd-reel-item-renderer,
-    #related > ytd-watch-next-secondary-results-renderer > #items > ytd-compact-video-renderer {
+    #related > ytd-watch-next-secondary-results-renderer > #items > ytd-compact-video-renderer,
+    #items > ytd-grid-video-renderer {
         &:has(#dismissible > ytd-thumbnail > a#thumbnail[href^="/shorts/"]) {
             display: none;
         }
@@ -44,7 +57,6 @@
         }
     }
 
-
     /* https://www.youtube.com/hashtag/shorts */
     [page-subtype="hashtag-landing-page"] {
         > #primary > ytd-rich-grid-renderer #contents > ytd-rich-grid-row > #contents > ytd-rich-item-renderer:has(#content > ytd-rich-grid-media > #dismissible > ytd-thumbnail > a#thumbnail[href^="/shorts/"]) {
@@ -66,7 +78,12 @@
         display: none;
     }
 
-    /* trending */
+    /* https://www.youtube.com/feed/subscriptions?flow=2 */
+    ytd-two-column-browse-results-renderer[page-subtype="subscriptions"] > #primary.ytd-two-column-browse-results-renderer > ytd-section-list-renderer[page-subtype="subscriptions"] > #contents.ytd-section-list-renderer > ytd-item-section-renderer.ytd-section-list-renderer:has(#contents.ytd-item-section-renderer > ytd-shelf-renderer.ytd-item-section-renderer > #dismissible.ytd-shelf-renderer > #contents.ytd-shelf-renderer > ytd-expanded-shelf-contents-renderer.ytd-shelf-renderer > #grid-container.ytd-expanded-shelf-contents-renderer > ytd-video-renderer > #dismissible > ytd-thumbnail > a#thumbnail[href^="/shorts/"]) {
+        display: none;
+    }
+
+    /* Trending */
     [page-subtype="trending"] #grid-container.ytd-expanded-shelf-contents-renderer > ytd-video-renderer {
         &:has(#dismissible.ytd-video-renderer > ytd-thumbnail a#thumbnail[href^="/shorts/"]) {
             display: none;
