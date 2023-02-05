@@ -26,8 +26,8 @@
 
 @advanced select customCP                   "⚒️ Custom Channel Page" ["Enabled", "Disabled"]
 @advanced range videoPerRowCP               "  🏠 Videos Per Row" [5, 1, 10, 1]
-@advanced checkbox channelHandle            "  🫣 Hide Channel Handle" 0
-@advanced checkbox displayVideoCount        "  📻 Display Video Count" 0
+@advanced checkbox channelHandle            "  🫣 Hide Channel Handles" 0
+@advanced checkbox displayVideoCount        "  📻 Display Videos Count" 0
 @advanced checkbox sortByOldest             "  🔃 Sort by Oldest" 0
 @advanced checkbox searchResultsColumn      "  🔎 Search Results In A Grid" 1
 
@@ -56,8 +56,6 @@
 @advanced checkbox scroll_Bar               "  🌑 Dark Scroll Bar" 1
 @advanced checkbox blueCheckMark            "  ✅ Blue Check Mark" 0
 ==/UserStyle== */
-i=!important //
-t=transparent //
 /*
 Please report bugs via my email, github issue and discord(If I have some free time, I'll fix them)
 Contact: sapondanaisriwan@gmail.com
@@ -95,6 +93,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
         --yt-spec-10-percent-layer: rgba(0, 0, 0, 0.1);
     }
 
+    /* Variables */
+    i=!important;
+    t=transparent;
+
     test() {
         ytd-rich-grid-row,
         ytd-rich-grid-row #contents {
@@ -106,6 +108,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
     }
 
+    #panel-button[hidden] {
+        display: block i;
+    }
+    
     /* ❌ Anti-Shorts (Beta) */
     /* I can't find the way to remove all shorts using css alone */
     if (antiShorts) {
@@ -271,109 +277,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
     }
 
-    /* ▶️ Restore Old Playlist */
-    if (oldPlaylists) {
-        ytd-browse[darker-dark-theme][page-subtype="playlist"],
-        ytd-browse[darker-dark-theme][page-subtype="show"] {
-            background: var(--yt-spec-general-background-b) i;
-            \ytd-two-column-browse-results-renderer.ytd-browse,
-            \[background-refresh] {
-                background: var(--yt-spec-general-background-b) i;
-            }
-        }
-
-        .yt-sans-28.yt-dynamic-sizing-formatted-string,
-        yt-text-input-form-field-renderer[component-style="INLINE_FORM_STYLE_TITLE"][amsterdam] tp-yt-paper-input.yt-text-input-form-field-renderer .input-content.tp-yt-paper-input-container > input {
-            > iron-input,
-            > textarea,
-            > iron-autogrow-textarea,
-            > .paper-input-input {
-                font-family: "Roboto", "Arial", sans-serif i;
-                font-size: 2.4rem;
-                line-height: 3.2rem;
-                font-weight: 400;
-            }
-        }
-
-        ytd-browse[page-subtype=playlist][amsterdam] {
-            padding-top: 0 i;
-        }
-
-        ytd-browse[page-subtype=playlist][amsterdam] ytd-playlist-header-renderer.ytd-browse {
-            margin-left: 0 i;
-            height: calc(100vh - var(--ytd-toolbar-height));
-        }
-
-        [page-subtype="playlist"] {
-            .immersive-header-container.ytd-playlist-header-renderer {
-                margin-bottom: 0 i;
-                border-radius: 0 i;
-            }
-
-            ytd-playlist-header-renderer {
-                width: 388px i;
-                color: var(--yt-spec-text-primary) i;
-            }
-
-            ytd-text-inline-expander.ytd-playlist-header-renderer,
-            yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string:visited,
-            #dropdown-trigger > div#input,
-            .metadata-stats.ytd-playlist-byline-renderer,
-            .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal,
-            /* Edit title */
-            .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--text {
-                color: var(--yt-spec-text-primary) i;
-            }
-
-            .metadata-text-wrapper.ytd-playlist-header-renderer {
-                --yt-endpoint-color: var(--yt-spec-text-primary) i;
-                --yt-endpoint-hover-color: var(--yt-spec-text-primary) i;
-            }
-        }
-
-        html[dark] [page-subtype="playlist"] {
-            div.immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer > div {
-                background: var(--yt-spec-general-background-a) i;
-            }
-        }
-
-        html:not([dark]) [page-subtype="playlist"] {
-            #contents > ytd-playlist-video-list-renderer {
-                background: var(--yt-spec-white-3) i;
-            }
-
-            div.immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer > div {
-                background: var(--yt-spec-white-2) i;
-            }
-
-            /* Shuffle button */
-            .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal {
-                background: var(--yt-spec-base-background);
-                &:hover {
-                    background: var(--yt-spec-static-overlay-filled-hover);
-                }
-            }
-
-            /* Change color of input text */
-            iron-input.tp-yt-paper-input > input.tp-yt-paper-input,
-            textarea.tp-yt-iron-autogrow-textarea {
-                color: var(--yt-spec-text-primary) i;
-            }
-
-            /* Edit description (placeholder) */
-            #labelAndInputContainer.tp-yt-paper-input-container > label,
-            #labelAndInputContainer.tp-yt-paper-input-container > .paper-input-label {
-                color: var(--yt-spec-text-secondary);
-            }
-
-            /* Change border bottom color to black */
-            .unfocused-line.tp-yt-paper-input-container,
-            .focused-line.tp-yt-paper-input-container {
-                border-bottom-color: var(--yt-spec-text-primary) i;
-            }
-        }
-    }
-
     /* ❌ Remove Taps */
     #header ytd-feed-filter-chip-bar-renderer,
     ytd-watch-next-secondary-results-renderer yt-related-chip-cloud-renderer {
@@ -510,9 +413,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
         #home-page-skeleton .rich-shelf-videos .rich-grid-media-skeleton.mini-mode,
         #home-page-skeleton #home-container-media .rich-grid-media-skeleton.mini-mode {
             margin: 0 4px;
-            flex-basis: calc(100%/var(--video-per-row-homepage) - 16px - 0.01px);
-            min-width: calc(100%/var(--video-per-row-homepage) - 16px - 0.01px);
-            max-width: calc(100%/var(--video-per-row-homepage) - 16px - 0.01px);
+            min-width: calc(100% / var(--video-per-row-homepage) - 1.6rem);
+            max-width: calc(100% / var(--video-per-row-homepage) - 1.6rem);
         }
 
         [page-subtype="home"] {
@@ -554,13 +456,16 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
         }
 
-        /* Show video count */
+        /* 📻 Display Videos Count */
         #videos-count[hidden] {
             display: block i if displayVideoCount;
         }
 
-        /* Hide channel handle > @username... */
-        #channel-handle {
+        /* 🫣 Hide Channel Handles > @username... */
+        #channel-handle,
+
+        /* Search page */
+        #metadata.ytd-channel-renderer > span:nth-child(-n + 2) {
             display: none i if channelHandle;
         }
 
@@ -645,16 +550,26 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
 
         /* 🫣 Hide Text Buttons */
-        /* Removes text on all buttons except for like/dislike buttons */
-        #top-level-buttons-computed > ytd-button-renderer,
-        #flexible-item-buttons {
-            \yt-button-shape > button span {
-                display: none if textBtn;
+        if (textBtn) {
+            /* Removes text on all buttons except for like/dislike buttons */
+            #top-level-buttons-computed > ytd-button-renderer,
+            #flexible-item-buttons {
+                \yt-button-shape > button span {
+                    display: none;
+                }
             }
-        }
 
-        #flexible-item-buttons yt-button-shape button {
-            padding-left: 8px if textBtn;
+            /* Translate btn */
+            #top-level-buttons-computed > div[name="top_level_translate_btn"] > button {
+                padding-left: 0;
+                > span {
+                    display: none;
+                }
+            }
+
+            #flexible-item-buttons yt-button-shape button {
+                padding-left: 8px;
+            }
         }
 
         /* 🫣 Hide End Cards */
@@ -689,6 +604,110 @@ Support me: https://ko-fi.com/sapondanaisriwan
                         content: 'DISLIKE';
                         padding-left: 6px;
                     }
+                }
+            }
+        }
+
+        /* ▶️ Restore Old Playlist */
+        if (oldPlaylists) {
+            ytd-browse[darker-dark-theme][page-subtype="playlist"],
+            ytd-browse[darker-dark-theme][page-subtype="show"] {
+                background: var(--yt-spec-general-background-b) i;
+                \ytd-two-column-browse-results-renderer.ytd-browse,
+                \[background-refresh] {
+                    background: var(--yt-spec-general-background-b) i;
+                }
+            }
+
+            .yt-sans-28.yt-dynamic-sizing-formatted-string,
+            yt-text-input-form-field-renderer[component-style="INLINE_FORM_STYLE_TITLE"][amsterdam] tp-yt-paper-input.yt-text-input-form-field-renderer .input-content.tp-yt-paper-input-container > input {
+                > iron-input,
+                > textarea,
+                > iron-autogrow-textarea,
+                > .paper-input-input {
+                    font-family: "Roboto", "Arial", sans-serif i;
+                    font-size: 2.4rem;
+                    line-height: 3.2rem;
+                    font-weight: 400;
+                }
+            }
+
+            ytd-browse[page-subtype=playlist][amsterdam] {
+                padding-top: 0 i;
+            }
+
+            ytd-browse[page-subtype=playlist][amsterdam] ytd-playlist-header-renderer.ytd-browse {
+                margin-left: 0 i;
+                height: calc(100vh - var(--ytd-toolbar-height));
+            }
+
+            [page-subtype="playlist"] {
+                .immersive-header-container.ytd-playlist-header-renderer {
+                    margin-bottom: 0 i;
+                    border-radius: 0 i;
+                }
+
+                ytd-playlist-header-renderer {
+                    width: 388px i;
+                    color: var(--yt-spec-text-primary) i;
+                }
+
+                ytd-text-inline-expander.ytd-playlist-header-renderer,
+                yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string:visited,
+                #dropdown-trigger > div#input,
+                .metadata-stats.ytd-playlist-byline-renderer,
+                .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal,
+                
+                /* Edit title */
+                .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--text {
+                    color: var(--yt-spec-text-primary) i;
+                }
+
+                .metadata-text-wrapper.ytd-playlist-header-renderer {
+                    --yt-endpoint-color: var(--yt-spec-text-primary) i;
+                    --yt-endpoint-hover-color: var(--yt-spec-text-primary) i;
+                }
+            }
+
+            html[dark] [page-subtype="playlist"] {
+                div.immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer > div {
+                    background: var(--yt-spec-general-background-a) i;
+                }
+            }
+
+            html:not([dark]) [page-subtype="playlist"] {
+                #contents > ytd-playlist-video-list-renderer {
+                    background: var(--yt-spec-white-3) i;
+                }
+
+                div.immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer > div {
+                    background: var(--yt-spec-white-2) i;
+                }
+
+                /* Shuffle button */
+                .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal {
+                    background: var(--yt-spec-base-background);
+                    &:hover {
+                        background: var(--yt-spec-static-overlay-filled-hover);
+                    }
+                }
+
+                /* Change color of input text */
+                iron-input.tp-yt-paper-input > input.tp-yt-paper-input,
+                textarea.tp-yt-iron-autogrow-textarea {
+                    color: var(--yt-spec-text-primary) i;
+                }
+
+                /* Edit description (placeholder) */
+                #labelAndInputContainer.tp-yt-paper-input-container > label,
+                #labelAndInputContainer.tp-yt-paper-input-container > .paper-input-label {
+                    color: var(--yt-spec-text-secondary);
+                }
+
+                /* Change border bottom color to black */
+                .unfocused-line.tp-yt-paper-input-container,
+                .focused-line.tp-yt-paper-input-container {
+                    border-bottom-color: var(--yt-spec-text-primary) i;
                 }
             }
         }
@@ -1196,7 +1215,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     /* Dislike */
     #segmented-dislike-button > ytd-toggle-button-renderer > yt-button-shape > button > #text,
- 
+
     /* Translate -> TRANSLATE */
     #top-level-buttons-computed > div > button > span,
     div[name="translate_btn"] > button[class] {
@@ -1542,7 +1561,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     /* (chip)buttons to sort the videos */
     yt-chip-cloud-chip-renderer[modern-chips][chip-style] {
-        border-radius: 5px i;
+        border-radius: 16px i;
     }
 
     /* Reply button */
@@ -1592,7 +1611,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     /* Change color of reply button */
     #reply-button-end > ytd-button-renderer > yt-button-shape > a > div.cbox.yt-spec-button-shape-next--button-text-content,
- 
+
     /* Change color of translate button */
     div[name="translate_btn"] > button[class] {
         color: var(--yt-spec-text-secondary);
@@ -1602,7 +1621,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text:hover {
         background-color: t i;
     }
-    
+
     /* Change the liked comment to gray */
     ytd-comment-action-buttons-renderer[system-icons][is-liked] #vote-count-left.ytd-comment-action-buttons-renderer,
     ytd-comment-action-buttons-renderer[system-icons][is-liked] #vote-count-middle.ytd-comment-action-buttons-renderer {
@@ -1621,6 +1640,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     #hearted.ytd-creator-heart-renderer {
         right: 10px i;
     }
+
     #hearted-border.ytd-creator-heart-renderer {
         right: 9px i;
     }
