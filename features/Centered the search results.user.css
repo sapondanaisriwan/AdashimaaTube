@@ -1,22 +1,25 @@
 /* ==UserStyle==
-@name           Youtube - Centered the search results
-@author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan) [Adashima#4066]
-@description    `Centered the search results`
+@name           Centered the search results
+@author         sapondanaisriwan <Adashima#4066> (https://github.com/sapondanaisriwan)
+@description    Please report bugs via github issues or my email (If I have some free time, I'll fix them)
 @namespace      https://userstyles.world/user/sapondanaisriwan
-@version        1.0.1
+@homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
+@supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
+@version        1.0.0
 @license        MIT
+@preprocessor   stylus
 ==/UserStyle== */
 /*
+Please report bugs via my email, github issue and discord(If I have some free time, I'll fix them)
+Contact: sapondanaisriwan@gmail.com
 Support me: https://ko-fi.com/sapondanaisriwan 
 Support me: https://ko-fi.com/sapondanaisriwan
 Support me: https://ko-fi.com/sapondanaisriwan
 Support me: https://ko-fi.com/sapondanaisriwan
 Support me: https://ko-fi.com/sapondanaisriwan
 */
-
 @-moz-document domain("youtube.com") {
-    /* 🔎 Centered The Search Results */
-    ytd-two-column-search-results-renderer {
-      align-items: center if centeredSearchResults;
+  ytd-two-column-search-results-renderer #content.ytd-two-column-search-results-renderer {
+      justify-content: center;
   }
 }
