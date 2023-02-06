@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.8.4
+@version        1.8.5
 @license        MIT
 @preprocessor   stylus
 
@@ -108,10 +108,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
     }
 
-    #panel-button[hidden] {
-        display: block i;
-    }
-    
     /* ❌ Anti-Shorts (Beta) */
     /* I can't find the way to remove all shorts using css alone */
     if (antiShorts) {
@@ -171,15 +167,12 @@ Support me: https://ko-fi.com/sapondanaisriwan
             display: none;
         }
 
-        /* trending */
+        /* Trending */
         [page-subtype="trending"] #grid-container.ytd-expanded-shelf-contents-renderer > ytd-video-renderer {
             &:has(#dismissible.ytd-video-renderer > ytd-thumbnail a#thumbnail[href^="/shorts/"]) {
                 display: none;
             }
-        } // /* Notificatoin */
-        // ytd-notification-renderer.yt-multi-page-menu-section-renderer:has(a.yt-simple-endpoint.ytd-notification-renderer[href^="/shorts/"]) {
-        //     display: none;
-        // }
+        }
     }
 
     /* 🔎 Centered The Search Results */
@@ -468,7 +461,31 @@ Support me: https://ko-fi.com/sapondanaisriwan
         #metadata.ytd-channel-renderer > span:nth-child(-n + 2) {
             display: none i if channelHandle;
         }
-
+        
+        /*
+        #badge-row.layout-inline.ytd-watch-card-rich-header-renderer {
+            &::before {
+                content: 'Music'
+                color: var(--yt-spec-text-secondary);
+                font-family: "Roboto", "Arial", sans-serif;
+                font-size: 1.6rem;
+                line-height: 2.2rem;
+                font-weight: 400;
+                overflow: hidden;
+                display: block;
+                max-height: 6.6rem;
+                -webkit-line-clamp: 3;
+                display: box;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                text-overflow: ellipsis;
+                white-space: normal;
+            }
+            > #watch-card-subtitle.ytd-watch-card-rich-header-renderer {
+                display: none;
+            }
+        }
+        */
         /* 🔃 Sort by Oldest (Beta) */
         if (sortByOldest) {
             [page-subtype="channels"] #contents.ytd-rich-grid-renderer {
@@ -549,6 +566,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
         }
 
+        #top-level-buttons-computed > div[name="top_level_translate_btn"] > button {
+            padding-left: 8px i;
+        }
+
         /* 🫣 Hide Text Buttons */
         if (textBtn) {
             /* Removes text on all buttons except for like/dislike buttons */
@@ -561,7 +582,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
             /* Translate btn */
             #top-level-buttons-computed > div[name="top_level_translate_btn"] > button {
-                padding-left: 0;
+                padding-left: 0 i;
                 > span {
                     display: none;
                 }
@@ -657,7 +678,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 #dropdown-trigger > div#input,
                 .metadata-stats.ytd-playlist-byline-renderer,
                 .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal,
-                
+
                 /* Edit title */
                 .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--text {
                     color: var(--yt-spec-text-primary) i;
@@ -1118,6 +1139,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
         display: none;
     }
 
+    /*     #below.ytd-watch-flexy {
+        position: relative;
+    } */
     /* Move up the view count, date and description  */
     .style-scope.ytd-watch-flexy #container #info-text {
         margin-top: -106px;
@@ -1129,10 +1153,14 @@ Support me: https://ko-fi.com/sapondanaisriwan
     }
 
 
-
     /* REVERT back the old subscribed button */
     yt-button-shape.ytd-subscribe-button-renderer[hidden] {
         display: block i;
+    }
+
+    /* Premium User when offline */
+    ytd-watch-metadata:not([flex-menu-enabled]) #top-row {
+        padding-bottom: 45px i;
     }
 
     #notification-preference-button > ytd-subscription-notification-toggle-button-renderer-next > yt-button-shape > button {
