@@ -1,8 +1,18 @@
 ## Changelog
 
+### v1.8.5
+
+- Removed channel handles on the search page.
+
+- Fixed the a slight UI bug for premium users and thank you to [@Raiva48](https://github.com/Raiva48) for let me borrow her premium account.
+
+![](https://i.imgur.com/0sDQbwC.png)
+![](https://i.imgur.com/vxQ3ueu.png)
+
+
 ### v1.8.4
 - Fix hide channel handles.
-- Support YouTube Comment Translation Button thanks to [linkwanngo](https://github.com/linkwanggo).
+- Support YouTube Comment Translation Button thanks to [@linkwanngo](https://github.com/linkwanggo).
 
 ### v1.8.3
 - Add option to display the video count.
