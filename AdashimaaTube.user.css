@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.8.6
+@version        1.8.7
 @license        MIT
 @preprocessor   stylus
 
@@ -91,11 +91,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
         --yt-spec-general-background-b: #f1f1f1;
         --yt-spec-brand-background-primary: rgba(255, 255, 255, 0.98);
         --yt-spec-10-percent-layer: rgba(0, 0, 0, 0.1);
-    }
-
-    ytd-two-column-browse-results-renderer.grid:not(.grid-disabled) {
-        min-width: 60% i;
-        /*         max-width: 90% i; */
     }
 
     /* Variables */
