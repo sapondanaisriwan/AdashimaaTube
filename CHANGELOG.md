@@ -1,5 +1,9 @@
 ## Changelog
 
+### v1.8.6
+- Fixed remove parentheses.
+- There are a maximum of 20 videos in the "Videos Per Row" feature.
+
 ### v1.8.5
 
 - Removed channel handles on the search page.
