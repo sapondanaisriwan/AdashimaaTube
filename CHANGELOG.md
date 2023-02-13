@@ -1,5 +1,8 @@
 ## Changelog
 
+### v1.8.8
+- Revert back the old hashtag above the video title.
+
 ### v1.8.6
 - Fixed remove parentheses.
 - There are a maximum of 20 videos in the "Videos Per Row" feature.
