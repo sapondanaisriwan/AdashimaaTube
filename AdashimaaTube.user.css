@@ -10,6 +10,7 @@
 @license        MIT
 @preprocessor   stylus
 
+@advanced select rotateVideos               "🔄 rotateVideos" ["Disabled", "90deg" ,"180deg", "270deg"]
 @advanced checkbox antiShorts               "❌ Anti-Shorts" 1
 @advanced range customProfileRadius         "⚙️ Profile Radius" [50, 0, 50, 1, '%']
 @advanced range customBorderRadius          "⚙️ Border Radius" [0, 0, 24, 1, 'px']
@@ -32,7 +33,7 @@
 @advanced checkbox searchResultsColumn      "  🔎 Search Results In A Grid" 1
 
 @advanced select customVideoDetails         "⚒️ Custom Video Details" ["Enabled", "Disabled"]
-@advanced checkbox removeLikeAnimation      "  ❌ Remove Like Animation" 0
+@advanced checkbox removeLikeAnimation      "  ❌ Disable Like Animation" 0
 @advanced checkbox shareBtn                 "  ➡️ Hide Share Button" 0
 @advanced checkbox downloadBtn              "  ⬇️ Hide Download Button" 0
 @advanced checkbox clipBtn                  "  ✂️ Hide Clip Button" 0
@@ -78,6 +79,21 @@ Support me: https://ko-fi.com/sapondanaisriwan
         --like-lime: #00FF00;
         --dislike-red: #FF0000;
     }
+
+
+    if (rotateVideos != "Disabled") {
+        #movie_player > div.html5-video-container > video {
+            transform: rotate(rotateVideos);
+        }
+    }
+
+
+
+/*     @supports (\: has()) {
+        * {
+            color: red;
+        }
+    } */
 
     html[dark] {
         --yt-spec-general-background-a: #181818;
@@ -2263,7 +2279,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         ytd-section-list-renderer.ytd-two-column-browse-results-renderer[page-subtype="channels"] #contents.ytd-section-list-renderer {
             display: flex;
             flex-wrap: wrap;
-            ytd-item-section-renderer {
+            ytd-item-sectior {
                 width: 246px i;
                 margin: 0 4px 24px 4px i;
             }
@@ -2274,7 +2290,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     flex-direction: column;
                     > #content.ytd-playlist-renderer {
                         overflow: visible;
-                        width: 246px;
+                        width: 246px i;
 
                         /* Remove playlist description */
                         > #list.ytd-playlist-renderer {
