@@ -1,5 +1,8 @@
 ## Changelog
 
+### v1.8.9
+- Fixed the old icons
+
 ### v1.8.8
 - Revert back the old hashtag above the video title.
 
