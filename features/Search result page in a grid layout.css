@@ -1,0 +1,54 @@
+#contents.ytd-item-section-renderer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr))
+}
+
+#dismissible.ytd-video-renderer {
+    flex-direction: column;
+    max-width: 240px;
+}
+
+ytd-video-renderer {
+    max-width: 240px;
+    height: 100%;
+}
+
+#expandable-metadata.ytd-video-renderer:not(:empty),
+ytd-search-pyv-renderer {
+    display: none;
+}
+
+#more.ytd-vertical-list-renderer, #all.ytd-vertical-list-renderer {
+    display: none;
+}
+
+ytd-button-renderer.ytd-item-section-renderer, ytd-compact-radio-renderer.ytd-item-section-renderer, ytd-compact-video-renderer.ytd-item-section-renderer, ytd-compact-movie-renderer.ytd-item-section-renderer, ytd-compact-playlist-renderer.ytd-item-section-renderer, ytd-emergency-onebox-renderer.ytd-item-section-renderer, ytd-feed-nudge-renderer.ytd-item-section-renderer, ytd-movie-renderer.ytd-item-section-renderer, ytd-playlist-renderer.ytd-item-section-renderer, ytd-show-renderer.ytd-item-section-renderer, ytd-radio-renderer.ytd-item-section-renderer, yt-search-no-results-renderer.ytd-item-section-renderer, ytd-video-renderer.ytd-item-section-renderer, ytd-channel-renderer.ytd-item-section-renderer, ytd-promoted-sparkles-text-search-renderer.ytd-item-section-renderer, ytd-web-answer-renderer.ytd-item-section-renderer, ytd-clarification-renderer.ytd-item-section-renderer, ytd-info-panel-container-renderer.ytd-item-section-renderer, ytd-continuation-item-renderer.ytd-item-section-renderer, ytd-compact-promoted-item-renderer.ytd-item-section-renderer {
+    margin-top: 0;
+}
+
+.grid-subheader.ytd-shelf-renderer  {
+    margin-top: 0;
+    display: none;
+}
+
+ytd-video-renderer[use-search-ui] ytd-thumbnail.ytd-video-renderer {
+    margin-right: 0;
+}
+
+ytd-video-renderer[use-search-ui] .text-wrapper.ytd-video-renderer {
+    max-width: 240px;
+}
+
+#dismissible,
+ytd-shelf-renderer,
+ytd-vertical-list-renderer,
+#contents,
+#items {
+    display: contents;
+    
+}
+
+ytd-exploratory-results-renderer.ytd-item-section-renderer, ytd-horizontal-card-list-renderer.ytd-item-section-renderer:not(:first-child), ytd-reel-shelf-renderer.ytd-item-section-renderer, ytd-shelf-renderer.ytd-item-section-renderer {
+    margin-top: 0;
+    border: none;
+}
