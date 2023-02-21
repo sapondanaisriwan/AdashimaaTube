@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.8.9
+@version        1.9.0
 @license        MIT
 @preprocessor   stylus
 
@@ -621,17 +621,14 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
         /* 👎 Display 'DISLIKE' Text */
         if (displayDislikeText) {
-            #segmented-dislike-button > ytd-toggle-button-renderer > yt-button-shape > button {
-                &:not(:has(span#text)) {
+            #segmented-dislike-button > ytd-toggle-button-renderer > yt-button-shape > button:not(:has(div.cbox.yt-spec-button-shape-next--button-text-content > span)) {
+                & {
+                    margin: 0 16px;
+                }
 
-                    & {
-                        margin: 0 16px;
-                    }
-
-                    &::after {
-                        content: 'DISLIKE';
-                        padding-left: 6px;
-                    }
+                &::after {
+                    content: 'DISLIKE';
+                    padding-left: 6px;
                 }
             }
         }
@@ -1237,12 +1234,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     /* Removes border */
     .yt-spec-button-shape-next--size-m,
     .yt-spec-touch-feedback-shape__stroke {
-        border-radius: var(--BorderRadius) i; // border: none i;
-    }
-
-    /* Add spacing for dislike counts (return youtube dislike)*/
-    .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-end span {
-        padding-left: 6px
+        border-radius: var(--BorderRadius) i;
     }
 
     .yt-spec-touch-feedback-shape--touch-response .yt-spec-touch-feedback-shape__stroke {
