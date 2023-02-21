@@ -1,7 +1,12 @@
 ## Changelog
 
+### v1.9.0
+- Fixed the "Display Dislike Text" feature.
+- Remove the spacing for dislike count because RYN was fixed it :)
+
 ### v1.8.9
 - Fixed the old icons
+- Fix upside-down videos by adding a rotate feature.
 
 ### v1.8.8
 - Revert back the old hashtag above the video title.
