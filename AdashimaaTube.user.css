@@ -621,14 +621,15 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
         /* 👎 Display 'DISLIKE' Text */
         if (displayDislikeText) {
-            #segmented-dislike-button > ytd-toggle-button-renderer > yt-button-shape > button:not(:has(div.cbox.yt-spec-button-shape-next--button-text-content > span)) {
-                & {
-                    margin: 0 16px;
-                }
-
-                &::after {
-                    content: 'DISLIKE';
-                    padding-left: 6px;
+            #segmented-dislike-button > ytd-toggle-button-renderer > yt-button-shape > button {
+                &:not(:has(div.cbox.yt-spec-button-shape-next--button-text-content > span)) {
+                    &::after {
+                        content: 'DISLIKE';
+                        padding-left: 6px;
+                        ~/& {
+                            margin: 0 16px;
+                        }
+                    }
                 }
             }
         }
