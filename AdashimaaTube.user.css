@@ -6,14 +6,20 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.9.0
+@version        1.9.1
 @license        MIT
 @preprocessor   stylus
+
+@advanced select customSP                   "⚒️ Custom Search Page (Beta)" ["Disabled", "Enabled"]
+@advanced checkbox mainSearchResults        "  🔎 Search Result In A Grid" 1
+@advanced checkbox channelGrouping          "  🔎 Channel Grouping" 1
+@advanced checkbox hideChannel              "  🔎 Hide Channel" 0
+@advanced checkbox hideRightSidebar         "  🫣 Hide right sidebar" 0
+
 
 @advanced checkbox antiShorts               "❌ Anti-Shorts" 0
 @advanced range customProfileRadius         "⚙️ Profile Radius" [50, 0, 50, 1, '%']
 @advanced range customBorderRadius          "⚙️ Border Radius" [0, 0, 24, 1, 'px']
-@advanced checkbox centeredSearchResults    "🔎 Centered Search Results" 1
 @advanced checkbox displayFullTitle         "🎦 Display Full Title For Videos" 0
 @advanced checkbox moreAnimation            "🎬 More Animations" 1
 @advanced checkbox removeTaps               "❌ Remove Taps" 0
@@ -23,8 +29,7 @@
 
 @advanced select customHP                   "⚒️ Custom Home Page" ["Disabled", "Enabled"]
 @advanced range videoPerRowHP               "  🏠 Videos Per Row" [5, 1, 20, 1]
-@advanced checkbox playlistsGrouping        "  📻 Playlists grouping" 0
-
+@advanced checkbox playlistsGrouping        "  📻 Playlists Grouping" 0
 @advanced checkbox displayProfile           "  🧔 Hide Channel Profile" 1
 
 @advanced select customCP                   "⚒️ Custom Channel Page" ["Disabled", "Enabled"]
@@ -32,7 +37,7 @@
 @advanced checkbox channelHandle            "  🫣 Hide Channel Handles" 0
 @advanced checkbox displayVideoCount        "  📻 Display Videos Count" 0
 @advanced checkbox sortByOldest             "  🔃 Sort by Oldest" 0
-@advanced checkbox searchResultsColumn      "  🔎 Search Results In A Grid" 1
+@advanced checkbox channelSearchResults     "  🔎 CH Search Result In A Grid" 1
 
 @advanced select customVideoDetails         "⚒️ Custom Video Details" ["Enabled", "Disabled"]
 @advanced checkbox removeLikeAnimation      "  ❌ Disabled Like Animation" 0
@@ -176,11 +181,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 display: none;
             }
         }
-    }
-
-    /* 🔎 Centered The Search Results */
-    ytd-two-column-search-results-renderer #content.ytd-two-column-search-results-renderer {
-        justify-content: center if centeredSearchResults;
     }
 
     /* 🎦 Display Full Title For Videos */
@@ -505,6 +505,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
         /* 🔃 Sort by Oldest (Beta) */
         if (sortByOldest) {
             [page-subtype="channels"] #contents.ytd-rich-grid-renderer {
+                /* 
+                    I know it's funny but you will learn something new with this project :)
+                */
                 flex-flow: row-reverse wrap-reverse;
                 justify-content: flex-end;
             }
@@ -2351,10 +2354,248 @@ Support me: https://ko-fi.com/sapondanaisriwan
             color: var(--dislike-red);
         }
     }
+
+    if (customSP=="Enabled") {
+        if (mainSearchResults) {
+            ytd-search.ytd-page-manager {
+                
+                #contents.ytd-section-list-renderer {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(246px, 1fr));
+                }
+        
+                yt-showing-results-for-renderer,
+                #contents.ytd-item-section-renderer,
+                ytd-item-section-renderer,
+                ytd-vertical-list-renderer,
+                #items.ytd-vertical-list-renderer,
+                #contents.ytd-shelf-renderer,
+                #dismissible.ytd-shelf-renderer,
+                ytd-shelf-renderer.ytd-item-section-renderer {
+                    display: contents;
+                }
+
+                /* 3dot */
+                ytd-menu-renderer.ytd-video-renderer {
+                    margin-top: 0;
+                }
+                
+                /* Remove title container -> "People also watch", "Learning related" and etc */
+                .grid-subheader.ytd-shelf-renderer,
+                ytd-exploratory-results-renderer.ytd-item-section-renderer,
+                ytd-horizontal-card-list-renderer.ytd-item-section-renderer:not(:first-child),
+                ytd-reel-shelf-renderer.ytd-item-section-renderer,
+                ytd-shelf-renderer.ytd-item-section-renderer {
+                    display: none;
+                }
+
+                #expandable-metadata.ytd-video-renderer:not(:empty) {
+                    display: none;
+                }
+                
+                ytd-playlist-renderer,
+                ytd-video-renderer {
+                    margin-left: calc(var(--ytd-rich-grid-item-margin)/2);
+                    margin-right: calc(var(--ytd-rich-grid-item-margin)/2);
+                    margin-bottom: 40px;
+                }
+
+                ytd-radio-renderer,
+                #dismissible.ytd-video-renderer,
+                #content-section.ytd-channel-renderer {
+                    flex-direction: column;
+                }
+
+                #notification-preference-button > ytd-subscription-notification-toggle-button-renderer-next > yt-button-shape > button .text-wrapper.ytd-video-renderer {
+                    max-width: unset;
+                    width: 100%;
+                }
+
+                ytd-video-renderer[use-search-ui] ytd-thumbnail.ytd-video-renderer {
+                    max-width: unset;
+                    width: 100%;
+                }
+
+                #notification-preference-button > ytd-subscription-notification-toggle-button-renderer-next > yt-button-shape > button {
+                    padding-right: 0;
+                }
+
+                /* playlist */
+                ytd-thumbnail.ytd-radio-renderer,
+                ytd-video-renderer[use-search-ui] ytd-thumbnail.ytd-video-renderer,
+                #avatar-section.ytd-channel-renderer {
+                    flex: none;
+                    margin-right: 0;
+                }
+
+                ytd-search-pyv-renderer,
+                #description.ytd-channel-renderer,
+                #metadata.ytd-channel-renderer {
+                    display: none;
+                }
+
+                #info.ytd-channel-renderer {
+                    padding: 0;
+                }
+
+                #info-section.ytd-channel-renderer {
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                ytd-item-section-renderer {
+                    margin-left: calc(var(--ytd-rich-grid-item-margin)/2);
+                    margin-right: calc(var(--ytd-rich-grid-item-margin)/2);
+                    margin-bottom: 40px;
+                }
+
+
+                #header-container {
+                    margin-bottom: 16px;
+                }
+
+                #more.ytd-vertical-list-renderer,
+                #all.ytd-vertical-list-renderer {
+                    padding-top: 0;
+                }
+
+                #list.ytd-radio-renderer,
+                #continuations.ytd-item-section-renderer,
+                #spinner-container.ytd-item-section-renderer,
+                #header.ytd-item-section-renderer {
+                    display: none;
+                }
+
+
+                .title-and-badge.ytd-video-renderer {
+                    margin-top: 12px;
+                    margin-bottom: 6px;
+                }
+
+                #video-title.ytd-radio-renderer,
+                #video-title.ytd-video-renderer {
+                    font-family: "Roboto", "Arial", sans-serif;
+                    font-size: 1.4rem;
+                    line-height: 2rem;
+                    font-weight: 500;
+                    overflow: hidden;
+                    display: block;
+                    max-height: 4rem;
+                    -webkit-line-clamp: 2;
+                    display: box;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    text-overflow: ellipsis;
+                    white-space: normal;
+                }
+
+                /* Remove description */
+                .metadata-snippet-container.ytd-video-renderer,
+                .metadata-snippet-container-one-line.ytd-video-renderer {
+                    display: none;
+                }
+
+                ytd-button-renderer.ytd-item-section-renderer,
+                ytd-compact-radio-renderer.ytd-item-section-renderer,
+                ytd-compact-video-renderer.ytd-item-section-renderer,
+                ytd-compact-movie-renderer.ytd-item-section-renderer,
+                ytd-compact-playlist-renderer.ytd-item-section-renderer,
+                ytd-emergency-onebox-renderer.ytd-item-section-renderer,
+                ytd-feed-nudge-renderer.ytd-item-section-renderer,
+                ytd-movie-renderer.ytd-item-section-renderer,
+                ytd-playlist-renderer.ytd-item-section-renderer,
+                ytd-show-renderer.ytd-item-section-renderer,
+                ytd-radio-renderer.ytd-item-section-renderer,
+                yt-search-no-results-renderer.ytd-item-section-renderer,
+                ytd-video-renderer.ytd-item-section-renderer,
+                ytd-channel-renderer.ytd-item-section-renderer,
+                ytd-promoted-sparkles-text-search-renderer.ytd-item-section-renderer,
+                ytd-web-answer-renderer.ytd-item-section-renderer,
+                ytd-clarification-renderer.ytd-item-section-renderer,
+                ytd-info-panel-container-renderer.ytd-item-section-renderer,
+                ytd-continuation-item-renderer.ytd-item-section-renderer,
+                ytd-compact-promoted-item-renderer.ytd-item-section-renderer {
+                    margin-top: 0;
+                }
+
+                ytd-exploratory-results-renderer.ytd-item-section-renderer,
+                ytd-horizontal-card-list-renderer.ytd-item-section-renderer:not(:first-child),
+                ytd-reel-shelf-renderer.ytd-item-section-renderer,
+                ytd-shelf-renderer.ytd-item-section-renderer {
+                    border: none;
+                    margin-top: 0;
+                }
+
+
+
+                /* ----- Playlist ----- */
+                ytd-playlist-renderer {
+                    flex-direction: column;
+                }
+
+                /* Hide playlist list */
+                #list.ytd-playlist-renderer {
+                    display: none;
+                }
+
+                /* Title */
+                h3.ytd-playlist-renderer {
+                    font-family: "Roboto", "Arial", sans-serif;
+                    font-size: 1.4rem;
+                    line-height: 2rem;
+                    font-weight: 500;
+                    margin-top: 12px;
+                    margin-bottom: 6px;
+                }
+
+                ytd-playlist-renderer[is-search] ytd-playlist-thumbnail.ytd-playlist-renderer {
+                    margin-right: 0;
+                    max-width: unset;
+                    width: 100%;
+                    flex: none;
+                }
+
+                #content.ytd-playlist-renderer {
+                    flex: none;
+                }
+                
+                /* Force "View more" new line */
+                #view-more.ytd-playlist-renderer {
+                    display: block;
+                }
+                
+                /* ----- Channel author ----- */
+                /* Hide bell icon */
+                #notification-preference-button {
+                    display: none;
+                }
+
+                #channel-title.ytd-channel-renderer {
+                    margin: 4px auto;
+                    font-size: 1.4rem;
+                    font-weight: 500;
+                    max-height: 2rem;
+                    line-height: 2rem;
+                }
+            }
+        }
+
+        ytd-search.ytd-page-manager {
+            \ytd-channel-renderer {
+                order: -1 if channelGrouping;
+                display: none if hideChannel;
+            }
+
+            \#secondary.ytd-two-column-search-results-renderer {
+                display: none if hideRightSidebar;
+            }
+        }
+    }
 }
 
 @-moz-document regexp("^https?://www.youtube\\.com\\/@.*/search(.*)?") {
-    if (customCP=="Enabled" && searchResultsColumn) {
+    if (customCP=="Enabled" && channelSearchResults) {
         ytd-section-list-renderer.ytd-two-column-browse-results-renderer[page-subtype="channels"] #contents.ytd-section-list-renderer {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(246px, 1fr));
