@@ -1,7 +1,7 @@
 ## Changelog
 
 ### v1.9.1
-- Added "Playlists grouping" option.
+- Added "Playlists grouping" option (Inspire by Youtube Redux).
 - Added "Search result in a grid layout", "Channel grouping", "Hide Channel" and "Hide right sidebar(idk what name should I use)" options.
 - Removed the "Centered the search results" because Youtube fixed it.
 - Remove border-radius while hovering the videos on the homepage.
