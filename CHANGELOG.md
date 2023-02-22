@@ -1,5 +1,12 @@
 ## Changelog
 
+### v1.9.1
+- Added "Playlists grouping" option.
+- Added "Search result in a grid layout", "Channel grouping", "Hide Channel" and "Hide right sidebar(idk what name should I use)" options.
+- Removed the "Centered the search results" because Youtube fixed it.
+- Remove border-radius while hovering the videos on the homepage.
+- Made the "Channel search result in a grid layout" responsive.
+
 ### v1.9.0
 - Fixed the "Display Dislike Text" feature.
 - Remove the spacing for dislike count because RYN was fixed it :)
