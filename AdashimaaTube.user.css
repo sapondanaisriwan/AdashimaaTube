@@ -23,6 +23,8 @@
 
 @advanced select customHP                   "⚒️ Custom Home Page" ["Disabled", "Enabled"]
 @advanced range videoPerRowHP               "  🏠 Videos Per Row" [5, 1, 20, 1]
+@advanced checkbox playlistsGrouping        "  📻 Playlists grouping" 1
+
 @advanced checkbox displayProfile           "  🧔 Hide Channel Profile" 1
 
 @advanced select customCP                   "⚒️ Custom Channel Page" ["Disabled", "Enabled"]
@@ -429,6 +431,13 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
         }
 
+        if (playlistsGrouping) {
+            /* (Inspire by Youtube Redux) Sort without js 😎 */
+            [page-subtype="home"] ytd-rich-item-renderer:has(a#thumbnail[href*="&list="]) {
+                order: -1;
+            }
+        }
+
         /* 🏠 Restore Old Homepage */
         if (displayProfile) {
             /* Remove unloaded channel profile  when refresh a page */
@@ -622,13 +631,15 @@ Support me: https://ko-fi.com/sapondanaisriwan
         /* 👎 Display 'DISLIKE' Text */
         if (displayDislikeText) {
             #segmented-dislike-button > ytd-toggle-button-renderer > yt-button-shape > button {
+
                 &:not(:has(div.cbox.yt-spec-button-shape-next--button-text-content > span)) {
+                    & {
+                        margin: 0 16px;
+                    }
+
                     &::after {
                         content: 'DISLIKE';
                         padding-left: 6px;
-                        ~/& {
-                            margin: 0 16px;
-                        }
                     }
                 }
             }
@@ -1045,7 +1056,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
     .thumbnail.ytd-notification-renderer,
     .subscribecard-endscreen .ytp-author-image,
     #c4-player > div.ytp-player-content.ytp-iv-player-content > div.annotation.annotation-type-custom.iv-branding > button > img,
-    #movie_player > div.ytp-player-content.ytp-iv-player-content > div.annotation.annotation-type-custom.iv-branding > button > img,
     ytd-commentbox[is-reply][is-backstage-comment] #author-thumbnail.ytd-commentbox,
     ytd-comment-replies-renderer #creator-thumbnail.ytd-comment-replies-renderer yt-img-shadow.ytd-comment-replies-renderer,
     .channel-avatar.ytd-ghost-grid-renderer {
@@ -1541,6 +1551,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     /* Donation */
     ytd-donation-shelf-renderer[modern-panels],
+
+    /* video preview while hovering */
+    #video-preview-container.ytd-video-preview,
 
     .ytp-tooltip.ytp-rounded-tooltip.ytp-text-detail.ytp-preview {
         border-radius: var(--BorderRadius) i;
