@@ -6,14 +6,15 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.9.1
+@version        1.9.2
 @license        MIT
 @preprocessor   stylus
 
 @advanced select customSP                   "⚒️ Custom Search Page (Beta)" ["Disabled", "Enabled"]
 @advanced checkbox mainSearchResults        "  🔎 Search Result In A Grid" 1
-@advanced checkbox channelGrouping          "  🔎 Channel Grouping" 1
+@advanced checkbox channelGrouping          "  🔎 Channel Grouping" 0
 @advanced checkbox hideChannel              "  🔎 Hide Channel" 0
+@advanced checkbox spHideChannelProfile     "  🔎 Hide Channel Profile" 0
 @advanced checkbox hideRightSidebar         "  🫣 Hide right sidebar" 0
 
 @advanced checkbox antiShorts               "❌ Anti-Shorts" 0
@@ -2355,12 +2356,32 @@ Support me: https://ko-fi.com/sapondanaisriwan
     }
 
     if (customSP=="Enabled") {
+
         if (mainSearchResults) {
             ytd-search.ytd-page-manager {
                 #contents.ytd-section-list-renderer {
                     display: grid;
                     grid-template-columns: repeat(auto-fit, minmax(246px, 1fr));
                 }
+
+                #contents.ytd-section-list-renderer:has(#contents yt-did-you-mean-renderer),
+                #contents.ytd-section-list-renderer:has(#contents yt-search-query-correction) {
+                    margin-top: 56px;
+                }
+
+
+                ytd-section-list-renderer.ytd-two-column-search-results-renderer {
+                    position: relative;
+                }
+
+                #contents {
+                    yt-search-query-correction {
+                        top: 3.6rem;
+                        left: 0;
+                        position: absolute;
+                    }
+                }
+
 
                 #meta {
                     display: contents;
@@ -2388,6 +2409,15 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     padding-right: 0;
                     position: absolute;
                     top: 12px;
+                    display: none if spHideChannelProfile;
+                }
+
+                #channel-name.ytd-video-renderer,
+                #title-wrapper.ytd-video-renderer,
+                ytd-video-meta-block,
+                .ytd-video-meta-block[meta-block],
+                #badges.ytd-video-renderer {
+                    padding-left: 48px if !spHideChannelProfile;;
                 }
 
                 yt-img-shadow.ytd-video-renderer {
@@ -2408,12 +2438,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 }
 
 
-                #channel-name.ytd-video-renderer,
-                #title-wrapper.ytd-video-renderer,
-                ytd-video-meta-block,
-                .ytd-video-meta-block[meta-block],
-                #badges.ytd-video-renderer {
-                    padding-left: 48px;
+                /* Video description */
+                ytd-video-renderer[use-search-ui] #description-text.ytd-video-renderer {
+                    display: none;
                 }
 
                 yt-showing-results-for-renderer,
@@ -2531,6 +2558,13 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     margin-bottom: 6px;
                 }
 
+                /* Mix title */
+                h3.ytd-radio-renderer {
+                    margin-top: 12px;
+                    margin-bottom: 6px;
+                }
+
+                #video-title.ytd-playlist-renderer,
                 #video-title.ytd-radio-renderer,
                 #video-title.ytd-video-renderer {
                     font-family: "Roboto", "Arial", sans-serif;
@@ -2742,7 +2776,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
 
         /* Playlist title */
-        #video-title.ytd-playlist-renderer,
         h3.ytd-playlist-renderer {
             font-size: 1.4rem;
             line-height: 2rem;
