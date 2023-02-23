@@ -1,5 +1,9 @@
 ## Changelog
 
+### v1.9.2
+- Fixed some bugs.
+![](https://user-images.githubusercontent.com/64634605/220792918-b7a36795-590e-4824-8766-487ad160812f.png)
+
 ### v1.9.1
 - Added "Playlists grouping" option (Inspire by Youtube Redux).
 ![](https://i.imgur.com/Bgx6UHT.png)
