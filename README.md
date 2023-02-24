@@ -28,7 +28,6 @@ Restore old Youtube layout in 2021-2022 with many customizable options.
       - [💬 What's AdashimaaTube-Lite?](#-whats-adashimaatube-lite)
       - [💬 How do I access the settings menu?](#-how-do-i-access-the-settings-menu)
       - [💬 Why certain options don't work?](#-why-certain-options-dont-work)
-      - [💬 Why sometimes the ratio bar has disappeared randomly?](#-why-sometimes-the-ratio-bar-has-disappeared-randomly)
   - [✅ Supported extensions and scripts](#-supported-extensions-and-scripts)
   - [💰 Support me](#-support-me)
   - [✉️ Feedback](#️-feedback)
@@ -56,7 +55,7 @@ This is why you should consider using AdashimaaTube! 🥶
 <div align="center">
 
 ### 🔧 Menu Options
-<img src="https://i.imgur.com/zOzdrrn.png" sytle="text-align: center"/>
+<img src="https://user-images.githubusercontent.com/64634605/221103927-25adef16-8f33-4e2f-9b70-66239b6e68b2.png" sytle="text-align: center"/>
 </div>
 
 ## 📷 Screenshots
@@ -65,7 +64,7 @@ This is why you should consider using AdashimaaTube! 🥶
 | ![](https://i.imgur.com/wZuheYe.png)  | ![](https://i.imgur.com/gR7JQZw.png)|
 | ![](https://i.imgur.com/rjp8QFD.png)  | ![](https://i.imgur.com/jTzRUs8.png) |
 | ![](https://i.imgur.com/RliK9va.png)  | ![](https://i.imgur.com/EwaDES1.png) |
-| ![](https://i.imgur.com/jQr4neI.png)  | ![](https://i.imgur.com/RjK0DUB.png) |
+| ![](https://i.imgur.com/jQr4neI.png)  | ![](https://i.imgur.com/zHQbT5t.png) |
 | ![](https://i.imgur.com/9RO0BsL.png)  | ![](https://i.imgur.com/beszS3i.png) |
 | **Anti-Shorts**  | **Display full title for videos** |
 | ![](https://i.imgur.com/eDLCDxX.png)  | ![](https://i.imgur.com/7bzDqov.png) |
@@ -119,11 +118,6 @@ However, by following these steps, you can enable Firefox's has() selector.
 2. Search and toggle `layout.css.has-selector.enabled`.
 
 https://user-images.githubusercontent.com/64634605/211511323-bafff5a2-3a78-4c06-983a-e32eea227838.mp4
-
-#### 💬 Why sometimes the ratio bar has disappeared randomly?
-It's a bug.
-
-![](https://i.imgur.com/6gMeVJh.png)
 
 ## ✅ Supported extensions and scripts
 - [uBlock Origin](https://ublockorigin.com/)
