@@ -1,5 +1,11 @@
 ## Changelog
 
+### 1.9.3
+- Fixed some bugs when the "Search Result In A Grid" option was turn on.
+- Add the weirdest bug (duplicate video and channel)
+![image](https://user-images.githubusercontent.com/64634605/221103287-6595586d-2abb-4f29-8c31-210555e35f10.png)
+
+
 ### v1.9.2
 - Fixed some bugs.
 ![](https://user-images.githubusercontent.com/64634605/220792918-b7a36795-590e-4824-8766-487ad160812f.png)
