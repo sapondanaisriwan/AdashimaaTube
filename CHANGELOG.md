@@ -1,5 +1,9 @@
 ## Changelog
 
+### 1.9.4
+- Add more the old icons.
+- [Search results in a grid](https://www.youtube.com/watch?v=KSk-XABJ4sg) now allow you to customize the video for each row :)
+
 ### 1.9.3
 - Fixed some bugs when the "Search Result In A Grid" option was turn on.
 - Add the weirdest bug (duplicate video and channel)
