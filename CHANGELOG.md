@@ -1,5 +1,12 @@
 ## Changelog
 
+### v1.9.5
+- Fixed the overlapping elements issues
+![before](https://user-images.githubusercontent.com/64634605/221420394-2df57914-8de3-4b9d-9351-edb0c91aa052.png)
+![after](https://user-images.githubusercontent.com/64634605/221416635-8dba96f2-598f-4cf4-aebd-2130c6ebe7cb.png)
+
+- Make AdashimaaTube compatible with [Local YouTube Downloader](https://greasyfork.org/en/scripts/369400) :)
+
 ### 1.9.4
 - Add more the old icons.
 - [Search results in a grid](https://www.youtube.com/watch?v=KSk-XABJ4sg) now allow you to customize the video for each row :)
