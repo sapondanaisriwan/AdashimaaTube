@@ -1,0 +1,141 @@
+i=!important;
+t=transparent;
+.mention.yt-live-chat-text-message-renderer {
+    background: none !important;
+    padding: 0 !important;
+}
+
+/* REVERT WATCH PAGE */
+#meta-contents[hidden],
+#info-contents[hidden] {
+    display: block i;
+}
+
+/* Revert back the hashtag on above the video title */
+#title #super-title[hidden] {
+    display: block i;
+}
+
+/* Ratio bar works with "Return Youtube Dislike" */
+ytd-watch-metadata {
+    display: block i;
+    margin-top: 20px i;
+}
+
+#top-row.ytd-watch-metadata {
+    border-bottom: 1px solid var(--yt-spec-10-percent-layer);
+    padding-bottom: 10px i;
+}
+
+/* Move a title videos down */
+ytd-watch-metadata #title {
+    position: relative;
+    bottom: -4px
+}
+
+/* Reverts the video title font. */
+h1.ytd-watch-metadata {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400 i;
+    font-size: 1.8rem i; // line-height: unset;
+}
+
+/* Reverts the channel title */
+ytd-video-owner-renderer[modern-metapanel] #channel-name.ytd-video-owner-renderer {
+    font-family: "Roboto", "Arial", sans-serif;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    font-weight: 500;
+}
+
+/* Remove channel */
+#owner {
+    display: none i;
+}
+
+/* Remove description*/
+#bottom-row {
+    display: none i;
+}
+
+/* Removes toolbar menu such as share download thanks clip and save btn*/
+#menu-container {
+    display: none i;
+}
+
+/* Removes videos title*/
+ytd-video-primary-info-renderer #container > :not(#info) {
+    display: none i;
+}
+
+ytd-video-primary-info-renderer {
+    border: none;
+    position: relative;
+    padding: 0 i;
+    bottom: 0 i;
+}
+
+/* Move description up */
+ytd-video-secondary-info-renderer {
+    margin-top: -20px;
+}
+
+ytd-watch-metadata > ytd-metadata-row-container-renderer {
+    display: none;
+}
+
+/*     #below.ytd-watch-flexy {
+    position: relative;
+} */
+/* Move up the view count, date and description  */
+.style-scope.ytd-watch-flexy #container #info-text {
+    margin-top: -106px;
+}
+
+/* Moved the ratio bar to the right of its normal position. */
+.ryd-tooltip-bar-container {
+    right: -6px
+}
+
+
+/* REVERT back the old subscribed button */
+yt-button-shape.ytd-subscribe-button-renderer[hidden] {
+    display: block i;
+}
+
+/* Premium User when offline */
+ytd-watch-metadata:not([flex-menu-enabled]) #top-row {
+    padding-bottom: 45px i;
+}
+
+#notification-preference-button > ytd-subscription-notification-toggle-button-renderer-next > yt-button-shape > button {
+    /* Removes background color around bell icon */
+    &.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
+        background-color: t i;
+    }
+
+    /* Removes down arrow and "Subscribed"*/
+    > div {
+        &.cbox.yt-spec-button-shape-next--button-text-content,
+        &.yt-spec-button-shape-next__secondary-icon {
+            display: none;
+        }
+    }
+}
+
+/* RIP other browser that doesn't support :has */
+/* Remove Unsubscribe button from bell icon flyout menu */
+ytd-menu-service-item-renderer[use-icons]:has(tp-yt-paper-item[style-target="host"] > yt-icon.ytd-menu-service-item-renderer > svg > g path[d^="M13.72\,11.93C15.58\,11.59\,17\,9.96\,17\,8c0-2.21-1.79-4-4-4S9\,5.79\,9\,8c0\,1.96\,1.42\,3.59\,3.28\,3.93"]) {
+    display: none;
+}
+
+
+/* Revert the profile channel */
+ytd-video-owner-renderer[modern-metapanel] #avatar.ytd-video-owner-renderer {
+    width: 48px;
+    height: 48px;
+    > img {
+        width: 48px;
+        height: 48px;
+    }
+}
