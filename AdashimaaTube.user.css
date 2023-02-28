@@ -1565,6 +1565,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
         bottom: -15px;
     }
 
+    div[name="top_level_translate_btn"] {
+        margin-left: 0 i;
+    }
+
     /* Reduce padding top of the video container */
     ytd-video-primary-info-renderer {
         padding-top: 14px;
@@ -2104,6 +2108,19 @@ Support me: https://ko-fi.com/sapondanaisriwan
             path,
             span {
                 color: var(--yt-spec-grey-3);
+            }
+        }
+
+        div[name="top_level_translate_btn"] {
+            button {
+            }
+            span {
+                color: var(--yt-spec-grey-3);
+            }
+            img {
+                height: 18px i;
+                width: 18px i;
+                content: url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAgMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTcuNDEgOSAyLjI0IDIuMjQtLjgzIDJMNiAxMC40bC0zLjMgMy4zLTEuNC0xLjQyTDQuNTggOWwtLjg4LS44OGMtLjUzLS41My0xLTEuMy0xLjMtMi4xMmgyLjJjLjE1LjI4LjMzLjUzLjUxLjdsLjg5LjkuODgtLjg4QzcuNDggNi4xIDggNC44NCA4IDRIMFYyaDVWMGgydjJoNXYyaC0yYzAgMS4zNy0uNzQgMy4xNS0xLjcgNC4xMkw3LjQgOXptMy44NCA4TDEwIDIwSDhsNS0xMmgybDUgMTJoLTJsLTEuMjUtM2gtNS41em0uODMtMmgzLjg0TDE0IDEwLjQgMTIuMDggMTV6IiBmaWxsPSIjOTA5MDkwIiBjbGFzcz0iZmlsbC0wMDAwMDAiPjwvcGF0aD48L3N2Zz4=');
             }
         }
 
