@@ -262,14 +262,17 @@ Support me: https://ko-fi.com/sapondanaisriwan
         yt-horizontal-list-renderer,
         ytd-radio-renderer,
         ytd-channel-renderer,
+        ytd-playlist-renderer[is-search],
         ytd-section-list-renderer #contents.ytd-item-section-renderer {
             animation: slideInUp .7s;
         }
 
+        ytd-video-primary-info-renderer[flex-menu-enabled] #menu-container.ytd-video-primary-info-renderer,
         ytd-watch-metadata[flex-menu-enabled] #actions.ytd-watch-metadata ytd-menu-renderer.ytd-watch-metadata {
             animation: slideInLeft .7s;
         }
 
+        .ytd-watch-flexy h1.title.ytd-video-primary-info-renderer,
         .style-scope.ytd-watch-flexy #container #info-text,
         ytd-watch-metadata > div#above-the-fold > #title {
             animation: slideInRight .7s;
