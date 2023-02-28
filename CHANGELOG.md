@@ -1,5 +1,8 @@
 ## Changelog
 
+### v1.9.6
+- Add more spacing between watch page buttons (This took me a day to do this because pixel perfection is very hard for me)
+
 ### v1.9.5
 - Fixed the overlapping elements issues
 ![before](https://user-images.githubusercontent.com/64634605/221420394-2df57914-8de3-4b9d-9351-edb0c91aa052.png)
