@@ -10,59 +10,53 @@
 @license        MIT
 @preprocessor   stylus
 
-@advanced checkbox antiShorts               "❌ Anti-Shorts" 0
-@advanced range customProfileRadius         "⚙️ Profile Radius" [50, 0, 50, 1, '%']
-@advanced range customBorderRadius          "⚙️ Border Radius" [0, 0, 24, 1, 'px']
-@advanced checkbox displayFullTitle         "🎦 Display Full Title For Videos" 0
-@advanced checkbox moreAnimation            "🎬 More Animations" 1
-@advanced checkbox removeTaps               "❌ Remove Taps" 0
-@advanced select rotateVideos               "🔄 Rotate Videos" ["Disabled", "90deg" ,"180deg", "270deg"]
-@advanced checkbox subscriptionsGrid        "📄 Subsc In A Grid" 1
-@advanced checkbox watchedOverlay           "👀 Watched Overlay" 0
+@advanced select customRoundness            "⚒️ Roundness" ["Enabled", "Disabled"]
+@advanced range BorderRadius                "  ⚙️ Border Radius" [0, 0, 25, 1, 'px']
+@advanced range ButtonRadius                "  ⚙️ Buttons Radius" [0, 0, 25, 1, 'px']
+@advanced range ProfileRadius               "  ⚙️ Profiles Radius" [50, 0, 50, 1, '%']
 
-@advanced select customHP                   "⚒️ Custom Home Page" ["Disabled", "Enabled"]
-@advanced range videoPerRowHP               "  🏠 Videos Per Row" [5, 1, 15, 1]
-@advanced checkbox playlistsGrouping        "  📻 Playlists Grouping" 0
-@advanced checkbox displayProfile           "  🧔 Hide Channel Profile" 1
+@advanced select test                       "⚒️ More Videos" ["Disabled", "Enabled"]
+@advanced range videoPerRow                 "  ⚙️ Video Per Row" [5, 1, 15, 1]
+@advanced checkbox displayProfile           "  🫣 Hide Channel Profile" 1
+@advanced select homePage                   "  🏠 Home Page" ["Enabled", "Disabled"]
+@advanced select ChannelPage                "  📺 Channel Page" ["Enabled", "Disabled"]
+@advanced select SearchPage                 "  🔎 Search Page" ["Disabled", "Enabled", "Auto"]
+@advanced checkbox channelGrouping          "    ↳ Channel Grouping" 0
+@advanced checkbox Hidechannel              "    ↳ Hide Channel" 0
+@advanced checkbox hideRightSidebar         "    ↳ Hide Right Sidebar" 0
 
-@advanced select customCP                   "⚒️ Custom Channel Page" ["Disabled", "Enabled"]
-@advanced range videoPerRowCP               "  🏠 Videos Per Row" [5, 1, 15, 1]
+@advanced select test2                      "⚒️ Old Layout" ["Disabled", "Enabled"]
+@advanced checkbox oldBackground            "  🖼️ Old Background" 1
+@advanced checkbox oldPlaylists             "  🧓 Old Playlists" 1
+@advanced checkbox restoreOldIcon           "  🧓 Old Icons" 0
+
+@advanced select customVideoDetails         "⚒️ Video Page" ["Enabled", "Disabled"]
+@advanced checkbox antiShorts               "  ❌ Hide-Shorts" 0
+@advanced checkbox removeTaps               "  ❌ Hide Taps" 0
+
 @advanced checkbox channelHandle            "  🫣 Hide Channel Handles" 0
-@advanced checkbox displayVideoCount        "  📻 Display Videos Count" 0
-@advanced checkbox sortByOldest             "  🔃 Sort by Oldest" 0
-@advanced checkbox channelSearchResults     "  🔎 Search Result In A Grid" 1
 
-@advanced select customSP                   "⚒️ Custom Search Page" ["Disabled", "Enabled"]
-@advanced range videoPerRowSP               "  🏠 Videos Per Row" [5, 1, 10, 1]
-@advanced checkbox channelGrouping          "  👥 Channel Grouping" 0
-@advanced checkbox hideChannel              "  🫣 Hide Channel Container" 0
-@advanced checkbox spHideChannelProfile     "  🫣 Hide Channel Profile" 1
-@advanced checkbox hideRightSidebar         "  🫣 Hide Right Sidebar" 0
-
-@advanced select customVideoDetails         "⚒️ Custom Video Details" ["Enabled", "Disabled"]
-@advanced checkbox removeLikeAnimation      "  ❌ Disabled Like Animation" 0
+@advanced checkbox removeLikeAnimation      "  👍 Hide Like Animation" 0
 @advanced checkbox shareBtn                 "  ➡️ Hide Share Button" 0
 @advanced checkbox downloadBtn              "  ⬇️ Hide Download Button" 0
 @advanced checkbox clipBtn                  "  ✂️ Hide Clip Button" 0
 @advanced checkbox thanksBtn                "  🙏 Hide Thanks Button" 0
 @advanced checkbox saveBtn                  "  💾 Hide Save Button" 0
-@advanced checkbox commentSection           "  💬 Hide Comments" 0
 @advanced checkbox textBtn                  "  💬 Hide Text Buttons" 0
 @advanced checkbox endCards                 "  💳 Hide End Screen" 0
+@advanced checkbox commentSection           "  💬 Hide Comment Section" 0
 @advanced checkbox gameSection              "  🎮 Hide Game Section" 1
 @advanced checkbox musicSection             "  🎵 Hide Music Section" 0
 
-@advanced select customAppearance           "⚒️ Custom Appearance" ["Enabled", "Disabled"]
-@advanced checkbox colorizeThumbs           "  👍 Thumbs colors" 0;
-@advanced checkbox displayDislikeText       "  👎 Display Dislike Text" 0
-@advanced select likeDislike                "  🎨 Like/Dislike colors" ['None', 'Navy-Blue', 'Classic']
-@advanced checkbox oldBackground            "  🖼️ Old Background" 1
-@advanced checkbox oldPlaylists             "  🧓 Old Playlists" 1
-@advanced checkbox restoreOldIcon           "  🧓 Old Icons" 0
-@advanced checkbox navigationBar            "  🌑 Dark Navigation Bar" 1
+@advanced select customAppearance           "⚒️ Appearance" ["Enabled", "Disabled"]
+@advanced checkbox blueCheckMark            "  ✅ Blue Check Mark" 0
 @advanced checkbox searchBox                "  🌑 Dark Search Box" 0
 @advanced checkbox scroll_Bar               "  🌑 Dark Scroll Bar" 1
-@advanced checkbox blueCheckMark            "  ✅ Blue Check Mark" 0
+@advanced checkbox displayVideoCount        "  📻 Display Videos Count" 0
+@advanced checkbox displayFullTitle         "  🎦 Full Title For Videos" 0
+@advanced select likeDislike                "  🎨 Like/Dislike colors" ['None', 'Navy-Blue', 'Classic']
+@advanced checkbox moreAnimation            "  🎬 More Animations" 1
+@advanced checkbox watchedOverlay           "  👀 Watched Overlay" 0
 
 
 ==/UserStyle== */
@@ -77,9 +71,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 */
 @-moz-document domain("youtube.com") {
     :root {
-        --video-per-row-homepage: videoPerRowHP;
-        --video-per-row-channel-page: videoPerRowCP;
-        --video-per-row-search-page: videoPerRowSP;
+        --video-per-row: videoPerRow;
         --sub-red-btn: #CC0000;
         --sub-white--text-btn: #F2F2F2;
         --sub-black-bg-btn: #303030;
@@ -285,83 +277,75 @@ Support me: https://ko-fi.com/sapondanaisriwan
         display: none if removeTaps;
     }
 
-    if (rotateVideos !="Disabled") {
-        #movie_player > div.html5-video-container > video {
-            transform: rotate(rotateVideos);
-        }
-    }
-
     /* 📄 Subscriptions In A Grid Layout */
-    if (subscriptionsGrid) {
-        ytd-two-column-browse-results-renderer > #primary.ytd-two-column-browse-results-renderer > ytd-section-list-renderer.ytd-two-column-browse-results-renderer > #contents.ytd-section-list-renderer {
-            ytd-expanded-shelf-contents-renderer {
-                display: flex;
-                flex-direction: column;
-            }
+    ytd-two-column-browse-results-renderer > #primary.ytd-two-column-browse-results-renderer > ytd-section-list-renderer.ytd-two-column-browse-results-renderer > #contents.ytd-section-list-renderer {
+        ytd-expanded-shelf-contents-renderer {
+            display: flex;
+            flex-direction: column;
+        }
 
-            ytd-channel-renderer {
-                width: var(--ytd-grid-1-columns-width) i;
-            }
+        ytd-channel-renderer {
+            width: var(--ytd-grid-1-columns-width) i;
+        }
 
-            /* Remove description */
-            #description.ytd-channel-renderer,
+        /* Remove description */
+        #description.ytd-channel-renderer,
 
-            /* Remove bell icon */
-            #notification-preference-button,
+        /* Remove bell icon */
+        #notification-preference-button,
 
-            /* Remove videos count*/
-            #metadata.ytd-channel-renderer > span:nth-last-child(-n + 2) {
-                display: none;
-            }
+        /* Remove videos count*/
+        #metadata.ytd-channel-renderer > span:nth-last-child(-n + 2) {
+            display: none;
+        }
 
-            #content-section.ytd-channel-renderer {
-                display: flex;
-                flex-wrap: wrap;
-                flex-direction: row;
-                justify-content: center;
-            }
+        #content-section.ytd-channel-renderer {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: center;
+        }
 
-            #info-section.ytd-channel-renderer {
-                flex-direction: column;
-                align-items: center;
-            }
+        #info-section.ytd-channel-renderer {
+            flex-direction: column;
+            align-items: center;
+        }
 
-            /* Channel profile */
-            yt-img-shadow.ytd-channel-renderer {
-                width: var(--ytd-grid-base);
-                height: var(--ytd-grid-base);
-                /* Centered the channel profile */
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
+        /* Channel profile */
+        yt-img-shadow.ytd-channel-renderer {
+            width: var(--ytd-grid-base);
+            height: var(--ytd-grid-base);
+            /* Centered the channel profile */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-            /* Centered the subscribers */
-            #info.ytd-channel-renderer {
-                padding: 0;
-                align-items: center;
-            }
+        /* Centered the subscribers */
+        #info.ytd-channel-renderer {
+            padding: 0;
+            align-items: center;
+        }
 
-            /* Add margin top to subscribe button*/
-            ytd-subscription-notification-toggle-button-renderer-next.ytd-subscribe-button-renderer > yt-button-shape {
-                margin-top: 0px;
-            }
+        /* Add margin top to subscribe button*/
+        ytd-subscription-notification-toggle-button-renderer-next.ytd-subscribe-button-renderer > yt-button-shape {
+            margin-top: 0px;
+        }
 
-            #channel-title.ytd-channel-renderer {
-                margin: 4px auto; // Centered the channel title
-                font-size: 1.4rem;
-                font-weight: 500;
-                max-height: 2rem;
-                line-height: 2rem;
-            }
+        #channel-title.ytd-channel-renderer {
+            margin: 4px auto; // Centered the channel title
+            font-size: 1.4rem;
+            font-weight: 500;
+            max-height: 2rem;
+            line-height: 2rem;
+        }
 
-            #avatar-section.ytd-channel-renderer {
-                margin-right: 0px;
-            }
+        #avatar-section.ytd-channel-renderer {
+            margin-right: 0px;
+        }
 
-            #grid-container.ytd-expanded-shelf-contents-renderer > *.ytd-expanded-shelf-contents-renderer:not(:last-child) {
-                margin-bottom: 24px;
-            }
+        #grid-container.ytd-expanded-shelf-contents-renderer > *.ytd-expanded-shelf-contents-renderer:not(:last-child) {
+            margin-bottom: 24px;
         }
     }
 
@@ -404,7 +388,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         /* 🏠 Number Of Videos Per Row */
         [page-subtype="home"] {
             ytd-rich-grid-renderer {
-                --ytd-rich-grid-items-per-row: var(--video-per-row-homepage) i;
+                --ytd-rich-grid-items-per-row: var(--video-per-row) i;
                 #contents {
                     max-width: calc(100% - 2 * 1vw) i;
                     test();
@@ -421,8 +405,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
         #home-page-skeleton .rich-shelf-videos .rich-grid-media-skeleton.mini-mode,
         #home-page-skeleton #home-container-media .rich-grid-media-skeleton.mini-mode {
             margin: 0 4px;
-            min-width: calc(100% / var(--video-per-row-homepage) - 1.6rem);
-            max-width: calc(100% / var(--video-per-row-homepage) - 1.6rem);
+            min-width: calc(100% / var(--video-per-row) - 1.6rem);
+            max-width: calc(100% / var(--video-per-row) - 1.6rem);
         }
 
         [page-subtype="home"] {
@@ -463,7 +447,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         /* 🏠 Number Of Videos Per Row */
         [page-subtype="channels"] {
             ytd-rich-grid-renderer {
-                --ytd-rich-grid-items-per-row: var(--video-per-row-channel-page) i;
+                --ytd-rich-grid-items-per-row: var(--video-per-row) i;
                 /* Set to be treated as if they were the children of their parent element */
                 #contents {
                     test();
@@ -606,24 +590,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     /* "⚒️ Custom Appearance" */
     if (customAppearance=="Enabled") {
-
-        /* 👎 Display 'DISLIKE' Text */
-        if (displayDislikeText) {
-            #segmented-dislike-button > ytd-toggle-button-renderer > yt-button-shape > button {
-
-                &:not(:has(div.cbox.yt-spec-button-shape-next--button-text-content > span)) {
-                    & {
-                        margin: 0 16px;
-                    }
-
-                    &::after {
-                        content: 'DISLIKE';
-                        padding-left: 6px;
-                    }
-                }
-            }
-        }
-
         /* ▶️ Restore Old Playlist */
         if (oldPlaylists) {
             ytd-browse[darker-dark-theme][page-subtype="playlist"],
@@ -797,10 +763,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             yt-chip-cloud-chip-renderer[chip-style="STYLE_REFRESH_TO_NOVEL_CHIP"] {
                 border: 1px solid var(--yt-spec-10-percent-layer) i;
             }
-        }
 
-        /* 🌑 Dark Navigation Bar */
-        if (navigationBar) {
             html[dark] {
                 ytd-masthead {
                     background: var(--yt-spec-brand-background-solid);
@@ -817,6 +780,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
         }
 
+        /* 🌑 Dark Navigation Bar */
         /* 🌑 Dark Search Box */
         /* Dark search box credit to Mikey(Vednoc). He is awesome */
         if (searchBox) {
@@ -941,7 +905,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
             #contents.ytd-section-list-renderer {
                 display: grid;
-                grid-template-columns: repeat(var(--video-per-row-search-page), 1fr);
+                /*                 grid-template-columns: repeat(var(--video-per-row-search-page), 1fr); */
+                grid-template-columns: repeat(auto-fit, minmax(246px, 1fr));
             }
 
             #contents.ytd-item-section-renderer * {
@@ -1313,13 +1278,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 stroke: var(--like-lime) i;
             }
         }
-
-        &[aria-pressed="false"] yt-icon path {
-            if (colorizeThumbs && !restoreOldIcon) {
-                stroke: var(--color1) i if (likeDislike=="Navy-Blue");
-                stroke: var(--like-lime) i if (likeDislike=="Classic");
-            }
-        }
     }
 
     /* 👎 Dislike Button Color */
@@ -1328,13 +1286,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
         &[aria-pressed="true"] yt-icon path {
             fill: var(--dislike-red) i if (likeDislike=="Classic");
             fill: var(--color1) i if (likeDislike=="Navy-Blue");
-        }
-
-        &[aria-pressed="false"] yt-icon path {
-            if (colorizeThumbs && !restoreOldIcon) {
-                fill: var(--color1) i if (likeDislike=="Navy-Blue");
-                fill: var(--dislike-red) i if (likeDislike=="Classic");
-            }
         }
     }
 
@@ -1362,7 +1313,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         &.ytd-topic-channel-details-renderer,
         &.ytd-video-description-header-renderer,
         &.ytd-watch-card-rich-header-renderer {
-            border-radius: customProfileRadius;
+            border-radius: ProfileRadius;
         }
     }
 
@@ -1373,30 +1324,30 @@ Support me: https://ko-fi.com/sapondanaisriwan
         &.ytd-backstage-post-renderer yt-img-shadow.ytd-backstage-post-renderer,
         &.ytd-commentbox,
         ytd-commentbox[is-reply][is-backstage-comment] #author-thumbnail.ytd-commentbox {
-            border-radius: customProfileRadius;
+            border-radius: ProfileRadius;
         }
     }
 
     #hearted-thumbnail.ytd-creator-heart-renderer {
-        border-radius: customProfileRadius;
+        border-radius: ProfileRadius;
     }
 
     #author-photo {
         &.yt-live-chat-text-message-renderer,
         &.yt-live-chat-paid-message-renderer,
         &.yt-live-chat-membership-item-renderer {
-            border-radius: customProfileRadius;
+            border-radius: ProfileRadius;
         }
     }
 
     #creator-photo {
         &.yt-live-chat-poll-header-renderer,
         &.yt-live-chat-banner-poll-renderer {
-            border-radius: customProfileRadius;
+            border-radius: ProfileRadius;
         }
 
         &.ytd-sponsorships-live-chat-header-renderer {
-            --yt-img-border-radius: customProfileRadius;
+            --yt-img-border-radius: ProfileRadius;
         }
     }
 
@@ -1409,22 +1360,22 @@ Support me: https://ko-fi.com/sapondanaisriwan
         &.ytd-video-renderer,
         &.yt-live-chat-ticker-paid-message-item-renderer,
         &.yt-live-chat-ticker-sponsor-item-renderer {
-            border-radius: customProfileRadius;
+            border-radius: ProfileRadius;
         }
     }
 
     .ytp-ce-channel {
-        border-radius: customProfileRadius;
+        border-radius: ProfileRadius;
         .ytp-ce-expanding-image,
         .ytp-ce-element-shadow {
-            border-radius: customProfileRadius;
+            border-radius: ProfileRadius;
         }
     }
 
     .avatar {
         &.ytd-sponsorships-offer-renderer,
         &.ytd-recognition-shelf-renderer {
-            border-radius: customProfileRadius;
+            border-radius: ProfileRadius;
         }
     }
 
@@ -1436,23 +1387,23 @@ Support me: https://ko-fi.com/sapondanaisriwan
     ytd-commentbox[is-reply][is-backstage-comment] #author-thumbnail.ytd-commentbox,
     ytd-comment-replies-renderer #creator-thumbnail.ytd-comment-replies-renderer yt-img-shadow.ytd-comment-replies-renderer,
     .channel-avatar.ytd-ghost-grid-renderer {
-        border-radius: customProfileRadius;
+        border-radius: ProfileRadius;
     }
 
     /* Unloaded element */
     #home-page-skeleton .channel-avatar,
     .channel-avatar.ytd-ghost-grid-renderer {
-        border-radius: customProfileRadius;
+        border-radius: ProfileRadius;
     }
 
     /* Create post in community tab */
     #dialog-header.ytd-backstage-post-dialog-renderer #header-author-thumbnail.ytd-backstage-post-dialog-renderer {
-        border-radius: customProfileRadius;
+        border-radius: ProfileRadius;
     }
 
     /* Youtube studio */
     .image-thumbnail.ytcp-navigation-drawer {
-        border-radius: customProfileRadius;
+        border-radius: ProfileRadius;
     }
 
 
@@ -1603,7 +1554,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     /* Removes border */
     .yt-spec-button-shape-next--size-m,
     .yt-spec-touch-feedback-shape__stroke {
-        border-radius: customBorderRadius i;
+        border-radius: BorderRadius i;
     }
 
     .yt-spec-touch-feedback-shape--touch-response .yt-spec-touch-feedback-shape__stroke {
@@ -1632,14 +1583,14 @@ Support me: https://ko-fi.com/sapondanaisriwan
             button,
             a[aria-label="Subscribe"] {
                 /* InPrivate */
-                border-radius: customBorderRadius <=2px ? 2px i: customBorderRadius i;
+                border-radius: BorderRadius <=2px ? 2px i: BorderRadius i;
                 color: var(--yt-spec-static-brand-white) i;
                 background-color: var(--yt-spec-brand-button-background) i;
             }
 
             /* Unsubscribe button */
             button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
-                border-radius: customBorderRadius <=2px ? 2px i: customBorderRadius i;
+                border-radius: BorderRadius <=2px ? 2px i: BorderRadius i;
                 color: var(--yt-spec-text-secondary) i;
                 background-color: var(--yt-spec-badge-chip-background) i;
             }
@@ -1724,7 +1675,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             &[aria-label$="을(를) 구독합니다."],
             &[aria-label^="Tilaa"],
             &[aria-label^="Subskrybuj kanał"] {
-                border-radius: customBorderRadius <=2px ? 2px i: customBorderRadius i;
+                border-radius: BorderRadius <=2px ? 2px i: BorderRadius i;
                 color: var(--yt-spec-static-brand-white) i;
                 background-color: var(--yt-spec-brand-button-background) i;
             }
@@ -1912,36 +1863,36 @@ Support me: https://ko-fi.com/sapondanaisriwan
     #video-preview-container.ytd-video-preview,
 
     .ytp-tooltip.ytp-rounded-tooltip.ytp-text-detail.ytp-preview {
-        border-radius: customBorderRadius i;
+        border-radius: BorderRadius i;
     }
 
     ytd-expandable-metadata-renderer[round-container]:not([is-expanded]) {
-        --yt-img-border-radius: customBorderRadius;
+        --yt-img-border-radius: BorderRadius;
     }
 
     ytd-guide-entry-renderer[guide-refresh] tp-yt-paper-item.ytd-guide-entry-renderer {
-        --paper-item-focused-before-border-radius: customBorderRadius;
+        --paper-item-focused-before-border-radius: BorderRadius;
     }
 
     .ytp-tooltip.ytp-rounded-tooltip.ytp-text-detail.ytp-preview .ytp-tooltip-bg {
-        border-top-left-radius: customBorderRadius;
-        border-bottom-left-radius: customBorderRadius;
+        border-top-left-radius: BorderRadius;
+        border-bottom-left-radius: BorderRadius;
     }
 
     ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #search-icon-legacy.ytd-searchbox {
-        border-radius: 0 customBorderRadius customBorderRadius 0 i;
+        border-radius: 0 BorderRadius BorderRadius 0 i;
     }
 
     ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #container.ytd-searchbox {
-        border-radius: customBorderRadius 0 0 customBorderRadius i;
+        border-radius: BorderRadius 0 0 BorderRadius i;
     }
 
     .ytp-settings-menu.ytp-rounded-menu {
-        border-radius: customBorderRadius <=2px ? 2px: customBorderRadius;
+        border-radius: BorderRadius <=2px ? 2px: BorderRadius;
     }
 
     ytd-menu-popup-renderer[sheets-refresh] {
-        border-radius: customBorderRadius <=4px ? 4px: customBorderRadius;
+        border-radius: BorderRadius <=4px ? 4px: BorderRadius;
     }
 
     /* Album (https://www.youtube.com/results?search_query=ddto) */
@@ -1992,7 +1943,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     #buttons ytd-toggle-button-renderer yt-button-shape button {
         color: var(--yt-spec-call-to-action) i; // #065fd4
         border: 1px solid var(--yt-spec-call-to-action) i;
-        border-radius: customBorderRadius;
+        border-radius: BorderRadius;
         padding: 9px 15px i;
         background: t;
     }
@@ -2112,11 +2063,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
 
         div[name="top_level_translate_btn"] {
-            button {
-            }
+            button {}
             span {
                 color: var(--yt-spec-grey-3);
             }
+
             img {
                 height: 18px i;
                 width: 18px i;
@@ -2784,10 +2735,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
 }
 
 @-moz-document regexp("^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com)\/@.*/search(.*)?") {
-    if (customCP=="Enabled" && channelSearchResults) {
+    if (customCP=="Enabled") {
         ytd-section-list-renderer.ytd-two-column-browse-results-renderer[page-subtype="channels"] #contents.ytd-section-list-renderer {
             display: grid;
-            grid-template-columns: repeat(var(--video-per-row-channel-page), 1fr);
+            grid-template-columns: repeat(var(--video-per-row), 1fr);
         }
 
         ytd-playlist-thumbnail.ytd-playlist-renderer::before,
