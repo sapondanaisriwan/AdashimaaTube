@@ -1,5 +1,14 @@
 ## Changelog
 
+### v1.9.7
+- Fixed Youtube new UI update issues :) (Not sure if it works in a different resolution)
+![](https://i.imgur.com/bgUAL7F.png)
+![](https://i.imgur.com/pPdzy9y.png)
+
+- Add "Buttons Radius" features.
+- Simplify the menu by removing "Rotate Videos", "Playlists Grouping", "Hide Channel Handles", "Sort by Oldest", "Thumbs colors", "Display Dislike Text" and "Dark Navigation Bar" features.
+- Subscription in a grid layout is enabled by default.
+
 ### v1.9.6
 - Add more spacing between watch page buttons (This took me a day to do this because pixel perfection is very hard for me)
 
