@@ -1,0 +1,1066 @@
+/* ==UserStyle==
+@name           AdashimaaTube
+@author         sapondanaisriwan(Adashima#4066)
+@description    Please report bugs via my email, github, discord or the discussion section(If I have some free time, I'll fix them)
+@namespace      https://userstyles.world/user/sapondanaisriwan
+@homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
+@supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
+@updateURL      https://userstyles.world/api/style/6944.user.css
+@version        1.5.2
+@license        MIT
+@preprocessor   stylus
+
+@advanced range custom_border_radius "⚙️ Border Radius" [0, 0, 24, 1, 'px']
+
+@advanced select cutom_homepage "⚒️ Custom Homepage" ["Enabled", "Disabled"]
+@advanced range hp_video_per_row "  🏠 Number Of Videos Per Row" [5, 1, 10, 1]
+@advanced checkbox restore_old_hp "  🏠 Restore Old Homepage" 1
+
+@advanced select ratio_bar "⚒️ Display Ratio Bar (Beta)" ["Enabled", "Disabled"]
+@advanced color like_rb_color "  🎨 Like Ratio Color" #32CD32
+@advanced color dislike_rb_color "  🎨 Dislike Ratio Color" #FF0000
+
+@advanced select like_dislike_color "⚒️ Custom Like/Dislike Button Color" ["Enabled", "Disabled"]
+@advanced color like_color "  👍 Like Button Color" #3ea6ff
+@advanced color dislike_color "  👎 Dislike Button Color" #3ea6ff
+
+@advanced checkbox dark_theme "🌑 Dark Navbar/Search Box " 0
+@advanced checkbox add_animation "🎬 More Animations" 1
+@advanced checkbox restore_old_playlist "▶️ Restore Old Playlist" 0
+@advanced checkbox display-full-title "🎦 Display Full Title For Videos" 0
+@advanced checkbox fix-search-results  "🔎 Centered The Search Results" 0
+@advanced checkbox remove_shorts "❌ Remove Shorts (Beta)" 0
+@advanced checkbox remove-taps "❌ Remove Taps" 0
+@advanced checkbox remove_comment "❌ Remove Comments" 0
+@advanced checkbox hide-text-btn "🫣 Hide Text On Buttons" 0
+@advanced checkbox hide-share-btn "🫣 Hide Share Button" 0
+@advanced checkbox hide-download-btn "🫣 Hide Download Button" 0
+@advanced checkbox hide-clip-btn "🫣 Hide Clip Button" 0
+@advanced checkbox hide-thanks-btn "🫣 Hide Thanks Button" 0
+
+==/UserStyle== */
+/*
+Please report bugs via my email, github, discord or the discussion section(If I have some free time, I'll fix them)
+Contact: sapondanaisriwan@gmail.com
+Support me: https://ko-fi.com/sapondanaisriwan 
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+*/
+@-moz-document domain("youtube.com") {
+
+    :root {
+        --video-per-row: hp_video_per_row;
+        --sub-red-btn: #CC0000;
+        --sub-white--text-btn: #F2F2F2;
+        --sub-black-bg-btn: #303030;
+    }
+
+    /* Homepage */
+    if (cutom_homepage=="Enabled") {
+
+        /* Custom videos per row on homepage */
+        [page-subtype="home"],
+        [page-subtype="channels"] {
+            ytd-rich-grid-renderer {
+                --ytd-rich-grid-items-per-row: var(--video-per-row) !important;
+                /* Makes the container/spacing disappear */
+                #contents {
+                    ytd-rich-grid-row,
+                    ytd-rich-grid-row #contents {
+                        display: contents;
+                    }
+                }
+            }
+        }
+
+        /* Display unloaded videos per row when refresh the homepage */
+        #home-page-skeleton .rich-shelf-videos .rich-grid-media-skeleton.mini-mode,
+        #home-page-skeleton #home-container-media .rich-grid-media-skeleton.mini-mode {
+            flex-basis: calc(100%/var(--video-per-row) - 16px - 0.01px);
+            min-width: calc(100%/var(--video-per-row) - 16px - 0.01px);
+            max-width: calc(100%/var(--video-per-row) - 16px - 0.01px);
+        }
+
+        if (restore_old_hp) {
+            ytd-rich-grid-media a#avatar-link {
+                display: none;
+            }
+
+            [page-subtype="channels"] {
+                #contents > ytd-rich-item-renderer {
+                    margin: 0 4px 24px 4px !important;
+                }
+            }
+
+            [page-subtype="home"] {
+
+                ytd-rich-grid-media a#avatar-link {
+                    display: none;
+                }
+
+                ytd-rich-grid-renderer > div#contents {
+                    max-width: calc(100% - 2 * 3vw);
+                }
+                #contents > ytd-rich-item-renderer {
+                    margin: 0 4px 24px 4px
+                }
+                #contents.ytd-rich-grid-renderer {
+                    margin-top: 6px !important;
+                }
+            }
+        }
+    }
+
+    if (add_animation) {
+        // @keyframes fadeIn {
+        //     from {
+        //         opacity: 0
+        //     }
+        //     to {
+        //         opacity: 1
+        //     }
+        // }
+        @keyframes slideInUp {
+            from {
+                transform: translateY(15px);
+                opacity: 0
+            }
+            to {
+                transform: translateY(0px);
+                opacity: 1
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(15px);
+                opacity: 0
+            }
+            to {
+                transform: translateX(0px);
+                opacity: 1
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(-15px);
+                opacity: 0
+            }
+            to {
+                transform: translateX(0px);
+                opacity: 1
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(.98);
+                opacity: 0;
+            }
+            to {
+                transform: none;
+                opacity: 1;
+            }
+        }
+
+        ytd-rich-grid-media,
+        ytd-compact-video-renderer,
+        ytd-grid-video-renderer,
+        ytd-rich-item-renderer,
+        ytd-comment-renderer,
+        ytd-compact-playlist-renderer,
+        ytd-grid-renderer,
+        ytd-video-renderer,
+        ytd-reel-item-renderer,
+        ytd-video-secondary-info-renderer,
+        ytd-compact-radio-renderer {
+            animation: slideInUp .7s;
+        }
+
+        ytd-watch-metadata[flex-menu-enabled] #actions.ytd-watch-metadata ytd-menu-renderer.ytd-watch-metadata {
+            animation: slideInLeft .7s;
+        }
+
+        .style-scope.ytd-watch-flexy #container #info-text,
+        ytd-watch-metadata > div#above-the-fold > #title {
+            animation: slideInRight .7s;
+        } // .ytp-chrome-top,
+        // .ytp-chrome-bottom {
+        //     animation: slideUp .5s;
+        // } // ytd-video-renderer {
+        //     animation: bounceIn 15s;
+        // }
+        // .ytp-chrome-top,
+        // .ytp-chrome-bottom {
+        //     -webkit-transition: all .3s ease-out !important;
+        //     transition: all .3s ease-out !important; // top: 100%;
+        //     // position: relative;
+        //     // height: 100%;
+        // }
+    }
+
+
+    /* Ratio bar works with "Return Youtube Dislike" */
+    if (ratio_bar=="Enabled") {
+
+        ytd-watch-metadata {
+            display: block !important;
+            margin-top: 20px !important;
+        }
+
+        #top-row.ytd-watch-metadata {
+            border-bottom: 1px solid var(--yt-spec-10-percent-layer);
+            padding-bottom: 10px !important;
+        }
+
+        ytd-watch-metadata #title {
+            position: relative;
+            bottom: -4px
+        }
+
+        /* Reverts the video title font. */
+        h1.ytd-watch-metadata {
+            font-family: "Roboto", sans-serif;
+            font-weight: 400 !important;
+            font-size: 18px !important; // line-height: unset;
+        }
+
+        /* Remove channel */
+        #owner {
+            display: none !important;
+        }
+
+        /* Remove description*/
+        #bottom-row {
+            display: none !important;
+        }
+
+        .ryd-tooltip.ryd-tooltip-new-design {
+            display: block !important;
+        }
+
+        #menu-container {
+            display: none !important;
+        }
+
+        ytd-video-primary-info-renderer #container > :not(#info),
+        #menu-container {
+            display: none !important;
+        }
+
+        ytd-video-primary-info-renderer {
+            border: none;
+            pointer-events: auto;
+            position: relative;
+            padding: 0 !important;
+            bottom: 0 !important;
+        }
+
+        ytd-video-secondary-info-renderer {
+            margin-top: -20px;
+        }
+
+        ytd-watch-metadata > ytd-metadata-row-container-renderer {
+            display: none;
+        }
+
+        .style-scope.ytd-watch-flexy #container #info-text {
+            // position: absolute;
+            // bottom: 3.7em !important;
+            margin-top: -115px; // pointer-events: none;
+        }
+
+        #top-row.ytd-watch-metadata,
+        #top-row.ytd-watch-metadata {
+            flex-direction: column-reverse !important;
+        }
+
+        #ryd-bar {
+            background: like_rb_color;
+        }
+        #ryd-bar-container {
+            background: dislike_rb_color;
+        }
+    }
+
+    if (ratio_bar=="Disabled") {
+        ytd-watch-metadata {
+            display: none !important;
+        }
+    }
+
+
+
+    /* Custom like/dislike buttons color */
+    if (like_dislike_color=="Enabled") {
+
+        /* Video container */
+        #segmented-like-button button[aria-pressed="true"] yt-icon * {
+            fill: like_color !important;
+            stroke: none;
+        }
+        #segmented-dislike-button button[aria-pressed="true"] yt-icon {
+            fill: dislike_color !important;
+        }
+
+        /* Comments section */
+        #like-button yt-button-shape button[aria-pressed="true"] yt-icon {
+            fill: like_color !important;
+        }
+        #dislike-button yt-button-shape button[aria-pressed="true"] yt-icon {
+            fill: dislike_color !important;
+        }
+    }
+
+
+    /* Hide Download button */
+    if(hide-download-btn) {
+        ytd-download-button-renderer {
+            display: none;
+        }
+    }
+
+    /* Hide Thanks button */
+    if (hide-thanks-btn) {
+        yt-button-shape button[aria-label="Thanks"] {
+            display: none;
+        }
+    }
+
+    /* Hide Clip button */
+    if (hide-clip-btn) {
+        yt-button-shape button[aria-label="Clip"] {
+            display: none;
+        }
+    }
+
+    /* Hide Share button */
+    if (hide-share-btn) {
+        yt-button-shape button[aria-label="Share"],
+        #top-level-buttons-computed > ytd-button-renderer > yt-button-shape > button {
+            display: none;
+        }
+    }
+
+
+
+    /* Youtube Playlist */
+    if (restore_old_playlist) {
+        // yt-img-shadow[fit-width] img.yt-img-shadow,
+        // .immersive-header-gradient.style-scope.ytd-playlist-header-renderer,
+        // .immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer {
+        //     display: none !important;
+        // }
+        ytd-browse[page-subtype=playlist][amsterdam] {
+            padding-top: 0 !important;
+        }
+
+        ytd-browse[page-subtype=playlist][amsterdam] ytd-playlist-header-renderer.ytd-browse {
+            margin-left: 0 !important;
+            height: calc(100vh - var(--ytd-toolbar-height));
+        }
+
+        .immersive-header-container.ytd-playlist-header-renderer {
+            margin-bottom: 0 !important;
+            border-radius: 0 !important;
+        }
+
+        [page-subtype="playlist"] ytd-playlist-header-renderer {
+            width: 388px !important;
+            color: var(--yt-spec-text-primary) !important;
+        }
+
+        [page-subtype="playlist"] {
+            ytd-text-inline-expander.ytd-playlist-header-renderer,
+            yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string:visited,
+            #dropdown-trigger > div#input,
+            .metadata-stats.ytd-playlist-byline-renderer,
+            .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal,
+
+            /* Edit title */
+            .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--text {
+                color: var(--yt-spec-text-primary) !important;
+            }
+            .metadata-text-wrapper.ytd-playlist-header-renderer {
+                --yt-endpoint-color: var(--yt-spec-text-primary) !important;
+                --yt-endpoint-hover-color: var(--yt-spec-text-primary) !important;
+            }
+        }
+
+        html[dark] {
+            #page-manager > ytd-browse > ytd-playlist-header-renderer > div > div.immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer > div {
+                background: var(--yt-spec-general-background-a) !important; // #181818
+            }
+        }
+
+        html:not([dark]) {
+            #contents > ytd-playlist-video-list-renderer {
+                // background: var(--yt-spec-general-background-a) !important;
+                background: var(--yt-spec-white-3) !important; // #f1f1f1
+            }
+            #page-manager > ytd-browse > ytd-playlist-header-renderer > div > div.immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer > div {
+                background: var(--yt-spec-white-2) !important; // #f9f9f9
+            }
+
+            /* Shuffle button */
+            .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal {
+                background: var(--yt-spec-base-background);
+                &:hover {
+                    background: var(--yt-spec-static-overlay-filled-hover); // #f9f9f9
+                }
+            }
+        }
+    }
+
+
+
+    /* Removes text on all buttons except for like/dislike buttons */
+    if (hide-text-btn) {
+        #menu-container ytd-button-renderer yt-button-shape button span,
+        #flexible-item-buttons yt-button-shape button span,
+        #top-level-buttons-computed > ytd-button-renderer > yt-button-shape > button > div.cbox.yt-spec-button-shape-next--button-text-content > span {
+            display: none !important;
+        }
+        #flexible-item-buttons yt-button-shape button {
+            padding-left: 8px;
+        }
+    }
+
+
+
+    /* Remove shorts Don't waste your time with this shit */
+    /* I can't find the way to remove all shorts using css alone / removeAttribute()????? */
+    if (remove_shorts) {
+        #items ytd-guide-entry-renderer a#endpoint[title="Shorts"],
+        #items ytd-mini-guide-entry-renderer[aria-label="Shorts"],
+        ytd-video-renderer :has(a#thumbnail[href*="/shorts/"]),
+        ytd-rich-shelf-renderer[is-shorts] {
+            display: none;
+        }
+        ytd-rich-grid-media,
+        ytd-video-renderer,
+        ytd-rich-item-renderer {
+            :has(a[href*="/shorts/"]) {
+                display: none !important;
+            }
+        }
+        #contents > ytd-rich-item-renderer :has(a[href*="/shorts/"]) {
+            display: none !important;
+        }
+    }
+
+
+
+    /* Remove comments section */
+    if (remove_comment) {
+        ytd-comments {
+            display: none;
+        }
+    }
+
+
+    /* Display full title of video on wacthcpage */
+    if (display-full-title) {
+        ytd-rich-grid-media[mini-mode] #video-title.ytd-rich-grid-media,
+        #video-title.ytd-compact-video-renderer,
+        #video-title.ytd-rich-grid-media,
+        ytd-grid-video-renderer #video-title.yt-simple-endpoint.ytd-grid-video-renderer,
+        #video-title.ytd-video-renderer,
+        #video-title.ytd-rich-grid-slim-media,
+        #video-title.ytd-grid-playlist-renderer,
+        #video-title.ytd-reel-item-renderer {
+            display: inline !important;
+        }
+    }
+
+
+
+    /* Center the search results */
+    if (fix-search-results) {
+        ytd-two-column-search-results-renderer {
+            align-items: center; // margin: 0 auto !important;
+        }
+    }
+
+
+
+    /* Removes taps */
+    if (remove-taps) {
+        #header ytd-feed-filter-chip-bar-renderer,
+        ytd-watch-next-secondary-results-renderer yt-related-chip-cloud-renderer {
+            display: none;
+        }
+    }
+
+
+    /* Dark Navbar/Search box */
+    if (dark_theme) {
+        html[dark] {
+            /* Dark search box credit to Mikey(Vednoc). He is awesome */
+            body > div:last-child > div > div[class] {
+                border: 1px solid #333 !important;
+                background-color: #222 !important;
+            }
+
+            body > div:last-child > div > div[class],
+            body > div:last-child > div > div[class] > div {
+                background-color: #222 !important;
+            }
+            body > div:last-child ul > li,
+            body > div:last-child ul > li span {
+                color: #ccc !important;
+            }
+            body > div:last-child ul > li b {
+                color: #f1f1f1 !important;
+            }
+            body > div:last-child ul > li:hover,
+            body > div:last-child ul > li.sbsb_d {
+                background-color: #333 !important;
+            }
+            body > div:last-child ul > li:last-child {
+                display: none
+            }
+            body > div:last-child ul > li ::before {
+                filter: invert()
+            }
+
+            .sbsb_i {
+                color: rgb(94, 151, 210);
+                text-decoration-color: initial;
+            }
+
+            /* Dark navbar */
+            ytd-masthead {
+                background: var(--yt-spec-brand-background-solid);
+            }
+            ytd-mini-guide-renderer,
+            ytd-mini-guide-entry-renderer[darker-dark-theme] {
+                background-color: var(--yt-spec-brand-background-solid);
+            }
+            #guide-content.ytd-app {
+                background: var(--yt-spec-brand-background-solid) //#212121 !important;
+            }
+        }
+    }
+
+
+    #meta-contents[hidden],
+    #info-contents[hidden] {
+        display: block !important;
+    } // ytd-rich-item-renderer {
+    //     margin-right: 0 !important;
+    //     margin-bottom: 25px !important;
+    // }
+    /* Permanent fixes */
+    /* Removes second comment section, */
+    #comment-teaser.ytd-watch-metadata {
+        display: none !important;
+    }
+    /* Removes border around creator's name and sub button. */
+    #owner.ytd-watch-metadata {
+        border: none !important;
+    }
+    /* Removes border around creator's name and sub button. */
+    ytd-watch-metadata:not([modern-metapanel]) #owner.ytd-watch-metadata {
+        border: none;
+    }
+    /* Reverts the video title font. */
+    ytd-watch-metadata[smaller-yt-sans-light-title] h1.ytd-watch-metadata {
+        font-family: "Roboto", sans-serif;
+        font-weight: 400 !important;
+        font-size: 18px !important;
+    }
+    ytd-video-primary-info-renderer[use-yt-sans20-light] .title.ytd-video-primary-info-renderer {
+        font-family: "Roboto", sans-serif;
+        font-weight: 400 !important;
+        font-size: 18px !important;
+    }
+    /* Removes the bold letters on upload date and view count. */
+    .yt-formatted-string[style-target="bold"] {
+        font-weight: 400;
+    }
+    ytd-button-renderer {
+        margin-left: 0 !important;
+        font-size: 13px;
+    }
+    ytd-toggle-button-renderer {
+        font-size: 13px !important;
+    }
+
+    ytd-video-primary-info-renderer {
+        --yt-button-icon-size: 30.6px !important;
+    }
+    ytd-button-renderer.force-icon-button a.ytd-button-renderer {
+        padding-right: 0;
+    }
+    ytd-video-primary-info-renderer {
+        padding-bottom: 10px;
+        position: relative;
+        bottom: 6px;
+    }
+    #top-row.style-scope.ytd-video-secondary-info-renderer {
+        padding-top: 4px;
+    }
+
+    /* Removes border */
+    .yt-spec-button-shape-next--size-m,
+    .yt-spec-touch-feedback-shape__stroke {
+        border-radius: custom_border_radius !important; // border: none !important;
+    }
+
+    /* Removes spacing between icons */
+    .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-button.yt-spec-button-shape-next--segmented-end,
+    .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-leading {
+        padding-right: 0;
+    }
+
+    /* Removes margin */
+    ytd-download-button-renderer {
+        margin: 0 !important;
+    }
+
+    /* Add spacing for dislike counts (return youtube dislike)*/
+    .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-end span {
+        padding-left: 6px
+    }
+
+    .yt-spec-touch-feedback-shape--touch-response .yt-spec-touch-feedback-shape__stroke {
+        border: none;
+    } // #segmented-like-button > ytd-toggle-button-renderer > yt-button-shape > button > div.yt-spec-button-shape-next__icon > yt-icon > yt-animated-icon > ytd-lottie-player > lottie-component > svg > g[clip-path] {
+    //     display: none;
+    // }
+    /* Subscribed button */
+    #subscribe,
+    #subscribe-button {
+        yt-button-shape {
+
+            /* Red Subscribed button */
+            button,
+            a[aria-label="Subscribe"] {
+                /* InPrivate */
+                border-radius: custom_border_radius;
+                color: var(--yt-spec-static-brand-white) !important;
+                background-color: var(--yt-spec-brand-button-background) !important;
+            }
+            /* Unsubscribe button */
+            button[aria-label^=Unsubscribe],
+            button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
+                border-radius: custom_border_radius;
+                color: var(--yt-spec-text-secondary) !important;
+                background-color: var(--yt-spec-badge-chip-background) !important;
+            }
+        }
+    }
+
+    /* Subscribed button on channels*/
+    /* Please let me know if you can figure out how to make this shorter and cleaner */
+    [page-subtype="channels"] {
+        #subscribe yt-button-shape {
+            button[aria-label^="Subscribe"], //English
+            button[aria-label^="ติดตาม"], // Thai
+            button[aria-label^="Pratite kanal"],
+            button[aria-label^="Teken in"], // Afrikaans
+            button[aria-label*="kanalına abunə olun"], // Azərbaycan
+            button[aria-label^="Subscribe"], // Bahasa Indonesia
+            button[aria-label^="Langgan"], // Bahasa Malaysia
+            button[aria-label^="Pretplatite se na kanal"], // Bosanski
+            button[aria-label^="Subscriu-te al canal"], // Català
+            button[aria-label*="se k"], // Čeština
+            button[aria-label^="Abonner på"], // Dansk
+            button[aria-label$="abonnieren."], // Deutsch
+            button[aria-label^="Telli"], // Eesti
+            button[aria-label^="Suscribirse"], // Español (España)
+            button[aria-label^="Suscribirme"], // Español (Latinoamérica)
+            button[aria-label^="Harpidetu"], // euskara
+            button[aria-label^="Mag-subscribe sa"], // Filipino
+            button[aria-label^="S'abonner à"], // Français
+            button[aria-label^="Subscribirse"], // galego
+            button[aria-label^="Bhalisesla"], // IsiZulu
+            button[aria-label^="Prihlásiť sa na odber kanála"], // Íslenska
+            button[aria-label^="Hefja áskrift að"], // Íslenska
+            button[aria-label^="Iscriviti"], // Italiano
+            button[aria-label^="Fuatilia"], //
+            button[aria-label^="Abonēt kanālu"], //
+            button[aria-label^="Prenumeruoti"], //
+            button[aria-label^="Feliratkozás"], //
+            button[aria-label^="Abonneren op"], //
+            button[aria-label^="Obuna qiling"], //
+            button[aria-label^="Abonohu në"], //
+            button[aria-label^="Đăng ký"], //
+            button[aria-label$="alına abone ol."], //
+            button[aria-label^="Падпісацца на канал"],
+            button[aria-label^="Абониране"],
+            button[aria-label$="каналына жазылыңыз."],
+            button[aria-label$="арнасына жазылу"],
+            button[aria-label^="Претплатете се на"],
+            button[aria-label$="захиалах."],
+            button[aria-label^="Оформить подписку на канал"],
+            button[aria-label^="Пратите канал"],
+            button[aria-label^="Підписатися на канал"],
+            button[aria-label^="Subscrever"],
+            button[aria-label^="Inscreva-se em"],
+            button[aria-label^="Abonează-te la"],
+            button[aria-label^="Prenumerera på"],
+            button[aria-label^="Հետևել"],
+            button[aria-label^="הרשמה למינוי לערוץ"],
+            button[aria-label$="کو سبسکرائب کریں۔"],
+            button[aria-label^="يمكنك الاشتراك في قناة"],
+            button[aria-label^="مشترک شدن در"],
+            button[aria-label$="को सदस्यता लिनुहोस्।"],
+            button[aria-label$="चे सदस्यत्व घ्या."],
+            button[aria-label$="के सदस्य बनें."],
+            button[aria-label$="ৰ সদস্য হওক।"],
+            button[aria-label$="এ সাবস্ক্রাইব করুন।"],
+            button[aria-label$="ਨੂੰ ਸਬਸਕ੍ਰਾਈਬ ਕਰੋ।"],
+            button[aria-label$="પર સબ્સ્ક્રાઇબ કરો."],
+            button[aria-label$="ସବ୍‍ସ୍କ୍ରାଇବ୍‍ କରିବେ।"],
+            button[aria-label$="சேனலில் குழுசேர்க."],
+            button[aria-label$="సబ్‌స్క్రయిబ్ చేయండి."],
+            button[aria-label$="ಗೆ ಸಬ್‌ಸ್ಕ್ರೈಬ್ ಮಾಡಿ."],
+            button[aria-label$="എന്ന ചാനലിന്‍റെ വരിക്കാരാവുക."],
+            button[aria-label$="වෙත දායක වන්න."],
+            button[aria-label^="ຕິດຕາມ"],
+            button[aria-label$="တွင် စာရင်းသွင်းရန်။"],
+            button[aria-label$="გამოწერა."],
+            button[aria-label^="订阅"], // button[aria-label="ជា&ZeroWidthSpace;វ&ZeroWidthSpace; Elegant Sister (ES) ។"]
+            button[aria-label^="訂閱"],
+            button[aria-label^="ይመዝገቡ።"],
+            button[aria-label$="をチャンネル登録"],
+            button[aria-label$="을(를) 구독합니다."],
+            button[aria-label^="Tilaa"],
+            button[aria-label^="Subskrybuj kanał"] {
+                border-radius: custom_border_radius;
+                color: var(--yt-spec-static-brand-white) !important;
+                background-color: var(--yt-spec-brand-button-background) !important;
+            }
+        }
+    }
+
+    /* Shot Unsubscribe button */
+    html[dark] ytd-shorts #subscribe-button yt-button-shape {
+        button[aria-label^=Unsubscribe],
+        button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
+            background-color: var(--sub-black-bg-btn) !important;
+        }
+    }
+
+    html:not([dark]) ytd-shorts #subscribe-button yt-button-shape {
+        button[aria-label^=Unsubscribe],
+        button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
+            background-color: var(--sub-white--text-btn) !important;
+        }
+    }
+
+
+
+    /* Removes background color */
+    .yt-simple-endpoint.style-scope.ytd-subscription-notification-toggle-button-renderer yt-icon-button {
+        background-color: transparent !important;
+    }
+
+    /* Save button (Youtube for kids) */
+    .yt-spec-button-shape-next--disabled.yt-spec-button-shape-next--tonal {
+        background-color: transparent !important;
+    }
+
+    .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start::after {
+        display: none;
+    }
+
+    .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+    .yt-spec-touch-feedback-shape__fill {
+        background-color: transparent !important;
+    }
+    /* Fixed reply button */
+    .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text {
+        background-color: transparent !important;
+    }
+
+    /* Search box */
+    ytd-multi-page-menu-renderer[sheets-refresh],
+    ytd-playlist-panel-renderer[modern-panels]:not([within-miniplayer]) #container.ytd-playlist-panel-renderer,
+    ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #container.ytd-searchbox,
+    ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #container.ytd-searchbox,
+    ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #search-icon-legacy.ytd-searchbox,
+    ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #search-icon-legacy.ytd-searchbox {
+        border-radius: custom_border_radius !important;
+    }
+
+    /* No rounded thumbnails */
+    ytd-thumbnail[size=medium] a.ytd-thumbnail,
+    ytd-thumbnail[size=medium]:before,
+    .yt-simple-endpoint.inline-block.style-scope.ytd-thumbnail,
+    .ytp-videowall-still-round-medium .ytp-videowall-still-image,
+    ytd-channel-video-player-renderer[rounded] #player.ytd-channel-video-player-renderer,
+    ytd-playlist-thumbnail[size=medium] a.ytd-playlist-thumbnail,
+    ytd-playlist-thumbnail[size=medium]:before,
+    .ytp-player-minimized.ytp-rounded-miniplayer .html5-main-video,
+    .ytp-player-minimized.ytp-rounded-miniplayer .ytp-miniplayer-scrim,
+    .ytp-player-minimized.ytp-rounded-miniplayer.html5-video-player,
+    .ytp-ce-video.ytp-ce-large-round,
+    .ytp-ce-playlist.ytp-ce-large-round,
+    .ytp-ce-large-round .ytp-ce-expanding-overlay-background,
+    ytd-macro-markers-list-item-renderer[rounded] #thumbnail.ytd-macro-markers-list-item-renderer,
+    ytd-thumbnail[size=large] a.ytd-thumbnail,
+    ytd-thumbnail[size=large]:before,
+    ytd-expandable-metadata-renderer[round-container]:not([is-expanded]),
+    ytd-expandable-metadata-renderer[round-container]:not([is-expanded]) #header.ytd-expandable-metadata-renderer:hover,
+    ytd-playlist-thumbnail[size=large] a.ytd-playlist-thumbnail,
+    ytd-playlist-thumbnail[size=large]:before,
+    .image-wrapper.ytd-hero-playlist-thumbnail-renderer,
+    ytd-ghost-grid-renderer[rounded-container] .rich-thumbnail.ytd-ghost-grid-renderer,
+    ytcp-img-with-fallback[rounded] #img-with-fallback.ytcp-img-with-fallback,
+    ytcp-img-with-fallback[rounded] .container.ytcp-img-with-fallback,
+    ytd-notification-renderer[rounded-thumbnails] .thumbnail-container.ytd-notification-renderer,
+    .ytp-autonav-endscreen-upnext-thumbnail.rounded-thumbnail,
+    ytd-video-preview[rounded-container] #video-preview-container.ytd-video-preview,
+    ytd-video-preview[rounded-container] #player-container.ytd-video-preview,
+    ytd-video-preview[rounded-container] #inline-preview-player.ytd-video-preview {
+        border-radius: custom_border_radius !important;
+    }
+
+    /* Removes border while hover the video */
+    ytd-video-preview:not([has-endorsement]) #inline-preview-player.ytp-rounded-inline-preview .html5-main-video {
+        border-radius: custom_border_radius !important;
+    }
+
+    /* Removes border from miniplayer */
+    ytd-miniplayer[rounded-container] #player-container.ytd-miniplayer,
+    ytd-miniplayer[rounded-container] #video-container.ytd-miniplayer .video.ytd-miniplayer,
+    ytd-miniplayer[rounded-container] #card.ytd-miniplayer,
+    ytd-miniplayer[rounded-container] {
+        border-radius: custom_border_radius !important;
+    } // #show-hide-button > ytd-toggle-button-renderer > yt-button-shape > button > yt-touch-feedback-shape > div > div.yt-spec-touch-feedback-shape__fill
+    /* Removes border around Live chat */
+    ytd-live-chat-frame[rounded-container],
+    ytd-live-chat-frame[rounded-container] #show-hide-button.ytd-live-chat-frame ytd-toggle-button-renderer.ytd-live-chat-frame,
+    yt-dropdown-menu[modern-dialogs] #menu.yt-dropdown-menu,
+    .dropdown-content.tp-yt-paper-menu-button,
+    #chatframe {
+        border-radius: custom_border_radius !important;
+    }
+
+    /* Live */
+    .ytp-offline-slate-bar.ytp-rounded-offline-slate {
+        border-radius: custom_border_radius !important;
+    }
+
+    /* Removes border around pop up */
+    ytd-menu-popup-renderer[sheets-refresh],
+    tp-yt-paper-dialog[modern] {
+        border-radius: custom_border_radius !important;
+    }
+
+    ytd-guide-entry-renderer[guide-refresh],
+    ytd-guide-entry-renderer[guide-refresh] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:hover,
+    ytd-guide-entry-renderer[guide-refresh] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:focus,
+    ytd-guide-entry-renderer[guide-refresh] yt-interaction.ytd-guide-entry-renderer {
+        border-radius: custom_border_radius !important;
+    }
+
+    .ytp-sb-subscribe.ytp-sb-rounded,
+    .ytp-sb-unsubscribe.ytp-sb-rounded {
+        border-radius: custom_border_radius;
+    }
+
+    .iv-card.ytp-rounded-info {
+        border-radius: custom_border_radius !important;
+    }
+
+    /* Gaming */
+    ytd-game-details-renderer[rounded] yt-img-shadow.ytd-game-details-renderer ytd-video-preview[rounded-container] #video-preview-container.ytd-video-preview,
+    ytd-video-preview[rounded-container] #player-container.ytd-video-preview,
+    ytd-video-preview[rounded-container] #inline-preview-player.ytd-video-preview,
+    ytd-game-details-renderer[rounded] yt-img-shadow.ytd-game-details-renderer {
+        border-radius: custom_border_radius !important;
+    }
+    /* Removes border Community post */
+    ytd-backstage-post-thread-renderer[rounded-container],
+    yt-img-shadow.ytd-backstage-image-renderer,
+    ytd-backstage-image-renderer[rounded] #image-container.ytd-backstage-image-renderer {
+        border-radius: custom_border_radius !important;
+    }
+    /* shots */
+    ytd-reel-player-overlay-renderer #overlay.ytd-reel-player-overlay-renderer {
+        border-radius: custom_border_radius !important;
+    }
+    /* remove unloaded video thumbnails */
+    #home-page-skeleton .rich-thumbnail.rounded-thumbs,
+    #home-container-skeleton .rich-thumbnail.rounded-thumbs:before {
+        border-radius: custom_border_radius !important;
+    }
+
+    /* Charpters */
+    ytd-engagement-panel-section-list-renderer[modern-panels] {
+        border-radius: custom_border_radius !important;
+    }
+
+    /* the end of the video */
+    .ytp-autonav-endscreen-upnext-button.ytp-autonav-endscreen-upnext-button-rounded {
+        border-radius: custom_border_radius !important;
+    }
+
+    a.ytd-search-refinement-card-renderer {
+        border-radius: custom_border_radius !important;
+    }
+
+    ytd-expandable-metadata-renderer[round-container]:not([is-expanded]) {
+        --yt-img-border-radius: custom_border_radius;
+    }
+    /* hover playlist */
+    ytd-playlist-video-renderer[amsterdam] {
+        border-radius: custom_border_radius !important;
+    }
+    /* Home posts section */
+    ytd-post-renderer[rounded-container] {
+        border-radius: custom_border_radius !important;
+    }
+
+    /* Setting gear icon */
+    .ytp-settings-menu.ytp-rounded-menu,
+    .ytp-screen-mode-menu.ytp-rounded-menu {
+        border-radius: custom_border_radius !important;
+    }
+
+    .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start {
+        border-radius: custom_border_radius !important;
+        position: relative;
+    }
+
+    .player-container.ytd-reel-video-renderer,
+    .ytp-ce-video.ytp-ce-medium-round,
+    .ytp-ce-playlist.ytp-ce-medium-round,
+    .ytp-ce-medium-round .ytp-ce-expanding-overlay-background,
+    ytd-compact-video-renderer[music-metadata-video-lockup],
+    ytd-rich-metadata-renderer[rounded] {
+        border-radius: custom_border_radius !important;
+    }
+
+    /* Removes border around search box */
+    .sbdd_b {
+        border-radius: custom_border_radius !important;
+    }
+
+    ytd-expandable-metadata-renderer[round-container] {
+        border-radius: custom_border_radius !important;
+    }
+
+    /* Timestamp */
+    ytd-macro-markers-list-item-renderer[modern][rounded][layout=MACRO_MARKERS_LIST_ITEM_RENDERER_LAYOUT_VERTICAL] {
+        border-radius: custom_border_radius !important;
+    }
+
+    /* Not interested */
+    ytd-rich-grid-media[rounded-container] #dismissed.ytd-rich-grid-media,
+    #dismissed.ytd-compact-video-renderer {
+        border-radius: custom_border_radius !important;
+    }
+
+    /* Inform news such as covid19 */
+    ytd-clarification-renderer[round-container],
+    ytd-info-panel-container-renderer[rounded-container][has-title] .header.ytd-info-panel-container-renderer,
+    ytd-medical-panel-content-renderer[rounded-container] {
+        border-radius: custom_border_radius !important;
+    }
+
+    .ytp-sb-subscribe.ytp-sb-rounded,
+    .ytp-sb-unsubscribe.ytp-sb-rounded {
+        border-radius: custom_border_radius !important;
+    }
+
+    yt-formatted-string#index.style-scope.ytd-playlist-video-renderer {
+        display: inline !important;
+    }
+
+    /* Removes double line on playlits */
+    ytd-playlist-video-renderer[can-reorder][is-editable]:hover #reorder.ytd-playlist-video-renderer,
+    ytd-playlist-video-renderer[persistent-drag-handle] #reorder.ytd-playlist-video-renderer {
+        display: none;
+    }
+
+    yt-button-shape span[role="text"] {
+        text-transform: uppercase;
+    }
+
+    .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline {
+        border: 1px solid var(--yt-spec-call-to-action) !important;
+    }
+    /* Playlist */
+    .yt-spec-button-shape-next.yt-spec-button-shape-next--text.yt-spec-button-shape-next--icon-only-default,
+    .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--icon-button {
+        background-color: transparent !important;
+    }
+
+    /* (chip)buttons to sort the videos */
+    yt-chip-cloud-chip-renderer[modern-chips][chip-style] {
+        border-radius: 5px !important;
+    }
+
+
+    /* Reply button */
+    #reply-button-end ytd-button-renderer yt-button-shape button,
+    #reply-button-end > yt-button-renderer > yt-button-shape > button {
+        color: var(--yt-spec-text-secondary) !important;
+        background: transparent !important;
+        padding: 0;
+    }
+
+    .more-button.ytd-backstage-post-renderer,
+    .less-button.ytd-backstage-post-renderer {
+        color: var(--yt-spec-text-secondary) !important;
+    }
+
+    /* Join button */
+    #sponsor-button yt-button-shape button,
+    #buttons ytd-toggle-button-renderer yt-button-shape button {
+        color: var(--yt-spec-call-to-action) !important; // #065fd4
+        border: 1px solid var(--yt-spec-call-to-action) !important;
+        padding: 9px 15px !important;
+        background: transparent;
+    }
+
+
+    /* Post button*/
+    #post-button yt-button-shape button {
+        background-color: var(--yt-spec-call-to-action) !important; // #065fd4
+    }
+
+    /* Revert comment and like/dislike btn */
+    #share-button,
+    #like-button,
+    #dislike-button,
+    #reply-button-end {
+        svg {
+            // color: #AAA !important
+            width: 18px !important;
+            height: 18px !important;
+        }
+    }
+
+    /* Share button on community page */
+    #share-button.ytd-comment-action-buttons-renderer {
+        margin: 0;
+    }
+
+    #reply-button-end > ytd-button-renderer > yt-button-shape > a > div.cbox.yt-spec-button-shape-next--button-text-content {
+        color: var(--yt-spec-text-secondary);
+    }
+
+    #toolbar #vote-count-middle {
+        margin: 0;
+    }
+    #creator-heart-button button #hearted-thumbnail {
+        margin-left: 0; 
+    }
+
+    /* Hearted comment */
+    #hearted.ytd-creator-heart-renderer {
+        right: 10px !important;
+    }
+    #hearted-border.ytd-creator-heart-renderer {
+        right: 9px !important;
+    }
+}

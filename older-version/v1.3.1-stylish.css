@@ -1,0 +1,369 @@
+/* ==UserStyle==
+@name           Youtube Old Layout
+@author         sapondanaisriwan(Adashima#4066)
+@description    `new youtube layout is bad`
+@namespace      https://userstyles.world/user/sapondanaisriwan
+@homepageURL    https://github.com/sapondanaisriwan/Youtube-Old-Layout
+@supportURL     https://github.com/sapondanaisriwan/Youtube-Old-Layout/issues
+@version        1.3.1
+@license        MIT
+==/UserStyle== */
+
+/*
+Support me: https://ko-fi.com/sapondanaisriwan 
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+*/
+@-moz-document domain("youtube.com") {
+
+    :root {
+        --sub-red-btn: #CC0000;
+        --sub-white--text-btn: #F2F2F2;
+        --sub-black-bg-btn: #303030;
+    }
+
+    ytd-watch-metadata {
+        display: none !important;
+    }
+    #meta-contents[hidden],
+    #info-contents[hidden] {
+        display: block !important;
+    }
+
+    /* Permanent fixes */
+    /* Removes second comment section, */
+    #comment-teaser.ytd-watch-metadata {
+        display: none !important;
+    }
+    /* Removes border around creator's name and sub button. */
+    #owner.ytd-watch-metadata {
+        border: none !important;
+    }
+    /* Removes border around creator's name and sub button. */
+    ytd-watch-metadata:not([modern-metapanel]) #owner.ytd-watch-metadata {
+        border: none;
+    }
+    /* Reverts the video title font. */
+    ytd-watch-metadata[smaller-yt-sans-light-title] h1.ytd-watch-metadata {
+        font-family: "Roboto", sans-serif;
+        font-weight: 400 !important;
+        font-size: 18px !important;
+    }
+    ytd-video-primary-info-renderer[use-yt-sans20-light] .title.ytd-video-primary-info-renderer {
+        font-family: "Roboto", sans-serif;
+        font-weight: 400 !important;
+        font-size: 18px !important;
+    }
+    /* Removes the bold letters on upload date and view count. */
+    .yt-formatted-string[style-target="bold"] {
+        font-weight: 400;
+    }
+    ytd-button-renderer {
+        margin-left: 0 !important;
+        font-size: 13px;
+    }
+    ytd-toggle-button-renderer {
+        font-size: 13px !important;
+    }
+
+    ytd-video-primary-info-renderer {
+        --yt-button-icon-size: 30.6px !important;
+    }
+    ytd-button-renderer.force-icon-button a.ytd-button-renderer {
+        padding-right: 0;
+    }
+    ytd-video-primary-info-renderer {
+        padding-bottom: 10px;
+        position: relative;
+        bottom: 6px;
+    }
+    .ryd-tooltip-bar-container {
+        padding-top: 0;
+        padding-bottom: 0px;
+        top: -8px;
+        bottom: 0;
+    }
+    #top-row.style-scope.ytd-video-secondary-info-renderer {
+        padding-top: 4px;
+    }
+
+    /* Removes border */
+    .yt-spec-button-shape-next--size-m,
+    .yt-spec-touch-feedback-shape__stroke {
+        border-radius: 0 !important;
+        border: none !important;
+    }
+
+    /* Removes spacing between icons */
+    .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-button.yt-spec-button-shape-next--segmented-end,
+    .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-leading {
+        padding-right: 0;
+    }
+
+    /* Removes margin */
+    ytd-download-button-renderer {
+        margin: 0 !important;
+    }
+
+    /* Add spacing for dislike counts */
+    .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-end span {
+        padding-left: 6px
+    }
+
+
+    /* Change color of Unsubscribe button */
+    /* Light theme users */
+    html:not([dark]) #channel #subscribe ytd-subscribe-button-renderer yt-button-shape button[aria-label^=Unsubscribe], html:not([dark]) #channel-container #subscribe ytd-subscribe-button-renderer yt-button-shape button[aria-label^=Unsubscribe], html:not([dark]) ytd-video-secondary-info-renderer #subscribe ytd-subscribe-button-renderer yt-button-shape button[aria-label^=Unsubscribe], html:not([dark]) ytd-shorts #subscribe ytd-subscribe-button-renderer yt-button-shape button[aria-label^=Unsubscribe], html:not([dark]) #content-section #subscribe ytd-subscribe-button-renderer yt-button-shape button[aria-label^=Unsubscribe], html:not([dark]) #channel-header-container #subscribe ytd-subscribe-button-renderer yt-button-shape button[aria-label^=Unsubscribe], html:not([dark]) #channel #subscribe-button yt-button-shape button[aria-label^=Unsubscribe], html:not([dark]) #channel-container #subscribe-button yt-button-shape button[aria-label^=Unsubscribe], html:not([dark]) ytd-video-secondary-info-renderer #subscribe-button yt-button-shape button[aria-label^=Unsubscribe], html:not([dark]) ytd-shorts #subscribe-button yt-button-shape button[aria-label^=Unsubscribe], html:not([dark]) #content-section #subscribe-button yt-button-shape button[aria-label^=Unsubscribe], html:not([dark]) #channel-header-container #subscribe-button yt-button-shape button[aria-label^=Unsubscribe] {
+        color: #82807f !important;
+        border-radius: 0;
+        background-color: var(--sub-white--text-btn) !important;
+    }
+
+    /* Dark theme users */
+    html[dark] #channel #subscribe ytd-subscribe-button-renderer yt-button-shape button[aria-label^=Unsubscribe], html[dark] #channel-container #subscribe ytd-subscribe-button-renderer yt-button-shape button[aria-label^=Unsubscribe], html[dark] ytd-video-secondary-info-renderer #subscribe ytd-subscribe-button-renderer yt-button-shape button[aria-label^=Unsubscribe], html[dark] ytd-shorts #subscribe ytd-subscribe-button-renderer yt-button-shape button[aria-label^=Unsubscribe], html[dark] #content-section #subscribe ytd-subscribe-button-renderer yt-button-shape button[aria-label^=Unsubscribe], html[dark] #channel-header-container #subscribe ytd-subscribe-button-renderer yt-button-shape button[aria-label^=Unsubscribe], html[dark] #channel #subscribe-button yt-button-shape button[aria-label^=Unsubscribe], html[dark] #channel-container #subscribe-button yt-button-shape button[aria-label^=Unsubscribe], html[dark] ytd-video-secondary-info-renderer #subscribe-button yt-button-shape button[aria-label^=Unsubscribe], html[dark] ytd-shorts #subscribe-button yt-button-shape button[aria-label^=Unsubscribe], html[dark] #content-section #subscribe-button yt-button-shape button[aria-label^=Unsubscribe], html[dark] #channel-header-container #subscribe-button yt-button-shape button[aria-label^=Unsubscribe] {
+        color: #82807f !important;
+        border-radius: 0;
+        background-color: var(--sub-black-bg-btn) !important;
+    }
+
+    /* Add red background color to Subscribed button */
+    #channel #subscribe ytd-subscribe-button-renderer yt-button-shape button, #channel-container #subscribe ytd-subscribe-button-renderer yt-button-shape button, ytd-video-secondary-info-renderer #subscribe ytd-subscribe-button-renderer yt-button-shape button, ytd-shorts #subscribe ytd-subscribe-button-renderer yt-button-shape button, #content-section #subscribe ytd-subscribe-button-renderer yt-button-shape button, #channel-header-container #subscribe ytd-subscribe-button-renderer yt-button-shape button, #channel #subscribe-button ytd-subscribe-button-renderer yt-button-shape button, #channel-container #subscribe-button ytd-subscribe-button-renderer yt-button-shape button, ytd-video-secondary-info-renderer #subscribe-button ytd-subscribe-button-renderer yt-button-shape button, ytd-shorts #subscribe-button ytd-subscribe-button-renderer yt-button-shape button, #content-section #subscribe-button ytd-subscribe-button-renderer yt-button-shape button, #channel-header-container #subscribe-button ytd-subscribe-button-renderer yt-button-shape button {
+        border-radius: 0;
+        color: var(--sub-white--text-btn) !important;
+        background: var(--sub-red-btn) !important;
+        background-color: var(--sub-red-btn) !important;
+    }
+
+    /* Removes background color*/
+    .yt-simple-endpoint.style-scope.ytd-subscription-notification-toggle-button-renderer yt-icon-button {
+        background-color: transparent !important;
+    }
+
+    .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start::after {
+        display: none;
+    }
+
+    .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+    .yt-spec-touch-feedback-shape__fill {
+        background-color: transparent !important;
+    }
+    /* Solved reply button */
+    .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text {
+        background-color: transparent !important;
+    }
+
+    /* Search box */
+    ytd-multi-page-menu-renderer[sheets-refresh],
+    ytd-playlist-panel-renderer[modern-panels]:not([within-miniplayer]) #container.ytd-playlist-panel-renderer,
+    ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #container.ytd-searchbox,
+    ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #container.ytd-searchbox,
+    ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #search-icon-legacy.ytd-searchbox,
+    ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #search-icon-legacy.ytd-searchbox {
+        border-radius: 0 !important;
+    }
+
+    /* No rounded thumbnails */
+    ytd-thumbnail[size=medium] a.ytd-thumbnail,
+    ytd-thumbnail[size=medium]:before,
+    .yt-simple-endpoint.inline-block.style-scope.ytd-thumbnail,
+    .ytp-videowall-still-round-medium .ytp-videowall-still-image,
+    ytd-channel-video-player-renderer[rounded] #player.ytd-channel-video-player-renderer,
+    ytd-playlist-thumbnail[size=medium] a.ytd-playlist-thumbnail,
+    ytd-playlist-thumbnail[size=medium]:before,
+    .ytp-player-minimized.ytp-rounded-miniplayer .html5-main-video,
+    .ytp-player-minimized.ytp-rounded-miniplayer .ytp-miniplayer-scrim,
+    .ytp-player-minimized.ytp-rounded-miniplayer.html5-video-player,
+    .ytp-ce-video.ytp-ce-large-round,
+    .ytp-ce-playlist.ytp-ce-large-round,
+    .ytp-ce-large-round .ytp-ce-expanding-overlay-background,
+    ytd-macro-markers-list-item-renderer[rounded] #thumbnail.ytd-macro-markers-list-item-renderer,
+    ytd-thumbnail[size=large] a.ytd-thumbnail,
+    ytd-thumbnail[size=large]:before,
+    ytd-expandable-metadata-renderer[round-container]:not([is-expanded]),
+    ytd-expandable-metadata-renderer[round-container]:not([is-expanded]) #header.ytd-expandable-metadata-renderer:hover,
+    ytd-playlist-thumbnail[size=large] a.ytd-playlist-thumbnail,
+    ytd-playlist-thumbnail[size=large]:before,
+    .image-wrapper.ytd-hero-playlist-thumbnail-renderer,
+    ytd-ghost-grid-renderer[rounded-container] .rich-thumbnail.ytd-ghost-grid-renderer,
+    ytcp-img-with-fallback[rounded] #img-with-fallback.ytcp-img-with-fallback,
+    ytcp-img-with-fallback[rounded] .container.ytcp-img-with-fallback,
+    ytd-notification-renderer[rounded-thumbnails] .thumbnail-container.ytd-notification-renderer,
+    .ytp-autonav-endscreen-upnext-thumbnail.rounded-thumbnail,
+    ytd-video-preview[rounded-container] #video-preview-container.ytd-video-preview,
+    ytd-video-preview[rounded-container] #player-container.ytd-video-preview,
+    ytd-video-preview[rounded-container] #inline-preview-player.ytd-video-preview {
+        border-radius: 0 !important;
+    }
+
+    /* Removes border while hover the video */
+    ytd-video-preview:not([has-endorsement]) #inline-preview-player.ytp-rounded-inline-preview .html5-main-video {
+        border-radius: 0 !important;
+    }
+
+    /* Removes border from miniplayer */
+    ytd-miniplayer[rounded-container] #player-container.ytd-miniplayer,
+    ytd-miniplayer[rounded-container] #video-container.ytd-miniplayer .video.ytd-miniplayer,
+    ytd-miniplayer[rounded-container] #card.ytd-miniplayer,
+    ytd-miniplayer[rounded-container] {
+        border-radius: 0 !important;
+    }
+
+    /* Removes border around Live chat */
+    ytd-live-chat-frame[rounded-container],
+    ytd-live-chat-frame[rounded-container] #show-hide-button.ytd-live-chat-frame ytd-toggle-button-renderer.ytd-live-chat-frame,
+    yt-dropdown-menu[modern-dialogs] #menu.yt-dropdown-menu,
+    .dropdown-content.tp-yt-paper-menu-button,
+    #chatframe {
+        border-radius: 0 !important;
+    }
+    /* Removes border around pop up */
+    ytd-menu-popup-renderer[sheets-refresh],
+    tp-yt-paper-dialog[modern] {
+        border-radius: 0 !important;
+    }
+
+    ytd-guide-entry-renderer[guide-refresh],
+    ytd-guide-entry-renderer[guide-refresh] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:hover,
+    ytd-guide-entry-renderer[guide-refresh] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:focus,
+    ytd-guide-entry-renderer[guide-refresh] yt-interaction.ytd-guide-entry-renderer {
+        border-radius: 0 !important;
+    }
+    /* Gaming */
+    ytd-game-details-renderer[rounded] yt-img-shadow.ytd-game-details-renderer ytd-video-preview[rounded-container] #video-preview-container.ytd-video-preview,
+    ytd-video-preview[rounded-container] #player-container.ytd-video-preview,
+    ytd-video-preview[rounded-container] #inline-preview-player.ytd-video-preview {
+        border-radius: 0 !important;
+    }
+    /* Removes border Community post */
+    ytd-backstage-post-thread-renderer[rounded-container],
+    yt-img-shadow.ytd-backstage-image-renderer,
+    ytd-backstage-image-renderer[rounded] #image-container.ytd-backstage-image-renderer {
+        border-radius: 0 !important;
+    }
+    /* shots */
+    ytd-reel-player-overlay-renderer #overlay.ytd-reel-player-overlay-renderer {
+        border-radius: 0 !important;
+    }
+    /* remove unloaded video thumbnails */
+    #home-page-skeleton .rich-thumbnail.rounded-thumbs,
+    #home-container-skeleton .rich-thumbnail.rounded-thumbs:before {
+        border-radius: 0 !important;
+    }
+
+    /* Charpters */
+    ytd-engagement-panel-section-list-renderer[modern-panels] {
+        border-radius: 0 !important;
+    }
+
+    /* the end of the video */
+    .ytp-autonav-endscreen-upnext-button.ytp-autonav-endscreen-upnext-button-rounded {
+        border-radius: 0 !important;
+    }
+
+    ytd-expandable-metadata-renderer[round-container]:not([is-expanded]) {
+        --yt-img-border-radius: 0;
+    }
+    /* hover playlist */
+    ytd-playlist-video-renderer[amsterdam] {
+        border-radius: 0 !important;
+    }
+    /* Home posts section */
+    ytd-post-renderer[rounded-container] {
+        border-radius: 0 !important;
+    }
+
+    /* Setting gear icon */
+    .ytp-settings-menu.ytp-rounded-menu,
+    .ytp-screen-mode-menu.ytp-rounded-menu {
+        border-radius: 0 !important;
+    }
+
+    .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start {
+        border-radius: 0 !important;
+        position: relative;
+    }
+
+    .player-container.ytd-reel-video-renderer,
+    .ytp-ce-video.ytp-ce-medium-round,
+    .ytp-ce-playlist.ytp-ce-medium-round,
+    .ytp-ce-medium-round .ytp-ce-expanding-overlay-background,
+    ytd-compact-video-renderer[music-metadata-video-lockup],
+    ytd-rich-metadata-renderer[rounded] {
+        border-radius: 0 !important;
+    }
+    yt-formatted-string#index.style-scope.ytd-playlist-video-renderer {
+        display: inline !important;
+    }
+
+    /* Removes double line on playlits */
+    ytd-playlist-video-renderer[can-reorder][is-editable]:hover #reorder.ytd-playlist-video-renderer,
+    ytd-playlist-video-renderer[persistent-drag-handle] #reorder.ytd-playlist-video-renderer {
+        display: none;
+    }
+
+    yt-button-shape span[role="text"] {
+        text-transform: uppercase;
+    }
+    /* Removes border around search box */
+    .sbdd_b {
+        border-radius: 0 !important;
+    }
+
+    .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline {
+        border: 1px solid #3ea6ff !important;
+    }
+    /* Playlist */
+    .yt-spec-button-shape-next.yt-spec-button-shape-next--text.yt-spec-button-shape-next--icon-only-default,
+    .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--icon-button {
+        background-color: transparent !important;
+    }
+    /* Reply button */
+    html[dark] #reply-button-end ytd-button-renderer yt-button-shape button, html[dark] #reply-button-end > yt-button-renderer > yt-button-shape > button {
+        color: #aaa !important;
+        background: transparent !important;
+        padding: 0;
+    }
+
+    html:not([dark]) #reply-button-end ytd-button-renderer yt-button-shape button, html:not([dark]) #reply-button-end > yt-button-renderer > yt-button-shape > button {
+        color: #606060 !important;
+        background: transparent !important;
+        padding: 0;
+    }
+
+    /* Join button */
+    html:not([dark]) yt-button-shape button[aria-label="Join this channel"], html:not([dark]) #buttons ytd-toggle-button-renderer yt-button-shape button {
+        color: #065fd4 !important;
+        border: 1px solid #065fd4 !important;
+        padding: 9px 15px !important;
+    }
+
+    html[dark] yt-button-shape button[aria-label="Join this channel"], html[dark] #buttons ytd-toggle-button-renderer yt-button-shape button {
+        color: #3ea6ff !important;
+        border: 1px solid #3ea6ff !important;
+        padding: 9px 15px !important;
+    }
+
+
+    /* Revert comment and like/dislike btn */
+    #like-button svg,
+    #dislike-button svg {
+        width: 18px !important;
+        height: 18px !important;
+    }
+    #toolbar #vote-count-middle {
+        margin: 0;
+    }
+    #creator-heart-button button #hearted-thumbnail {
+        margin-left: 0;
+    }
+
+    /* Hearted comment */
+    #hearted.ytd-creator-heart-renderer {
+        right: 10px !important;
+    }
+    #hearted-border.ytd-creator-heart-renderer {
+        right: 9px !important;
+    }
+}
