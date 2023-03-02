@@ -107,18 +107,18 @@ Support me: https://ko-fi.com/sapondanaisriwan
     }
 
     ytd-c4-tabbed-header-renderer.grid-4-columns #channel-header.ytd-c4-tabbed-header-renderer {
-        padding-right: calc((100% - --ytd-grid-4-columns-width)/2) i;
-        padding-left: calc((100% - --ytd-grid-4-columns-width)/2) i;
+        padding-right: calc((100% - var(--ytd-grid-4-columns-width))/2) i;
+        padding-left: calc((100% - var(--ytd-grid-4-columns-width))/2) i;
     }
 
     ytd-c4-tabbed-header-renderer.grid-3-columns #channel-header.ytd-c4-tabbed-header-renderer {
-        padding-right: calc((100% - --ytd-grid-3-columns-width)/2) i;
-        padding-left: calc((100% - --ytd-grid-3-columns-width)/2) i;
+        padding-right: calc((100% - var(--ytd-grid-3-columns-width))/2) i;
+        padding-left: calc((100% - var(--ytd-grid-3-columns-width))/2) i;
     }
 
     ytd-c4-tabbed-header-renderer.grid-2-columns #channel-header.ytd-c4-tabbed-header-renderer {
-        padding-right: calc((100% - --ytd-grid-2-columns-width)/2) i;
-        padding-left: calc((100% - --ytd-grid-2-columns-width)/2) i;
+        padding-right: calc((100% - var(--ytd-grid-2-columns-width))/2) i;
+        padding-left: calc((100% - var(--ytd-grid-2-columns-width))/2) i;
     }
 
     /* Channel Taps */
@@ -133,18 +133,18 @@ Support me: https://ko-fi.com/sapondanaisriwan
     }
 
     ytd-c4-tabbed-header-renderer.grid-4-columns tp-yt-paper-tabs.ytd-c4-tabbed-header-renderer {
-        margin-left: calc((100% - --ytd-grid-4-columns-width)/2) i;
-        margin-right: calc((100% - --ytd-grid-4-columns-width)/2) i;
+        margin-left: calc((100% - var(--ytd-grid-4-columns-width))/2) i;
+        margin-right: calc((100% - var(--ytd-grid-4-columns-width))/2) i;
     }
 
     ytd-c4-tabbed-header-renderer.grid-3-columns tp-yt-paper-tabs.ytd-c4-tabbed-header-renderer {
-        margin-left: calc((100% - --ytd-grid-3-columns-width)/2) i;
-        margin-right: calc((100% - --ytd-grid-3-columns-width)/2) i;
+        margin-left: calc((100% - var(--ytd-grid-3-columns-width))/2) i;
+        margin-right: calc((100% - var(--ytd-grid-3-columns-width))/2) i;
     }
 
     ytd-c4-tabbed-header-renderer.grid-2-columns tp-yt-paper-tabs.ytd-c4-tabbed-header-renderer {
-        margin-left: calc((100% - --ytd-grid-2-columns-width)/2) i;
-        margin-right: calc((100% - --ytd-grid-2-columns-width)/2) i;
+        margin-left: calc((100% - var(--ytd-grid-2-columns-width))/2) i;
+        margin-right: calc((100% - var(--ytd-grid-2-columns-width))/2) i;
     }
 
     /* Sidebar expanded */
