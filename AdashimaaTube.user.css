@@ -75,6 +75,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
         --color1: #3ea6ff;
         --like-lime: #00FF00;
         --dislike-red: #FF0000;
+        --size-6: calc((100% - var(--ytd-grid-6-columns-width))/2);
+        --size-5: calc((100% - var(--ytd-grid-5-columns-width))/2);
+        --size-4: calc((100% - var(--ytd-grid-4-columns-width))/2);
+        --size-3: calc((100% - var(--ytd-grid-3-columns-width))/2);
+        --size-2: calc((100% - var(--ytd-grid-2-columns-width))/2);
     }
 
     html[dark] {
@@ -96,55 +101,59 @@ Support me: https://ko-fi.com/sapondanaisriwan
     t=transparent;
 
     /* Channel container */
-    ytd-c4-tabbed-header-renderer.grid-6-columns #channel-header.ytd-c4-tabbed-header-renderer {
-        padding-right: calc((100% - var(--ytd-grid-6-columns-width))/2) i;
-        padding-left: calc((100% - var(--ytd-grid-6-columns-width))/2) i;
-    }
+    ytd-c4-tabbed-header-renderer {
+        &.grid-6-columns #channel-header.ytd-c4-tabbed-header-renderer {
+            padding-right: var(--size-6) i;
+            padding-left: var(--size-6) i;
+        }
 
-    ytd-c4-tabbed-header-renderer.grid-5-columns #channel-header.ytd-c4-tabbed-header-renderer {
-        padding-right: calc((100% - var(--ytd-grid-5-columns-width))/2) i;
-        padding-left: calc((100% - var(--ytd-grid-5-columns-width))/2) i;
-    }
+        &.grid-5-columns #channel-header.ytd-c4-tabbed-header-renderer {
+            padding-right: var(--size-5) i;
+            padding-left: var(--size-5) i;
+        }
 
-    ytd-c4-tabbed-header-renderer.grid-4-columns #channel-header.ytd-c4-tabbed-header-renderer {
-        padding-right: calc((100% - var(--ytd-grid-4-columns-width))/2) i;
-        padding-left: calc((100% - var(--ytd-grid-4-columns-width))/2) i;
-    }
+        &.grid-4-columns #channel-header.ytd-c4-tabbed-header-renderer {
+            padding-right: var(--size-4) i;
+            padding-left: var(--size-4) i;
+        }
 
-    ytd-c4-tabbed-header-renderer.grid-3-columns #channel-header.ytd-c4-tabbed-header-renderer {
-        padding-right: calc((100% - var(--ytd-grid-3-columns-width))/2) i;
-        padding-left: calc((100% - var(--ytd-grid-3-columns-width))/2) i;
-    }
+        &.grid-3-columns #channel-header.ytd-c4-tabbed-header-renderer {
+            padding-right: var(--size-3) i;
+            padding-left: var(--size-3) i;
+        }
 
-    ytd-c4-tabbed-header-renderer.grid-2-columns #channel-header.ytd-c4-tabbed-header-renderer {
-        padding-right: calc((100% - var(--ytd-grid-2-columns-width))/2) i;
-        padding-left: calc((100% - var(--ytd-grid-2-columns-width))/2) i;
+        &.grid-2-columns #channel-header.ytd-c4-tabbed-header-renderer {
+            padding-right: var(--size-2) i;
+            padding-left: var(--size-2) i;
+        }
     }
 
     /* Channel Taps */
-    ytd-c4-tabbed-header-renderer.grid-6-columns tp-yt-paper-tabs.ytd-c4-tabbed-header-renderer {
-        margin-left: calc((100% - var(--ytd-grid-6-columns-width))/2) i;
-        margin-right: calc((100% - var(--ytd-grid-6-columns-width))/2) i;
-    }
+    ytd-c4-tabbed-header-renderer {
+        &.grid-6-columns tp-yt-paper-tabs.ytd-c4-tabbed-header-renderer {
+            margin-left: var(--size-6) i;
+            margin-right: var(--size-6) i;
+        }
 
-    ytd-c4-tabbed-header-renderer.grid-5-columns tp-yt-paper-tabs.ytd-c4-tabbed-header-renderer {
-        margin-left: calc((100% - var(--ytd-grid-5-columns-width))/2) i;
-        margin-right: calc((100% - var(--ytd-grid-5-columns-width))/2) i;
-    }
+        &.grid-5-columns tp-yt-paper-tabs.ytd-c4-tabbed-header-renderer {
+            margin-left: var(--size-5) i;
+            margin-right: var(--size-5) i;
+        }
 
-    ytd-c4-tabbed-header-renderer.grid-4-columns tp-yt-paper-tabs.ytd-c4-tabbed-header-renderer {
-        margin-left: calc((100% - var(--ytd-grid-4-columns-width))/2) i;
-        margin-right: calc((100% - var(--ytd-grid-4-columns-width))/2) i;
-    }
+        &.grid-4-columns tp-yt-paper-tabs.ytd-c4-tabbed-header-renderer {
+            margin-left: var(--size-4) i;
+            margin-right: var(--size-4) i;
+        }
 
-    ytd-c4-tabbed-header-renderer.grid-3-columns tp-yt-paper-tabs.ytd-c4-tabbed-header-renderer {
-        margin-left: calc((100% - var(--ytd-grid-3-columns-width))/2) i;
-        margin-right: calc((100% - var(--ytd-grid-3-columns-width))/2) i;
-    }
+        &.grid-3-columns tp-yt-paper-tabs.ytd-c4-tabbed-header-renderer {
+            margin-left: var(--size-3) i;
+            margin-right: var(--size-3) i;
+        }
 
-    ytd-c4-tabbed-header-renderer.grid-2-columns tp-yt-paper-tabs.ytd-c4-tabbed-header-renderer {
-        margin-left: calc((100% - var(--ytd-grid-2-columns-width))/2) i;
-        margin-right: calc((100% - var(--ytd-grid-2-columns-width))/2) i;
+        &.grid-2-columns tp-yt-paper-tabs.ytd-c4-tabbed-header-renderer {
+            margin-left: var(--size-2) i;
+            margin-right: var(--size-2) i;
+        }
     }
 
     /* Sidebar expanded */
@@ -159,6 +168,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     }
 
     @media Screen and (max-width: 1339px) {
+        ytd-browse[page-subtype="channels"][has-c4-tabbed-header-renderer] ytd-two-column-browse-results-renderer.grid-disabled[disable-grid-state-aware],
         ytd-browse[page-subtype="channels"][guide-persistent-and-visible] ytd-two-column-browse-results-renderer.grid-disabled[disable-grid-state-aware] {
             width: var(--ytd-grid-4-columns-width) i;
         }
@@ -176,14 +186,46 @@ Support me: https://ko-fi.com/sapondanaisriwan
     }
 
     @media Screen and (max-width: 1385px) {
-        ytd-browse[page-subtype="channels"][mini-guide-visible] ytd-two-column-browse-results-renderer.grid-disabled[disable-grid-state-aware] {
-            width: var(--ytd-grid-5-columns-width) i;
+        ytd-browse[page-subtype="channels"] {
+            &[has-c4-tabbed-header-renderer],
+            &[mini-guide-visible] {
+                ytd-two-column-browse-results-renderer.grid-disabled[disable-grid-state-aware] {
+                    width: var(--ytd-grid-5-columns-width) i;
+                }
+            }
         }
     }
 
     @media Screen and (max-width: 1171px) {
-        ytd-browse[page-subtype="channels"][mini-guide-visible] ytd-two-column-browse-results-renderer.grid-disabled[disable-grid-state-aware] {
-            width: var(--ytd-grid-4-columns-width) i;
+        ytd-browse[page-subtype="channels"] {
+            &[has-c4-tabbed-header-renderer],
+            &[mini-guide-visible] {
+                ytd-two-column-browse-results-renderer.grid-disabled[disable-grid-state-aware] {
+                    width: var(--ytd-grid-4-columns-width) i;
+                }
+            }
+        }
+    }
+
+    @media Screen and (max-width: 972px) {
+        ytd-browse[page-subtype="channels"] {
+            &[has-c4-tabbed-header-renderer],
+            &[mini-guide-visible] {
+                ytd-two-column-browse-results-renderer.grid-disabled[disable-grid-state-aware] {
+                    width: var(--ytd-grid-3-columns-width) i;
+                }
+            }
+        }
+    }
+
+    @media Screen and (max-width: 688px) {
+        ytd-browse[page-subtype="channels"] {
+            &[has-c4-tabbed-header-renderer],
+            &[mini-guide-visible] {
+                ytd-two-column-browse-results-renderer.grid-disabled[disable-grid-state-aware] {
+                    width: var(--ytd-grid-2-columns-width) i;
+                }
+            }
         }
     }
 
