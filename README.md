@@ -55,7 +55,7 @@ This is why you should consider using AdashimaaTube! 🥶
 <div align="center">
 
 ### 🔧 Menu Options
-<img src="https://user-images.githubusercontent.com/64634605/221103927-25adef16-8f33-4e2f-9b70-66239b6e68b2.png" sytle="text-align: center"/>
+<img src="https://i.imgur.com/0Zo680O.png" sytle="text-align: center"/>
 </div>
 
 ## 📷 Screenshots
