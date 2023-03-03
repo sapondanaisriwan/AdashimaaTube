@@ -41,7 +41,8 @@
     "Filipino": "Filipino",
     "中文": "Chinese",
     "日本語": "Japanese",
-    "한국어": "Korean"
+    "한국어": "Korean",
+    "Россия": "Russia"
 }
 @advanced checkbox displayFullTitle         "  🎦 Full Title For Videos" 0
 @advanced select likeDislike                "  🎨 Like/Dislike colors" ['None', 'Navy-Blue', 'Classic']
@@ -933,7 +934,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
 
         ytd-channel-renderer {
-            width: var(--ytd-grid-1-columns-width) i;
+            max-width: var(--ytd-grid-1-columns-width) i;
         }
 
         /* Remove description */
@@ -961,7 +962,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
         /* Channel profile */
         yt-img-shadow.ytd-channel-renderer {
-            width: var(--ytd-grid-base);
+            max-width: var(--ytd-grid-base);
             height: var(--ytd-grid-base);
             /* Centered the channel profile */
             display: flex;
@@ -1170,7 +1171,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 "Filipino": "ayaw",
                 "Chinese": "不喜欢",
                 "Japanese": "嫌い",
-                "Korean": "싫어함"
+                "Korean": "싫어함",
+                "Russia": "Не нравится"
             }
 
             for language in languages {
@@ -2115,7 +2117,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     #buttons ytd-toggle-button-renderer yt-button-shape button {
         color: var(--yt-spec-call-to-action) i; // #065fd4
         border: 1px solid var(--yt-spec-call-to-action) i;
-        border-radius: buttonRadius i;
+        border-radius: buttonRadius;
         padding: 9px 15px i;
         background: t;
     }
