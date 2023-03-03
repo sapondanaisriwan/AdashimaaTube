@@ -1,5 +1,14 @@
 ## Changelog
 
+### v1.9.8
+
+- You can now choose the language you want to display dislike text :) (You can request your language by opening an issue)
+
+https://user-images.githubusercontent.com/64634605/222714853-61226f08-bbb9-40c5-8928-d0862d301416.mp4
+
+- Youtube new UI update issues again (2) 
+- Restore some of the features I removed in v1.9.7 since someone might still find them helpful.
+
 ### v1.9.7
 - Fixed Youtube new UI update issues :) (Not sure if it works in a different resolution)
 ![](https://i.imgur.com/bgUAL7F.png)
