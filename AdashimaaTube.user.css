@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.9.7
+@version        1.9.8
 @license        MIT
 @preprocessor   stylus
 
@@ -21,11 +21,9 @@
 
 @advanced select homePage                   "  🏠 Home Page" ["Enabled", "Disabled"]
 @advanced checkbox playlistsGrouping        "    ↳ Playlists Grouping" 0
-
 @advanced select channelPage                "  📺 Channel Page" ["Enabled", "Disabled"]
 @advanced checkbox sortByOldest             "    ↳ Sort By Oldest" 0
 @advanced checkbox channelSearchResults     "    ↳ Search Result Grid" 1
-
 @advanced select searchPage                 "  🔎 Search Page" ["Disabled", "Enabled", "Auto"]
 @advanced checkbox channelGrouping          "    ↳ Channel Grouping" 0
 @advanced checkbox hideChannel              "    ↳ Hide Channel" 0
@@ -45,7 +43,6 @@
     "日本語": "Japanese",
     "한국어": "Korean"
 }
-
 @advanced checkbox displayFullTitle         "  🎦 Full Title For Videos" 0
 @advanced select likeDislike                "  🎨 Like/Dislike colors" ['None', 'Navy-Blue', 'Classic']
 @advanced checkbox moreAnimation            "  🎬 More Animations" 1
