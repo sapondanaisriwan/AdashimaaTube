@@ -1,5 +1,9 @@
 ## Changelog
 
+### v1.9.9
+- Restore "Hide Channel Handles" and "Subscriptions In A Grid Layout" features.
+- Add Dislike text for french.
+
 ### v1.9.8
 
 - You can now choose the language you want to display dislike text :) (You can request your language by opening an issue)
