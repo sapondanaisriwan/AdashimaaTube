@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        1.9.9
+@version        2.0.0
 @license        MIT
 @preprocessor   stylus
 
@@ -118,10 +118,12 @@ Support me: https://ko-fi.com/sapondanaisriwan
         /* 📄 Subscriptions In A Grid Layout */
         if (subscriptionsGrid) {
 
-            ytd-two-column-browse-results-renderer > #primary.ytd-two-column-browse-results-renderer > ytd-section-list-renderer.ytd-two-column-browse-results-renderer > #contents.ytd-section-list-renderer {
-                ytd-expanded-shelf-contents-renderer {
-                    display: flex;
-                    flex-direction: column;
+            ytd-browse:not([page-subtype]) ytd-two-column-browse-results-renderer > #primary.ytd-two-column-browse-results-renderer > ytd-section-list-renderer.ytd-two-column-browse-results-renderer > #contents.ytd-section-list-renderer {
+
+                #grid-container.ytd-expanded-shelf-contents-renderer {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(246px, 1fr));
+                    justify-items: center;
                 }
 
                 ytd-channel-renderer {
@@ -130,11 +132,19 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
                 #avatar-section.ytd-channel-renderer {
                     max-width: unset;
+                    min-width: unset;
                     width: 100%;
                 }
 
                 #avatar.ytd-channel-renderer {
                     width: 100%;
+                }
+
+                /* Remove padding bottom of subscribe btn */
+                ytd-channel-renderer:not([dual-buttons]) #buttons.ytd-channel-renderer,
+                #purchase-button.ytd-channel-renderer,
+                #subscribe-button.ytd-channel-renderer {
+                    padding-bottom: 0;
                 }
 
                 /* Remove description */
@@ -151,7 +161,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 #content-section.ytd-channel-renderer {
                     display: flex;
                     flex-wrap: wrap;
-                    flex-direction: row;
+                    flex-direction: column;
                     justify-content: center;
                 }
 
@@ -185,7 +195,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     margin: 4px auto; // Centered the channel title
                     font-size: 1.4rem;
                     font-weight: 500;
-                    max-height: 2rem;
+                    max-height: 4rem;
                     line-height: 2rem;
                 }
 
@@ -1177,9 +1187,24 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
 
         /* 📻 Display Videos Count */
-        #videos-count[hidden] {
-            display: block i if displayVideoCount;
+        if (displayVideoCount) {
+
+            .meta-item.ytd-c4-tabbed-header-renderer {
+                margin-right: 8px;
+            }
+
+            #videos-count[hidden] {
+                display: inline-block i;
+            }
+
+            ytd-c4-tabbed-header-renderer[use-modern-style] {
+                #subscriber-count,
+                #videos-count {
+                    display: inline-block i;
+                }
+            }
         }
+
 
         /* 🎬 More Animations */
         if (moreAnimation) {
@@ -1431,6 +1456,65 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 display: none;
             }
         }
+    }
+
+    /* ---- Revert Channel page ----- */
+    /* Remove about me under channel  */
+    ytd-channel-tagline-renderer {
+        display: none;
+    }
+
+    ytd-c4-tabbed-header-renderer[use-modern-style] {
+        #avatar.ytd-c4-tabbed-header-renderer {
+            width: 80px;
+            height: 80px;
+            margin: 0 24px 0 0;
+            flex: none;
+            overflow: hidden;
+        }
+
+        #channel-name.ytd-c4-tabbed-header-renderer {
+            margin-bottom: 0;
+        }
+
+        #channel-header-container.ytd-c4-tabbed-header-renderer {
+            padding-top: 0;
+            align-items: center;
+        }
+
+        #inner-header-container.ytd-c4-tabbed-header-renderer {
+            margin-top: 0;
+            align-items: center;
+        }
+
+        /* Remove videos count*/
+        #videos-count {
+            display: none;
+        }
+
+        #channel-handle.ytd-c4-tabbed-header-renderer {
+            font-weight: 400;
+        }
+
+        /* Force new line */
+        .meta-item.ytd-c4-tabbed-header-renderer {
+            display: block;
+        }
+
+        /* Reverse order of the Subscribe and Join button  */
+        #buttons.ytd-c4-tabbed-header-renderer {
+            flex-direction: row-reverse;
+        }
+
+        #avatar-editor.ytd-c4-tabbed-header-renderer {
+            --ytd-channel-avatar-editor-size: 80px;
+        }
+    }
+
+    /* Change color of edit button to blue -> Customize channel, Manage videos */
+    #edit-buttons.ytd-c4-tabbed-header-renderer > ytd-button-renderer.ytd-c4-tabbed-header-renderer > yt-button-shape > a {
+        color: var(--yt-spec-text-primary-inverse) i;
+        background-color: var(--yt-spec-call-to-action) i;
     }
 
     /* RIP other browser that doesn't support :has */
@@ -2071,6 +2155,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
         right: 9px i;
     }
 
+    
+    /* ----- Shorts ----- */
+    
     /* Centered the arrow icon */
     #navigation-button-up.ytd-shorts {
         bottom: 50%;
@@ -2084,7 +2171,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     }
 
     /* Guide title */
-    ytd-guide-section-renderer[guide-refresh] #guide-section-title.ytd-guide-section-renderer {
+    #guide-section-title.ytd-guide-section-renderer {
         text-transform: uppercase;
         font-size: 1.4rem;
         font-weight: 500;
@@ -2107,6 +2194,13 @@ Support me: https://ko-fi.com/sapondanaisriwan
     span.ytp-menu-label-secondary {
         font-family: "no-parens", "Roboto", sans-serif;
     }
+
+    /* ----- Playlist ----- */
+    /* Remove recommend videos */
+    ytd-item-section-renderer[is-playlist-video-container] {
+        display: none;
+    }
+
 
     /* Remove parentheses Credit to decembre, Pabli */
     /*     span.ytp-menu-label-secondary {
