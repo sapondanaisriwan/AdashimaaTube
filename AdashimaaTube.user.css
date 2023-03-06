@@ -10,32 +10,32 @@
 @license        MIT
 @preprocessor   stylus
 
-@advanced select customOldLayout            "⚒️ Old Layout" ["Enabled", "Disabled"]
-@advanced checkbox oldBackground            "  🖼️ Old Background" 1
-@advanced checkbox oldPlaylists             "  ▶️ Old Playlists" 1
-@advanced checkbox oldIcons                 "  🧓 Old Icons" 0
+@var select customOldLayout            "⚒️ Old Layout" ["Enabled", "Disabled"]
+@var checkbox oldBackground            "  🖼️ Old Background" 1
+@var checkbox oldPlaylists             "  ▶️ Old Playlists" 1
+@var checkbox oldIcons                 "  🧓 Old Icons" 0
 
-@advanced select customMoreVideos           "⚒️ Video Appearance" ["Disabled", "Enabled"]
-@advanced range videoPerRow                 "  ⚙️ Videos Per Rows" [5, 1, 15, 1]
-@advanced checkbox hideProfile              "  🫣 Hide Channel Profile" 1
+@var select customMoreVideos           "⚒️ Video Appearance" ["Disabled", "Enabled"]
+@var range videoPerRow                 "  ⚙️ Videos Per Rows" [5, 1, 15, 1]
+@var checkbox hideProfile              "  🫣 Hide Channel Profile" 1
 
-@advanced checkbox subscriptionsGrid        "  🔔 Subscriptions Grid" 1
-@advanced select homePage                   "  🏠 Home Page" ["Enabled", "Disabled"]
-@advanced checkbox playlistsGrouping        "    ↳ Playlists Grouping" 0
-@advanced select channelPage                "  📺 Channel Page" ["Enabled", "Disabled"]
-@advanced checkbox sortByOldest             "    ↳ Sort By Oldest" 0
-@advanced checkbox channelSearchResults     "    ↳ Search Result Grid " 1
-@advanced select searchPage                 "  🔎 Search Page" ["Disabled", "Enabled", "Auto"]
-@advanced checkbox channelGrouping          "    ↳ Channel Grouping" 0
-@advanced checkbox hideChannel              "    ↳ Hide Channel" 0
-@advanced checkbox hideRightSidebar         "    ↳ Hide Right Sidebar" 0
+@var checkbox subscriptionsGrid        "  🔔 Subscriptions Grid" 1
+@var select homePage                   "  🏠 Home Page" ["Enabled", "Disabled"]
+@var checkbox playlistsGrouping        "    ↳ Playlists Grouping" 0
+@var select channelPage                "  📺 Channel Page" ["Enabled", "Disabled"]
+@var checkbox sortByOldest             "    ↳ Sort By Oldest" 0
+@var checkbox channelSearchResults     "    ↳ Search Result Grid " 1
+@var select searchPage                 "  🔎 Search Page" ["Disabled", "Enabled", "Auto"]
+@var checkbox channelGrouping          "    ↳ Channel Grouping" 0
+@var checkbox hideChannel              "    ↳ Hide Channel" 0
+@var checkbox hideRightSidebar         "    ↳ Hide Right Sidebar" 0
 
-@advanced select customAppearance           "⚒️ Youtube Appearance" ["Enabled", "Disabled"]
-@advanced checkbox blueCheckMark            "  ✅ Blue Check Mark" 0
-@advanced checkbox searchBox                "  🌑 Dark Search Box" 0
-@advanced checkbox scroll_Bar               "  🌑 Dark Scroll Bar" 1
-@advanced checkbox displayVideoCount        "  📻 Display Videos Count" 0
-@advanced select displayDislikeText         "  👎 Display Dislike Text" {
+@var select customAppearance           "⚒️ Youtube Appearance" ["Enabled", "Disabled"]
+@var checkbox blueCheckMark            "  ✅ Blue Check Mark" 0
+@var checkbox searchBox                "  🌑 Dark Search Box" 0
+@var checkbox scroll_Bar               "  🌑 Dark Scroll Bar" 1
+@var checkbox displayVideoCount        "  📻 Display Videos Count" 0
+@var select displayDislikeText         "  👎 Display Dislike Text" {
     "None": "None",
     "English": "English",
     "ภาษาไทย": "Thai",
@@ -46,33 +46,33 @@
     "Русский": "Russia",
     "Français": "French"
 }
-@advanced checkbox displayFullTitle         "  🎦 Full Title For Videos" 0
-@advanced select likeDislike                "  🎨 Like/Dislike colors" ['None', 'Navy-Blue', 'Classic']
-@advanced checkbox moreAnimation            "  🎬 More Animations" 1
-@advanced checkbox watchedOverlay           "  👀 Watched Overlay" 0
+@var checkbox displayFullTitle         "  🎦 Full Title For Videos" 0
+@var select likeDislike                "  🎨 Like/Dislike colors" ['None', 'Navy-Blue', 'Classic']
+@var checkbox moreAnimation            "  🎬 More Animations" 1
+@var checkbox watchedOverlay           "  👀 Watched Overlay" 0
 
 
-@advanced select customRoundness            "⚒️ Roundness" ["Enabled", "Disabled"]
-@advanced range borderRadius                "  ⚙️ Border Radius" [0, 0, 40, 1, 'px']
-@advanced range buttonRadius                "  ⚙️ Buttons Radius" [0, 0, 18, 1, 'px']
-@advanced range profileRadius               "  ⚙️ Profiles Radius" [50, 0, 50, 1, '%']
+@var select customRoundness            "⚒️ Roundness" ["Enabled", "Disabled"]
+@var range borderRadius                "  ⚙️ Border Radius" [0, 0, 40, 1, 'px']
+@var range buttonRadius                "  ⚙️ Buttons Radius" [0, 0, 18, 1, 'px']
+@var range profileRadius               "  ⚙️ Profiles Radius" [50, 0, 50, 1, '%']
 
-@advanced select customVideoPage            "⚒️ Watch Page" ["Enabled", "Disabled"]
-@advanced checkbox antiShorts               "  ❌ Hide-Shorts" 0
-@advanced checkbox hideTaps                 "  ❌ Hide Taps" 0
-@advanced checkbox channelHandle            "  ❌ Hide Channel Handles" 0
+@var select customVideoPage            "⚒️ Watch Page" ["Enabled", "Disabled"]
+@var checkbox antiShorts               "  ❌ Hide-Shorts" 0
+@var checkbox hideTaps                 "  ❌ Hide Taps" 0
+@var checkbox channelHandle            "  ❌ Hide Channel Handles" 0
 
-@advanced checkbox hideLikeAnimation        "  👍 Hide Like Animation" 0
-@advanced checkbox shareBtn                 "  ➡️ Hide Share Button" 0
-@advanced checkbox downloadBtn              "  ⬇️ Hide Download Button" 0
-@advanced checkbox clipBtn                  "  ✂️ Hide Clip Button" 0
-@advanced checkbox thanksBtn                "  🙏 Hide Thanks Button" 0
-@advanced checkbox saveBtn                  "  💾 Hide Save Button" 0
-@advanced checkbox textBtn                  "  💬 Hide Text Buttons" 0
-@advanced checkbox endCards                 "  💳 Hide End Screen" 0
-@advanced checkbox commentSection           "  💬 Hide Comments" 0
-@advanced checkbox gameSection              "  🎮 Hide Game Section" 1
-@advanced checkbox musicSection             "  🎵 Hide Music Section" 0
+@var checkbox hideLikeAnimation        "  👍 Hide Like Animation" 0
+@var checkbox shareBtn                 "  ➡️ Hide Share Button" 0
+@var checkbox downloadBtn              "  ⬇️ Hide Download Button" 0
+@var checkbox clipBtn                  "  ✂️ Hide Clip Button" 0
+@var checkbox thanksBtn                "  🙏 Hide Thanks Button" 0
+@var checkbox saveBtn                  "  💾 Hide Save Button" 0
+@var checkbox textBtn                  "  💬 Hide Text Buttons" 0
+@var checkbox endCards                 "  💳 Hide End Screen" 0
+@var checkbox commentSection           "  💬 Hide Comments" 0
+@var checkbox gameSection              "  🎮 Hide Game Section" 1
+@var checkbox musicSection             "  🎵 Hide Music Section" 0
 
 ==/UserStyle== */
 /*
@@ -113,6 +113,54 @@ Support me: https://ko-fi.com/sapondanaisriwan
     i=!important;
     t=transparent;
 
+    /* Check if broswer support :has selector */
+    @css {
+        @supports not selector(:has(*)) {
+
+            ytd-app {
+                display: none;
+            }
+
+            body::before {
+                content: "Oops, Something went wrong. \a Please go to: shorturl.at/cAR28";
+
+                font-size: clamp(2rem, -4rem + 8vw, 8rem);
+                color: white;
+                white-space: pre;
+
+                position: fixed;
+                z-index: 100000;
+
+                width: 100vw;
+                height: 100vh;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            body::after {
+                content: "";
+
+                position: fixed;
+                left: 0;
+                right: 0;
+                z-index: 99999;
+
+                background: linear-gradient( rgba(0, 0, 0, 0) 0%,
+                rgba(0, 0, 0, 0.486) 85%,
+                rgb(0, 0, 0) 100%),
+                url("https://sapondanaisriwan.github.io/images/wallpaper/adashi-and-shimamura.jpeg") no-repeat;
+                background-position: right center;
+                background-size: cover;
+
+                filter: blur(0.5rem);
+
+                height: 100vh;
+            }
+        }
+    }
+    
     if (customMoreVideos=="Enabled") {
 
         /* 📄 Subscriptions In A Grid Layout */
@@ -2155,9 +2203,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
         right: 9px i;
     }
 
-    
+
     /* ----- Shorts ----- */
-    
     /* Centered the arrow icon */
     #navigation-button-up.ytd-shorts {
         bottom: 50%;
@@ -2207,6 +2254,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
         clip-path: inset(-3px 4px 0px 4px);
     } */
     if (customOldLayout=="Enabled" && oldIcons) {
+
+        svg:not(:root) {
+            overflow: visible;
+        }
+
 
         html[system-icons]:not([dark]) {
             ytd-guide-entry-renderer[active] .guide-icon.ytd-guide-entry-renderer {
