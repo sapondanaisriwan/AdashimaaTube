@@ -27,6 +27,7 @@ Restore old Youtube layout in 2021-2022 with many customizable options.
   - [⁉️ FAQ](#️-faq)
       - [💬 What's AdashimaaTube-Lite?](#-whats-adashimaatube-lite)
       - [💬 How do I access the settings menu?](#-how-do-i-access-the-settings-menu)
+      - [💬](#)
       - [💬 Why certain options don't work?](#-why-certain-options-dont-work)
   - [✅ Supported extensions and scripts](#-supported-extensions-and-scripts)
   - [💰 Support me](#-support-me)
@@ -109,6 +110,9 @@ You may configure everything by selecting the Stylus icon from your toolbar and 
 <!-- ![setting](https://user-images.githubusercontent.com/64634605/211510142-03215de6-b8e8-44ca-9293-7f6d4170e1c2.gif) -->
 https://user-images.githubusercontent.com/64634605/211511625-53eae03e-3e5c-4c15-af37-35170863d243.mp4
 
+
+#### 💬
+
 #### 💬 Why certain options don't work?
 
 Because some browser don't support a CSS pseudo-class yet, like `:has`.
@@ -116,6 +120,7 @@ Because some browser don't support a CSS pseudo-class yet, like `:has`.
 However, by following these steps, you can enable Firefox's has() selector.
 1. Go to the Firefox `about:config` page.
 2. Search and toggle `layout.css.has-selector.enabled`.
+3. Restart the browser.
 
 https://user-images.githubusercontent.com/64634605/211511323-bafff5a2-3a78-4c06-983a-e32eea227838.mp4
 
