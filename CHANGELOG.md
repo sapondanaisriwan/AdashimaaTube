@@ -1,5 +1,15 @@
 ## Changelog
 
+### v2.0.0
+- Revert the channel page.
+
+https://user-images.githubusercontent.com/64634605/223034955-5c2f9b8a-f976-4a7f-aee5-e73684dfe85f.mp4
+
+- Fixed "Subscriptions In A Grid Layout" feature.
+
+- Deals with browsers that don't support the CSS pseudo-class `:has`.
+![firefox_oSq4Td4cme](https://user-images.githubusercontent.com/64634605/223033131-65d6bbf5-e115-4f23-b048-b9e72d8d0ef4.png)
+
 ### v1.9.9
 - Restore "Hide Channel Handles" and "Subscriptions In A Grid Layout" features.
 - Add Dislike text for french.
