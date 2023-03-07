@@ -1,5 +1,9 @@
 ## Changelog
 
+### v2.0.1
+- Just change message on the error page.
+![](https://i.imgur.com/XKwSwxi.jpeg)
+
 ### v2.0.0
 - Revert the channel page.
 
