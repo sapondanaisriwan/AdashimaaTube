@@ -45,7 +45,6 @@ This is why you should consider using AdashimaaTube! 🥶
 - Options to change color navigation bar, search Box and scroll Bar to a dark color.
 - Options to remove taps, like animation and remove all text from buttons except the Like/Dislike buttons.
 - Options to hide the buttons for Share, Download, Clip, Thanks, Save, Comments, End cards, Game Section and Music Section.
-- Options to Align the search results to the center.
 - Red subscribe button.
 - Restore to the old video container and the old icons.
 - Sort by oldest.
@@ -109,9 +108,9 @@ https://user-images.githubusercontent.com/64634605/211511625-53eae03e-3e5c-4c15-
 
 #### 💬 What should I do if I receive an error page and why?
 
-![](https://i.imgur.com/ewa2Xs0.png)
+![](https://i.imgur.com/ewvsRVO.png)
 
-You need the most up-to-date version of your web browser. For the best experience, update your browser or switch to another one.
+You need the most up-to-date version of your web browser. For the best experience, update your browser or switch to another one. If you still prefer to use an old browser, we also have [AdashimaaTube-Legacy](https://github.com/sapondanaisriwan/AdashimaaTube/raw/master/AdashimaaTube%20Legacy.user.css) available.
 
 For instructions on how to upgrade, visit your browser's help resources:
 - [Google Chrome](https://www.google.com/chrome/)
@@ -122,7 +121,7 @@ For instructions on how to upgrade, visit your browser's help resources:
 
 The error page is designed specifically for Firefox users and outdated browser. I made that decision because if you don't have the most recent version of browser, several settings won't work such as Hide shorts, Hide buttons, display dislike text, etc.
 
-However, by following these steps, you can enable Firefox's has() selector.
+However, by following these steps, you can enable Firefox's `has()` selector.
 1. Go to the Firefox `about:config` page.
 2. Search and toggle `layout.css.has-selector.enabled`.
 3. Restart the browser.
