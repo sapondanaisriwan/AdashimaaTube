@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name           `AdashimaaTube
-@author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan) [Adashima#4066]
+@author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan)
 @description    Please report bugs via github issues or my email (If I have some free time, I'll fix them)
 @namespace      https://userstyles.world/user/sapondanaisriwan
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
@@ -50,7 +50,6 @@
 @var select likeDislike                "  🎨 Like/Dislike colors" ['None', 'Navy-Blue', 'Classic']
 @var checkbox moreAnimation            "  🎬 More Animations" 1
 @var checkbox watchedOverlay           "  👀 Watched Overlay" 0
-
 
 @var select customRoundness            "⚒️ Roundness" ["Enabled", "Disabled"]
 @var range borderRadius                "  ⚙️ Border Radius" [0, 0, 40, 1, 'px']
@@ -253,6 +252,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
                 #grid-container.ytd-expanded-shelf-contents-renderer > *.ytd-expanded-shelf-contents-renderer:not(:last-child) {
                     margin-bottom: 24px;
+                }
+                
+                ytd-playlist-renderer.ytd-expanded-shelf-contents-renderer, ytd-channel-renderer.ytd-expanded-shelf-contents-renderer, ytd-radio-renderer.ytd-expanded-shelf-contents-renderer, ytd-video-renderer.ytd-expanded-shelf-contents-renderer, ytd-movie-playlist-renderer.ytd-expanded-shelf-contents-renderer {
+                    padding-right: 0;
                 }
             }
         }
