@@ -111,14 +111,16 @@ https://user-images.githubusercontent.com/64634605/211511625-53eae03e-3e5c-4c15-
 
 ![](https://i.imgur.com/ewa2Xs0.png)
 
-Because some browser don't support a CSS pseudo-class yet, like `:has` so you need the most up-to-date version of your web browser. For the best experience, update your browser or switch to another one.
+You need the most up-to-date version of your web browser. For the best experience, update your browser or switch to another one.
 
 For instructions on how to upgrade, visit your browser's help resources:
 - [Google Chrome](https://www.google.com/chrome/)
 - [Firefox](http://www.mozilla.com/firefox/upgrade.html)
 - [MS Edge](https://www.microsoft.com/en-us/windows/microsoft-edge)
 - [Opera](https://www.opera.com/)
+- [Vivaldi](https://vivaldi.com/)
 
+The error page is designed specifically for Firefox users and outdated browser. I made that decision because if you don't have the most recent version of browser, several settings won't work such as Hide shorts, Hide buttons, display dislike text, etc.
 
 However, by following these steps, you can enable Firefox's has() selector.
 1. Go to the Firefox `about:config` page.
