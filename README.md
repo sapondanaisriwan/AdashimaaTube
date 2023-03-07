@@ -25,10 +25,9 @@ Restore old Youtube layout in 2021-2022 with many customizable options.
   - [📂 Installation](#-installation)
   - [🧑‍💻 Contributing](#-contributing)
   - [⁉️ FAQ](#️-faq)
-      - [💬 What's AdashimaaTube-Lite?](#-whats-adashimaatube-lite)
+      - [💬 What's AdashimaaTube-Legacy?](#-whats-adashimaatube-legacy)
       - [💬 How do I access the settings menu?](#-how-do-i-access-the-settings-menu)
-      - [💬](#)
-      - [💬 Why certain options don't work?](#-why-certain-options-dont-work)
+      - [💬 What should I do if I receive an error page and why?](#-what-should-i-do-if-i-receive-an-error-page-and-why)
   - [✅ Supported extensions and scripts](#-supported-extensions-and-scripts)
   - [💰 Support me](#-support-me)
   - [✉️ Feedback](#️-feedback)
@@ -98,24 +97,28 @@ Any contribution is greatly appreciated.
 
 ## ⁉️ FAQ
 
-#### 💬 What's AdashimaaTube-Lite?
+#### 💬 What's AdashimaaTube-Legacy?
 
-AdashimaaTube-Lite is suitable for general users who don't like having a lot of customization options and it include all the important features of AdashimaaTube.
-
-![](https://i.imgur.com/KGVVeMS.png)
+AdashimaaTube-Legacy is suitable for legacy browser. You can install it [here](https://github.com/sapondanaisriwan/AdashimaaTube/raw/master/AdashimaaTube%20Legacy.user.css).
 
 #### 💬 How do I access the settings menu?
 
 You may configure everything by selecting the Stylus icon from your toolbar and then selecting the configure button.
-<!-- ![setting](https://user-images.githubusercontent.com/64634605/211510142-03215de6-b8e8-44ca-9293-7f6d4170e1c2.gif) -->
+
 https://user-images.githubusercontent.com/64634605/211511625-53eae03e-3e5c-4c15-af37-35170863d243.mp4
 
+#### 💬 What should I do if I receive an error page and why?
 
-#### 💬
+![](https://i.imgur.com/ewa2Xs0.png)
 
-#### 💬 Why certain options don't work?
+Because some browser don't support a CSS pseudo-class yet, like `:has` so you need the most up-to-date version of your web browser. For the best experience, update your browser or switch to another one.
 
-Because some browser don't support a CSS pseudo-class yet, like `:has`.
+For instructions on how to upgrade, visit your browser's help resources:
+- [Google Chrome](https://www.google.com/chrome/)
+- [Firefox](http://www.mozilla.com/firefox/upgrade.html)
+- [MS Edge](https://www.microsoft.com/en-us/windows/microsoft-edge)
+- [Opera](https://www.opera.com/)
+
 
 However, by following these steps, you can enable Firefox's has() selector.
 1. Go to the Firefox `about:config` page.
