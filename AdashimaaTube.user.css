@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        2.0.0
+@version        2.0.1
 @license        MIT
 @preprocessor   stylus
 
@@ -121,7 +121,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
 
             body::before {
-                content: "Oops, Something went wrong. \a Please go to: shorturl.at/cAR28";
+                content: "Your browser is outdated. \a For the best experience, \a update your browser. \a\a More instruction: shorturl.at/jH189";
 
                 font-size: clamp(2rem, -4rem + 8vw, 8rem);
                 color: white;
@@ -149,7 +149,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 background: linear-gradient( rgba(0, 0, 0, 0) 0%,
                 rgba(0, 0, 0, 0.486) 85%,
                 rgb(0, 0, 0) 100%),
-                url("https://sapondanaisriwan.github.io/images/wallpaper/adashi-and-shimamura.jpeg") no-repeat;
+                url(https://source.unsplash.com/random?clock%C3%97tower) no-repeat;
                 background-position: right center;
                 background-size: cover;
 
@@ -159,7 +159,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
         }
     }
-    
+
     if (customMoreVideos=="Enabled") {
 
         /* 📄 Subscriptions In A Grid Layout */
@@ -253,8 +253,12 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 #grid-container.ytd-expanded-shelf-contents-renderer > *.ytd-expanded-shelf-contents-renderer:not(:last-child) {
                     margin-bottom: 24px;
                 }
-                
-                ytd-playlist-renderer.ytd-expanded-shelf-contents-renderer, ytd-channel-renderer.ytd-expanded-shelf-contents-renderer, ytd-radio-renderer.ytd-expanded-shelf-contents-renderer, ytd-video-renderer.ytd-expanded-shelf-contents-renderer, ytd-movie-playlist-renderer.ytd-expanded-shelf-contents-renderer {
+
+                ytd-playlist-renderer.ytd-expanded-shelf-contents-renderer,
+                ytd-channel-renderer.ytd-expanded-shelf-contents-renderer,
+                ytd-radio-renderer.ytd-expanded-shelf-contents-renderer,
+                ytd-video-renderer.ytd-expanded-shelf-contents-renderer,
+                ytd-movie-playlist-renderer.ytd-expanded-shelf-contents-renderer {
                     padding-right: 0;
                 }
             }
