@@ -233,7 +233,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     align-items: center;
                 }
 
-                /* Add margin top to subscribe button*/
+                /* Add margin top to subscribe button */
                 ytd-subscription-notification-toggle-button-renderer-next.ytd-subscribe-button-renderer > yt-button-shape {
                     margin-top: 0px;
                 }
@@ -1503,7 +1503,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
             /* It's very hard to read so I made a full condition below */
             border-radius: 18px if (customRoundness=="Disabled");
-            border-radius: buttonRadius <=2px ? 2px i: buttonRadius if (customRoundness=="Enabled");
+            border-radius: buttonRadius <=2px ? 2px i: buttonRadius i if (customRoundness=="Enabled");
 
             /*
             if (customRoundness=="Disabled") {
@@ -1575,6 +1575,31 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
     }
 
+    .ytp-sb-subscribe.ytp-sb-rounded,
+    .ytp-sb-unsubscribe.ytp-sb-rounded {
+        border-radius: 18px if (customRoundness=="Disabled");
+        border-radius: buttonRadius <=2px ? 2px i: buttonRadius i if (customRoundness=="Enabled");
+    }
+
+    /* Change color of edit button to blue -> Customize channel, Manage videos, Analytics and Edit Video */
+    #upload-video-button.ytd-channel-owner-empty-state-renderer,
+    #edit-buttons.ytd-c4-tabbed-header-renderer,
+    #analytics-button.ytd-video-owner-renderer {
+        > ytd-button-renderer > yt-button-shape > a {
+
+            border-radius: 18px if (customRoundness=="Disabled");
+            border-radius: buttonRadius <=2px ? 2px i: buttonRadius i if (customRoundness=="Enabled");
+
+            color: var(--yt-spec-text-primary-inverse) i;
+            background-color: var(--yt-spec-call-to-action) i;
+        }
+    }
+
+    .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--filled {
+        color: var(--yt-spec-text-primary-inverse) i;
+        background-color: var(--yt-spec-call-to-action) i;
+    }
+
     /* ---- Revert Channel page ----- */
     /* Remove about me under channel  */
     ytd-channel-tagline-renderer {
@@ -1626,12 +1651,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
         #avatar-editor.ytd-c4-tabbed-header-renderer {
             --ytd-channel-avatar-editor-size: 80px;
         }
-    }
-
-    /* Change color of edit button to blue -> Customize channel, Manage videos */
-    #edit-buttons.ytd-c4-tabbed-header-renderer > ytd-button-renderer.ytd-c4-tabbed-header-renderer > yt-button-shape > a {
-        color: var(--yt-spec-text-primary-inverse) i;
-        background-color: var(--yt-spec-call-to-action) i;
     }
 
     /* RIP other browser that doesn't support :has */
@@ -1916,9 +1935,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
         ytd-guide-entry-renderer[guide-refresh] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:focus,
         ytd-guide-entry-renderer[guide-refresh] yt-interaction.ytd-guide-entry-renderer,
 
-        .ytp-sb-subscribe.ytp-sb-rounded,
-        .ytp-sb-unsubscribe.ytp-sb-rounded,
-
         .iv-card.ytp-rounded-info,
 
         /* Gaming */
@@ -1981,9 +1997,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
         ytd-clarification-renderer[round-container],
         ytd-info-panel-container-renderer[rounded-container][has-title] .header.ytd-info-panel-container-renderer,
         ytd-medical-panel-content-renderer[rounded-container],
-
-        .ytp-sb-subscribe.ytp-sb-rounded,
-        .ytp-sb-unsubscribe.ytp-sb-rounded,
 
         ytd-universal-watch-card-renderer[rounded] #header.ytd-universal-watch-card-renderer,
 
@@ -2102,7 +2115,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     }
 
     /* Post button*/
-    #post-button yt-button-shape button {
+    #post-button.yt-community-post-section-renderer yt-button-shape button {
         background-color: var(--yt-spec-call-to-action) i; // #065fd4
     }
 
