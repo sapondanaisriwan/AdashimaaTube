@@ -1485,45 +1485,19 @@ Support me: https://ko-fi.com/sapondanaisriwan
         padding-bottom: 14px;
     }
 
-    /* ----- Subscribe Button ----- */
-    /* Revert the old subscribe button */
-    ytd-subscribe-button-renderer[modern] {
-
-        /* Remove mordern subscribe btn */
-        yt-button-shape.ytd-subscribe-button-renderer {
-            display: none;
-        }
-
-        /* Display the old subscribe btn */
-        tp-yt-paper-button.ytd-subscribe-button-renderer {
-            display: block i;
-            margin-right: 0;
-            margin-left: 0;
-            letter-spacing: normal;
-
-            /* It's very hard to read so I made a full condition below */
-            border-radius: 18px if (customRoundness=="Disabled");
-            border-radius: buttonRadius <=2px ? 2px i: buttonRadius if (customRoundness=="Enabled");
-
-            /*
-            if (customRoundness=="Disabled") {
-                border-radius: 18px;
-            }
-
-            if (customRoundness=="Enabled") {
-                if (buttonRadius <=2px) {
-                    border-radius: 2px;
-                }
-
-                else {
-                    border-radius: buttonRadius;
-                }
-            } 
-            */
-        }
+    /* Premium User when offline */
+    /*     ytd-watch-metadata:not([flex-menu-enabled]) #top-row {
+        padding-bottom: 45px i;
+    } */
+    /* REVERT back the old subscribed button */
+    yt-button-shape.ytd-subscribe-button-renderer[hidden] {
+        display: block i;
     }
 
-    /* Revert notification button */
+    #title #super-title[hidden] {
+        display: block i;
+    }
+
     #notification-preference-button > ytd-subscription-notification-toggle-button-renderer-next > yt-button-shape > button {
         /* Removes background color around bell icon */
         &.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
@@ -1535,42 +1509,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
             &.cbox.yt-spec-button-shape-next--button-text-content,
             &.yt-spec-button-shape-next__secondary-icon {
                 display: none;
-            }
-        }
-    }
-
-    /* 
-        Revert the subscribe button on the channel tap and browse channels
-        Ex: https://www.youtube.com/@MuseThailand/channels https://www.youtube.com/feed/guide_builder
-    */
-    ytd-subscribe-button-renderer[button-style=COMPACT_GRAY] tp-yt-paper-button.ytd-subscribe-button-renderer,
-    ytd-subscribe-button-renderer[button-style=COMPACT_RED] tp-yt-paper-button.ytd-subscribe-button-renderer,
-    ytd-subscribe-button-renderer[button-style=COMPACT_GRAY][use-keyboard-focused]:not([keyboard-focused]) tp-yt-paper-button.keyboard-focus.ytd-subscribe-button-renderer,
-    ytd-subscribe-button-renderer[button-style=COMPACT_RED][use-keyboard-focused]:not([keyboard-focused]) tp-yt-paper-button.keyboard-focus.ytd-subscribe-button-renderer {
-        color: var(--yt-spec-static-brand-white);
-        background-color: var(--yt-spec-brand-button-background);
-        --paper-button-flat-keyboard-focus-background-color: var(--yt-spec-brand-button-background);
-        padding: 0 12px;
-        height: 32px;
-        font-size: 12px;
-        line-height: 32px;
-        letter-spacing: normal;
-    }
-
-    ytd-subscribe-button-renderer:not([overlay-button]) tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed] {
-        background-color: var(--yt-spec-badge-chip-background) i;
-        color: var(--yt-spec-text-secondary) i;
-    }
-
-    /* If you sign out google account */
-    #call-to-action-buttons,
-    #subscribe-button {
-        > ytd-button-renderer[button-renderer] > yt-button-shape {
-            > a,
-            > button {
-                color: var(--yt-spec-static-brand-white);
-                background-color: var(--yt-spec-brand-button-background);
-                border-radius: buttonRadius <=2px ? 2px i: buttonRadius i if (customRoundness=="Enabled");
             }
         }
     }
@@ -1722,6 +1660,123 @@ Support me: https://ko-fi.com/sapondanaisriwan
         text-transform: uppercase;
     }
 
+    /* Subscribed button */
+    #subscribe,
+    #subscribe-button,
+    ytd-subscribe-button-renderer {
+        yt-button-shape {
+            /* Red Subscribed button */
+            button,
+            a[aria-label="Subscribe"] {
+                /* InPrivate */
+                border-radius: buttonRadius <=2px ? 2px i: buttonRadius i if (customRoundness=="Enabled");
+                color: var(--yt-spec-static-brand-white) i;
+                background-color: var(--yt-spec-brand-button-background) i;
+            }
+
+            /* Unsubscribe button */
+            button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
+                border-radius: buttonRadius <=2px ? 2px i: buttonRadius i if (customRoundness=="Enabled");
+                color: var(--yt-spec-text-secondary) i;
+                background-color: var(--yt-spec-badge-chip-background) i;
+            }
+        }
+    }
+
+    /* Subscribed button on channels page*/
+    /* Please let me know if you can figure out how to make this shorter and cleaner */
+    [page-subtype="channels"],
+    #channel.ytd-grid-channel-renderer {
+        #subscribe yt-button-shape button {
+            &[aria-label^="Subscribe"], //English
+            &[aria-label^="ติดตาม"], // Thai
+            &[aria-label^="Pratite kanal"],
+            &[aria-label^="Teken in"], // Afrikaans
+            &[aria-label*="kanalına abunə olun"], // Azərbaycan
+            &[aria-label^="Subscribe"], // Bahasa Indonesia
+            &[aria-label^="Langgan"], // Bahasa Malaysia
+            &[aria-label^="Pretplatite se na kanal"], // Bosanski
+            &[aria-label^="Subscriu-te al canal"], // Català
+            &[aria-label*="se k"], // Čeština
+            &[aria-label^="Abonner på"], // Dansk
+            &[aria-label$="abonnieren."], // Deutsch
+            &[aria-label^="Telli"], // Eesti
+            &[aria-label^="Suscribirse"], // Español (España)
+            &[aria-label^="Suscribirme"], // Español (Latinoamérica)
+            &[aria-label^="Harpidetu"], // euskara
+            &[aria-label^="Mag-subscribe sa"], // Filipino
+            &[aria-label^="S'abonner à"], // Français
+            &[aria-label^="Subscribirse"], // galego
+            &[aria-label^="Bhalisesla"], // IsiZulu
+            &[aria-label^="Prihlásiť sa na odber kanála"], // Íslenska
+            &[aria-label^="Hefja áskrift að"], // Íslenska
+            &[aria-label^="Iscriviti"], // Italiano
+            &[aria-label^="Fuatilia"], //
+            &[aria-label^="Abonēt kanālu"], //
+            &[aria-label^="Prenumeruoti"], //
+            &[aria-label^="Feliratkozás"], //
+            &[aria-label^="Abonneren op"], //
+            &[aria-label^="Obuna qiling"], //
+            &[aria-label^="Abonohu në"], //
+            &[aria-label^="Đăng ký"], //
+            &[aria-label$="alına abone ol."], //
+            &[aria-label^="Падпісацца на канал"],
+            &[aria-label^="Абониране"],
+            &[aria-label$="каналына жазылыңыз."],
+            &[aria-label$="арнасына жазылу"],
+            &[aria-label^="Претплатете се на"],
+            &[aria-label$="захиалах."],
+            &[aria-label^="Оформить подписку на канал"],
+            &[aria-label^="Пратите канал"],
+            &[aria-label^="Підписатися на канал"],
+            &[aria-label^="Subscrever"],
+            &[aria-label^="Inscreva-se em"],
+            &[aria-label^="Abonează-te la"],
+            &[aria-label^="Prenumerera på"],
+            &[aria-label^="Հետևել"],
+            &[aria-label^="הרשמה למינוי לערוץ"],
+            &[aria-label$="کو سبسکرائب کریں۔"],
+            &[aria-label^="يمكنك الاشتراك في قناة"],
+            &[aria-label^="مشترک شدن در"],
+            &[aria-label$="को सदस्यता लिनुहोस्।"],
+            &[aria-label$="चे सदस्यत्व घ्या."],
+            &[aria-label$="के सदस्य बनें."],
+            &[aria-label$="ৰ সদস্য হওক।"],
+            &[aria-label$="এ সাবস্ক্রাইব করুন।"],
+            &[aria-label$="ਨੂੰ ਸਬਸਕ੍ਰਾਈਬ ਕਰੋ।"],
+            &[aria-label$="પર સબ્સ્ક્રાઇબ કરો."],
+            &[aria-label$="ସବ୍‍ସ୍କ୍ରାଇବ୍‍ କରିବେ।"],
+            &[aria-label$="சேனலில் குழுசேர்க."],
+            &[aria-label$="సబ్‌స్క్రయిబ్ చేయండి."],
+            &[aria-label$="ಗೆ ಸಬ್‌ಸ್ಕ್ರೈಬ್ ಮಾಡಿ."],
+            &[aria-label$="എന്ന ചാനലിന്‍റെ വരിക്കാരാവുക."],
+            &[aria-label$="වෙත දායක වන්න."],
+            &[aria-label^="ຕິດຕາມ"],
+            &[aria-label$="တွင် စာရင်းသွင်းရန်။"],
+            &[aria-label$="გამოწერა."],
+            &[aria-label^="订阅"], // &[aria-label="ជា&ZeroWidthSpace;វ&ZeroWidthSpace; Elegant Sister (ES) ។"]
+            &[aria-label^="訂閱"],
+            &[aria-label^="ይመዝገቡ።"],
+            &[aria-label$="をチャンネル登録"],
+            &[aria-label$="을(를) 구독합니다."],
+            &[aria-label^="Tilaa"],
+            &[aria-label^="Subskrybuj kanał"] {
+                border-radius: buttonRadius <=2px ? 2px i: buttonRadius i if (customRoundness=="Enabled");
+                color: var(--yt-spec-static-brand-white) i;
+                background-color: var(--yt-spec-brand-button-background) i;
+            }
+        }
+    }
+
+    /* Shorts Unsubscribe button */
+    html[dark] ytd-shorts #subscribe-button yt-button-shape button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
+        background-color: var(--sub-black-bg-btn) i;
+    }
+
+    html:not([dark]) ytd-shorts #subscribe-button yt-button-shape button.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
+        background-color: var(--sub-white--text-btn) i;
+    }
+
     /* Removes background color */
     .yt-simple-endpoint.style-scope.ytd-subscription-notification-toggle-button-renderer yt-icon-button {
         background-color: t i;
@@ -1848,10 +1903,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
             border-radius: profileRadius;
         }
 
-        /* Switch Account */
-        yt-img-shadow.ytd-account-item-renderer {
-            border-radius: profileRadius;
-        }
 
         /* Search box */
         ytd-multi-page-menu-renderer[sheets-refresh],
@@ -2096,7 +2147,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     #buttons ytd-toggle-button-renderer yt-button-shape button {
         color: var(--yt-spec-call-to-action) i; // #065fd4
         border: 1px solid var(--yt-spec-call-to-action) i;
-        border-radius: buttonRadius <=2px ? 2px i: buttonRadius i if (customRoundness=="Enabled");
+        border-radius: buttonRadius;
         padding: 9px 15px i;
         background: t;
     }
