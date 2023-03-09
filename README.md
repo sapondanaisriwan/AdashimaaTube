@@ -26,8 +26,9 @@ Restore old Youtube layout in 2021-2022 with many customizable options.
   - [🧑‍💻 Contributing](#-contributing)
   - [⁉️ FAQ](#️-faq)
       - [💬 What's AdashimaaTube-Legacy?](#-whats-adashimaatube-legacy)
-      - [💬 How do I access the settings menu?](#-how-do-i-access-the-settings-menu)
       - [💬 What should I do if I receive an error page and why?](#-what-should-i-do-if-i-receive-an-error-page-and-why)
+      - [💬 How do I access the settings menu?](#-how-do-i-access-the-settings-menu)
+      - [💬 How to update AdashimaaTube to latest version?](#-how-to-update-adashimaatube-to-latest-version)
   - [✅ Supported extensions and scripts](#-supported-extensions-and-scripts)
   - [💰 Support me](#-support-me)
   - [✉️ Feedback](#️-feedback)
@@ -100,12 +101,6 @@ Any contribution is greatly appreciated.
 
 AdashimaaTube-Legacy is suitable for legacy browser. You can install it [here](https://github.com/sapondanaisriwan/AdashimaaTube/raw/master/AdashimaaTube%20Legacy.user.css).
 
-#### 💬 How do I access the settings menu?
-
-You may configure everything by selecting the Stylus icon from your toolbar and then selecting the configure button.
-
-https://user-images.githubusercontent.com/64634605/211511625-53eae03e-3e5c-4c15-af37-35170863d243.mp4
-
 #### 💬 What should I do if I receive an error page and why?
 
 ![](https://i.imgur.com/ewvsRVO.png)
@@ -128,11 +123,25 @@ However, by following these steps, you can enable Firefox's `has()` selector.
 
 https://user-images.githubusercontent.com/64634605/211511323-bafff5a2-3a78-4c06-983a-e32eea227838.mp4
 
+#### 💬 How do I access the settings menu?
+
+You may configure everything by selecting the Stylus icon from your toolbar and then selecting the configure button.
+
+https://user-images.githubusercontent.com/64634605/211511625-53eae03e-3e5c-4c15-af37-35170863d243.mp4
+
+#### 💬 How to update AdashimaaTube to latest version?
+
+Click the Configure button in the bottom right corner > Check all styles for updates > Apply all updates.
+
+https://user-images.githubusercontent.com/64634605/223944385-3edccccb-9b65-4c70-9a70-9d947a6eaf30.mp4
+
+
 ## ✅ Supported extensions and scripts
 - [uBlock Origin](https://ublockorigin.com/)
 - [Return YouTube Dislike](https://www.returnyoutubedislike.com/)
 - [Thumbnail Rating Bar for YouTube™](https://chrome.google.com/webstore/detail/thumbnail-rating-bar-for/cmlddjbnoehmihdmfhaacemlpgfbpoeb/related)
 - [YouTube Comment Translation Button](https://greasyfork.org/en/scripts/456108)
+- [Local YouTube Downloader](https://greasyfork.org/en/scripts/369400)
 
 ## 💰 Support me
 If you like this project you can tip me for my hard work at 
