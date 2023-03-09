@@ -1,5 +1,12 @@
 ## Changelog
 
+### v2.0.2
+- Add new feature "Video Lists" (If you have better name please tell me)
+
+https://user-images.githubusercontent.com/64634605/224102546-49501a5f-5dcf-435c-8ce6-78c456379bf3.mp4
+
+- Fixed annoying bugs cause by custom radius feature.
+
 ### v2.0.1
 - Just change message on the error page.
 ![](https://i.imgur.com/XKwSwxi.jpeg)
