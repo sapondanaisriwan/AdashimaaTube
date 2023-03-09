@@ -108,6 +108,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
         --yt-spec-10-percent-layer: rgba(0, 0, 0, 0.1);
     }
 
+    ytd-miniplayer {
+        display: block i;
+    }
+
     /* Variables */
     i=!important;
     t=transparent;
@@ -1600,6 +1604,26 @@ Support me: https://ko-fi.com/sapondanaisriwan
         background-color: var(--yt-spec-call-to-action) i;
     }
 
+    /* Join button */
+    #sponsor-button yt-button-shape button,
+    #buttons ytd-toggle-button-renderer yt-button-shape button {
+        color: var(--yt-spec-call-to-action) i; // #065fd4
+        border: 1px solid var(--yt-spec-call-to-action) i;
+        border-radius: buttonRadius <=2px ? 2px i: buttonRadius i if (customRoundness=="Enabled");
+        padding: 9px 15px i;
+        background: t;
+    }
+
+    /* Post button*/
+    #post-button.yt-community-post-section-renderer > ytd-button-renderer[button-renderer] > yt-button-shape > button {
+        background-color: var(--yt-spec-call-to-action) i; // #065fd4
+    }
+
+    /* Join Button */
+    #action-button.ytd-recognition-shelf-renderer > ytd-button-renderer[button-renderer] > yt-button-shape > button {
+        border-radius: buttonRadius <=2px ? 2px i: buttonRadius i if (customRoundness=="Enabled");
+    }
+
     /* ---- Revert Channel page ----- */
     /* Remove about me under channel  */
     ytd-channel-tagline-renderer {
@@ -2059,6 +2083,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
         ytd-menu-popup-renderer[sheets-refresh] {
             border-radius: borderRadius <=4px ? 4px: borderRadius;
         }
+
+        /* Tap (button to sort the videos) */
+        yt-chip-cloud-chip-renderer[modern-chips][chip-style] {
+            border-radius: 16px i;
+        }
     }
 
     /* Album (https://www.youtube.com/results?search_query=ddto) */
@@ -2086,11 +2115,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
         background-color: t i;
     }
 
-    /* (chip)buttons to sort the videos */
-    yt-chip-cloud-chip-renderer[modern-chips][chip-style] {
-        border-radius: 16px i;
-    }
-
     /* Reply button */
     #reply-button-end ytd-button-renderer yt-button-shape button,
     #reply-button-end > yt-button-renderer > yt-button-shape > button {
@@ -2102,21 +2126,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
     .more-button.ytd-backstage-post-renderer,
     .less-button.ytd-backstage-post-renderer {
         color: var(--yt-spec-text-secondary) i;
-    }
-
-    /* Join button */
-    #sponsor-button yt-button-shape button,
-    #buttons ytd-toggle-button-renderer yt-button-shape button {
-        color: var(--yt-spec-call-to-action) i; // #065fd4
-        border: 1px solid var(--yt-spec-call-to-action) i;
-        border-radius: buttonRadius <=2px ? 2px i: buttonRadius i if (customRoundness=="Enabled");
-        padding: 9px 15px i;
-        background: t;
-    }
-
-    /* Post button*/
-    #post-button.yt-community-post-section-renderer yt-button-shape button {
-        background-color: var(--yt-spec-call-to-action) i; // #065fd4
     }
 
     /* Revert comment and like/dislike btn */
