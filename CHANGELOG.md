@@ -1,5 +1,13 @@
 ## Changelog
 
+### v2.0.4
+[Bugs]
+- Fixed a blank box appears on the homepage ([#41][i41]).
+- Fixed layout breaks up whenever zoom out ([#42][i42]).
+
+[i41]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/41
+[i42]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/42
+
 ### v2.0.3
 
 [Feature]
