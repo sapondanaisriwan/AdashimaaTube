@@ -1,5 +1,17 @@
 ## Changelog
 
+### v2.0.3
+
+[Feature]
+- Add new feature "Customize font size".
+
+[Bugs]
+- Fixed a blank box appears on the homepage ([#41][i41]).
+- Fixed layout breaks up whenever zoom out ([#42][i42]).
+
+[i41]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/41
+[i42]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/42
+
 ### v2.0.2
 - Add new feature "Video Lists" (If you have better name please tell me)
 
