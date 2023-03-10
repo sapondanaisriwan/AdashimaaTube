@@ -12,7 +12,7 @@
 
 
 @var range customFontSize              "⚙️ Font-Size (Beta)" [10, 10, 16, 1, 'px']
-@var checkbox idontKnowWhatToNameThis  "🥶 Videol Lists (Beta)" 0
+@var checkbox idontKnowWhatToNameThis  "🥶 Videol Lsts (Beta)" 0
 
 @var select customOldLayout            "⚒️ Old Layout" ["Enabled", "Disabled"]
 @var checkbox oldBackground            "  🖼️ Old Background" 1
@@ -128,6 +128,18 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
     }
 
+    html {
+        font-size: customFontSize i;
+    }
+
+    if (idontKnowWhatToNameThis) {
+        ytd-item-section-renderer.ytd-watch-next-secondary-results-renderer {
+            overflow-y: scroll;
+            overflow-x: hidden;
+            height: var(--ytd-watch-flexy-chat-max-height);
+        }
+    }
+
     /* Check if broswer support :has selector */
     @css {
         @supports not selector(:has(*)) {
@@ -172,31 +184,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 filter: blur(0.5rem);
 
                 height: 100vh;
-            }
-        }
-    }
-
-    html {
-        font-size: customFontSize i;
-    }
-
-    if (idontKnowWhatToNameThis) {
-        ytd-item-section-renderer.ytd-watch-next-secondary-results-renderer {
-            overflow-y: scroll;
-            overflow-x: hidden;
-            height: var(--ytd-watch-flexy-chat-max-height);
-        }
-    }
-
-    if (customMoreVideos=="Disabled") {
-        [page-subtype="home"] {
-            ytd-rich-grid-row,
-            ytd-rich-grid-row #contents.ytd-rich-grid-row {
-                display: contents;
-            }
-
-            #contents.ytd-rich-grid-renderer {
-                max-width: calc(var(--ytd-rich-grid-items-per-row) * (var(--ytd-rich-grid-mini-item-max-width) - var(--ytd-rich-grid-item-margin)/2));
             }
         }
     }
@@ -697,6 +684,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 }
             }
         }
+
 
         /* ⚒️ Custom Channel Page */
         if (channelPage=="Enabled") {
