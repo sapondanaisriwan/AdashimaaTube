@@ -728,9 +728,13 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 ytd-rich-grid-renderer {
                     --ytd-rich-grid-items-per-row: var(--video-per-row) i;
                     #contents {
-                        max-width: calc(100% - 2 * 1vw) i;
                         test();
                     }
+                }
+
+                #contents.ytd-rich-grid-renderer {
+                    justify-content: center;
+                    max-width: calc(var(--ytd-rich-grid-items-per-row) * (var(--ytd-rich-grid-mini-item-max-width) - var(--ytd-rich-grid-item-margin)/2));
                 }
             }
 
