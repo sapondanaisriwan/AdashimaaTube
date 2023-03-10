@@ -11,6 +11,7 @@
 @preprocessor   stylus
 
 
+@var range customFontSize              "⚙️ Font-Size (Beta)" [10, 10, 16, 1, 'px']
 @var checkbox idontKnowWhatToNameThis  "🥶 Videol Lsts (Beta)" 0
 
 @var select customOldLayout            "⚒️ Old Layout" ["Enabled", "Disabled"]
@@ -115,6 +116,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     i=!important;
     t=transparent;
 
+
     test() {
         ytd-rich-grid-row,
         ytd-rich-grid-row #contents {
@@ -126,6 +128,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
     }
 
+    html {
+        font-size: customFontSize i;
+    }
 
     if (idontKnowWhatToNameThis) {
         ytd-item-section-renderer.ytd-watch-next-secondary-results-renderer {
@@ -1465,7 +1470,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     .ytd-watch-flexy h1.title.ytd-video-primary-info-renderer {
         font-family: "Roboto", sans-serif;
         font-weight: 400;
-        font-size: 18px;
+        font-size: 1.8rem;
     }
 
     /* Reverts the channel author */
