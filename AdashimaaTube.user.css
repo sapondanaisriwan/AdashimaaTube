@@ -116,7 +116,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
     i=!important;
     t=transparent;
 
-
     test() {
         ytd-rich-grid-row,
         ytd-rich-grid-row #contents {
@@ -188,7 +187,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
     }
 
-    if (customMoreVideos=="Disabled") {
+    /* Fixed when zoom out and a blank box caused by Adblock */
+    if (customMoreVideos=="Disabled") || (homePage=="Disabled"){
         [page-subtype="home"] {
             ytd-rich-grid-row,
             ytd-rich-grid-row #contents.ytd-rich-grid-row {
@@ -196,12 +196,74 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
 
             #contents.ytd-rich-grid-renderer {
-                max-width: calc(var(--ytd-rich-grid-items-per-row) * (var(--ytd-rich-grid-mini-item-max-width) - var(--ytd-rich-grid-item-margin)/2));
+                width: calc(100% - 1.6rem);
+                max-width: calc(var(--ytd-rich-grid-items-per-row) * (var(--ytd-rich-grid-item-max-width) + var(--ytd-rich-grid-item-margin)));
             }
         }
     }
 
     if (customMoreVideos=="Enabled") {
+
+        /* ⚒️ Custom Homepage */
+        if (homePage=="Enabled") {
+            /* 🏠 Number Of Videos Per Row */
+            [page-subtype="home"] {
+                ytd-rich-grid-renderer {
+                    --ytd-rich-grid-items-per-row: var(--video-per-row) i;
+                    #contents {
+                        test();
+                    }
+                }
+
+                #contents.ytd-rich-grid-renderer {
+                    width: calc(100% - 1.6rem);
+                    max-width: calc(var(--ytd-rich-grid-items-per-row) * (var(--ytd-rich-grid-item-max-width) + var(--ytd-rich-grid-item-margin)));
+                }
+            }
+
+            /* 📻 Playlists Grouping */
+            /* (Inspire by Youtube Redux) Sort without js 😎 */
+            [page-subtype="home"] ytd-rich-item-renderer:has(#content.ytd-rich-item-renderer > ytd-rich-grid-media.ytd-rich-item-renderer > #dismissible.ytd-rich-grid-media > ytd-thumbnail.ytd-rich-grid-media > a#thumbnail[href*="&list="]) {
+                order: -1 if playlistsGrouping;
+            }
+
+            [page-subtype="home"] {
+                /* Remove the blank video thumbnail is an advertisement video that was deleted by an AdBlock extension, such as uBlock Origin, AdBlock, Adblock Plus, and others */
+                #contents > ytd-rich-item-renderer:has(#content > ytd-ad-slot-renderer) {
+                    display: none;
+                }
+
+                #contents.ytd-rich-grid-renderer {
+                    margin-top: 6px i;
+                }
+            }
+
+            /* Remove unloaded videos */
+            .ghost-grid.ytd-ghost-grid-renderer {
+                display: none;
+            }
+
+            /* Display unloaded videos per row when refresh the homepage */
+            #home-page-skeleton .rich-shelf-videos .rich-grid-media-skeleton.mini-mode,
+            #home-page-skeleton #home-container-media .rich-grid-media-skeleton.mini-mode {
+                margin: 0 4px;
+                min-width: calc(100% / var(--video-per-row) - 1.6rem);
+                max-width: calc(100% / var(--video-per-row) - 1.6rem);
+            }
+
+            /* 🏠 Restore Old Homepage */
+            if (hideProfile) {
+                /* Remove unloaded channel profile  when refresh a page */
+                #home-page-skeleton .channel-avatar {
+                    display: none;
+                }
+
+                /* Remove channel profile from homepage */
+                [page-subtype="home"] ytd-rich-grid-media a#avatar-link {
+                    display: none;
+                }
+            }
+        }
 
         /* 📄 Subscriptions In A Grid Layout */
         if (subscriptionsGrid) {
@@ -717,68 +779,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     */
                     flex-flow: row-reverse wrap-reverse;
                     justify-content: flex-end;
-                }
-            }
-        }
-
-        /* ⚒️ Custom Homepage */
-        if (homePage=="Enabled") {
-            /* 🏠 Number Of Videos Per Row */
-            [page-subtype="home"] {
-                ytd-rich-grid-renderer {
-                    --ytd-rich-grid-items-per-row: var(--video-per-row) i;
-                    #contents {
-                        test();
-                    }
-                }
-
-                #contents.ytd-rich-grid-renderer {
-                    justify-content: center;
-                    max-width: calc(var(--ytd-rich-grid-items-per-row) * (var(--ytd-rich-grid-mini-item-max-width) - var(--ytd-rich-grid-item-margin)/2));
-                }
-            }
-
-
-            /* 📻 Playlists Grouping */
-            /* (Inspire by Youtube Redux) Sort without js 😎 */
-            [page-subtype="home"] ytd-rich-item-renderer:has(#content.ytd-rich-item-renderer > ytd-rich-grid-media.ytd-rich-item-renderer > #dismissible.ytd-rich-grid-media > ytd-thumbnail.ytd-rich-grid-media > a#thumbnail[href*="&list="]) {
-                order: -1 if playlistsGrouping;
-            }
-
-            [page-subtype="home"] {
-                /* Remove the blank video thumbnail is an advertisement video that was deleted by an AdBlock extension, such as uBlock Origin, AdBlock, Adblock Plus, and others */
-                #contents > ytd-rich-item-renderer:has(#content > ytd-ad-slot-renderer) {
-                    display: none;
-                }
-
-                #contents.ytd-rich-grid-renderer {
-                    margin-top: 6px i;
-                }
-            }
-
-            /* Remove unloaded videos */
-            .ghost-grid.ytd-ghost-grid-renderer {
-                display: none;
-            }
-
-            /* Display unloaded videos per row when refresh the homepage */
-            #home-page-skeleton .rich-shelf-videos .rich-grid-media-skeleton.mini-mode,
-            #home-page-skeleton #home-container-media .rich-grid-media-skeleton.mini-mode {
-                margin: 0 4px;
-                min-width: calc(100% / var(--video-per-row) - 1.6rem);
-                max-width: calc(100% / var(--video-per-row) - 1.6rem);
-            }
-
-            /* 🏠 Restore Old Homepage */
-            if (hideProfile) {
-                /* Remove unloaded channel profile  when refresh a page */
-                #home-page-skeleton .channel-avatar {
-                    display: none;
-                }
-
-                /* Remove channel profile from homepage */
-                [page-subtype="home"] ytd-rich-grid-media a#avatar-link {
-                    display: none;
                 }
             }
         }
