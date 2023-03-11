@@ -1,5 +1,12 @@
 ## Changelog
 
+### v2.0.5
+[Feature]
+- Add new feature "Homepage layout fix".
+
+- "Video Appearance" is enabled by default.
+- Use the YouTube-provided default margins.
+
 ### v2.0.4
 [Bugs]
 - Fixed a blank box appears on the homepage ([#41][i41]).
