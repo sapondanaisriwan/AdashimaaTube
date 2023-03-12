@@ -398,14 +398,18 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 }
 
                 yt-img-shadow.ytd-channel-renderer {
-                    max-width: 136px;
+                    max-width: 130px;
                     width: 100%;
                     height: auto;
                     img {
-                        max-width: 136px;
+                        max-width: 130px;
                         width: 100%;
                         height: auto;
                     }
+                }
+
+                #avatar.ytd-channel-renderer {
+                    width: 100%;
                 }
 
                 /*                 yt-showing-results-for-renderer,
@@ -1539,6 +1543,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
             margin-left: 0;
             letter-spacing: normal;
             text-align: center;
+
+            overflow: hidden;
+            text-overflow: ellipsis;
+
             /* It's very hard to read so I made a full condition below */
             border-radius: 18px if (customRoundness=="Disabled");
             border-radius: buttonRadius <=2px ? 2px i: buttonRadius i if (customRoundness=="Enabled");
@@ -1602,12 +1610,13 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     /* If you sign out google account */
     #call-to-action-buttons,
-    #subscribe-button {
+    #subscribe-button,
+    #subscribe.ytd-grid-channel-renderer {
         > ytd-button-renderer[button-renderer] > yt-button-shape {
             > a:not([href="/feed/channels"]),
             > button {
                 color: var(--yt-spec-static-brand-white);
-                background-color: var(--yt-spec-brand-button-background);
+                background-color: var(--yt-spec-brand-button-background) i;
                 border-radius: buttonRadius <=2px ? 2px i: buttonRadius i if (customRoundness=="Enabled");
             }
         }
@@ -1630,6 +1639,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
     .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--filled {
         color: var(--yt-spec-text-primary-inverse) i;
         background-color: var(--yt-spec-call-to-action) i;
+    }
+
+    ytd-channel-renderer:not([dual-buttons]) #buttons.ytd-channel-renderer {
+        max-width: 100%;
     }
 
     /* Join button */
