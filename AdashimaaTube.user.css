@@ -1622,8 +1622,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
     }
 
-    
-    
+
+
     /* Change color of edit button to blue -> Customize channel, Manage videos, Analytics and Edit Video */
     #upload-video-button.ytd-channel-owner-empty-state-renderer,
     #edit-buttons.ytd-c4-tabbed-header-renderer,
@@ -1648,13 +1648,20 @@ Support me: https://ko-fi.com/sapondanaisriwan
     }
 
     /* Join button */
-    #sponsor-button yt-button-shape button,
-    #buttons ytd-toggle-button-renderer yt-button-shape button {
-        color: var(--yt-spec-call-to-action) i; // #065fd4
-        border: 1px solid var(--yt-spec-call-to-action) i;
-        border-radius: buttonRadius <=2px ? 2px i: buttonRadius i if (customRoundness=="Enabled");
-        padding: 9px 15px i;
-        background: t;
+    #sponsor-button,
+    #buttons {
+        > ytd-button-renderer,
+        > ytd-toggle-button-renderer {
+            overflow: hidden;
+            max-width: 100%;
+            > yt-button-shape > button {
+                color: var(--yt-spec-call-to-action) i; // #065fd4
+                border: 1px solid var(--yt-spec-call-to-action) i;
+                border-radius: buttonRadius <=2px ? 2px i: buttonRadius i if (customRoundness=="Enabled");
+                padding: 9px 15px i;
+                background: t;
+            }
+        }
     }
 
     /* Post button*/
