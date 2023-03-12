@@ -1604,7 +1604,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     #call-to-action-buttons,
     #subscribe-button {
         > ytd-button-renderer[button-renderer] > yt-button-shape {
-            > a,
+            > a:not([href="/feed/channels"]),
             > button {
                 color: var(--yt-spec-static-brand-white);
                 background-color: var(--yt-spec-brand-button-background);
