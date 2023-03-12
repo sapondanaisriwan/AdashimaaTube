@@ -1613,7 +1613,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     #subscribe-button,
     #subscribe.ytd-grid-channel-renderer {
         > ytd-button-renderer[button-renderer] > yt-button-shape {
-            > a:not([href="/feed/channels"]),
+            > a:not([href="/feed/channels"]):not([href^="https://studio.youtube.com/video/"]),
             > button {
                 color: var(--yt-spec-static-brand-white);
                 background-color: var(--yt-spec-brand-button-background) i;
@@ -1622,6 +1622,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
     }
 
+    
+    
     /* Change color of edit button to blue -> Customize channel, Manage videos, Analytics and Edit Video */
     #upload-video-button.ytd-channel-owner-empty-state-renderer,
     #edit-buttons.ytd-c4-tabbed-header-renderer,
