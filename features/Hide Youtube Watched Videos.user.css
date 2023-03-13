@@ -1,0 +1,35 @@
+ytd-thumbnail[loaded] #overlays.ytd-thumbnail {
+    position: relative;
+}
+
+toString(v1) {
+    return "" + v1;
+}
+
+for num in (10..100) {
+    ytd-video-renderer #progress.ytd-thumbnail-overlay-resume-playback-renderer[style*='{toString(num)}'] {
+        &::before {
+            content: toString(num);
+            font-size: 1.6rem;
+            position: absolute;
+            top: -20px;
+        }
+
+        & {
+            if num==100 {
+
+                display: none;
+            }
+        }
+    }
+}
+
+/*     for num in (1..100) {
+    test="" + num;
+    #progress.ytd-thumbnail-overlay-resume-playback-renderer[style*="100"]::before {
+        content: test + typeof(test);
+        font-size: 1.6rem;
+        position: absolute;
+        top: -20px;
+    }
+} */
