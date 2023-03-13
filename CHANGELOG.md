@@ -1,5 +1,16 @@
 ## Changelog
 
+### v2.0.6
+[Bugs]
+- Fixed various bugs ([#44][i44]) ([#45][i45]) ([#46][i46]) ([#47][i47]) ([#49][i49]) ([#50][i50]).
+
+[i44]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/44
+[i45]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/45
+[i46]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/46
+[i47]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/47
+[i49]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/49
+[i50]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/50
+
 ### v2.0.5
 [Feature]
 - Add new feature "Homepage layout fix".
