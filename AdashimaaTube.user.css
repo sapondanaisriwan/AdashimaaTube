@@ -1649,7 +1649,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     /* Join button */
     #sponsor-button,
-    #buttons {
+    #buttons:not(.ytd-commentbox) {
         > ytd-button-renderer,
         > ytd-toggle-button-renderer {
             overflow: hidden;
@@ -1663,7 +1663,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
         }
     }
-
+    
     /* Post button*/
     #post-button.yt-community-post-section-renderer > ytd-button-renderer[button-renderer] > yt-button-shape > button {
         background-color: var(--yt-spec-call-to-action) i; // #065fd4
