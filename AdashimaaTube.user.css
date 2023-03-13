@@ -1504,7 +1504,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         font-size: 1.8rem;
     }
 
-    /* Revert the font size */
+    /* ----- Reverts Videos title (New UI) ----- */
     #video-title.ytd-rich-grid-slim-media,
     #video-title.ytd-rich-grid-media {
         font-size: 1.4rem;
@@ -1512,7 +1512,24 @@ Support me: https://ko-fi.com/sapondanaisriwan
         max-height: 4rem;
     }
 
-    /* Reverts the channel author */
+    /* View count and the upload date */
+    ytd-video-meta-block[rich-meta] #metadata-line.ytd-video-meta-block,
+
+    /* Channel author */
+    ytd-video-meta-block[rich-meta] #byline-container.ytd-video-meta-block {
+        font-family: "Roboto", "Arial", sans-serif;
+        font-size: 1.2rem;
+        line-height: 1.8rem;
+        font-weight: 400;
+    }
+
+    /* Channel author while hovering */
+    yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string:hover {
+        color: unset;
+    }
+    
+    
+    /* Reverts the channel author on wathcpage*/
     ytd-video-owner-renderer[modern-metapanel] #channel-name.ytd-video-owner-renderer {
         font-family: "Roboto", "Arial", sans-serif;
         font-size: 1.4rem;
