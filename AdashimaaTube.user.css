@@ -58,7 +58,7 @@
 
 @var select customRoundness            "⚒️ Roundness" ["Enabled", "Disabled"]
 @var range borderRadius                "  ⚙️ Border Radius" [0, 0, 40, 1, 'px']
-@var range buttonRadius                "  ⚙️ Buttons Radius" [0, 0, 18, 1, 'px']
+@var range buttonRadius                "  ⚙️ Buttons Radius" [2, 2, 18, 1, 'px']
 @var range profileRadius               "  ⚙️ Profiles Radius" [50, 0, 50, 1, '%']
 
 @var select customVideoPage            "⚒️ Watch Page" ["Enabled", "Disabled"]
@@ -1549,7 +1549,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
             /* It's very hard to read so I made a full condition below */
             border-radius: 18px if (customRoundness=="Disabled");
-            border-radius: buttonRadius <=2px ? 2px i: buttonRadius i if (customRoundness=="Enabled");
+            border-radius: buttonRadius i if (customRoundness=="Enabled");
 
             /*
             if (customRoundness=="Disabled") {
@@ -1617,7 +1617,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             > button {
                 color: var(--yt-spec-static-brand-white);
                 background-color: var(--yt-spec-brand-button-background) i;
-                border-radius: buttonRadius <=2px ? 2px i: buttonRadius i if (customRoundness=="Enabled");
+                border-radius: buttonRadius i if (customRoundness=="Enabled");
             }
         }
     }
@@ -1631,7 +1631,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         > ytd-button-renderer > yt-button-shape > a {
 
             border-radius: 18px if (customRoundness=="Disabled");
-            border-radius: buttonRadius <=2px ? 2px i: buttonRadius i if (customRoundness=="Enabled");
+            border-radius: buttonRadius i if (customRoundness=="Enabled");
 
             color: var(--yt-spec-text-primary-inverse) i;
             background-color: var(--yt-spec-call-to-action) i;
@@ -1657,15 +1657,16 @@ Support me: https://ko-fi.com/sapondanaisriwan
             > yt-button-shape > button {
                 color: var(--yt-spec-call-to-action) i; // #065fd4
                 border: 1px solid var(--yt-spec-call-to-action) i;
-                border-radius: buttonRadius <=2px ? 2px i: buttonRadius i if (customRoundness=="Enabled");
+                border-radius: buttonRadius i if (customRoundness=="Enabled");
                 padding: 9px 15px i;
                 background: t;
             }
         }
     }
-    
-    /* Post button*/
-    #post-button.yt-community-post-section-renderer > ytd-button-renderer[button-renderer] > yt-button-shape > button {
+
+    /* Post button */
+    #community-post #post-button.yt-community-post-section-renderer yt-button-shape > button {
+        border-radius: buttonRadius i if (customRoundness=="Enabled");
         background-color: var(--yt-spec-call-to-action) i; // #065fd4
     }
 
@@ -2122,7 +2123,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
 
         .ytp-settings-menu.ytp-rounded-menu {
-            border-radius: borderRadius <=2px ? 2px: borderRadius;
+            border-radius: borderRadius;
         }
 
         ytd-menu-popup-renderer[sheets-refresh] {
@@ -2139,7 +2140,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         .ytp-sb-unsubscribe.ytp-sb-rounded,
         /* Join Memebership button */
         #purchase-button.ytd-sponsorships-tier-renderer > yt-button-renderer > yt-button-shape > button {
-            border-radius: buttonRadius <=2px ? 2px i: buttonRadius i;
+            border-radius: buttonRadius i;
         }
 
         /* Join button */
@@ -2151,11 +2152,29 @@ Support me: https://ko-fi.com/sapondanaisriwan
             > ytd-button-renderer[button-renderer] > yt-button-shape {
                 > a,
                 > button {
-                    border-radius: buttonRadius <=2px ? 2px i: buttonRadius i;
+                    border-radius: buttonRadius i;
                 }
             }
         }
+
+        #copy-button,
+        #submit-button {
+            > yt-button-shape > button {
+                border-radius: buttonRadius i;
+            }
+        }
+
+        /* Post button on community tap */
+        ytd-backstage-post-dialog-renderer[is-creation-dialog-with-header] {
+            #submit-button.ytd-commentbox > yt-button-shape > button {
+                border-radius: buttonRadius 0 0 buttonRadius i;
+            }
+            #option-menu.ytd-commentbox ytd-menu-renderer.ytd-commentbox button {
+                border-radius: 0 buttonRadius buttonRadius 0 i;
+            }
+        }
     }
+
 
     /* Album (https://www.youtube.com/results?search_query=ddto) */
     yt-formatted-string#index.style-scope.ytd-playlist-video-renderer {
