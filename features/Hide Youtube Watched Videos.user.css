@@ -1,35 +1,28 @@
-ytd-thumbnail[loaded] #overlays.ytd-thumbnail {
-    position: relative;
-}
+/* ==UserStyle==
+@name           Hide Youtube Watched
+@author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan)
+@description    Please report bugs via github issues or my email (If I have some free time, I'll fix them)
+@namespace      https://userstyles.world/user/sapondanaisriwan
+@homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
+@supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
+@version        1.0.2
+@license        MIT
+@preprocessor   stylus
+@var range watchPercentage              "⚙️ Percentage" [100, 10, 100, 10]
+==/UserStyle== */
+@-moz-document domain("youtube.com") {
+    toString(v1) {
+        return "" + v1;
+    }
 
-toString(v1) {
-    return "" + v1;
-}
-
-for num in (10..100) {
-    ytd-video-renderer #progress.ytd-thumbnail-overlay-resume-playback-renderer[style*='{toString(num)}'] {
-        &::before {
-            content: toString(num);
-            font-size: 1.6rem;
-            position: absolute;
-            top: -20px;
-        }
-
-        & {
-            if num==100 {
-
-                display: none;
+    ytd-video-renderer,
+    ytd-rich-item-renderer,
+    ytd-grid-video-renderer,
+    ytd-compact-video-renderer {
+        for num in (watchPercentage..100) {
+            &:not(is-history):has(#progress.ytd-thumbnail-overlay-resume-playback-renderer[style$='{toString(num)}\%\;']) {
+                display: none if num >=watchPercentage;
             }
         }
     }
 }
-
-/*     for num in (1..100) {
-    test="" + num;
-    #progress.ytd-thumbnail-overlay-resume-playback-renderer[style*="100"]::before {
-        content: test + typeof(test);
-        font-size: 1.6rem;
-        position: absolute;
-        top: -20px;
-    }
-} */
