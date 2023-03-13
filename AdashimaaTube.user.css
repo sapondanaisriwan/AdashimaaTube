@@ -1,5 +1,5 @@
 /* ==UserStyle==
-@name           `AdashimaaTube
+@name           `AdashimaaTube Main
 @author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan)
 @description    If you want to submit a bug or request a feature please report via github issue. Since I receive so many emails, I can't reply to them all.
 @namespace      https://userstyles.world/user/sapondanaisriwan
@@ -190,7 +190,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
         ytd-item-section-renderer.ytd-watch-next-secondary-results-renderer {
             overflow-y: scroll;
             overflow-x: hidden;
-            height: var(--ytd-watch-flexy-chat-max-height);
+            /*             height: calc(var(--ytd-watch-flexy-chat-max-height) + 180px); */
+            height: 100vh;
         }
     }
 
@@ -1503,6 +1504,14 @@ Support me: https://ko-fi.com/sapondanaisriwan
         font-size: 1.8rem;
     }
 
+    /* Revert the font size */
+    #video-title.ytd-rich-grid-slim-media,
+    #video-title.ytd-rich-grid-media {
+        font-size: 1.4rem;
+        line-height: 2rem;
+        max-height: 4rem;
+    }
+
     /* Reverts the channel author */
     ytd-video-owner-renderer[modern-metapanel] #channel-name.ytd-video-owner-renderer {
         font-family: "Roboto", "Arial", sans-serif;
@@ -2169,6 +2178,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             #submit-button.ytd-commentbox > yt-button-shape > button {
                 border-radius: buttonRadius 0 0 buttonRadius i;
             }
+
             #option-menu.ytd-commentbox ytd-menu-renderer.ytd-commentbox button {
                 border-radius: 0 buttonRadius buttonRadius 0 i;
             }
