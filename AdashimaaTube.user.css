@@ -49,7 +49,8 @@
     "日本語": "Japanese",
     "한국어": "Korean",
     "Русский": "Russia",
-    "Français": "French"
+    "Français": "French",
+    "Polski": "Polish"
 }
 @var checkbox displayFullTitle         "  🎦 Full Title For Videos" 0
 @var select likeDislike                "  🎨 Like/Dislike colors" ['None', 'Navy-Blue', 'Classic']
@@ -1176,7 +1177,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 "Japanese": "嫌い",
                 "Korean": "싫어함",
                 "Russia": "Не нравится",
-                "French": "Je n'aime pas"
+                "French": "Je n'aime pas",
+                "Polish": "Nie podoba mi się"
             }
 
             for language in languages {
