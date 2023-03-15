@@ -15,6 +15,7 @@
 @var range borderRadius                "  ⚙️ Border Radius" [0, 0, 40, 1, 'px']
 @var range buttonRadius                "  ⚙️ Buttons Radius" [2, 2, 18, 1, 'px']
 @var range profileRadius               "  ⚙️ Profiles Radius" [50, 0, 50, 1, '%']
+@var checkbox oldWatchpage             "  📺 Old Watchpage" 1
 @var checkbox oldBackground            "  🖼️ Old Background" 1
 @var checkbox oldPlaylists             "  ▶️ Old Playlist" 1
 @var checkbox oldIcons                 "  🧓 Old Icons" 0
@@ -992,6 +993,52 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     background: var(--yt-spec-brand-background-solid);
                 }
             }
+
+            /* Change color of edit button to blue -> Customize channel, Manage videos, Analytics and Edit Video */
+            #upload-video-button.ytd-channel-owner-empty-state-renderer,
+            #edit-buttons.ytd-c4-tabbed-header-renderer,
+            #analytics-button.ytd-video-owner-renderer {
+                > ytd-button-renderer > yt-button-shape > a {
+
+                    border-radius: 18px if (customOldLayout=="Disabled");
+                    border-radius: buttonRadius i if (customOldLayout=="Enabled");
+
+                    color: var(--yt-spec-text-primary-inverse) i;
+                    background-color: var(--yt-spec-call-to-action) i;
+                }
+            }
+
+            .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline {
+                border: 1px solid var(--yt-spec-call-to-action) i;
+            }
+
+            .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--filled {
+                color: var(--yt-spec-text-primary-inverse) i;
+                background-color: var(--yt-spec-call-to-action) i;
+            }
+
+            /* Join button */
+            #sponsor-button,
+            #buttons:not(.ytd-commentbox) {
+                > ytd-button-renderer,
+                > ytd-toggle-button-renderer {
+                    overflow: hidden;
+                    max-width: 100%;
+                    > yt-button-shape > button {
+                        color: var(--yt-spec-call-to-action) i;
+                        border: 1px solid var(--yt-spec-call-to-action) i;
+                        border-radius: buttonRadius i if (customOldLayout=="Enabled");
+                        padding: 9px 15px i;
+                        background: t;
+                    }
+                }
+            }
+
+            /* Post button */
+            #community-post #post-button.yt-community-post-section-renderer yt-button-shape > button {
+                border-radius: buttonRadius i if (customOldLayout=="Enabled");
+                background-color: var(--yt-spec-call-to-action) i;
+            }
         }
     }
 
@@ -1504,153 +1551,255 @@ Support me: https://ko-fi.com/sapondanaisriwan
     }
 
     /* REVERT WATCH PAGE */
-    ytd-watch-metadata {
-        display: none i;
-    }
+    if (customOldLayout=="Enabled" && oldWatchpage) {
 
-    #meta-contents[hidden],
-    #info-contents[hidden] {
-        display: block i;
-    }
+        ytd-watch-metadata {
+            display: none i;
+        }
 
-    #comment-teaser.ytd-watch-metadata {
-        display: none;
-    }
+        #meta-contents[hidden],
+        #info-contents[hidden] {
+            display: block i;
+        }
 
-    .ytd-watch-flexy h1.title.ytd-video-primary-info-renderer {
-        font-family: "Roboto", sans-serif;
-        font-weight: 400;
-        font-size: 1.8rem;
-    }
-
-    /* ----- Reverts Videos title (New UI) ----- */
-    #video-title.ytd-rich-grid-slim-media,
-    #video-title.ytd-rich-grid-media {
-        font-size: 1.4rem;
-        line-height: 2rem;
-        max-height: 4rem;
-    }
-
-    /* View count and the upload date */
-    ytd-video-meta-block[rich-meta] #metadata-line.ytd-video-meta-block,
-
-    /* Channel author */
-    ytd-video-meta-block[rich-meta] #byline-container.ytd-video-meta-block {
-        font-family: "Roboto", "Arial", sans-serif;
-        font-size: 1.2rem;
-        line-height: 1.8rem;
-        font-weight: 400;
-    }
-
-    /* Channel author while hovering */
-    yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string:hover {
-        color: unset;
-    }
-
-
-    /* Reverts the channel author on wathcpage*/
-    ytd-video-owner-renderer[modern-metapanel] #channel-name.ytd-video-owner-renderer {
-        font-family: "Roboto", "Arial", sans-serif;
-        font-size: 1.4rem;
-        line-height: 2rem;
-        font-weight: 500;
-    }
-
-    ytd-menu-renderer[has-flexible-items] {
-        overflow-y: unset;
-    }
-
-    #menu.ytd-video-primary-info-renderer {
-        top: 0;
-    }
-
-    ytd-video-primary-info-renderer[flex-menu-enabled] #info.ytd-video-primary-info-renderer {
-        margin-top: 4px;
-    }
-
-    ytd-video-primary-info-renderer {
-        padding-bottom: 14px;
-    }
-
-    /* ----- Subscribe Button ----- */
-    /* Revert the old subscribe button */
-    ytd-subscribe-button-renderer[modern] {
-
-        /* Remove mordern subscribe btn */
-        yt-button-shape.ytd-subscribe-button-renderer {
+        #comment-teaser.ytd-watch-metadata {
             display: none;
         }
 
-        /* Display the old subscribe btn */
-        tp-yt-paper-button.ytd-subscribe-button-renderer {
-            display: block i;
-            margin-right: 0;
-            margin-left: 0;
-            letter-spacing: normal;
-            text-align: center;
-
-            overflow: hidden;
-            text-overflow: ellipsis;
-
-            /* It's very hard to read so I made a full condition below */
-            border-radius: 18px if (customOldLayout=="Disabled");
-            border-radius: buttonRadius i if (customOldLayout=="Enabled");
-
-            /*
-            if (customOldLayout=="Disabled") {
-                border-radius: 18px;
-            }
-
-            if (customOldLayout=="Enabled") {
-                if (buttonRadius <=2px) {
-                    border-radius: 2px;
-                }
-
-                else {
-                    border-radius: buttonRadius;
-                }
-            } 
-            */
-        }
-    }
-
-    /* Revert notification button */
-    #notification-preference-button > ytd-subscription-notification-toggle-button-renderer-next > yt-button-shape > button {
-        /* Removes background color around bell icon */
-        &.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
-            background-color: t i;
+        .ytd-watch-flexy h1.title.ytd-video-primary-info-renderer {
+            font-family: "Roboto", sans-serif;
+            font-weight: 400;
+            font-size: 1.8rem;
         }
 
-        /* Removes down arrow and "Subscribed"*/
-        > div {
-            &.cbox.yt-spec-button-shape-next--button-text-content,
-            &.yt-spec-button-shape-next__secondary-icon {
+        /* ----- Reverts Videos title (New UI) ----- */
+        #video-title.ytd-rich-grid-slim-media,
+        #video-title.ytd-rich-grid-media {
+            font-size: 1.4rem;
+            line-height: 2rem;
+            max-height: 4rem;
+        }
+
+        /* View count and the upload date */
+        ytd-video-meta-block[rich-meta] #metadata-line.ytd-video-meta-block,
+
+        /* Channel author */
+        ytd-video-meta-block[rich-meta] #byline-container.ytd-video-meta-block {
+            font-family: "Roboto", "Arial", sans-serif;
+            font-size: 1.2rem;
+            line-height: 1.8rem;
+            font-weight: 400;
+        }
+
+        /* Channel author while hovering */
+        yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string:hover {
+            color: unset;
+        }
+
+
+        /* Reverts the channel author on watchpage*/
+        ytd-video-owner-renderer[modern-metapanel] #channel-name.ytd-video-owner-renderer {
+            font-family: "Roboto", "Arial", sans-serif;
+            font-size: 1.4rem;
+            line-height: 2rem;
+            font-weight: 500;
+        }
+
+        ytd-menu-renderer[has-flexible-items] {
+            overflow-y: unset;
+        }
+
+        #menu.ytd-video-primary-info-renderer {
+            top: 0;
+        }
+
+        ytd-video-primary-info-renderer[flex-menu-enabled] #info.ytd-video-primary-info-renderer {
+            margin-top: 4px;
+        }
+
+        ytd-video-primary-info-renderer {
+            padding-bottom: 14px;
+        }
+
+
+        /* ----- Subscribe Button ----- */
+        /* Revert the old subscribe button */
+        ytd-subscribe-button-renderer[modern] {
+
+            /* Remove mordern subscribe btn */
+            yt-button-shape.ytd-subscribe-button-renderer {
                 display: none;
             }
-        }
-    }
 
-    /* 
+            /* Display the old subscribe btn */
+            tp-yt-paper-button.ytd-subscribe-button-renderer {
+                display: block i;
+                margin-right: 0;
+                margin-left: 0;
+                letter-spacing: normal;
+                text-align: center;
+
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+                /* It's very hard to read so I made a full condition below */
+                border-radius: 18px if (customOldLayout=="Disabled");
+                border-radius: buttonRadius i if (customOldLayout=="Enabled");
+            }
+        }
+
+        /* Revert notification button */
+        #notification-preference-button > ytd-subscription-notification-toggle-button-renderer-next > yt-button-shape > button {
+            /* Removes background color around bell icon */
+            &.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
+                background-color: t i;
+            }
+
+            /* Removes down arrow and "Subscribed"*/
+            > div {
+                &.cbox.yt-spec-button-shape-next--button-text-content,
+                &.yt-spec-button-shape-next__secondary-icon {
+                    display: none;
+                }
+            }
+        }
+
+        /* 
         Revert the subscribe button on the channel tap and browse channels
         Ex: https://www.youtube.com/@MuseThailand/channels https://www.youtube.com/feed/guide_builder
     */
-    ytd-subscribe-button-renderer[button-style=COMPACT_GRAY] tp-yt-paper-button.ytd-subscribe-button-renderer,
-    ytd-subscribe-button-renderer[button-style=COMPACT_RED] tp-yt-paper-button.ytd-subscribe-button-renderer,
-    ytd-subscribe-button-renderer[button-style=COMPACT_GRAY][use-keyboard-focused]:not([keyboard-focused]) tp-yt-paper-button.keyboard-focus.ytd-subscribe-button-renderer,
-    ytd-subscribe-button-renderer[button-style=COMPACT_RED][use-keyboard-focused]:not([keyboard-focused]) tp-yt-paper-button.keyboard-focus.ytd-subscribe-button-renderer {
-        color: var(--yt-spec-static-brand-white);
-        background-color: var(--yt-spec-brand-button-background);
-        --paper-button-flat-keyboard-focus-background-color: var(--yt-spec-brand-button-background);
-        padding: 0 12px;
-        height: 32px;
-        font-size: 12px;
-        line-height: 32px;
-        letter-spacing: normal;
-    }
+        ytd-subscribe-button-renderer[button-style=COMPACT_GRAY] tp-yt-paper-button.ytd-subscribe-button-renderer,
+        ytd-subscribe-button-renderer[button-style=COMPACT_RED] tp-yt-paper-button.ytd-subscribe-button-renderer,
+        ytd-subscribe-button-renderer[button-style=COMPACT_GRAY][use-keyboard-focused]:not([keyboard-focused]) tp-yt-paper-button.keyboard-focus.ytd-subscribe-button-renderer,
+        ytd-subscribe-button-renderer[button-style=COMPACT_RED][use-keyboard-focused]:not([keyboard-focused]) tp-yt-paper-button.keyboard-focus.ytd-subscribe-button-renderer {
+            color: var(--yt-spec-static-brand-white);
+            background-color: var(--yt-spec-brand-button-background);
+            --paper-button-flat-keyboard-focus-background-color: var(--yt-spec-brand-button-background);
+            padding: 0 12px;
+            height: 32px;
+            font-size: 12px;
+            line-height: 32px;
+            letter-spacing: normal;
+        }
 
-    ytd-subscribe-button-renderer:not([overlay-button]) tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed] {
-        background-color: var(--yt-spec-badge-chip-background) i;
-        color: var(--yt-spec-text-secondary) i;
+        ytd-subscribe-button-renderer:not([overlay-button]) tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed] {
+            background-color: var(--yt-spec-badge-chip-background) i;
+            color: var(--yt-spec-text-secondary) i;
+        }
+
+        /* Remove Unsubscribe button from bell icon flyout menu */
+        @css {
+            ytd-menu-service-item-renderer[use-icons]:has(tp-yt-paper-item[style-target="host"] > yt-icon.ytd-menu-service-item-renderer > svg > g path[d^="M13.72,11.93C15.58,11.59,17,9.96,17,8c0-2.21-1.79-4-4-4S9,5.79,9,8c0,1.96,1.42,3.59,3.28,3.93"]) {
+                display: none;
+            }
+        }
+
+
+        /* Removes background color */
+        .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text,
+        .yt-simple-endpoint.style-scope.ytd-subscription-notification-toggle-button-renderer yt-icon-button,
+        .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+        .yt-spec-touch-feedback-shape__fill,
+        .yt-spec-button-shape-next.yt-spec-button-shape-next--text.yt-spec-button-shape-next--icon-only-default,
+        .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--icon-button {
+            background-color: t i;
+        }
+
+        /* Revert the profile channel */
+        ytd-video-owner-renderer[modern-metapanel] #avatar.ytd-video-owner-renderer {
+            width: 48px;
+            height: 48px;
+            > img {
+                width: 48px;
+                height: 48px;
+            }
+        }
+
+        /* -----  Return Youtube dislike ----- */
+        #ryd-bar,
+        #ryd-bar-container {
+            border-radius: 0;
+        }
+
+        #segmented-dislike-button > ytd-toggle-button-renderer > yt-button-shape > button {
+            padding-right: 6px;
+        }
+
+        #segmented-like-button > ytd-toggle-button-renderer > yt-button-shape > button {
+            padding-left: 12px;
+        }
+
+        .ryd-tooltip-new-design {
+            bottom: -15px;
+        }
+
+        div[name="top_level_translate_btn"] {
+            margin-left: 0 i;
+        }
+
+        /* Reduce padding top of the video container */
+        ytd-video-primary-info-renderer {
+            padding-top: 14px;
+        }
+
+        ytd-menu-renderer:not([condensed]) .ytd-menu-renderer[button-renderer] + .ytd-menu-renderer[button-renderer],
+        .ytd-menu-renderer[button-renderer] + template.ytd-menu-renderer + #button.ytd-menu-renderer,
+        #flexible-item-buttons.ytd-menu-renderer:not(:empty) > .ytd-menu-renderer[button-renderer],
+        #top-level-buttons-computed.ytd-menu-renderer:not(:empty) + #flexible-item-buttons.ytd-menu-renderer + #button.ytd-menu-renderer {
+            margin-left: 0;
+        }
+
+        /* Removes left margin to the download button */
+        ytd-download-button-renderer {
+            margin-left: 0 i;
+        }
+
+        /* Remove background color and padding right of the button that cannot be use  (Youtube for kids) */
+        .yt-spec-button-shape-next--disabled.yt-spec-button-shape-next--tonal {
+            background-color: t i;
+            padding-right: 6px;
+            padding-left: 24px;
+        }
+
+        /* Removes spacing between tool icon */
+        .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-button.yt-spec-button-shape-next--segmented-end,
+        .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-leading {
+            padding-right: 6px;
+            padding-left: 24px;
+        }
+
+        .yt-spec-touch-feedback-shape--touch-response .yt-spec-touch-feedback-shape__stroke {
+            border: none;
+        }
+
+        yt-button-shape span[role="text"],
+
+        /* Sort -> SORT */
+        yt-dropdown-menu[modern-buttons] #label.yt-dropdown-menu,
+        yt-dropdown-menu[modern-buttons] #icon-label.yt-dropdown-menu,
+
+        /* Dislike */
+        #segmented-dislike-button > ytd-toggle-button-renderer > yt-button-shape > button > #text,
+
+        /* Translate -> TRANSLATE */
+        #top-level-buttons-computed > div > button > span,
+        div[name="translate_btn"] > button[class] {
+            text-transform: uppercase;
+        }
+
+        .yt-spec-button-shape-next--size-m,
+        .yt-spec-touch-feedback-shape__stroke {
+            border-radius: 18px i;
+        }
+
+        .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start::after {
+            display: none;
+        }
+
+
+        .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-end {
+            border-radius: 0 18px 18px 0 i;
+        }
     }
 
     /* If you sign out google account */
@@ -1667,52 +1816,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
     }
 
-
-
-    /* Change color of edit button to blue -> Customize channel, Manage videos, Analytics and Edit Video */
-    #upload-video-button.ytd-channel-owner-empty-state-renderer,
-    #edit-buttons.ytd-c4-tabbed-header-renderer,
-    #analytics-button.ytd-video-owner-renderer {
-        > ytd-button-renderer > yt-button-shape > a {
-
-            border-radius: 18px if (customOldLayout=="Disabled");
-            border-radius: buttonRadius i if (customOldLayout=="Enabled");
-
-            color: var(--yt-spec-text-primary-inverse) i;
-            background-color: var(--yt-spec-call-to-action) i;
-        }
-    }
-
-    .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--filled {
-        color: var(--yt-spec-text-primary-inverse) i;
-        background-color: var(--yt-spec-call-to-action) i;
-    }
-
     ytd-channel-renderer:not([dual-buttons]) #buttons.ytd-channel-renderer {
         max-width: 100%;
-    }
-
-    /* Join button */
-    #sponsor-button,
-    #buttons:not(.ytd-commentbox) {
-        > ytd-button-renderer,
-        > ytd-toggle-button-renderer {
-            overflow: hidden;
-            max-width: 100%;
-            > yt-button-shape > button {
-                color: var(--yt-spec-call-to-action) i; // #065fd4
-                border: 1px solid var(--yt-spec-call-to-action) i;
-                border-radius: buttonRadius i if (customOldLayout=="Enabled");
-                padding: 9px 15px i;
-                background: t;
-            }
-        }
-    }
-
-    /* Post button */
-    #community-post #post-button.yt-community-post-section-renderer yt-button-shape > button {
-        border-radius: buttonRadius i if (customOldLayout=="Enabled");
-        background-color: var(--yt-spec-call-to-action) i; // #065fd4
     }
 
     /* ---- Revert Channel page ----- */
@@ -1766,113 +1871,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
         #avatar-editor.ytd-c4-tabbed-header-renderer {
             --ytd-channel-avatar-editor-size: 80px;
         }
-    }
-
-    /* RIP other browser that doesn't support :has */
-    /* Remove Unsubscribe button from bell icon flyout menu */
-    @css {
-        ytd-menu-service-item-renderer[use-icons]:has(tp-yt-paper-item[style-target="host"] > yt-icon.ytd-menu-service-item-renderer > svg > g path[d^="M13.72,11.93C15.58,11.59,17,9.96,17,8c0-2.21-1.79-4-4-4S9,5.79,9,8c0,1.96,1.42,3.59,3.28,3.93"]) {
-            display: none;
-        }
-    }
-
-    /* Revert the profile channel */
-    ytd-video-owner-renderer[modern-metapanel] #avatar.ytd-video-owner-renderer {
-        width: 48px;
-        height: 48px;
-        > img {
-            width: 48px;
-            height: 48px;
-        }
-    }
-
-    /* -----  Return Youtube dislike ----- */
-    #ryd-bar,
-    #ryd-bar-container {
-        border-radius: 0;
-    }
-
-    #segmented-dislike-button > ytd-toggle-button-renderer > yt-button-shape > button {
-        padding-right: 6px;
-    }
-
-    #segmented-like-button > ytd-toggle-button-renderer > yt-button-shape > button {
-        padding-left: 12px;
-    }
-
-    .ryd-tooltip-new-design {
-        bottom: -15px;
-    }
-
-    div[name="top_level_translate_btn"] {
-        margin-left: 0 i;
-    }
-
-    /* Reduce padding top of the video container */
-    ytd-video-primary-info-renderer {
-        padding-top: 14px;
-    }
-
-    ytd-menu-renderer:not([condensed]) .ytd-menu-renderer[button-renderer] + .ytd-menu-renderer[button-renderer],
-    .ytd-menu-renderer[button-renderer] + template.ytd-menu-renderer + #button.ytd-menu-renderer,
-    #flexible-item-buttons.ytd-menu-renderer:not(:empty) > .ytd-menu-renderer[button-renderer],
-    #top-level-buttons-computed.ytd-menu-renderer:not(:empty) + #flexible-item-buttons.ytd-menu-renderer + #button.ytd-menu-renderer {
-        margin-left: 0;
-    }
-
-    /* Removes left margin to the download button */
-    ytd-download-button-renderer {
-        margin-left: 0 i;
-    }
-
-    /* Remove background color and padding right of the button that cannot be use  (Youtube for kids) */
-    .yt-spec-button-shape-next--disabled.yt-spec-button-shape-next--tonal {
-        background-color: t i;
-        padding-right: 6px;
-        padding-left: 24px;
-    }
-
-    /* Removes spacing between tool icon */
-    .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-button.yt-spec-button-shape-next--segmented-end,
-    .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-leading {
-        padding-right: 6px;
-        padding-left: 24px;
-    }
-
-    .yt-spec-touch-feedback-shape--touch-response .yt-spec-touch-feedback-shape__stroke {
-        border: none;
-    }
-
-    /* Sort -> SORT */
-    yt-dropdown-menu[modern-buttons] #label.yt-dropdown-menu,
-    yt-dropdown-menu[modern-buttons] #icon-label.yt-dropdown-menu,
-
-    /* Dislike */
-    #segmented-dislike-button > ytd-toggle-button-renderer > yt-button-shape > button > #text,
-
-    /* Translate -> TRANSLATE */
-    #top-level-buttons-computed > div > button > span,
-    div[name="translate_btn"] > button[class] {
-        text-transform: uppercase;
-    }
-
-    /* Removes background color */
-    .yt-simple-endpoint.style-scope.ytd-subscription-notification-toggle-button-renderer yt-icon-button {
-        background-color: t i;
-    }
-
-    .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start::after {
-        display: none;
-    }
-
-    .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
-    .yt-spec-touch-feedback-shape__fill {
-        background-color: t i;
-    }
-
-    /* Fixed reply button */
-    .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text {
-        background-color: t i;
     }
 
     if (customOldLayout=="Enabled") {
@@ -2088,7 +2086,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
         /* Setting gear icon */
         .ytp-screen-mode-menu.ytp-rounded-menu,
 
-        .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start,
         .player-container.ytd-reel-video-renderer,
         .ytp-ce-video.ytp-ce-medium-round,
         .ytp-ce-playlist.ytp-ce-medium-round,
@@ -2131,13 +2128,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         ytd-donation-shelf-renderer[modern-panels],
 
         /* video preview while hovering */
-        #video-preview-container.ytd-video-preview,
-
-
-
-
-        /* Removes border */
-        .yt-spec-touch-feedback-shape__stroke {
+        #video-preview-container.ytd-video-preview {
             border-radius: borderRadius i;
         }
 
@@ -2219,8 +2210,17 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 border-radius: 0 buttonRadius buttonRadius 0 i;
             }
         }
-    }
 
+        /* Like button */
+        .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start {
+            border-radius: buttonRadius 0 0 buttonRadius i;
+        }
+
+        /* Dislike button */
+        .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-end {
+            border-radius: 0 buttonRadius buttonRadius 0 i;
+        }
+    }
 
     /* Album (https://www.youtube.com/results?search_query=ddto) */
     yt-formatted-string#index.style-scope.ytd-playlist-video-renderer {
@@ -2231,20 +2231,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
     ytd-playlist-video-renderer[can-reorder][is-editable]:hover #reorder.ytd-playlist-video-renderer,
     ytd-playlist-video-renderer[persistent-drag-handle] #reorder.ytd-playlist-video-renderer {
         display: none;
-    }
-
-    yt-button-shape span[role="text"] {
-        text-transform: uppercase;
-    }
-
-    .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline {
-        border: 1px solid var(--yt-spec-call-to-action) i;
-    }
-
-    /* Playlist */
-    .yt-spec-button-shape-next.yt-spec-button-shape-next--text.yt-spec-button-shape-next--icon-only-default,
-    .yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--icon-button {
-        background-color: t i;
     }
 
     /* Reply button */
