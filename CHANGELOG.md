@@ -1,5 +1,10 @@
 ## Changelog
 
+### v2.0.8
+I forgot to add in v2.0.7
+[Feature]
+- Added "Hide Watched Videos".
+
 ### v2.0.7
 [Feature]
 - Added "Old watchpage".
