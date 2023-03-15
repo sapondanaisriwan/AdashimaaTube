@@ -12,6 +12,9 @@
 
 @var select customOldLayout            "⚒️ Old Layout" ["Enabled", "Disabled"]
 @var range customFontSize              "  ⚙️ Font-Size" [10, 10, 16, 1, 'px']
+@var range borderRadius                "  ⚙️ Border Radius" [0, 0, 40, 1, 'px']
+@var range buttonRadius                "  ⚙️ Buttons Radius" [2, 2, 18, 1, 'px']
+@var range profileRadius               "  ⚙️ Profiles Radius" [50, 0, 50, 1, '%']
 @var checkbox oldBackground            "  🖼️ Old Background" 1
 @var checkbox oldPlaylists             "  ▶️ Old Playlist" 1
 @var checkbox oldIcons                 "  🧓 Old Icons" 0
@@ -53,11 +56,6 @@
 @var checkbox moreAnimation            "  🎬 More Animations" 1
 @var checkbox videoList                "  📃 Video List" 0
 @var checkbox watchedOverlay           "  👀 Watched Overlay" 0
-
-@var select customRoundness            "⚒️ Roundness" ["Enabled", "Disabled"]
-@var range borderRadius                "  ⚙️ Border Radius" [0, 0, 40, 1, 'px']
-@var range buttonRadius                "  ⚙️ Buttons Radius" [2, 2, 18, 1, 'px']
-@var range profileRadius               "  ⚙️ Profiles Radius" [50, 0, 50, 1, '%']
 
 @var select customVideoPage            "⚒️ Watch Page" ["Enabled", "Disabled"]
 @var checkbox antiShorts               "  ❌ Hide-Shorts" 0
@@ -1595,15 +1593,15 @@ Support me: https://ko-fi.com/sapondanaisriwan
             text-overflow: ellipsis;
 
             /* It's very hard to read so I made a full condition below */
-            border-radius: 18px if (customRoundness=="Disabled");
-            border-radius: buttonRadius i if (customRoundness=="Enabled");
+            border-radius: 18px if (customOldLayout=="Disabled");
+            border-radius: buttonRadius i if (customOldLayout=="Enabled");
 
             /*
-            if (customRoundness=="Disabled") {
+            if (customOldLayout=="Disabled") {
                 border-radius: 18px;
             }
 
-            if (customRoundness=="Enabled") {
+            if (customOldLayout=="Enabled") {
                 if (buttonRadius <=2px) {
                     border-radius: 2px;
                 }
@@ -1664,7 +1662,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             > button {
                 color: var(--yt-spec-static-brand-white);
                 background-color: var(--yt-spec-brand-button-background) i;
-                border-radius: buttonRadius i if (customRoundness=="Enabled");
+                border-radius: buttonRadius i if (customOldLayout=="Enabled");
             }
         }
     }
@@ -1677,8 +1675,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
     #analytics-button.ytd-video-owner-renderer {
         > ytd-button-renderer > yt-button-shape > a {
 
-            border-radius: 18px if (customRoundness=="Disabled");
-            border-radius: buttonRadius i if (customRoundness=="Enabled");
+            border-radius: 18px if (customOldLayout=="Disabled");
+            border-radius: buttonRadius i if (customOldLayout=="Enabled");
 
             color: var(--yt-spec-text-primary-inverse) i;
             background-color: var(--yt-spec-call-to-action) i;
@@ -1704,7 +1702,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             > yt-button-shape > button {
                 color: var(--yt-spec-call-to-action) i; // #065fd4
                 border: 1px solid var(--yt-spec-call-to-action) i;
-                border-radius: buttonRadius i if (customRoundness=="Enabled");
+                border-radius: buttonRadius i if (customOldLayout=="Enabled");
                 padding: 9px 15px i;
                 background: t;
             }
@@ -1713,7 +1711,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     /* Post button */
     #community-post #post-button.yt-community-post-section-renderer yt-button-shape > button {
-        border-radius: buttonRadius i if (customRoundness=="Enabled");
+        border-radius: buttonRadius i if (customOldLayout=="Enabled");
         background-color: var(--yt-spec-call-to-action) i; // #065fd4
     }
 
@@ -1877,7 +1875,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         background-color: t i;
     }
 
-    if (customRoundness=="Enabled") {
+    if (customOldLayout=="Enabled") {
 
         /* ⚙️ Avatar Roundness */
         #avatar {
