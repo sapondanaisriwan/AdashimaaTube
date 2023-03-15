@@ -6,9 +6,13 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        2.0.7
+@version        2.0.8
 @license        MIT
 @preprocessor   stylus
+
+
+@var select NeverGiveYouUp             "Hide Watched Videos (Beta)" ["Disabled", "Enabled"]
+@var range watchPercentage             "  ⚙️ Percentage" [100, 10, 100, 10]
 
 @var select customOldLayout            "⚒️ Old Layout" ["Enabled", "Disabled"]
 @var range customFontSize              "  ⚙️ Font-Size" [10, 10, 16, 1, 'px']
@@ -132,6 +136,19 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
     }
 
+    if (NeverGiveYouUp == "Enabled") {
+        ytd-video-renderer,
+        ytd-rich-item-renderer,
+        ytd-grid-video-renderer,
+        ytd-compact-video-renderer {
+            for num in (watchPercentage..100) {
+                &:not(is-history):has(#dismissible > ytd-thumbnail> a > #overlays > ytd-thumbnail-overlay-resume-playback-renderer > #progress.ytd-thumbnail-overlay-resume-playback-renderer[style$={s("'%s%;'", num)}]) {
+                    display: none i if num >= watchPercentage;
+                }
+            }
+        }  
+    }
+    
     /* Check if broswer support :has selector */
     @css {
         @supports not selector(:has(*)) {
