@@ -10,13 +10,10 @@
 @license        MIT
 @preprocessor   stylus
 
-
-@var range customFontSize              "⚙️ Font-Size (Beta)" [10, 10, 16, 1, 'px']
-@var checkbox idontKnowWhatToNameThis  "🥶 Video Lists (Beta)" 0
-
 @var select customOldLayout            "⚒️ Old Layout" ["Enabled", "Disabled"]
+@var range customFontSize              "  ⚙️ Font-Size" [10, 10, 16, 1, 'px']
 @var checkbox oldBackground            "  🖼️ Old Background" 1
-@var checkbox oldPlaylists             "  ▶️ Old Playlists" 1
+@var checkbox oldPlaylists             "  ▶️ Old Playlist" 1
 @var checkbox oldIcons                 "  🧓 Old Icons" 0
 
 @var select customMoreVideos           "⚒️ Video Appearance" ["Enabled", "Disabled"]
@@ -54,6 +51,7 @@
 @var checkbox displayFullTitle         "  🎦 Full Title For Videos" 0
 @var select likeDislike                "  🎨 Like/Dislike colors" ['None', 'Navy-Blue', 'Classic']
 @var checkbox moreAnimation            "  🎬 More Animations" 1
+@var checkbox videoList                "  📃 Video List" 0
 @var checkbox watchedOverlay           "  👀 Watched Overlay" 0
 
 @var select customRoundness            "⚒️ Roundness" ["Enabled", "Disabled"]
@@ -179,19 +177,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
                 height: 100vh;
             }
-        }
-    }
-
-    html {
-        font-size: customFontSize i;
-    }
-
-    if (idontKnowWhatToNameThis) {
-        ytd-item-section-renderer.ytd-watch-next-secondary-results-renderer {
-            overflow-y: scroll;
-            overflow-x: hidden;
-            /*             height: calc(var(--ytd-watch-flexy-chat-max-height) + 180px); */
-            height: 100vh;
         }
     }
 
@@ -805,6 +790,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
     }
 
     if (customOldLayout=="Enabled") {
+
+        html {
+            font-size: customFontSize i;
+        }
+
         /* ▶️ Old Playlist */
         if (oldPlaylists) {
             /* ----- Playlist ----- */
@@ -1166,6 +1156,32 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     /* "⚒️ Custom Appearance" */
     if (customAppearance=="Enabled") {
+
+        if (videoList) {
+            ytd-item-section-renderer.ytd-watch-next-secondary-results-renderer {
+                overflow-y: auto;
+                overflow-x: hidden;
+                height: calc(var(--ytd-watch-flexy-chat-max-height) + 11vh);
+                height: calc(var(--ytd-watch-flexy-chat-max-height) + 18vh) if hideTaps;
+
+                &::-webkit-scrollbar {
+                    width: 16px;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    height: 56px;
+                    border-radius: 8px;
+                    border: 4px solid transparent;
+                    background-clip: content-box;
+                    background-color: var(--yt-spec-text-secondary);
+                }
+            }
+
+            ytd-watch-flexy[flexy] #secondary.ytd-watch-flexy:has(> #secondary-inner.ytd-watch-flexy > ytd-live-chat-frame[collapsed]) ytd-item-section-renderer.ytd-watch-next-secondary-results-renderer {
+                height: calc(var(--ytd-watch-flexy-chat-max-height) + 3vh);
+                height: calc(var(--ytd-watch-flexy-chat-max-height) + 11vh) if hideTaps;
+            }
+        }
 
         if (displayDislikeText !="None") {
             languages= {
@@ -2342,7 +2358,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     ytd-merch-shelf-renderer.ytd-watch-flexy {
         display: none;
     }
-    
+
     /* Remove parentheses Credit to decembre, Pabli */
     /*     span.ytp-menu-label-secondary {
         clip-path: inset(-3px 4px 0px 4px);
