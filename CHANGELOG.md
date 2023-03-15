@@ -1,5 +1,17 @@
 ## Changelog
 
+### v2.0.7
+[Feature]
+- Added "Old watchpage".
+
+[Bugs]
+- Fixed ([#48][i48]) ([#51][i51]) and ([#53][i53])
+
+[i48]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/48
+[i51]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/51
+[i53]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/53
+
+
 ### v2.0.6
 [Bugs]
 - Fixed various bugs ([#44][i44]) ([#45][i45]) ([#46][i46]) ([#47][i47]) ([#49][i49]) ([#50][i50]).
