@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        2.0.6
+@version        2.0.7
 @license        MIT
 @preprocessor   stylus
 
@@ -86,6 +86,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 Support me: https://ko-fi.com/sapondanaisriwan
 */
 @-moz-document domain("youtube.com") {
+
     :root {
         --video-per-row: videoPerRow;
         --sub-red-btn: #CC0000;
