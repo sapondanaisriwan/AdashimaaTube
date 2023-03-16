@@ -1,5 +1,17 @@
 ## Changelog
 
+### v2.0.9
+[Feature]
+- Full video player
+
+![QA6CobNF0B](https://user-images.githubusercontent.com/64634605/225583419-31597b57-6b76-4f72-b5b0-738b6dd219a9.jpg)
+
+
+- Custom aspect ratio (You can get the wider video)
+
+https://user-images.githubusercontent.com/64634605/225583521-bf93757c-229e-44f2-8528-fd3233d987ac.mp4
+
+
 ### v2.0.8
 I forgot to add in v2.0.7
 [Feature]
