@@ -10,7 +10,23 @@
 @license        MIT
 @preprocessor   stylus
 
+@var checkbox fullVideoPlayer            "🥶 Full Video Player(Beta)" 0
 
+@var select customAspectRatio            "🥶 Aspect Ratio (Beta)" {
+    "None" : "None",
+    "32 : 9" : "v1",
+    "21 : 9" : "v2",
+    "16 : 9" : "v3",
+    "16 : 10" : "v4",
+    "4 : 3" : "v5",
+    "1 : 1" : "v6",
+    "2.4: 1" : "v7",
+    "9 : 16" : "v8",
+    "3 : 2" : "v9",
+    "1.85 : 1" : "v10",
+    "2.39 : 1" : "v11",
+    
+}
 @var select NeverGiveYouUp             "Hide Watched Videos (Beta)" ["Disabled", "Enabled"]
 @var range watchPercentage             "  ⚙️ Percentage" [100, 10, 100, 10]
 
@@ -118,7 +134,51 @@ Support me: https://ko-fi.com/sapondanaisriwan
     /* Variables */
     i=!important;
     t=transparent;
+    
+    if (customAspectRatio != "None") {
+        
+        aspectRatios = {
+            "v1" : { width-ratio: 32, height-ratio: 9 },
+            "v2" : { width-ratio: 21, height-ratio: 9 },
+            "v3" : { width-ratio: 16, height-ratio: 9 },
+            "v4" : { width-ratio: 16, height-ratio: 10 },
+            "v5" : { width-ratio: 4, height-ratio: 3 },
+            "v6" : { width-ratio: 1, height-ratio: 1 },
+            "v7" : { width-ratio: 2.4, height-ratio: 1 },
+            "v8" : { width-ratio: 9, height-ratio: 16 },
+            "v9" : { width-ratio: 3, height-ratio: 2 },
+            "v10" : { width-ratio: 1.85, height-ratio: 1 },
+            "v11" : { width-ratio: 2.39, height-ratio: 1 }
+        }
+        for aspectRatio in aspectRatios {
+            if (aspectRatio == customAspectRatio) {
+                :root {
+                    --height-ratio: aspectRatios[aspectRatio].height-ratio;
+                    --width-ratio: aspectRatios[aspectRatio].width-ratio;   
+                }
+            }
+        }
+        
+        ytd-watch-flexy[flexy] #player-container-inner.ytd-watch-flexy {
+            padding-top: calc(var(--height-ratio)/var(--width-ratio) * 100%);
+        }
+    }
+    
+    if (fullVideoPlayer) {
+        ytd-watch-flexy:not([fullscreen]) {
+            .html5-video-container {
+                height: 100%;
+            }
 
+            .ytp-fit-cover-video .html5-main-video {
+                    left: 0 i;
+                    width:100% i;
+                    height:100% i;
+                    object-fit:cover;
+            }
+        }
+    }
+    
     defaultMargin() {
         margin-left: calc(var(--ytd-rich-grid-item-margin)/2);
         margin-right: calc(var(--ytd-rich-grid-item-margin)/2);
