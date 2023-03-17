@@ -1,0 +1,80 @@
+/* ==UserStyle==
+@name           Red Subscribe Button
+@author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan)
+@description    If you want to submit a bug or request a feature please report via github issue. Since I receive so many emails, I can't reply to them all.
+@namespace      https://userstyles.world/user/sapondanaisriwan
+@homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
+@supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
+@version        1.0.0
+@license        MIT
+@preprocessor   stylus
+
+==/UserStyle== */
+@-moz-document domain("youtube.com") {
+    /* Variables */
+    i=!important;
+    t=transparent;
+
+    /* ----- Subscribe Button ----- */
+    Subscribe() {
+        color: var(--yt-spec-static-brand-white) i;
+        background-color: var(--yt-spec-brand-button-background) i;
+        border-radius: buttonRadius i;
+    }
+
+    Unsubscribe() {
+        color: var(--yt-spec-text-secondary) i;
+        background-color: var(--yt-spec-badge-chip-background) i;
+        border-radius: buttonRadius i;
+    }
+
+    yt-button-shape.ytd-subscribe-button-renderer[hidden] {
+        display: block i;
+        > .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+            Unsubscribe();
+        }
+    }
+
+    yt-button-shape.ytd-subscribe-button-renderer:not([hidden]) {
+        .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled,
+
+        /* Fix for Shorts */
+        .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--filled {
+            Subscribe();
+        }
+    }
+
+    /* Subscribe button on Channel pages tap */
+    ytd-subscribe-button-renderer[button-style=COMPACT_GRAY] {
+        yt-button-shape.ytd-subscribe-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+            Subscribe();
+        }
+
+        &:not(:has(#notification-preference-toggle-button[hidden])) yt-button-shape.ytd-subscribe-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+            Unsubscribe();
+        }
+    }
+
+    /* Revert notification button */
+    #notification-preference-button > ytd-subscription-notification-toggle-button-renderer-next > yt-button-shape > button {
+        /* Removes background color around bell icon */
+        &.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
+            background-color: t i;
+        }
+
+        /* Removes down arrow and "Subscribed"*/
+        > div {
+            &.cbox.yt-spec-button-shape-next--button-text-content,
+            &.yt-spec-button-shape-next__secondary-icon {
+                display: none;
+            }
+        }
+    }
+
+    /* Remove Unsubscribe button from bell icon flyout menu */
+    @css {
+        ytd-menu-service-item-renderer[use-icons]:has(tp-yt-paper-item[style-target="host"] > yt-icon.ytd-menu-service-item-renderer > svg > g path[d^="M13.72,11.93C15.58,11.59,17,9.96,17,8c0-2.21-1.79-4-4-4S9,5.79,9,8c0,1.96,1.42,3.59,3.28,3.93"]) {
+            display: none;
+        }
+    }
+}
