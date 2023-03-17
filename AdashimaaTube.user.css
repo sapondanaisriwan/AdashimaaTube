@@ -131,36 +131,79 @@ Support me: https://ko-fi.com/sapondanaisriwan
     /* Variables */
     i=!important;
     t=transparent;
-    
-    if (customAspectRatio != "None") {
-        
-        aspectRatios = {
-            "v1" : { width-ratio: 32, height-ratio: 9 },
-            "v2" : { width-ratio: 21, height-ratio: 9 },
-            "v3" : { width-ratio: 16, height-ratio: 9 },
-            "v4" : { width-ratio: 16, height-ratio: 10 },
-            "v5" : { width-ratio: 4, height-ratio: 3 },
-            "v6" : { width-ratio: 1, height-ratio: 1 },
-            "v7" : { width-ratio: 2.4, height-ratio: 1 },
-            "v8" : { width-ratio: 9, height-ratio: 16 },
-            "v9" : { width-ratio: 3, height-ratio: 2 },
-            "v10" : { width-ratio: 1.85, height-ratio: 1 },
-            "v11" : { width-ratio: 2.39, height-ratio: 1 }
+
+    if (customAspectRatio !="None") {
+
+        aspectRatios= {
+            "v1": {
+                width-ratio: 32, height-ratio: 9
+            }
+
+            ,
+            "v2": {
+                width-ratio: 21, height-ratio: 9
+            }
+
+            ,
+            "v3": {
+                width-ratio: 16, height-ratio: 9
+            }
+
+            ,
+            "v4": {
+                width-ratio: 16, height-ratio: 10
+            }
+
+            ,
+            "v5": {
+                width-ratio: 4, height-ratio: 3
+            }
+
+            ,
+            "v6": {
+                width-ratio: 1, height-ratio: 1
+            }
+
+            ,
+            "v7": {
+                width-ratio: 2.4, height-ratio: 1
+            }
+
+            ,
+            "v8": {
+                width-ratio: 9, height-ratio: 16
+            }
+
+            ,
+            "v9": {
+                width-ratio: 3, height-ratio: 2
+            }
+
+            ,
+            "v10": {
+                width-ratio: 1.85, height-ratio: 1
+            }
+
+            ,
+            "v11": {
+                width-ratio: 2.39, height-ratio: 1
+            }
         }
+
         for aspectRatio in aspectRatios {
-            if (aspectRatio == customAspectRatio) {
+            if (aspectRatio==customAspectRatio) {
                 :root {
                     --height-ratio: aspectRatios[aspectRatio].height-ratio;
-                    --width-ratio: aspectRatios[aspectRatio].width-ratio;   
+                    --width-ratio: aspectRatios[aspectRatio].width-ratio;
                 }
             }
         }
-        
+
         ytd-watch-flexy[flexy] #player-container-inner.ytd-watch-flexy {
             padding-top: calc(var(--height-ratio)/var(--width-ratio) * 100%);
         }
     }
-    
+
     if (fullVideoPlayer) {
         ytd-watch-flexy:not([fullscreen]) {
             .html5-video-container {
@@ -168,14 +211,14 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
 
             .ytp-fit-cover-video .html5-main-video {
-                    left: 0 i;
-                    width:100% i;
-                    height:100% i;
-                    object-fit:cover;
+                left: 0 i;
+                width: 100% i;
+                height: 100% i;
+                object-fit: cover;
             }
         }
     }
-    
+
     defaultMargin() {
         margin-left: calc(var(--ytd-rich-grid-item-margin)/2);
         margin-right: calc(var(--ytd-rich-grid-item-margin)/2);
@@ -192,7 +235,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             defaultMargin();
         }
     }
-    
+
     /* Check if broswer support :has selector */
     @css {
         @supports not selector(:has(*)) {
@@ -275,7 +318,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 }
 
                 ytd-rich-section-renderer {
-                    display: none if homePageLayoutFix;
+                    /* display: none if homePageLayoutFix; */
+                    order: -1 if homePageLayoutFix;
                 }
             }
 
@@ -1685,7 +1729,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
 
         /* ----- Subscribe Button ----- */
-
         Subscribe() {
             color: var(--yt-spec-static-brand-white) i;
             background-color: var(--yt-spec-brand-button-background) i;
@@ -1701,29 +1744,30 @@ Support me: https://ko-fi.com/sapondanaisriwan
         yt-button-shape.ytd-subscribe-button-renderer[hidden] {
             display: block i;
             > .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
-                Unsubscribe();     
+                Unsubscribe();
             }
         }
 
         yt-button-shape.ytd-subscribe-button-renderer:not([hidden]) {
             .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled,
-            
+
             /* Fix for Shorts */
             .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--filled {
                 Subscribe();
             }
         }
-        
+
         /* Subscribe button on Channel pages tap */
         ytd-subscribe-button-renderer[button-style=COMPACT_GRAY] {
-             yt-button-shape.ytd-subscribe-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+            yt-button-shape.ytd-subscribe-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
                 Subscribe();
             }
+
             &:not(:has(#notification-preference-toggle-button[hidden])) yt-button-shape.ytd-subscribe-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
                 Unsubscribe();
             }
         }
-        
+
         /* Revert notification button */
         #notification-preference-button > ytd-subscription-notification-toggle-button-renderer-next > yt-button-shape > button {
             /* Removes background color around bell icon */
