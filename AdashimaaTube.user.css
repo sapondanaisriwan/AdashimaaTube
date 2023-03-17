@@ -1701,30 +1701,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
 
         /* ----- Subscribe Button ----- */
-        /* Revert the old subscribe button */
-        ytd-subscribe-button-renderer[modern] {
-
-            /* Remove mordern subscribe btn */
-            yt-button-shape.ytd-subscribe-button-renderer {
-                display: none;
-            }
-
-            /* Display the old subscribe btn */
-            tp-yt-paper-button.ytd-subscribe-button-renderer {
-                display: block i;
-                margin-right: 0;
-                margin-left: 0;
-                letter-spacing: normal;
-                text-align: center;
-
-                overflow: hidden;
-                text-overflow: ellipsis;
-
-                /* It's very hard to read so I made a full condition below */
-                border-radius: 18px if (customOldLayout=="Disabled");
-                border-radius: buttonRadius i if (customOldLayout=="Enabled");
-            }
-        }
 
         /* Revert notification button */
         #notification-preference-button > ytd-subscription-notification-toggle-button-renderer-next > yt-button-shape > button {
@@ -1740,29 +1716,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     display: none;
                 }
             }
-        }
-
-        /* 
-        Revert the subscribe button on the channel tap and browse channels
-        Ex: https://www.youtube.com/@MuseThailand/channels https://www.youtube.com/feed/guide_builder
-    */
-        ytd-subscribe-button-renderer[button-style=COMPACT_GRAY] tp-yt-paper-button.ytd-subscribe-button-renderer,
-        ytd-subscribe-button-renderer[button-style=COMPACT_RED] tp-yt-paper-button.ytd-subscribe-button-renderer,
-        ytd-subscribe-button-renderer[button-style=COMPACT_GRAY][use-keyboard-focused]:not([keyboard-focused]) tp-yt-paper-button.keyboard-focus.ytd-subscribe-button-renderer,
-        ytd-subscribe-button-renderer[button-style=COMPACT_RED][use-keyboard-focused]:not([keyboard-focused]) tp-yt-paper-button.keyboard-focus.ytd-subscribe-button-renderer {
-            color: var(--yt-spec-static-brand-white);
-            background-color: var(--yt-spec-brand-button-background);
-            --paper-button-flat-keyboard-focus-background-color: var(--yt-spec-brand-button-background);
-            padding: 0 12px;
-            height: 32px;
-            font-size: 12px;
-            line-height: 32px;
-            letter-spacing: normal;
-        }
-
-        ytd-subscribe-button-renderer:not([overlay-button]) tp-yt-paper-button.ytd-subscribe-button-renderer[subscribed] {
-            background-color: var(--yt-spec-badge-chip-background) i;
-            color: var(--yt-spec-text-secondary) i;
         }
 
         /* Remove Unsubscribe button from bell icon flyout menu */
