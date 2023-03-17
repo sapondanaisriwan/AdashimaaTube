@@ -11,7 +11,6 @@
 @preprocessor   stylus
 
 @var checkbox fullVideoPlayer            "🥶 Full Video Player(Beta)" 0
-
 @var select customAspectRatio            "🥶 Aspect Ratio (Beta)" {
     "None" : "None",
     "32 : 9" : "v1",
@@ -27,8 +26,6 @@
     "2.39 : 1" : "v11",
     
 }
-@var select NeverGiveYouUp             "Hide Watched Videos (Beta)" ["Disabled", "Enabled"]
-@var range watchPercentage             "  ⚙️ Percentage" [100, 10, 100, 10]
 
 @var select customOldLayout            "⚒️ Old Layout" ["Enabled", "Disabled"]
 @var range customFontSize              "  ⚙️ Font-Size" [10, 10, 16, 1, 'px']
@@ -194,19 +191,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
         #contents > ytd-rich-item-renderer:not([is-shorts-grid]) {
             defaultMargin();
         }
-    }
-
-    if (NeverGiveYouUp == "Enabled") {
-        ytd-video-renderer,
-        ytd-rich-item-renderer,
-        ytd-grid-video-renderer,
-        ytd-compact-video-renderer {
-            for num in (watchPercentage..100) {
-                &:not(is-history):has(#dismissible > ytd-thumbnail> a > #overlays > ytd-thumbnail-overlay-resume-playback-renderer > #progress.ytd-thumbnail-overlay-resume-playback-renderer[style$={s("'%s%;'", num)}]) {
-                    display: none i if num >= watchPercentage;
-                }
-            }
-        }  
     }
     
     /* Check if broswer support :has selector */
