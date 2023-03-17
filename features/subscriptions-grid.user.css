@@ -1,0 +1,119 @@
+/* ==UserStyle==
+@name           Subscriptions Grid
+@author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan)
+@description    If you want to submit a bug or request a feature please report via github issue. Since I receive so many emails, I can't reply to them all.
+@namespace      https://userstyles.world/user/sapondanaisriwan
+@homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
+@supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
+@version        1.0.0
+@license        MIT
+@preprocessor   stylus
+
+@var checkbox subscriptionsGrid        "  🔔 Subscriptions Grid" 1
+==/UserStyle== */
+@-moz-document domain("youtube.com") {
+    /* Variables */
+    i=!important;
+    t=transparent;
+
+    if (subscriptionsGrid) {
+
+        ytd-browse:not([page-subtype]) ytd-two-column-browse-results-renderer > #primary.ytd-two-column-browse-results-renderer > ytd-section-list-renderer.ytd-two-column-browse-results-renderer > #contents.ytd-section-list-renderer {
+
+            #grid-container.ytd-expanded-shelf-contents-renderer {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(246px, 1fr));
+                justify-items: center;
+            }
+
+            ytd-channel-renderer {
+                max-width: var(--ytd-grid-1-columns-width) i;
+            }
+
+            #avatar-section.ytd-channel-renderer {
+                max-width: unset;
+                min-width: unset;
+                width: 100%;
+            }
+
+            #avatar.ytd-channel-renderer {
+                width: 100%;
+            }
+
+            /* Remove padding bottom of subscribe btn */
+            ytd-channel-renderer:not([dual-buttons]) #buttons.ytd-channel-renderer,
+            #purchase-button.ytd-channel-renderer,
+            #subscribe-button.ytd-channel-renderer {
+                padding-bottom: 0;
+            }
+
+            /* Remove description */
+            #description.ytd-channel-renderer,
+
+            /* Remove bell icon */
+            #notification-preference-button,
+
+            /* Remove videos count*/
+            #metadata.ytd-channel-renderer > span:nth-last-child(-n + 2) {
+                display: none;
+            }
+
+            #content-section.ytd-channel-renderer {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            #info-section.ytd-channel-renderer {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            /* Channel profile */
+            yt-img-shadow.ytd-channel-renderer {
+                max-width: var(--ytd-grid-base);
+                height: var(--ytd-grid-base);
+                /* Centered the channel profile */
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            /* Centered the subscribers */
+            #info.ytd-channel-renderer {
+                padding: 0;
+                align-items: center;
+            }
+
+            /* Add margin top to subscribe button */
+            ytd-subscription-notification-toggle-button-renderer-next.ytd-subscribe-button-renderer > yt-button-shape {
+                margin-top: 0px;
+            }
+
+            #channel-title.ytd-channel-renderer {
+                margin: 4px auto; // Centered the channel title
+                font-size: 1.4rem;
+                font-weight: 500;
+                max-height: 4rem;
+                line-height: 2rem;
+            }
+
+            #avatar-section.ytd-channel-renderer {
+                margin-right: 0px;
+            }
+
+            #grid-container.ytd-expanded-shelf-contents-renderer > *.ytd-expanded-shelf-contents-renderer:not(:last-child) {
+                margin-bottom: 24px;
+            }
+
+            ytd-playlist-renderer.ytd-expanded-shelf-contents-renderer,
+            ytd-channel-renderer.ytd-expanded-shelf-contents-renderer,
+            ytd-radio-renderer.ytd-expanded-shelf-contents-renderer,
+            ytd-video-renderer.ytd-expanded-shelf-contents-renderer,
+            ytd-movie-playlist-renderer.ytd-expanded-shelf-contents-renderer {
+                padding-right: 0;
+            }
+        }
+    }
+}
