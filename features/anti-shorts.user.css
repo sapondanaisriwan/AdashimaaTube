@@ -1,0 +1,100 @@
+/* ==UserStyle==
+@name           Full Title For Videos
+@author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan)
+@description    If you want to submit a bug or request a feature please report via github issue. Since I receive so many emails, I can't reply to them all.
+@namespace      https://userstyles.world/user/sapondanaisriwan
+@homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
+@supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
+@version        1.0.0
+@license        MIT
+@preprocessor   stylus
+
+@var checkbox antiShorts               "  ❌ Anti-Shorts" 1
+==/UserStyle== */
+@-moz-document domain("youtube.com") {
+    /* Variables */
+    i=!important;
+    t=!transparent;
+
+
+    defaultMargin() {
+        margin-left: calc(var(--ytd-rich-grid-item-margin)/2);
+        margin-right: calc(var(--ytd-rich-grid-item-margin)/2);
+        margin-bottom: 40px;
+    }
+
+    fixYoutubeLayout() {
+        ytd-rich-grid-row,
+        ytd-rich-grid-row #contents {
+            display: contents;
+        }
+
+        #contents > ytd-rich-item-renderer:not([is-shorts-grid]) {
+            defaultMargin();
+        }
+    }
+
+    /* ❌ Anti-Shorts */
+    if (antiShorts) {
+        /* These rules won't be applied in browsers that don't support :has() */
+        /* https://www.youtube.com/results?search_query=shorts */
+        ytd-video-renderer[is-search],
+        #contents > ytd-compact-video-renderer,
+        #items > ytd-reel-item-renderer,
+        #related > ytd-watch-next-secondary-results-renderer > #items > ytd-compact-video-renderer,
+        #items > ytd-grid-video-renderer {
+            &:has(#dismissible > ytd-thumbnail > a#thumbnail[href^="/shorts/"]) {
+                display: none;
+            }
+        }
+
+        /* https://www.youtube.com/@MrBeast2/shorts */
+        ytd-rich-grid-renderer[is-shorts-grid] {
+            display: none;
+        }
+
+        /* https://www.youtube.com/@MrBeast2/featured */
+        #contents > ytd-item-section-renderer > #contents ytd-reel-shelf-renderer:has(yt-horizontal-list-renderer > #scroll-container > #items > ytd-reel-item-renderer #dismissible > ytd-thumbnail > a#thumbnail[href^="/shorts/"]) {
+            display: none;
+        }
+
+        ytd-rich-section-renderer:has(#content > ytd-rich-shelf-renderer[is-shorts]) {
+            display: none;
+        }
+
+        #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer,
+        ytd-mini-guide-entry-renderer[guide-refresh] a.ytd-mini-guide-entry-renderer {
+            &[title="Shorts"] {
+                display: none;
+            }
+        }
+
+        /* https://www.youtube.com/hashtag/shorts */
+        [page-subtype="hashtag-landing-page"] {
+            > #primary > ytd-rich-grid-renderer #contents > ytd-rich-grid-row > #contents > ytd-rich-item-renderer:has(#content > ytd-rich-grid-media > #dismissible > ytd-thumbnail > a#thumbnail[href^="/shorts/"]) {
+                display: none;
+            }
+
+            ytd-rich-grid-renderer {
+                /* Set to be treated as if they were the children of their parent element */
+                #contents {
+                    fixYoutubeLayout();
+                }
+            }
+        }
+
+        ytd-shorts {
+            display: none;
+        }
+
+        /* https://www.youtube.com/feed/subscriptions?flow=2 */
+        ytd-two-column-browse-results-renderer[page-subtype="subscriptions"] > #primary.ytd-two-column-browse-results-renderer > ytd-section-list-renderer[page-subtype="subscriptions"] > #contents.ytd-section-list-renderer > ytd-item-section-renderer.ytd-section-list-renderer:has(#contents.ytd-item-section-renderer > ytd-shelf-renderer.ytd-item-section-renderer > #dismissible.ytd-shelf-renderer > #contents.ytd-shelf-renderer > ytd-expanded-shelf-contents-renderer.ytd-shelf-renderer > #grid-container.ytd-expanded-shelf-contents-renderer > ytd-video-renderer > #dismissible > ytd-thumbnail > a#thumbnail[href^="/shorts/"]) {
+            display: none;
+        }
+
+        /* Trending */
+        [page-subtype="trending"] #grid-container.ytd-expanded-shelf-contents-renderer > ytd-video-renderer:has(#dismissible.ytd-video-renderer > ytd-thumbnail a#thumbnail[href^="/shorts/"]) {
+            display: none;
+        }
+    }
+}
