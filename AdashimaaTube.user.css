@@ -1702,11 +1702,23 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
         /* ----- Subscribe Button ----- */
 
+        Subscribe() {
+            color: var(--yt-spec-static-brand-white) i;
+            background-color: var(--yt-spec-brand-button-background) i;
+            border-radius: buttonRadius i;
+        }
+
+        Unsubscribe() {
+            color: var(--yt-spec-text-secondary) i;
+            background-color: var(--yt-spec-badge-chip-background) i;
+            border-radius: buttonRadius i;
+        }
+
         yt-button-shape.ytd-subscribe-button-renderer[hidden] {
             display: block i;
-            background-color: var(--yt-spec-badge-chip-background) i;
-            color: var(--yt-spec-text-secondary) i;
-            border-radius: buttonRadius i;
+            > .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+                Unsubscribe();     
+            }
         }
 
         yt-button-shape.ytd-subscribe-button-renderer:not([hidden]) {
@@ -1714,23 +1726,17 @@ Support me: https://ko-fi.com/sapondanaisriwan
             
             /* Fix for Shorts */
             .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--filled {
-                color: var(--yt-spec-static-brand-white) i;
-                background-color: var(--yt-spec-brand-button-background) i;
-                border-radius: buttonRadius i;
+                Subscribe();
             }
         }
         
         /* Subscribe button on Channel pages tap */
         ytd-subscribe-button-renderer[button-style=COMPACT_GRAY] {
              yt-button-shape.ytd-subscribe-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
-                color: var(--yt-spec-static-brand-white) i;
-                background-color: var(--yt-spec-brand-button-background) i;
-                border-radius: buttonRadius i;
+                Subscribe();
             }
             &:not(:has(#notification-preference-toggle-button[hidden])) yt-button-shape.ytd-subscribe-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
-                background-color: var(--yt-spec-badge-chip-background) i;
-                color: var(--yt-spec-text-secondary) i;
-                border-radius: buttonRadius i;
+                Unsubscribe();
             }
         }
         
