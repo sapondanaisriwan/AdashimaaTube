@@ -1720,6 +1720,20 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
         }
         
+        /* Subscribe button on Channel pages tap */
+        ytd-subscribe-button-renderer[button-style=COMPACT_GRAY] {
+             yt-button-shape.ytd-subscribe-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+                color: var(--yt-spec-static-brand-white) i;
+                background-color: var(--yt-spec-brand-button-background) i;
+                border-radius: buttonRadius i;
+            }
+            &:not(:has(#notification-preference-toggle-button[hidden])) yt-button-shape.ytd-subscribe-button-renderer .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+                background-color: var(--yt-spec-badge-chip-background) i;
+                color: var(--yt-spec-text-secondary) i;
+                border-radius: buttonRadius i;
+            }
+        }
+        
         /* Revert notification button */
         #notification-preference-button > ytd-subscription-notification-toggle-button-renderer-next > yt-button-shape > button {
             /* Removes background color around bell icon */
