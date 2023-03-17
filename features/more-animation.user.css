@@ -1,0 +1,87 @@
+/* ==UserStyle==
+@name           More Animation
+@author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan)
+@description    If you want to submit a bug or request a feature please report via github issue. Since I receive so many emails, I can't reply to them all.
+@namespace      https://userstyles.world/user/sapondanaisriwan
+@homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
+@supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
+@version        1.0.0
+@license        MIT
+@preprocessor   stylus
+
+@var checkbox moreAnimation            "  🎬 More Animations" 1
+==/UserStyle== */
+@-moz-document domain("youtube.com") {
+    /* Variables */
+    i=!important;
+    t=transparent;
+
+    /* 🎬 More Animations */
+    if (moreAnimation) {
+        @keyframes slideInUp {
+            from {
+                transform: translateY(15px);
+                opacity: 0
+            }
+
+            to {
+                transform: translateY(0px);
+                opacity: 1
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(15px);
+                opacity: 0
+            }
+
+            to {
+                transform: translateX(0px);
+                opacity: 1
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(-15px);
+                opacity: 0
+            }
+
+            to {
+                transform: translateX(0px);
+                opacity: 1
+            }
+        }
+
+        ytd-rich-grid-media,
+        ytd-compact-video-renderer,
+        ytd-grid-video-renderer,
+        ytd-rich-item-renderer,
+        ytd-comment-renderer,
+        ytd-compact-playlist-renderer,
+        ytd-grid-renderer,
+        ytd-video-renderer,
+        ytd-reel-item-renderer,
+        ytd-video-secondary-info-renderer,
+        ytd-compact-radio-renderer,
+        yt-horizontal-list-renderer,
+        ytd-radio-renderer,
+        ytd-channel-renderer,
+        ytd-playlist-renderer[is-search],
+        ytd-section-list-renderer #contents.ytd-item-section-renderer {
+            animation: slideInUp .7s;
+        }
+
+        ytd-video-primary-info-renderer[flex-menu-enabled] #menu-container.ytd-video-primary-info-renderer,
+        ytd-watch-metadata[flex-menu-enabled] #actions.ytd-watch-metadata ytd-menu-renderer.ytd-watch-metadata {
+            animation: slideInLeft .7s;
+        }
+
+        .ytd-watch-flexy h1.title.ytd-video-primary-info-renderer,
+        .style-scope.ytd-watch-flexy #container #info-text,
+        ytd-watch-metadata > div#above-the-fold > #title {
+            animation: slideInRight .7s;
+        }
+    }
+}
