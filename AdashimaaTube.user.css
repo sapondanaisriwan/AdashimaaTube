@@ -1702,6 +1702,24 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
         /* ----- Subscribe Button ----- */
 
+        yt-button-shape.ytd-subscribe-button-renderer[hidden] {
+            display: block i;
+            background-color: var(--yt-spec-badge-chip-background) i;
+            color: var(--yt-spec-text-secondary) i;
+            border-radius: buttonRadius i;
+        }
+
+        yt-button-shape.ytd-subscribe-button-renderer:not([hidden]) {
+            .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled,
+            
+            /* Fix for Shorts */
+            .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--filled {
+                color: var(--yt-spec-static-brand-white) i;
+                background-color: var(--yt-spec-brand-button-background) i;
+                border-radius: buttonRadius i;
+            }
+        }
+        
         /* Revert notification button */
         #notification-preference-button > ytd-subscription-notification-toggle-button-renderer-next > yt-button-shape > button {
             /* Removes background color around bell icon */
@@ -1820,7 +1838,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
         .yt-spec-button-shape-next--size-m,
         .yt-spec-touch-feedback-shape__stroke {
-            border-radius: 18px i;
+            border-radius: borderRadius i;
         }
 
         .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start::after {
