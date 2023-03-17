@@ -1,5 +1,14 @@
 ## Changelog
 
+### v2.1.0
+[Feature]
+- Removed Hide watched videos feature (I think it's useless)
+
+[Bugs]
+- Fixed ([#58][i58])
+
+[i58]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/58
+
 ### v2.0.9
 [Feature]
 - Full video player
@@ -14,6 +23,7 @@ https://user-images.githubusercontent.com/64634605/225583521-bf93757c-229e-44f2-
 
 ### v2.0.8
 I forgot to add in v2.0.7
+
 [Feature]
 - Added "Hide Watched Videos".
 
