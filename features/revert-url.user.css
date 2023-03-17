@@ -1,0 +1,35 @@
+/* ==UserStyle==
+@name           Revert URL
+@author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan)
+@description    If you want to submit a bug or request a feature please report via github issue. Since I receive so many emails, I can't reply to them all.
+@namespace      https://userstyles.world/user/sapondanaisriwan
+@homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
+@supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
+@version        1.0.0
+@license        MIT
+@preprocessor   stylus
+==/UserStyle== */
+@-moz-document domain("youtube.com") {
+    /* Variables */
+    i=!important;
+    t=!transparent;
+
+    /* Revert the URL under the description */
+    .yt-core-attributed-string--highlight-text-decorator {
+        background-color: transparent i;
+
+        .yt-core-attributed-string__link--display-type {
+            font-size: 0;
+            color: var(--yt-spec-call-to-action);
+            &::before {
+                content: s('%s%s', "https://www.youtube.com", attr(href));
+                font-size: 1.4rem;
+            }
+        }
+
+        /* Remove YouTube Icon */
+        .yt-core-attributed-string__image-element--image-alignment-vertical-center {
+            display: none;
+        }
+    }
+}
