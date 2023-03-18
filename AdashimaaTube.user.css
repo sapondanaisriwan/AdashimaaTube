@@ -76,8 +76,9 @@
 @var checkbox watchedOverlay           "  👀 Watched Overlay" 0
 
 @var select customVideoPage            "⚒️ Watch Page" ["Enabled", "Disabled"]
-@var checkbox antiShorts               "  ❌ Hide-Shorts" 0
 @var checkbox hideTaps                 "  ❌ Hide Taps" 0
+@var checkbox antiShorts               "  ❌ Hide-Shorts" 0
+@var checkbox hideAnnotation           "  ❌ Hide Annotations" 0
 @var checkbox channelHandle            "  ❌ Hide Channel Handles" 0
 
 @var checkbox hideLikeAnimation        "  👍 Hide Like Animation" 0
@@ -1159,6 +1160,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
             display: none i if channelHandle;
         }
 
+        .annotation {
+            display: none if hideAnnotation;
+        }
 
         /* ❌ Anti-Shorts */
         if (antiShorts) {
