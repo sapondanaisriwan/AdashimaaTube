@@ -6,6 +6,7 @@
 - Added Hide right side videos.
 - Removed custom font size.
 - Removed custom the aspect ratio.
+- Removed playlist grouping.
 - Improved the homepage layout fix.
 
 ### v2.1.0
