@@ -1,5 +1,13 @@
 ## Changelog
 
+### v2.1.1
+[Feature]
+- Added Hide annotations.
+- Added Hide right side videos.
+- Removed custom font size.
+- Removed custom the aspect ratio.
+- Improved the homepage layout fix.
+
 ### v2.1.0
 [Feature]
 - Removed Hide watched videos feature (I think it's useless)
