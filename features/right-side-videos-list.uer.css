@@ -1,0 +1,41 @@
+/* ==UserStyle==
+@name           Right Side Videos List
+@author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan)
+@description    Please report bugs via github issues or my email (If I have some free time, I'll fix them)
+@namespace      https://userstyles.world/user/sapondanaisriwan
+@homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
+@supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
+@version        1.0.0
+@license        MIT
+@preprocessor   stylus
+@var checkbox videoList                "  📃 Videos List" 1
+==/UserStyle== */
+@-moz-document domain("youtube.com") {
+    /* Variables */
+    i=!important;
+    t=!transparent;
+
+    if (videoList) {
+        ytd-item-section-renderer.ytd-watch-next-secondary-results-renderer {
+            overflow-y: auto;
+            overflow-x: hidden;
+            height: calc(var(--ytd-watch-flexy-chat-max-height) + 11vh);
+
+            &::-webkit-scrollbar {
+                width: 16px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                height: 56px;
+                border-radius: 8px;
+                border: 4px solid transparent;
+                background-clip: content-box;
+                background-color: var(--yt-spec-text-secondary);
+            }
+        }
+
+        ytd-watch-flexy[flexy] #secondary.ytd-watch-flexy:has(> #secondary-inner.ytd-watch-flexy > ytd-live-chat-frame[collapsed]) ytd-item-section-renderer.ytd-watch-next-secondary-results-renderer {
+            height: calc(var(--ytd-watch-flexy-chat-max-height) + 3vh);
+        }
+    }
+}
