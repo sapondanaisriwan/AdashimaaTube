@@ -1,0 +1,103 @@
+/* ==UserStyle==
+@name           Custom Aspect Ratio
+@author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan)
+@description    If you want to submit a bug or request a feature please report via github issue. Since I receive so many emails, I can't reply to them all.
+@namespace      https://userstyles.world/user/sapondanaisriwan
+@homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
+@supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
+@version        1.0.0
+@license        MIT
+@preprocessor   stylus
+
+@var select customAspectRatio            "🥶 Aspect Ratio (Beta)" {
+    "None" : "None",
+    "32 : 9" : "v1",
+    "21 : 9" : "v2",
+    "16 : 9" : "v3",
+    "16 : 10" : "v4",
+    "4 : 3" : "v5",
+    "1 : 1" : "v6",
+    "2.4: 1" : "v7",
+    "9 : 16" : "v8",
+    "3 : 2" : "v9",
+    "1.85 : 1" : "v10",
+    "2.39 : 1" : "v11",
+    
+}
+==/UserStyle== */
+@-moz-document domain("youtube.com") {
+    /* Variables */
+    i=!important;
+    t=!transparent;
+    if (customAspectRatio !="None") {
+
+        aspectRatios= {
+            "v1": {
+                width-ratio: 32, height-ratio: 9
+            }
+
+            ,
+            "v2": {
+                width-ratio: 21, height-ratio: 9
+            }
+
+            ,
+            "v3": {
+                width-ratio: 16, height-ratio: 9
+            }
+
+            ,
+            "v4": {
+                width-ratio: 16, height-ratio: 10
+            }
+
+            ,
+            "v5": {
+                width-ratio: 4, height-ratio: 3
+            }
+
+            ,
+            "v6": {
+                width-ratio: 1, height-ratio: 1
+            }
+
+            ,
+            "v7": {
+                width-ratio: 2.4, height-ratio: 1
+            }
+
+            ,
+            "v8": {
+                width-ratio: 9, height-ratio: 16
+            }
+
+            ,
+            "v9": {
+                width-ratio: 3, height-ratio: 2
+            }
+
+            ,
+            "v10": {
+                width-ratio: 1.85, height-ratio: 1
+            }
+
+            ,
+            "v11": {
+                width-ratio: 2.39, height-ratio: 1
+            }
+        }
+
+        for aspectRatio in aspectRatios {
+            if (aspectRatio==customAspectRatio) {
+                :root {
+                    --height-ratio: aspectRatios[aspectRatio].height-ratio;
+                    --width-ratio: aspectRatios[aspectRatio].width-ratio;
+                }
+            }
+        }
+
+        ytd-watch-flexy[flexy] #player-container-inner.ytd-watch-flexy {
+            padding-top: calc(var(--height-ratio)/var(--width-ratio) * 100%);
+        }
+    }
+}

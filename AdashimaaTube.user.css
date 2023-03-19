@@ -10,25 +10,8 @@
 @license        MIT
 @preprocessor   stylus
 
-@var checkbox fullVideoPlayer            "🥶 Full Video Player(Beta)" 0
-@var select customAspectRatio            "🥶 Aspect Ratio (Beta)" {
-    "None" : "None",
-    "32 : 9" : "v1",
-    "21 : 9" : "v2",
-    "16 : 9" : "v3",
-    "16 : 10" : "v4",
-    "4 : 3" : "v5",
-    "1 : 1" : "v6",
-    "2.4: 1" : "v7",
-    "9 : 16" : "v8",
-    "3 : 2" : "v9",
-    "1.85 : 1" : "v10",
-    "2.39 : 1" : "v11",
-    
-}
-
 @var select customOldLayout            "⚒️ Old Layout" ["Enabled", "Disabled"]
-@var range customFontSize              "  ⚙️ Font-Size" [10, 10, 16, 1, 'px']
+@var range customFontSize              "  ⚙️ Font-Size" [10, 10, 20, 1, 'px']
 @var range borderRadius                "  ⚙️ Border Radius" [0, 0, 40, 1, 'px']
 @var range buttonRadius                "  ⚙️ Buttons Radius" [2, 2, 18, 1, 'px']
 @var range profileRadius               "  ⚙️ Profiles Radius" [50, 0, 50, 1, '%']
@@ -44,7 +27,6 @@
 @var checkbox subscriptionsGrid        "  🔔 Subscriptions Grid" 1
 @var select homePage                   "  🏠 Home Page" ["Enabled", "Disabled"]
 @var checkbox homePageLayoutFix        "    ↳ Layout fix" 1
-@var checkbox playlistsGrouping        "    ↳ Playlists Grouping" 0
 @var select channelPage                "  📺 Channel Page" ["Enabled", "Disabled"]
 @var checkbox sortByOldest             "    ↳ Sort By Oldest" 0
 @var checkbox channelSearchResults     "    ↳ Search Result Grid " 1
@@ -70,9 +52,10 @@
     "Français": "French"
 }
 @var checkbox displayFullTitle         "  🎦 Full Title For Videos" 0
+@var checkbox fullVideoPlayer          "  🎦 Full Video Player" 0
 @var select likeDislike                "  🎨 Like/Dislike colors" ['None', 'Navy-Blue', 'Classic']
 @var checkbox moreAnimation            "  🎬 More Animations" 1
-@var checkbox videoList                "  📃 Video List" 0
+@var checkbox videoList                "  📃 Videos List" 0
 @var checkbox watchedOverlay           "  👀 Watched Overlay" 0
 
 @var select customVideoPage            "⚒️ Watch Page" ["Enabled", "Disabled"]
@@ -81,6 +64,7 @@
 @var checkbox hideAnnotation           "  ❌ Hide Annotations" 0
 @var checkbox channelHandle            "  ❌ Hide Channel Handles" 0
 
+@var checkbox hideRightSideVideos      "  🎦 Hide Right Side Videos" 0
 @var checkbox hideLikeAnimation        "  👍 Hide Like Animation" 0
 @var checkbox shareBtn                 "  ➡️ Hide Share Button" 0
 @var checkbox downloadBtn              "  ⬇️ Hide Download Button" 0
@@ -132,93 +116,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
     /* Variables */
     i=!important;
     t=transparent;
-
-    if (customAspectRatio !="None") {
-
-        aspectRatios= {
-            "v1": {
-                width-ratio: 32, height-ratio: 9
-            }
-
-            ,
-            "v2": {
-                width-ratio: 21, height-ratio: 9
-            }
-
-            ,
-            "v3": {
-                width-ratio: 16, height-ratio: 9
-            }
-
-            ,
-            "v4": {
-                width-ratio: 16, height-ratio: 10
-            }
-
-            ,
-            "v5": {
-                width-ratio: 4, height-ratio: 3
-            }
-
-            ,
-            "v6": {
-                width-ratio: 1, height-ratio: 1
-            }
-
-            ,
-            "v7": {
-                width-ratio: 2.4, height-ratio: 1
-            }
-
-            ,
-            "v8": {
-                width-ratio: 9, height-ratio: 16
-            }
-
-            ,
-            "v9": {
-                width-ratio: 3, height-ratio: 2
-            }
-
-            ,
-            "v10": {
-                width-ratio: 1.85, height-ratio: 1
-            }
-
-            ,
-            "v11": {
-                width-ratio: 2.39, height-ratio: 1
-            }
-        }
-
-        for aspectRatio in aspectRatios {
-            if (aspectRatio==customAspectRatio) {
-                :root {
-                    --height-ratio: aspectRatios[aspectRatio].height-ratio;
-                    --width-ratio: aspectRatios[aspectRatio].width-ratio;
-                }
-            }
-        }
-
-        ytd-watch-flexy[flexy] #player-container-inner.ytd-watch-flexy {
-            padding-top: calc(var(--height-ratio)/var(--width-ratio) * 100%);
-        }
-    }
-
-    if (fullVideoPlayer) {
-        ytd-watch-flexy:not([fullscreen]) {
-            .html5-video-container {
-                height: 100%;
-            }
-
-            .ytp-fit-cover-video .html5-main-video {
-                left: 0 i;
-                width: 100% i;
-                height: 100% i;
-                object-fit: cover;
-            }
-        }
-    }
 
     defaultMargin() {
         margin-left: calc(var(--ytd-rich-grid-item-margin)/2);
@@ -318,16 +215,24 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     max-width: calc(var(--ytd-rich-grid-items-per-row) * (var(--ytd-rich-grid-item-max-width) + var(--ytd-rich-grid-item-margin)));
                 }
 
-                ytd-rich-section-renderer {
-                    /* display: none if homePageLayoutFix; */
-                    order: -1 if homePageLayoutFix;
-                }
-            }
+                if homePageLayoutFix {
 
-            /* 📻 Playlists Grouping */
-            /* (Inspire by Youtube Redux) Sort without js 😎 */
-            [page-subtype="home"] ytd-rich-item-renderer:has(#content.ytd-rich-item-renderer > ytd-rich-grid-media.ytd-rich-item-renderer > #dismissible.ytd-rich-grid-media > ytd-thumbnail.ytd-rich-grid-media > a#thumbnail[href*="&list="]) {
-                order: -1 if playlistsGrouping;
+                    #rich-shelf-header.ytd-rich-shelf-renderer {
+                        margin-top: 0;
+                    }
+
+                    #contents.ytd-rich-grid-renderer {
+                        padding-top: 0;
+                    }
+
+                    ytd-rich-shelf-renderer {
+                        border-top: none;
+                    }
+
+                    ytd-rich-section-renderer {
+                        order: -1;
+                    }
+                }
             }
 
             [page-subtype="home"] {
@@ -1152,6 +1057,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
     /* ⚒️ Custom Video Details */
     if (customVideoPage=="Enabled") {
 
+        ytd-watch-flexy[cinematics-enabled] #secondary.ytd-watch-flexy {
+            display: none if hideRightSideVideos;
+        }
+
         /* 🫣 Hide Channel Handles > @username... */
         #channel-handle,
 
@@ -1311,6 +1220,21 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     /* "⚒️ Custom Appearance" */
     if (customAppearance=="Enabled") {
+
+        if (fullVideoPlayer) {
+            ytd-watch-flexy:not([fullscreen]) {
+                .html5-video-container {
+                    height: 100%;
+                }
+
+                .ytp-fit-cover-video .html5-main-video {
+                    left: 0 i;
+                    width: 100% i;
+                    height: 100% i;
+                    object-fit: cover;
+                }
+            }
+        }
 
         if (videoList) {
             ytd-item-section-renderer.ytd-watch-next-secondary-results-renderer {
