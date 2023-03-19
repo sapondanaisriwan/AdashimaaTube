@@ -1,0 +1,62 @@
+/* ==UserStyle==
+@name           Display dislike text
+@author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan)
+@description    If you want to submit a bug or request a feature please report via github issue. Since I receive so many emails, I can't reply to them all.
+@namespace      https://userstyles.world/user/sapondanaisriwan
+@homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
+@supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
+@version        1.0.0
+@license        MIT
+@preprocessor   stylus
+
+@var select displayDislikeText         "  👎 Display Dislike Text" {
+    "None": "None",
+    "English": "English",
+    "ภาษาไทย": "Thai",
+    "Filipino": "Filipino",
+    "中文": "Chinese",
+    "日本語": "Japanese",
+    "한국어": "Korean",
+    "Русский": "Russia",
+    "Français": "French"
+}
+==/UserStyle== */
+@-moz-document domain("youtube.com") {
+    /* Variables */
+    i=!important;
+    t=!transparent;
+
+    if (displayDislikeText !="None") {
+        languages= {
+            "English": "dislike",
+            "Thai": "ไม่ชอบ",
+            "Filipino": "ayaw",
+            "Chinese": "不喜欢",
+            "Japanese": "嫌い",
+            "Korean": "싫어함",
+            "Russia": "Не нравится",
+            "French": "Je n'aime pas"
+        }
+
+        for language in languages {
+            if (language==displayDislikeText) {
+                selectLanguage=languages[displayDislikeText]
+            }
+        }
+
+        #segmented-dislike-button > ytd-toggle-button-renderer > yt-button-shape > button {
+
+            &:not(:has(div.cbox.yt-spec-button-shape-next--button-text-content > span)) {
+                & {
+                    margin: 0 24px;
+                }
+
+                &::after {
+                    content: selectLanguage;
+                    text-transform: uppercase;
+                    padding-left: 6px;
+                }
+            }
+        }
+    }
+}
