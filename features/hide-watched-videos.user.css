@@ -1,0 +1,28 @@
+/* ==UserStyle==
+@name           Hide Watched Videos
+@author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan)
+@description    Please report bugs via github issues or my email (If I have some free time, I'll fix them)
+@namespace      https://userstyles.world/user/sapondanaisriwan
+@homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
+@supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
+@version        1.0.4
+@license        MIT
+@preprocessor   stylus
+@var range watchPercentage              "⚙️ Percentage" [100, 10, 100, 10]
+==/UserStyle== */
+@-moz-document domain("youtube.com") {
+    /* Variables */
+    i=!important;
+    t=!transparent;    
+    
+    ytd-video-renderer,
+    ytd-rich-item-renderer,
+    ytd-grid-video-renderer,
+    ytd-compact-video-renderer {
+        for num in (watchPercentage..100) {
+            &:not(is-history):has(#dismissible > ytd-thumbnail> a > #overlays > ytd-thumbnail-overlay-resume-playback-renderer > #progress.ytd-thumbnail-overlay-resume-playback-renderer[style$={s("'%s%;'", num)}]) {
+                display: none i if num >= watchPercentage;
+            }
+        }
+    }  
+}
