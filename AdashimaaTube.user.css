@@ -10,6 +10,9 @@
 @license        MIT
 @preprocessor   stylus
 
+@var checkbox watchpageFullWidth       "🥶 Watchpage Full Width" 0
+@var checkbox descriptionExpanded      "🥶 Description Expanded" 0
+
 @var select customOldLayout            "⚒️ Old Layout" ["Enabled", "Disabled"]
 @var range borderRadius                "  ⚙️ Border Radius" [0, 0, 40, 1, 'px']
 @var range buttonRadius                "  ⚙️ Buttons Radius" [2, 2, 18, 1, 'px']
@@ -177,6 +180,26 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
         }
     }
+
+    #meta-contents[hidden] ytd-expander.ytd-video-secondary-info-renderer[collapsed] {
+        --ytd-expander-collapsed-height: 100% i if descriptionExpanded;
+    }
+
+    if (watchpageFullWidth) {
+        ytd-watch-flexy[flexy][is-two-columns_][is-extra-wide-video_] #primary.ytd-watch-flexy, ytd-watch-flexy[flexy][is-two-columns_][is-four-three-to-sixteen-nine-video_] #primary.ytd-watch-flexy {
+            max-width: 100%;
+        }
+
+        ytd-watch-flexy[flexy][is-two-columns_]:not([is-four-three-to-sixteen-nine-video_]):not([is-extra-wide-video_]) #primary.ytd-watch-flexy {
+            max-width: 100%;
+            #player.ytd-watch-flexy {
+                margin: 0 auto;
+                max-width: calc((100vh - (var(--ytd-watch-flexy-masthead-height) + var(--ytd-margin-6x) + var(--ytd-watch-flexy-space-below-player))) * 1.7777777778);
+                min-width: calc(var(--ytd-watch-flexy-min-player-height) * 1.7777777778);
+            }
+        }
+    }
+
 
     /* Fixed when zoom out and a blank box caused by Adblock */
     if (customMoreVideos=="Disabled") || (homePage=="Disabled") {
