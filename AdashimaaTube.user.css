@@ -519,9 +519,13 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
                 /* Badges -> New, Subtitle, Live and tect */
                 #badges.ytd-video-renderer {
+                    overflow: hidden;
                     order: 4;
                 }
-
+                .badge.ytd-badge-supported-renderer:not(:last-of-type) {
+                    overflow: hidden;
+                }
+                
                 /* Notification button */
                 #buttons.ytd-video-renderer {
                     order: 5;
