@@ -1,0 +1,19 @@
+/* ==UserStyle==
+@name           Description expanded
+@author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan)
+@description    Please report bugs via github issues or my email (If I have some free time, I'll fix them)
+@namespace      https://userstyles.world/user/sapondanaisriwan
+@homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
+@supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
+@version        1.0.0
+@license        MIT
+@preprocessor   stylus
+==/UserStyle== */
+@-moz-document domain("youtube.com") {
+    /* Vairables */
+    i=!important;
+
+    #meta-contents[hidden] ytd-expander.ytd-video-secondary-info-renderer[collapsed] {
+        --ytd-expander-collapsed-height: 100% i;
+    }
+}
