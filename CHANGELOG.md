@@ -1,5 +1,16 @@
 ## Changelog
 
+### v2.1.2
+[Feature]
+- Switch to use regex.
+- Change the error message.
+- Added "Description expanded", "Watchpage full width" and "Always show progress bar" options
+
+[Bug]
+- Fixed ([#64][i64])
+
+[i64]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/64
+
 ### v2.1.1
 [Feature]
 - Added Hide annotations.
