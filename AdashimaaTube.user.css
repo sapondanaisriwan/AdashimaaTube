@@ -10,6 +10,7 @@
 @license        MIT
 @preprocessor   stylus
 
+@var checkbox showProgressBar          "🥶 Always show progress bar" 0
 @var checkbox watchpageFullWidth       "🥶 Watchpage Full Width" 0
 @var checkbox descriptionExpanded      "🥶 Description Expanded" 0
 
@@ -203,6 +204,21 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
     }
 
+    if (showProgressBar) {
+        #container.ytd-player > .html5-video-player.ytp-autohide {
+            .ytp-chrome-bottom {
+                opacity: 1 i;
+            }
+
+            .ytp-chrome-controls {
+                opacity: 0 i;
+            }
+
+            .ytp-progress-bar-container {
+                bottom: -1px;
+            }
+        }
+    }
 
     /* Fixed when zoom out and a blank box caused by Adblock */
     if (customMoreVideos=="Disabled") || (homePage=="Disabled") {
