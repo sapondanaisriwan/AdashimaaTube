@@ -133,7 +133,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
     }
 
-    /* Check if broswer support :has selector */
+
+    /* Check if broswer support :has pseudo selectors */
     @css {
         @supports not selector(:has(*)) {
 
@@ -142,9 +143,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
 
             body::before {
-                content: "Your browser is outdated. \a For the best experience, \a update your browser. \a\a More instruction: shorturl.at/jH189";
+                content: 'Your browser is outdated, please update your browser. \a\a If you are Firefox users you need to follow these steps \a 1) Go to the Firefox "about:config" page. \a 2) Search and toggle "layout.css.has-selector.enabled". \a\a Tutorial: shorturl.at/jH189';
 
-                font-size: clamp(2rem, -4rem + 8vw, 8rem);
+                font-size: clamp(2rem, -7.5rem + 8vw, 8rem);
+                font-weight: 400;
+                text-shadow: 1.5px 1.5px rgb(0, 0, 0);
                 color: white;
                 white-space: pre;
 
@@ -522,10 +525,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     overflow: hidden;
                     order: 4;
                 }
+
                 .badge.ytd-badge-supported-renderer:not(:last-of-type) {
                     overflow: hidden;
                 }
-                
+
                 /* Notification button */
                 #buttons.ytd-video-renderer {
                     order: 5;
