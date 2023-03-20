@@ -11,7 +11,6 @@
 @preprocessor   stylus
 
 @var select customOldLayout            "⚒️ Old Layout" ["Enabled", "Disabled"]
-@var range customFontSize              "  ⚙️ Font-Size" [10, 10, 20, 1, 'px']
 @var range borderRadius                "  ⚙️ Border Radius" [0, 0, 40, 1, 'px']
 @var range buttonRadius                "  ⚙️ Buttons Radius" [2, 2, 18, 1, 'px']
 @var range profileRadius               "  ⚙️ Profiles Radius" [50, 0, 50, 1, '%']
@@ -87,13 +86,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
 Support me: https://ko-fi.com/sapondanaisriwan
 Support me: https://ko-fi.com/sapondanaisriwan
 */
-@-moz-document domain("youtube.com") {
+@-moz-document regexp("^https:\\/\\/www\\.youtube\\.com.+") {
 
     :root {
         --video-per-row: videoPerRow;
-        --sub-red-btn: #CC0000;
-        --sub-white--text-btn: #F2F2F2;
-        --sub-black-bg-btn: #303030;
         --color1: #3ea6ff;
         --like-lime: #00FF00;
         --dislike-red: #FF0000;
@@ -801,10 +797,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
     }
 
     if (customOldLayout=="Enabled") {
-
-        html {
-            font-size: customFontSize i;
-        }
 
         /* ▶️ Old Playlist */
         if (oldPlaylists) {
