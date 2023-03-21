@@ -1,5 +1,11 @@
 ## Changelog
 
+### v2.1.3
+[Feature]
+- Renamed videos list to right side scrollbar.
+- Added Hide live chat.
+- Improve Right side scrollbar?
+
 ### v2.1.2
 [Feature]
 - Switch to use regex.
