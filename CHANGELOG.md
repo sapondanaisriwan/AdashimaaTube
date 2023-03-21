@@ -2,8 +2,9 @@
 
 ### v2.1.3
 [Feature]
+- Added Hide live chat option.
+- Removed always show progress bar option.
 - Renamed videos list to right side scrollbar.
-- Added Hide live chat.
 - Improve Right side scrollbar?
 
 ### v2.1.2
