@@ -6,12 +6,13 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        2.1.2
+@version        2.1.3
 @license        MIT
 @preprocessor   stylus
 
-@var checkbox watchpageFullWidth       "🥶 Watchpage Full Width" 0
-@var checkbox descriptionExpanded      "🥶 Description Expanded" 0
+@var checkbox watchpageFullWidth       "🥶 Watchpage Full Width (Beta)" 0
+@var checkbox descriptionExpanded      "🥶 Description Expanded (Beta)" 0
+@var checkbox videoList                "🥶 Right Side Scrollbar (Beta)" 0
 
 @var select customOldLayout            "⚒️ Old Layout" ["Enabled", "Disabled"]
 @var range borderRadius                "  ⚙️ Border Radius" [0, 0, 40, 1, 'px']
@@ -57,7 +58,6 @@
 @var checkbox fullVideoPlayer          "  🎦 Full Video Player" 0
 @var select likeDislike                "  🎨 Like/Dislike colors" ['None', 'Navy-Blue', 'Classic']
 @var checkbox moreAnimation            "  🎬 More Animations" 1
-@var checkbox videoList                "  📃 Videos List" 0
 @var checkbox watchedOverlay           "  👀 Watched Overlay" 0
 
 @var select customVideoPage            "⚒️ Watch Page" ["Enabled", "Disabled"]
@@ -68,6 +68,7 @@
 
 @var checkbox hideRightSideVideos      "  🎦 Hide Right Side Videos" 0
 @var checkbox hideLikeAnimation        "  👍 Hide Like Animation" 0
+@var checkbox hideLiveChat             "  💬 Hide Live Chat" 0
 @var checkbox shareBtn                 "  ➡️ Hide Share Button" 0
 @var checkbox downloadBtn              "  ⬇️ Hide Download Button" 0
 @var checkbox clipBtn                  "  ✂️ Hide Clip Button" 0
@@ -184,6 +185,34 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
     }
 
+    /* ------ Beta ------ */
+    if (videoList) {
+        /* 
+            When an element with a position: sticky style is wrapped, which was defined position: sticky will not stick????.
+        */
+        ytd-watch-flexy[cinematics-enabled] #secondary.ytd-watch-flexy #secondary-inner.ytd-watch-flexy {
+            overflow-y: auto;
+            overflow-x: hidden;
+
+            top: 0;
+            position: sticky;
+
+            height: 100vh;
+            width: var(--ytd-watch-flexy-sidebar-width);
+            &::-webkit-scrollbar {
+                width: 16px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                height: 56px;
+                border-radius: 8px;
+                border: 4px solid transparent;
+                background-clip: content-box;
+                background-color: var(--yt-spec-text-secondary);
+            }
+        }
+    }
+
     #meta-contents[hidden] ytd-expander.ytd-video-secondary-info-renderer[collapsed] {
         --ytd-expander-collapsed-height: 100% i if descriptionExpanded;
     }
@@ -203,6 +232,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
     }
 
+    /* ------ End ------ */
     /* Fixed when zoom out and a blank box caused by Adblock */
     if (customMoreVideos=="Disabled") || (homePage=="Disabled") {
         [page-subtype="home"] {
@@ -1079,6 +1109,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
     /* ⚒️ Custom Video Details */
     if (customVideoPage=="Enabled") {
 
+        ytd-live-chat-frame {
+            display: none if hideLiveChat;
+        }
+
         ytd-watch-flexy[cinematics-enabled] #secondary.ytd-watch-flexy {
             display: none if hideRightSideVideos;
         }
@@ -1255,32 +1289,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     height: 100% i;
                     object-fit: cover;
                 }
-            }
-        }
-
-        if (videoList) {
-            ytd-item-section-renderer.ytd-watch-next-secondary-results-renderer {
-                overflow-y: auto;
-                overflow-x: hidden;
-                height: calc(var(--ytd-watch-flexy-chat-max-height) + 11vh);
-                height: calc(var(--ytd-watch-flexy-chat-max-height) + 18vh) if hideTaps;
-
-                &::-webkit-scrollbar {
-                    width: 16px;
-                }
-
-                &::-webkit-scrollbar-thumb {
-                    height: 56px;
-                    border-radius: 8px;
-                    border: 4px solid transparent;
-                    background-clip: content-box;
-                    background-color: var(--yt-spec-text-secondary);
-                }
-            }
-
-            ytd-watch-flexy[flexy] #secondary.ytd-watch-flexy:has(> #secondary-inner.ytd-watch-flexy > ytd-live-chat-frame[collapsed]) ytd-item-section-renderer.ytd-watch-next-secondary-results-renderer {
-                height: calc(var(--ytd-watch-flexy-chat-max-height) + 3vh);
-                height: calc(var(--ytd-watch-flexy-chat-max-height) + 11vh) if hideTaps;
             }
         }
 
