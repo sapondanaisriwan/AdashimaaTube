@@ -10,9 +10,9 @@
 @license        MIT
 @preprocessor   stylus
 
-@var checkbox watchpageFullWidth       "🥶 Watchpage Full Width (Beta)" 0
-@var checkbox descriptionExpanded      "🥶 Description Expanded (Beta)" 0
-@var checkbox videoList                "🥶 Right Side Scrollbar (Beta)" 0
+@var checkbox watchpageFullWidth       "🥶 Watchpage Full Width" 0
+@var checkbox descriptionExpanded      "🥶 Description Expanded" 0
+@var checkbox videoList                "🥶 Right Side Scrollbar" 0
 
 @var select customOldLayout            "⚒️ Old Layout" ["Enabled", "Disabled"]
 @var range borderRadius                "  ⚙️ Border Radius" [0, 0, 40, 1, 'px']
@@ -1058,37 +1058,13 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 }
             }
 
-            /* Change color of edit button to blue -> Customize channel, Manage videos, Analytics and Edit Video */
-            #upload-video-button.ytd-channel-owner-empty-state-renderer,
-            #edit-buttons.ytd-c4-tabbed-header-renderer,
-            #analytics-button.ytd-video-owner-renderer {
-                > ytd-button-renderer > yt-button-shape > a {
-
-                    border-radius: 18px if (customOldLayout=="Disabled");
-                    border-radius: buttonRadius i if (customOldLayout=="Enabled");
-
-                    color: var(--yt-spec-text-primary-inverse) i;
-                    background-color: var(--yt-spec-call-to-action) i;
-                }
-            }
-
-            .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline {
-                border: 1px solid var(--yt-spec-call-to-action) i;
-            }
-
-            .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--filled {
-                color: var(--yt-spec-text-primary-inverse) i;
-                background-color: var(--yt-spec-call-to-action) i;
-            }
-
-            /* Join button */
-            #sponsor-button,
-            #buttons:not(.ytd-commentbox) {
-                > ytd-button-renderer,
-                > ytd-toggle-button-renderer {
-                    overflow: hidden;
-                    max-width: 100%;
-                    > yt-button-shape > button {
+            #buttons > ytd-toggle-button-renderer,
+            #action-button > ytd-button-renderer,
+            #sponsor-button > ytd-button-renderer {
+                > yt-button-shape > button {
+                    &.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
+                    &.yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline,
+                    &.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled {
                         color: var(--yt-spec-call-to-action) i;
                         border: 1px solid var(--yt-spec-call-to-action) i;
                         border-radius: buttonRadius i if (customOldLayout=="Enabled");
@@ -1096,12 +1072,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
                         background: t;
                     }
                 }
-            }
-
-            /* Post button */
-            #community-post #post-button.yt-community-post-section-renderer yt-button-shape > button {
-                border-radius: buttonRadius i if (customOldLayout=="Enabled");
-                background-color: var(--yt-spec-call-to-action) i;
             }
         }
     }
@@ -2187,6 +2157,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             border-radius: borderRadius i;
         }
 
+        #dismissed.ytd-rich-grid-media,
         .ytp-tooltip.ytp-rounded-tooltip.ytp-text-detail.ytp-preview {
             border-radius: borderRadius i;
         }
