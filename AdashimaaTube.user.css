@@ -1073,6 +1073,29 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     }
                 }
             }
+
+            #edit-buttons ytd-button-renderer > yt-button-shape > a {
+                &.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+                    color: var(--yt-spec-text-primary-inverse) i;
+                    background-color: var(--yt-spec-call-to-action) i;
+                }
+            }
+
+            #buttons > ytd-button-renderer > yt-button-shape > a,
+            #sign-in-button > yt-button-shape > a {
+                &.yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline {
+                    color: var(--yt-spec-call-to-action) i;
+                    border: 1px solid var(--yt-spec-call-to-action) i;
+                    border-radius: buttonRadius i if (customOldLayout=="Enabled");
+                }
+            }
+
+            #post-button > yt-button-shape > button {
+                &.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled {
+                    color: var(--yt-spec-text-primary-inverse) i;
+                    background-color: var(--yt-spec-call-to-action) i;
+                }
+            }
         }
     }
 
