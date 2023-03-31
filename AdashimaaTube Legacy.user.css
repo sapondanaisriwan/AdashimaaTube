@@ -8,7 +8,7 @@
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://github.com/sapondanaisriwan/AdashimaaTube/raw/master/AdashimaaTube%20Legacy.user.css
 
-@version        2.0.0
+@version        2.0.1
 @license        MIT
 @preprocessor   stylus
 
@@ -16,6 +16,7 @@
 @var checkbox oldBackground            "  🖼️ Old Background" 1
 @var checkbox oldPlaylists             "  ▶️ Old Playlists" 1
 @var checkbox oldIcons                 "  🧓 Old Icons" 0
+@var checkbox oldSearch                "  🔎 Old Searchbox" 0
 
 @var select customMoreVideos           "⚒️ Video Appearance" ["Disabled", "Enabled"]
 @var range videoPerRow                 "  ⚙️ Videos Per Rows" [5, 1, 15, 1]
@@ -37,7 +38,8 @@
 @var select likeDislike                "  🎨 Like/Dislike colors" ['None', 'Navy-Blue', 'Classic']
 @var checkbox moreAnimation            "  🎬 More Animations" 1
 @var checkbox watchedOverlay           "  👀 Watched Overlay" 0
-
+@var checkbox hideVoice                "  🎤 Hide Voice Search" 0
+@var checkbox hideRipple               "  🌊 Hide Ripple Effect" 0
 
 @var select customRoundness            "⚒️ Roundness" ["Enabled", "Disabled"]
 @var range borderRadius                "  ⚙️ Border Radius" [0, 0, 40, 1, 'px']
@@ -467,7 +469,44 @@ Support me: https://ko-fi.com/sapondanaisriwan
             margin: 0 4px 24px 4px i;
         }
     }
-
+    /*🔎 Old Search */
+        if oldSearch {
+            #container.ytd-searchbox {
+                margin-left:0;
+                padding-left:8px;
+                border-right:1px solid transparent
+            }
+            ytd-searchbox[has-focus] #container.ytd-searchbox {
+                padding:0 4px 0 8px
+            }
+            #container.ytd-searchbox #search-icon {
+                display:none
+            }
+            #search-icon-legacy.ytd-searchbox, #search-form.ytd-searchbox {
+                height:31px
+            }
+            /* search suggestions */
+            .sbdd_a {
+                top:43px i
+            }
+            .sbsb_a {
+                border-radius:0;
+                padding:0
+            }
+            .sbdd_b {
+                border-top:1px solid #d9d9d9
+            }
+            .sbsb_c {
+                padding-left:8px
+            }
+            .sbqs_c:before, .sbpqs_a::before {
+                content:none
+            }
+            .sbsb_c {
+                line-height:22px;
+                height:22px
+            }
+        }
     /* ⚒️ Custom Video Details */
     if (customVideoPage=="Enabled") {
 
@@ -632,7 +671,17 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 }
             }
         }
-
+        /*🎤 Hide Voice Search */
+        #voice-search-button {
+            display:none if hideVoice
+        }
+        /*🌊 Hide Ripple */
+        yt-interaction {
+            display:none if hideRipple
+        }
+        ytd-guide-entry-renderer[guide-refresh] tp-yt-paper-item.ytd-guide-entry-renderer:before {
+            content:none if hideRipple
+        }
         /* 📻 Display Videos Count */
         if (displayVideoCount) {
 
@@ -1645,7 +1694,21 @@ Support me: https://ko-fi.com/sapondanaisriwan
         clip-path: inset(-3px 4px 0px 4px);
     } */
     if (customOldLayout=="Enabled" && oldIcons) {
-
+        html[system-icons] {
+            --yt-spec-icon-active-other: #606060;
+            --yt-spec-icon-inactive: #909090;
+            --yt-spec-icon-disabled: #ccc;
+            --yt-spec-brand-icon-active: #f00;
+            --yt-spec-brand-icon-inactive: #606060;
+            --yt-button-icon-button-text-color: var(--yt-spec-text-primary);
+        }
+        html[system-icons][dark], html[system-icons] [dark] {
+            --yt-spec-icon-active-other: #fff;
+            --yt-spec-icon-inactive: #909090;
+            --yt-spec-icon-disabled: #606060;
+            --yt-spec-brand-icon-active: #fff;
+            --yt-spec-brand-icon-inactive: #909090;
+        }
         svg:not(:root) {
             overflow: visible;
         }
