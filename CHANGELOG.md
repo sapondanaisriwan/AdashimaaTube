@@ -1,5 +1,19 @@
 ## Changelog
 
+### v2.1.4
+[Feature]
+- Improve homepage layout fix.
+
+Before
+![Before](https://i.imgur.com/Ffd1ZFd.png)
+After
+![After](https://i.imgur.com/P8TXpZC.jpeg)
+
+[Bug]
+- Fixed ([#71][i71])
+
+[i71]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/71
+
 ### v2.1.3
 [Feature]
 - Added Hide live chat option.
