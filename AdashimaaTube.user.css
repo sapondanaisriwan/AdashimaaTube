@@ -265,9 +265,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     width: calc(100% - 2 * 1vw);
                     max-width: calc(var(--ytd-rich-grid-items-per-row) * (var(--ytd-rich-grid-item-max-width) + var(--ytd-rich-grid-item-margin)));
                 }
+            }
 
-                if homePageLayoutFix {
-
+            if homePageLayoutFix {
+                [page-subtype="home"] {
                     #rich-shelf-header.ytd-rich-shelf-renderer {
                         margin-top: 0;
                     }
@@ -280,7 +281,34 @@ Support me: https://ko-fi.com/sapondanaisriwan
                         border-top: none;
                     }
 
-                    ytd-rich-section-renderer {
+                    #contents.ytd-rich-grid-renderer:has(ytd-rich-shelf-renderer:not([is-shorts])) {
+                        #content.ytd-rich-section-renderer,
+                        ytd-rich-section-renderer {
+                            display: contents;
+                        }
+                    }
+
+                    ytd-rich-shelf-renderer:not([is-shorts]) {
+                        margin-bottom: 0 i;
+                        display: contents;
+
+                        #button-container.ytd-rich-shelf-renderer,
+                        #rich-shelf-header.ytd-rich-shelf-renderer {
+                            display: none;
+                        }
+
+                        ytd-rich-item-renderer[hidden] {
+                            display: block i;
+                        }
+
+                        #dismissible.ytd-rich-shelf-renderer,
+                        #contents.ytd-rich-shelf-renderer {
+                            display: contents;
+                        }
+                    }
+
+                    ytd-rich-shelf-renderer[is-shorts],
+                    #contents.ytd-rich-grid-renderer > ytd-rich-section-renderer:has(#content > ytd-rich-shelf-renderer[is-shorts]) {
                         order: -1;
                     }
                 }
