@@ -1,0 +1,36 @@
+/* ==UserStyle==
+@name           Old Icons
+@author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan)
+@description    If you want to submit a bug or request a feature please report via github issue. Since I receive so many emails, I can't reply to them all.
+@namespace      https://userstyles.world/user/sapondanaisriwan
+@homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
+@supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
+@version        1.0.0
+@license        MIT
+@preprocessor   stylus
+==/UserStyle== */
+@-moz-document domain("youtube.com") {
+
+    i=!important;
+    
+    svgPathObj = {
+        "M12,4.33l7,6.12V20H15V14H9v6H5V10.45l7-6.12M12,3,4,10V21h6V15h4v6h6V10L12,3Z": "M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8",
+        "M11,17H9V8h2V17z M15,8h-2v9h2V8z M19,4v1h-1v16H6V5H5V4h4V3h6v1H19z M17,5H7v15h10V5z": "M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z",
+        "M11,16H9V8h2V16z M15,8h-2v8h2V8z M12,3c4.96,0,9,4.04,9,9s-4.04,9-9,9s-9-4.04-9-9S7.04,3,12,3 M12,2C6.48,2,2,6.48,2,12 s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2L12,2z": "M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2ZM11,16.5H8v-9h3Zm5,0H13v-9h3Z"
+        
+    }
+
+    replaceStr(str) {
+        return replace(',', '\\,', str)
+    }
+    
+    changePath(key, value) {
+        [d={s("%s", replaceStr(key))}] {
+            d: path(s("%s", value));
+        }
+    }
+    
+    for key, value in svgPathObj {
+        changePath(key, value);
+    }
+}
