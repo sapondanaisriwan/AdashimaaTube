@@ -1002,6 +1002,39 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
         if (oldBackground) {
 
+            html:not([dark]) ytd-masthead[is-watch-page][theater] {
+                background-color: #fff i;
+
+                #guide-icon.ytd-masthead,
+                yt-icon.ytd-logo {
+                    color: #0f0f0f i;
+                }
+
+                #container.ytd-searchbox {
+                    background-color: #fff i;
+                }
+
+                #search-icon-legacy.ytd-searchbox {
+                    border: 1px solid #d3d3d3;
+                    background-color: #f8f8f8 i;
+                }
+
+                #search-icon.ytd-searchbox,
+                ytd-searchbox[system-icons] #search-icon-legacy.ytd-searchbox yt-icon.ytd-searchbox {
+                    color: #0f0f0f i;
+                }
+
+                /* Voice serach */
+                #voice-search-button.ytd-masthead {
+                    background-color: #f9f9f9;
+                    color: #0f0f0f i;
+
+                    .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text {
+                        color: #0f0f0f i;
+                    }
+                }
+            }
+
             ytd-app[darker-dark-theme] {
                 background: var(--yt-spec-general-background-a) i;
             }
