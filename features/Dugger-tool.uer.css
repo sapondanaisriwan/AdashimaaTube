@@ -1,0 +1,42 @@
+/* ==UserStyle==
+@name           Debugger Tool
+@author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan) [Adashima#4066]
+@description    Just a debugger tool
+@namespace      https://userstyles.world/user/sapondanaisriwan
+@homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
+@supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
+@version        1.0.1
+@preprocessor   stylus
+
+@advanced checkbox debugHv	"Debug: Hover" 0
+@advanced checkbox debugOL	"Debug: Outline" 1
+@advanced checkbox debugBG	"Debug: background" 0
+
+==/UserStyle== */
+i=!important;
+@-moz-document regexp(".*") {
+    /* setTimeout(function(){debugger;}, 3000) */
+
+    * {
+
+        if (debugHv) {
+            &:hover {
+                box-sizing: border-box;
+                outline: 1px solid rgba(50, 205, 50, 0.5) i;
+                outline-offset: -1px;
+            }
+        }
+
+        if (debugOL) {
+            box-sizing: border-box;
+            outline: 1px solid rgba(50, 205, 50, 0.5) i;
+            outline-offset: -1px;
+        }
+
+        if (debugBG) {
+
+            box-sizing: border-box;
+            background: rgb(0 100 0 / 0.05) i;
+        }
+    }
+}
