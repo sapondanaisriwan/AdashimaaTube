@@ -1,5 +1,9 @@
 ## Changelog
 
+### v2.1.5
+[Feature]
+- Add old search box option.
+
 ### v2.1.4
 [Feature]
 - Improve homepage layout fix.
