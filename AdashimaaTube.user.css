@@ -1012,37 +1012,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         if (oldBackground) {
 
             html:not([dark]) ytd-masthead[is-watch-page][theater] {
-                background-color: #fff i;
-
-                #guide-icon.ytd-masthead,
-                yt-icon.ytd-logo {
-                    color: #0f0f0f i;
-                }
-
-                #container.ytd-searchbox {
-                    box-shadow: inset 0 1px 2px #eee;
-                    border: 1px solid #ccc i;
-                    border-right-color: t i;
-                    background-color: #fff i;
-                }
-
-                #search-icon-legacy.ytd-searchbox {
-                    border: 1px solid #d3d3d3;
-                    background-color: #f8f8f8 i;
-                }
-
-                #search-icon.ytd-searchbox,
-                ytd-searchbox[system-icons] #search-icon-legacy.ytd-searchbox yt-icon.ytd-searchbox {
-                    color: #0f0f0f i;
-                }
-
-                /* Voice serach */
-                #voice-search-button.ytd-masthead {
-                    background-color: #f9f9f9;
-                    button {
-                        color: #0f0f0f i;
-                    }
-                }
+                background-color: var(--yt-spec-black-1) i;
             }
 
             ytd-app[darker-dark-theme] {
