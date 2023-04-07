@@ -467,7 +467,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         /* ⚒️ Custom Search Page */
         if (searchPage=="Enabled" || searchPage=="Auto") {
 
-            ytd-section-list-renderer[engagement-panel]:not([engagement-panel-dropdown]):not([watch-while-engagement-panel]) #contents.ytd-section-list-renderer {
+            ytd-search ytd-section-list-renderer[engagement-panel]:not([engagement-panel-dropdown]):not([watch-while-engagement-panel]) #contents.ytd-section-list-renderer {
                 overflow-y: hidden;
             }
 
