@@ -1,5 +1,11 @@
 ## Changelog
 
+### v2.1.6
+[Bug]
+- Fixed scroll bar is not appearing on Shorts ([#74][i74]).
+
+[i74]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/74
+
 ### v2.1.5
 [Feature]
 - Add old search box option.
