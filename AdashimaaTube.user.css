@@ -1259,6 +1259,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 display: none;
             }
 
+            ytd-rich-shelf-renderer[is-shorts] {
+                display: none;
+            }
+            
             /* https://www.youtube.com/feed/subscriptions?flow=2 */
             ytd-two-column-browse-results-renderer[page-subtype="subscriptions"] > #primary.ytd-two-column-browse-results-renderer > ytd-section-list-renderer[page-subtype="subscriptions"] > #contents.ytd-section-list-renderer > ytd-item-section-renderer.ytd-section-list-renderer:has(#contents.ytd-item-section-renderer > ytd-shelf-renderer.ytd-item-section-renderer > #dismissible.ytd-shelf-renderer > #contents.ytd-shelf-renderer > ytd-expanded-shelf-contents-renderer.ytd-shelf-renderer > #grid-container.ytd-expanded-shelf-contents-renderer > ytd-video-renderer > #dismissible > ytd-thumbnail > a#thumbnail[href^="/shorts/"]) {
                 display: none;
