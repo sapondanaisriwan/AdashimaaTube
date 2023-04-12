@@ -2309,8 +2309,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
         .yt-spec-button-shape-next--size-m,
         /* Subscribe button in the end screen */
-        .ytp-sb-subscribe.ytp-sb-rounded,
-        .ytp-sb-unsubscribe.ytp-sb-rounded,
+        .ytp-sb-subscribe,
+        .ytp-sb-unsubscribe,
         /* Join Memebership button */
         #purchase-button.ytd-sponsorships-tier-renderer > yt-button-renderer > yt-button-shape > button {
             border-radius: buttonRadius i;
