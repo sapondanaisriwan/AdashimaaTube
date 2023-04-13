@@ -2294,14 +2294,17 @@ Support me: https://ko-fi.com/sapondanaisriwan
             border-radius: borderRadius 0 0 borderRadius i;
         }
 
-        .ytp-settings-menu.ytp-rounded-menu {
-            border-radius: borderRadius i;
-        }
-
+        .ytp-settings-menu,
+        .ytp-screen-mode-menu,
         ytd-menu-popup-renderer[sheets-refresh] {
             border-radius: borderRadius <=4px ? 4px: borderRadius;
         }
 
+        /* Mini player */
+        .ytp-player-minimized .html5-main-video, .ytp-player-minimized .ytp-miniplayer-scrim, .ytp-player-minimized.html5-video-player {
+            border-radius: borderRadius borderRadius 0 0;
+        }
+        
         /* Tap (button to sort the videos) */
         yt-chip-cloud-chip-renderer[modern-chips][chip-style] {
             border-radius: 16px i;
