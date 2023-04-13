@@ -1,5 +1,8 @@
 ## Changelog
 
+### v2.1.7
+- Fixed minor bugs.
+
 ### v2.1.6
 [Bug]
 - Fixed scroll bar is not appearing on Shorts ([#74][i74]).
