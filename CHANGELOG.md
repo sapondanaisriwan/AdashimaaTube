@@ -1,5 +1,14 @@
 ## Changelog
 
+### v2.1.8
+- In the subscription page is supported for customizing the number of videos per row (New UI changes).
+
+Before
+![before](https://i.imgur.com/b0rJlai.png)
+
+After
+![after](https://i.imgur.com/WNUx7fq.png)
+
 ### v2.1.7
 - Fixed minor bugs.
 
