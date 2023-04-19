@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        2.1.7
+@version        2.1.8
 @license        MIT
 @preprocessor   stylus
 
@@ -28,9 +28,12 @@
 @var range videoPerRow                 "  ⚙️ Videos Per Rows" [5, 1, 15, 1]
 @var checkbox hideProfile              "  🫣 Hide Channel Profile" 1
 
-@var checkbox subscriptionsGrid        "  🔔 Subscriptions Grid" 1
+@var select subPage                    "  🔔 Subscriptions Page" ["Enabled", "Disabled"]
+@var checkbox channelGrid              "    ↳ Channel Grid" 1
+@var checkbox subPageLayoutFix         "    ↳ Layout Fix" 1
+
 @var select homePage                   "  🏠 Home Page" ["Enabled", "Disabled"]
-@var checkbox homePageLayoutFix        "    ↳ Layout fix" 1
+@var checkbox homePageLayoutFix        "    ↳ Layout Fix" 1
 @var select channelPage                "  📺 Channel Page" ["Enabled", "Disabled"]
 @var checkbox sortByOldest             "    ↳ Sort By Oldest" 0
 @var checkbox channelSearchResults     "    ↳ Search Result Grid " 1
@@ -366,104 +369,172 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
         }
 
-        /* 📄 Subscriptions In A Grid Layout */
-        if (subscriptionsGrid) {
-
-            ytd-browse:not([page-subtype]) ytd-two-column-browse-results-renderer > #primary.ytd-two-column-browse-results-renderer > ytd-section-list-renderer.ytd-two-column-browse-results-renderer > #contents.ytd-section-list-renderer {
-
-                #grid-container.ytd-expanded-shelf-contents-renderer {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(246px, 1fr));
-                    justify-items: center;
+        if (subPage == "Enabled") {
+            
+            [page-subtype="subscriptions"] {
+                ytd-rich-grid-renderer #contents{
+                    fixYoutubeLayout();
                 }
-
-                ytd-channel-renderer {
-                    max-width: var(--ytd-grid-1-columns-width) i;
+                
+                ytd-rich-item-renderer:not([is-reel-item-style-avatar-circle]) {
+                    width: calc(100%/var(--video-per-row) - 4px - 0.01px)
                 }
-
-                #avatar-section.ytd-channel-renderer {
-                    max-width: unset;
-                    min-width: unset;
-                    width: 100%;
+                
+                #contents.ytd-rich-grid-renderer {
+                    padding-top: 0;
                 }
-
-                #avatar.ytd-channel-renderer {
-                    width: 100%;
+                #content.ytd-rich-section-renderer, {
+                    margin: 0;
+                    max-width: 100%;
                 }
+                
+                 if subPageLayoutFix {
+                    ytd-rich-grid-renderer #contents #contents > ytd-rich-item-renderer:not([is-reel-item-style-avatar-circle]) {
+                        margin-left: 0;
+                        margin-right: calc(var(--ytd-rich-grid-item-margin) / 4);
+                        margin-bottom: 24px;
+                    }
 
-                /* Remove padding bottom of subscribe btn */
-                ytd-channel-renderer:not([dual-buttons]) #buttons.ytd-channel-renderer,
-                #purchase-button.ytd-channel-renderer,
-                #subscribe-button.ytd-channel-renderer {
-                    padding-bottom: 0;
+                    ytd-rich-section-renderer {
+                        order: -1;
+                    }
                 }
-
-                /* Remove description */
-                #description.ytd-channel-renderer,
-
-                /* Remove bell icon */
-                #notification-preference-button,
-
-                /* Remove videos count*/
-                #metadata.ytd-channel-renderer > span:nth-last-child(-n + 2) {
-                    display: none;
+            }
+                        
+            [page-subtype="subscriptions"][mini-guide-visible] ytd-two-column-browse-results-renderer.grid.grid-disabled {
+                max-width: var(--ytd-grid-max-width);
+            }
+            
+            @media screen and (max-width: 1170px) { // width <= 1170px
+                [page-subtype="subscriptions"][mini-guide-visible] ytd-two-column-browse-results-renderer.grid.grid-disabled {
+                    width: var(--ytd-grid-4-columns-width);
                 }
+            }
 
-                #content-section.ytd-channel-renderer {
-                    display: flex;
-                    flex-wrap: wrap;
-                    flex-direction: column;
-                    justify-content: center;
+            @media screen and (min-width: 1171px) { // width >= 1171px
+                [page-subtype="subscriptions"] {
+                    &[mini-guide-visible] ytd-two-column-browse-results-renderer.grid.grid-disabled,
+                    &:not([mini-guide-visible]) ytd-two-column-browse-results-renderer.grid.grid-disabled {
+                        width: var(--ytd-grid-5-columns-width);
+                    }
                 }
+            }
 
-                #info-section.ytd-channel-renderer {
-                    flex-direction: column;
-                    align-items: center;
+            @media screen and (min-width: 1440px) { // width >= 1440px
+                [page-subtype="subscriptions"][mini-guide-visible] ytd-two-column-browse-results-renderer.grid.grid-disabled {
+                    width: var(--ytd-grid-6-columns-width);
                 }
-
-                /* Channel profile */
-                yt-img-shadow.ytd-channel-renderer {
-                    max-width: var(--ytd-grid-base);
-                    height: var(--ytd-grid-base);
-                    /* Centered the channel profile */
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
+            }
+            
+            @media screen and (min-width: 1553px) { // width >= 1553px
+                [page-subtype="subscriptions"]:not([mini-guide-visible]) ytd-two-column-browse-results-renderer.grid.grid-disabled {
+                    width: var(--ytd-grid-6-columns-width);
                 }
+            }
+            
+            #avatar-link.ytd-rich-grid-media {
+                display: none if hideProfile;
+            }
+            
+            /* 📄 Subscriptions In A Grid Layout */
+            if (channelGrid) {
 
-                /* Centered the subscribers */
-                #info.ytd-channel-renderer {
-                    padding: 0;
-                    align-items: center;
-                }
+                ytd-browse:not([page-subtype]) ytd-two-column-browse-results-renderer > #primary.ytd-two-column-browse-results-renderer > ytd-section-list-renderer.ytd-two-column-browse-results-renderer > #contents.ytd-section-list-renderer {
 
-                /* Add margin top to subscribe button */
-                ytd-subscription-notification-toggle-button-renderer-next.ytd-subscribe-button-renderer > yt-button-shape {
-                    margin-top: 0px;
-                }
+                    #grid-container.ytd-expanded-shelf-contents-renderer {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(246px, 1fr));
+                        justify-items: center;
+                    }
 
-                #channel-title.ytd-channel-renderer {
-                    margin: 4px auto; // Centered the channel title
-                    font-size: 1.4rem;
-                    font-weight: 500;
-                    max-height: 4rem;
-                    line-height: 2rem;
-                }
+                    ytd-channel-renderer {
+                        max-width: var(--ytd-grid-1-columns-width) i;
+                    }
 
-                #avatar-section.ytd-channel-renderer {
-                    margin-right: 0px;
-                }
+                    #avatar-section.ytd-channel-renderer {
+                        max-width: unset;
+                        min-width: unset;
+                        width: 100%;
+                    }
 
-                #grid-container.ytd-expanded-shelf-contents-renderer > *.ytd-expanded-shelf-contents-renderer:not(:last-child) {
-                    margin-bottom: 24px;
-                }
+                    #avatar.ytd-channel-renderer {
+                        width: 100%;
+                    }
 
-                ytd-playlist-renderer.ytd-expanded-shelf-contents-renderer,
-                ytd-channel-renderer.ytd-expanded-shelf-contents-renderer,
-                ytd-radio-renderer.ytd-expanded-shelf-contents-renderer,
-                ytd-video-renderer.ytd-expanded-shelf-contents-renderer,
-                ytd-movie-playlist-renderer.ytd-expanded-shelf-contents-renderer {
-                    padding-right: 0;
+                    /* Remove padding bottom of subscribe btn */
+                    ytd-channel-renderer:not([dual-buttons]) #buttons.ytd-channel-renderer,
+                    #purchase-button.ytd-channel-renderer,
+                    #subscribe-button.ytd-channel-renderer {
+                        padding-bottom: 0;
+                    }
+
+                    /* Remove description */
+                    #description.ytd-channel-renderer,
+
+                    /* Remove bell icon */
+                    #notification-preference-button,
+
+                    /* Remove videos count*/
+                    #metadata.ytd-channel-renderer > span:nth-last-child(-n + 2) {
+                        display: none;
+                    }
+
+                    #content-section.ytd-channel-renderer {
+                        display: flex;
+                        flex-wrap: wrap;
+                        flex-direction: column;
+                        justify-content: center;
+                    }
+
+                    #info-section.ytd-channel-renderer {
+                        flex-direction: column;
+                        align-items: center;
+                    }
+
+                    /* Channel profile */
+                    yt-img-shadow.ytd-channel-renderer {
+                        max-width: var(--ytd-grid-base);
+                        height: var(--ytd-grid-base);
+                        /* Centered the channel profile */
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                    }
+
+                    /* Centered the subscribers */
+                    #info.ytd-channel-renderer {
+                        padding: 0;
+                        align-items: center;
+                    }
+
+                    /* Add margin top to subscribe button */
+                    ytd-subscription-notification-toggle-button-renderer-next.ytd-subscribe-button-renderer > yt-button-shape {
+                        margin-top: 0px;
+                    }
+
+                    #channel-title.ytd-channel-renderer {
+                        margin: 4px auto; // Centered the channel title
+                        font-size: 1.4rem;
+                        font-weight: 500;
+                        max-height: 4rem;
+                        line-height: 2rem;
+                    }
+
+                    #avatar-section.ytd-channel-renderer {
+                        margin-right: 0px;
+                    }
+
+                    #grid-container.ytd-expanded-shelf-contents-renderer > *.ytd-expanded-shelf-contents-renderer:not(:last-child) {
+                        margin-bottom: 24px;
+                    }
+
+                    ytd-playlist-renderer.ytd-expanded-shelf-contents-renderer,
+                    ytd-channel-renderer.ytd-expanded-shelf-contents-renderer,
+                    ytd-radio-renderer.ytd-expanded-shelf-contents-renderer,
+                    ytd-video-renderer.ytd-expanded-shelf-contents-renderer,
+                    ytd-movie-playlist-renderer.ytd-expanded-shelf-contents-renderer {
+                        padding-right: 0;
+                    }
                 }
             }
         }
