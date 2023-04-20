@@ -10,28 +10,54 @@
 @preprocessor   stylus
 ==/UserStyle== */
 @-moz-document domain("youtube.com") {
-  /*     ytd-rich-item-renderer[is-slim-media] {
-          width: calc(100%/var(--ytd-rich-grid-slim-items-per-row) - var(--ytd-rich-grid-item-margin) - 0.01px);
-      } */
-  
-      ytd-rich-grid-slim-media[is-short] ytd-thumbnail.ytd-rich-grid-slim-media:before {
-          padding-top: 52.25%;
-      }
-  
-  /*     ytd-thumbnail[loaded] #overlays.ytd-thumbnail::before {
-          position: absolute;
-          bottom: 0;
-          right: 0;
-          margin: 4px;
-          color: var(--yt-spec-static-brand-white);
-          background-color:#fff;
-          padding: 3px 4px;
-          height: 12px;
-          width: 16px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 4px;
-          content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' preserveAspectRatio='xMidYMid meet' focusable='false' class='style-scope yt-icon' style='pointer-events: none; display: block; width: 100%25; height: 100%25;'%3E%3Cg width='16' height='16' viewBox='0 0 16 16' class='style-scope yt-icon' fill='%23FF0000'%3E%3Cpath d='M10.65,1C10.65,1,10.65,1,10.65,1c-0.37,0-0.75,0.1-1.09,0.31L4.25,4.46C3.44,4.93,2.96,5.89,3,6.9 C3.05,7.9,3.58,8.77,4.39,9.18c0.02,0.01,0.75,0.35,0.75,0.35l-0.9,0.53c-1.14,0.68-1.58,2.27-0.98,3.55C3.69,14.49,4.5,15,5.35,15 c0.37,0,0.74-0.1,1.09-0.31l5.31-3.15c0.8-0.48,1.29-1.43,1.24-2.45c-0.04-0.99-0.58-1.87-1.39-2.27c-0.02-0.01-0.75-0.35-0.75-0.35 l0.9-0.53c1.14-0.68,1.58-2.27,0.97-3.55C12.31,1.51,11.49,1,10.65,1L10.65,1z' class='style-scope yt-icon' fill='%23FF0000'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
-      } */
-  }
+
+    i=!important;
+    t=transparent;
+
+    [page-subtype="home"] {
+
+        #contents.ytd-rich-shelf-renderer ytd-rich-item-renderer.ytd-rich-shelf-renderer[hidden] {
+            display: block i;
+        }
+
+        #content.ytd-rich-section-renderer > *.ytd-rich-section-renderer,
+        #dismissible.ytd-rich-shelf-renderer,
+        #contents.ytd-rich-shelf-renderer {
+            display: contents;
+        }
+
+        ytd-rich-grid-slim-media[is-short] ytd-thumbnail.ytd-rich-grid-slim-media:before {
+            padding-top: 52.25%;
+        }
+
+        #rich-shelf-header.ytd-rich-shelf-renderer,
+        #button-container.ytd-rich-shelf-renderer {
+            display: none;
+        }
+
+        ytd-rich-item-renderer[is-slim-media] {
+            width: calc(100%/var(--ytd-rich-grid-items-per-row) - var(--ytd-rich-grid-item-margin) - 0.01px);
+        }
+
+        ytd-rich-grid-slim-media[is-short] {
+            max-width: 100%;
+        }
+    }
+
+/*     ytd-thumbnail[loaded] #overlays.ytd-thumbnail::before {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin: 4px;
+        color: var(--yt-spec-static-brand-white);
+        background-color: #fff;
+        padding: 3px 4px;
+        height: 12px;
+        width: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' preserveAspectRatio='xMidYMid meet' focusable='false' class='style-scope yt-icon' style='pointer-events: none; display: block; width: 100%25; height: 100%25;'%3E%3Cg width='16' height='16' viewBox='0 0 16 16' class='style-scope yt-icon' fill='%23FF0000'%3E%3Cpath d='M10.65,1C10.65,1,10.65,1,10.65,1c-0.37,0-0.75,0.1-1.09,0.31L4.25,4.46C3.44,4.93,2.96,5.89,3,6.9 C3.05,7.9,3.58,8.77,4.39,9.18c0.02,0.01,0.75,0.35,0.75,0.35l-0.9,0.53c-1.14,0.68-1.58,2.27-0.98,3.55C3.69,14.49,4.5,15,5.35,15 c0.37,0,0.74-0.1,1.09-0.31l5.31-3.15c0.8-0.48,1.29-1.43,1.24-2.45c-0.04-0.99-0.58-1.87-1.39-2.27c-0.02-0.01-0.75-0.35-0.75-0.35 l0.9-0.53c1.14-0.68,1.58-2.27,0.97-3.55C12.31,1.51,11.49,1,10.65,1L10.65,1z' class='style-scope yt-icon' fill='%23FF0000'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+    } */
+}
