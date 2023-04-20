@@ -55,7 +55,7 @@ This is why you should consider using AdashimaaTube! 🥶
 <div align="center">
 
 ### 🔧 Menu Options
-<img src="https://i.imgur.com/xqGQ7u7.png" sytle="text-align: center"/>
+<img src="https://i.imgur.com/qA5JT7a.png" sytle="text-align: center"/>
 </div>
 
 ## 📷 Screenshots
@@ -98,7 +98,7 @@ Any contribution is greatly appreciated.
 
 #### 💬 What's AdashimaaTube-Legacy?
 
-AdashimaaTube-Legacy is suitable for legacy browser. You can install it [here](https://github.com/sapondanaisriwan/AdashimaaTube/raw/master/AdashimaaTube%20Legacy.user.css).
+AdashimaaTube-Legacy is suitable for legacy browser. You can install it from [here](https://github.com/sapondanaisriwan/AdashimaaTube/raw/master/AdashimaaTube%20Legacy.user.css).
 
 #### 💬 What should I do if I receive an error page and why?
 
@@ -151,4 +151,4 @@ If you like this project you can tip me for my hard work at
 If you have any feedback, please reach out to me at sapondanaisriwan@gmail.com
 
 ## ©️ License
-Code released under the [MIT](https://github.com/sapondanaisriwan/AdashimaaTube/blob/master/LICENSE) license.
+Code released under the [MIT](./LICENSE) license.
