@@ -380,6 +380,12 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     width: calc(100%/var(--video-per-row) - 4px - 0.01px)
                 }
                 
+                ytd-rich-grid-renderer #contents #contents > ytd-rich-item-renderer:not([is-reel-item-style-avatar-circle]) {
+                    margin-left: 0;
+                    margin-right: calc(var(--ytd-rich-grid-item-margin) / 4);
+                    margin-bottom: 24px;
+                }
+
                 #contents.ytd-rich-grid-renderer {
                     padding-top: 0;
                 }
@@ -389,46 +395,36 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 }
                 
                  if subPageLayoutFix {
-                    ytd-rich-grid-renderer #contents #contents > ytd-rich-item-renderer:not([is-reel-item-style-avatar-circle]) {
-                        margin-left: 0;
-                        margin-right: calc(var(--ytd-rich-grid-item-margin) / 4);
-                        margin-bottom: 24px;
-                    }
-
                     ytd-rich-section-renderer {
                         order: -1;
                     }
                 }
             }
-                        
-            [page-subtype="subscriptions"][mini-guide-visible] ytd-two-column-browse-results-renderer.grid.grid-disabled {
-                max-width: var(--ytd-grid-max-width);
-            }
             
-            @media screen and (max-width: 1170px) { // width <= 1170px
-                [page-subtype="subscriptions"][mini-guide-visible] ytd-two-column-browse-results-renderer.grid.grid-disabled {
-                    width: var(--ytd-grid-4-columns-width);
+            [page-subtype="subscriptions"] {
+                &[mini-guide-visible] ytd-two-column-browse-results-renderer.grid.grid-disabled {
+                    max-width: var(--ytd-grid-max-width);
                 }
-            }
-
-            @media screen and (min-width: 1171px) { // width >= 1171px
-                [page-subtype="subscriptions"] {
+                @media screen and (max-width: 1170px) { // width <= 1170px
+                    &[mini-guide-visible] ytd-two-column-browse-results-renderer.grid.grid-disabled {
+                        width: var(--ytd-grid-4-columns-width);
+                    }
+                }
+                @media screen and (min-width: 1171px) { // width >= 1171px
                     &[mini-guide-visible] ytd-two-column-browse-results-renderer.grid.grid-disabled,
                     &:not([mini-guide-visible]) ytd-two-column-browse-results-renderer.grid.grid-disabled {
                         width: var(--ytd-grid-5-columns-width);
                     }
                 }
-            }
-
-            @media screen and (min-width: 1440px) { // width >= 1440px
-                [page-subtype="subscriptions"][mini-guide-visible] ytd-two-column-browse-results-renderer.grid.grid-disabled {
-                    width: var(--ytd-grid-6-columns-width);
+                @media screen and (min-width: 1440px) { // width >= 1440px
+                    &[mini-guide-visible] ytd-two-column-browse-results-renderer.grid.grid-disabled {
+                        width: var(--ytd-grid-6-columns-width);
+                    }
                 }
-            }
-            
-            @media screen and (min-width: 1553px) { // width >= 1553px
-                [page-subtype="subscriptions"]:not([mini-guide-visible]) ytd-two-column-browse-results-renderer.grid.grid-disabled {
-                    width: var(--ytd-grid-6-columns-width);
+                @media screen and (min-width: 1553px) { // width >= 1553px
+                    &:not([mini-guide-visible]) ytd-two-column-browse-results-renderer.grid.grid-disabled {
+                        width: var(--ytd-grid-6-columns-width);
+                    }
                 }
             }
             
@@ -1133,6 +1129,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 background-color: var(--yt-spec-black-1) i;
             }
 
+            #tabs-inner-container.ytd-c4-tabbed-header-renderer, #channel-header.ytd-c4-tabbed-header-renderer {
+                background: var(--yt-spec-general-background-a) i;
+            }
+            
             ytd-app[darker-dark-theme] {
                 background: var(--yt-spec-general-background-a) i;
             }
@@ -1233,6 +1233,12 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 }
             }
 
+            /* Join btn */
+            .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--outline {
+                color: var(--yt-spec-call-to-action);
+                border-color: var(--yt-spec-call-to-action);
+            }
+            
             #edit-buttons ytd-button-renderer > yt-button-shape > a {
                 &.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
                     color: var(--yt-spec-text-primary-inverse) i;
@@ -1887,6 +1893,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             /* Removes background color around bell icon */
             &.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal {
                 background-color: t i;
+                padding-right: 4px;
             }
 
             /* Removes down arrow and "Subscribed"*/
@@ -2026,7 +2033,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
         }
     }
-
+    
     ytd-channel-renderer:not([dual-buttons]) #buttons.ytd-channel-renderer {
         max-width: 100%;
     }
