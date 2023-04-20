@@ -1223,7 +1223,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 > yt-button-shape > button {
                     &.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
                     &.yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline,
-                    &.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled {
+                    &.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled,
+                    &.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--outline {
                         color: var(--yt-spec-call-to-action) i;
                         border: 1px solid var(--yt-spec-call-to-action) i;
                         border-radius: buttonRadius i if (customOldLayout=="Enabled");
@@ -1234,10 +1235,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
 
             /* Join btn */
-            .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--outline {
+/*             .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--outline {
                 color: var(--yt-spec-call-to-action);
                 border-color: var(--yt-spec-call-to-action);
-            }
+            } */
             
             #edit-buttons ytd-button-renderer > yt-button-shape > a {
                 &.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
