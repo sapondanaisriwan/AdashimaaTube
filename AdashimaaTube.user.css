@@ -301,10 +301,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
                         }
                     }
 
-                    ytd-brand-video-shelf-renderer[rounded-container]:not([is-first-feed-item]) {
+                    ytd-rich-section-renderer:has(#content > ytd-brand-video-shelf-renderer[rounded-container]:not([is-first-feed-item])) {
                         display: none;
                     }
-                    
+
                     ytd-rich-shelf-renderer:not([is-shorts]) {
                         margin-bottom: 0 i;
                         display: contents;
