@@ -147,7 +147,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             defaultMargin();
         }
     }
-        
+    
     /* Check if broswer support :has pseudo selectors */
     @css {
         @supports not selector(:has(*)) {
@@ -279,7 +279,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     max-width: calc(var(--ytd-rich-grid-items-per-row) * (var(--ytd-rich-grid-item-max-width) + var(--ytd-rich-grid-item-margin)));
                 }
             }
-
+            
             if homePageLayoutFix {
                 [page-subtype="home"] {
                     #rich-shelf-header.ytd-rich-shelf-renderer {
@@ -347,6 +347,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 display: none;
             }
 
+            /* อยากเมา */
+            .ytp-inline-preview-ui .ytp-subtitles-button, .ytp-inline-preview-ui .ytp-mute-button {
+                display: block i;
+            }
+            
             /* Display unloaded videos per row when refresh the homepage */
             #home-page-skeleton .rich-grid-media-skeleton,
             #home-page-skeleton .rich-shelf-videos .rich-grid-media-skeleton.mini-mode,
@@ -2567,6 +2572,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
         display: none;
     }
 
+    ytd-thumbnail-overlay-endorsement-renderer {
+        display: none;
+    }
+    
     /* Remove parentheses Credit to decembre, Pabli */
     /*     span.ytp-menu-label-secondary {
         clip-path: inset(-3px 4px 0px 4px);
