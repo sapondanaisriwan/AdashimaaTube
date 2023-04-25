@@ -2404,8 +2404,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
         
         /* Tap (button to sort the videos) */
-        yt-chip-cloud-chip-renderer[modern-chips][chip-style] {
-            border-radius: 16px i;
+        yt-chip-cloud-chip-renderer {
+            border-radius: 100vh i;
         }
 
         .yt-spec-button-shape-next--size-m,
