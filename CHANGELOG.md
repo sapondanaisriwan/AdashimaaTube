@@ -1,5 +1,14 @@
 ## Changelog
 
+### v2.1.9
+[Bug]
+- Fixed [#80][80] [#82][82] [#83][83] [#84][84]
+
+[80]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/80
+[82]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/82
+[83]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/83
+[84]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/84
+
 ### v2.1.8
 - In the subscription page is supported for customizing the number of videos per row (New UI changes).
 
