@@ -2362,12 +2362,20 @@ Support me: https://ko-fi.com/sapondanaisriwan
             border-radius: borderRadius i;
         }
 
+        tp-yt-paper-item.ytd-guide-entry-renderer {
+            --paper-item-focused-before-border-radius: borderRadius i;
+        }
+        
+        #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:hover, #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:focus {
+            border-radius: borderRadius i;
+        }
+        yt-interaction.ytd-guide-entry-renderer,
+        ytd-guide-entry-renderer {
+            border-radius: borderRadius i;
+        }
+        
         ytd-expandable-metadata-renderer[round-container]:not([is-expanded]) {
             --yt-img-border-radius: borderRadius;
-        }
-
-        ytd-guide-entry-renderer[guide-refresh] tp-yt-paper-item.ytd-guide-entry-renderer {
-            --paper-item-focused-before-border-radius: borderRadius;
         }
 
         .ytp-tooltip.ytp-rounded-tooltip.ytp-text-detail.ytp-preview .ytp-tooltip-bg {
@@ -2385,6 +2393,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
         .ytp-settings-menu,
         .ytp-screen-mode-menu,
+        ytd-menu-popup-renderer,
         ytd-menu-popup-renderer[sheets-refresh] {
             border-radius: borderRadius <=4px ? 4px: borderRadius;
         }
