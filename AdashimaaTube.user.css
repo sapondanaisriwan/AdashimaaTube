@@ -41,6 +41,7 @@
 @var checkbox channelGrouping          "    ↳ Channel Grouping" 0
 @var checkbox hideChannel              "    ↳ Hide Channel" 0
 @var checkbox hideRightSidebar         "    ↳ Hide Right Sidebar" 0
+@var select hashtagPage                "  🔖 Hashtag Page" ["Enabled", "Disabled"]
 
 @var select customAppearance           "⚒️ Youtube Appearance" ["Enabled", "Disabled"]
 @var checkbox blueCheckMark            "  ✅ Blue Check Mark" 0
@@ -946,6 +947,24 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
         }
 
+        if (hashtagPage == "Enabled") {
+            [page-subtype="hashtag-landing-page"] {
+                ytd-rich-grid-renderer {
+                    --ytd-rich-grid-items-per-row: var(--video-per-row) i;
+                    #contents.ytd-rich-grid-renderer {
+                        fixYoutubeLayout();
+                        width: calc(100% - 2 * 1vw);
+                        max-width: calc(var(--ytd-rich-grid-items-per-row) * (var(--ytd-rich-grid-item-max-width) + var(--ytd-rich-grid-item-margin)));
+                    }
+                }
+                ytd-feed-filter-chip-bar-renderer,
+                #hashtag-info-container.ytd-hashtag-header-renderer {
+                    margin-inline: auto;
+                    max-width: calc(var(--video-per-row) * (var(--ytd-rich-grid-item-max-width) + var(--ytd-rich-grid-item-margin)));
+                }
+            }
+        }
+        
         /* ⚒️ Custom Channel Page */
         if (channelPage=="Enabled") {
             /* 🏠 Number Of Videos Per Row */
