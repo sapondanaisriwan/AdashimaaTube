@@ -1849,7 +1849,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
 
         /* Reverts the channel author on watchpage*/
-        ytd-video-owner-renderer[modern-metapanel] #channel-name.ytd-video-owner-renderer {
+        #channel-name.ytd-video-owner-renderer {
             font-family: "Roboto", "Arial", sans-serif;
             font-size: 1.4rem;
             line-height: 2rem;
@@ -1949,7 +1949,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
 
         /* Revert the profile channel */
-        ytd-video-owner-renderer[modern-metapanel] #avatar.ytd-video-owner-renderer {
+        #avatar.ytd-video-owner-renderer {
             width: 48px;
             height: 48px;
             > img {
