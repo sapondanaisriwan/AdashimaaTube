@@ -2,6 +2,8 @@
 
 ### v2.2.0
 
+Thank you so much to @Raiva48 for letting me borrow her premium account 💖.
+
 [Feature]
 - Removed "Watch page full width" option (it's useless when scale size is at 100%).
 - Custom videos per row is now supported on hashtag page.
