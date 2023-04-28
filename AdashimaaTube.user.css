@@ -283,51 +283,46 @@ Support me: https://ko-fi.com/sapondanaisriwan
             
             if homePageLayoutFix {
                 [page-subtype="home"] {
-                    #rich-shelf-header.ytd-rich-shelf-renderer {
-                        margin-top: 0;
+                    ytd-rich-item-renderer[hidden]:not([is-post], [is-reel-item-style-avatar-circle]) {
+                        display: block i;
                     }
-
-                    #contents.ytd-rich-grid-renderer {
-                        padding-top: 0;
-                    }
-
+                    
                     ytd-rich-shelf-renderer {
                         border-top: none;
                     }
-
-                    #contents.ytd-rich-grid-renderer:has(ytd-rich-shelf-renderer:not([is-shorts])) {
-                        #content.ytd-rich-section-renderer,
-                        ytd-rich-section-renderer {
-                            display: contents;
-                        }
+                    
+                    #rich-shelf-header.ytd-rich-shelf-renderer {
+                        margin-top: 0;
                     }
-
-                    ytd-rich-section-renderer:has(#content > ytd-brand-video-shelf-renderer[rounded-container]:not([is-first-feed-item])) {
-                        display: none;
-                    }
-
-                    ytd-rich-shelf-renderer:not([is-shorts]) {
-                        margin-bottom: 0 i;
-                        display: contents;
-
-                        #button-container.ytd-rich-shelf-renderer,
-                        #rich-shelf-header.ytd-rich-shelf-renderer {
+                    
+                    ytd-rich-section-renderer
+                    
+                    #contents.ytd-rich-grid-renderer > ytd-rich-section-renderer {
+                        
+                        &:has(ytd-brand-video-singleton-renderer) {
                             display: none;
                         }
-
-                        ytd-rich-item-renderer[hidden] {
-                            display: block i;
+                        
+                        &:has(ytd-rich-item-renderer[is-post]),
+                        &:has(ytd-rich-shelf-renderer[is-shorts]) {
+                            order: -1;
                         }
-
-                        #dismissible.ytd-rich-shelf-renderer,
-                        #contents.ytd-rich-shelf-renderer {
+                        
+                        &:has(ytd-rich-shelf-renderer:not([is-shorts])):has(ytd-rich-item-renderer:not([is-post])) {
                             display: contents;
-                        }
-                    }
 
-                    ytd-rich-shelf-renderer[is-shorts],
-                    #contents.ytd-rich-grid-renderer > ytd-rich-section-renderer:has(#content > ytd-rich-shelf-renderer[is-shorts]) {
-                        order: -1;
+                            #content.ytd-rich-section-renderer,
+                            ytd-rich-shelf-renderer,
+                            #contents.ytd-rich-shelf-renderer,
+                            #dismissible.ytd-rich-shelf-renderer {
+                                display: contents;
+                            }
+
+                            #button-container.ytd-rich-shelf-renderer,
+                            #rich-shelf-header.ytd-rich-shelf-renderer {
+                                display: none;
+                            }
+                        }
                     }
                 }
             }
