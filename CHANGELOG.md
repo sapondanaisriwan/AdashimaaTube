@@ -1,5 +1,18 @@
 ## Changelog
 
+### v2.2.0
+
+[Feature]
+- Removed "Watch page full width" option (it's useless when scale size is at 100%).
+- Custom videos per row is now supported on hashtag page.
+
+[Bug]
+- Fixed [#86][86] [#87][87] [#88][88]
+
+[86]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/86
+[87]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/87
+[88]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/88
+
 ### v2.1.9
 [Bug]
 - Fixed [#80][80] [#82][82] [#83][83] [#84][84]
