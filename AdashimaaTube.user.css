@@ -1321,6 +1321,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 }
             }
 
+            ytd-watch-flexy #contents.ytd-item-section-renderer > ytd-reel-shelf-renderer.ytd-item-section-renderer {
+                display: none;
+            }
+            
             /* https://www.youtube.com/@MrBeast2/shorts */
             ytd-rich-grid-renderer[is-shorts-grid] {
                 display: none;
