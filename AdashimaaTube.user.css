@@ -6,13 +6,9 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        2.1.9
+@version        2.2.0
 @license        MIT
 @preprocessor   stylus
-
-@var checkbox watchpageFullWidth       "🥶 Watchpage Full Width" 0
-@var checkbox descriptionExpanded      "🥶 Description Expanded" 0
-@var checkbox videoList                "🥶 Right Side Scrollbar" 0
 
 @var select customOldLayout            "⚒️ Old Layout" ["Enabled", "Disabled"]
 @var range borderRadius                "  ⚙️ Border Radius" [0, 0, 40, 1, 'px']
@@ -48,6 +44,13 @@
 @var checkbox searchBox                "  🌑 Dark Search Box" 0
 @var checkbox scroll_Bar               "  🌑 Dark Scroll Bar" 1
 @var checkbox displayVideoCount        "  📻 Display Videos Count" 0
+
+@var checkbox displayFullTitle         "  🎦 Full Title For Videos" 0
+@var select likeDislike                "  🎨 Like/Dislike colors" ['None', 'Navy-Blue', 'Classic']
+@var checkbox moreAnimation            "  🎬 More Animations" 0
+@var checkbox watchedOverlay           "  👀 Watched Overlay" 0
+
+@var select customVideoPage            "⚒️ Watch Page" ["Enabled", "Disabled"]
 @var select displayDislikeText         "  👎 Display Dislike Text" {
     "None": "None",
     "English": "English",
@@ -59,13 +62,10 @@
     "Русский": "Russia",
     "Français": "French"
 }
-@var checkbox displayFullTitle         "  🎦 Full Title For Videos" 0
-@var checkbox fullVideoPlayer          "  🎦 Full Video Player" 0
-@var select likeDislike                "  🎨 Like/Dislike colors" ['None', 'Navy-Blue', 'Classic']
-@var checkbox moreAnimation            "  🎬 More Animations" 1
-@var checkbox watchedOverlay           "  👀 Watched Overlay" 0
+@var checkbox descriptionExpanded      "  📭 Description Expanded" 0
+@var checkbox videoList                "  📜 Right Side Scrollbar" 0
 
-@var select customVideoPage            "⚒️ Watch Page" ["Enabled", "Disabled"]
+@var checkbox fullVideoPlayer          "  🎦 Full Video Player" 0
 @var checkbox hideTaps                 "  ❌ Hide Taps" 0
 @var checkbox antiShorts               "  ❌ Hide-Shorts" 0
 @var checkbox hideAnnotation           "  ❌ Hide Annotations" 0
@@ -223,25 +223,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 border: 4px solid transparent;
                 background-clip: content-box;
                 background-color: var(--yt-spec-text-secondary);
-            }
-        }
-    }
-
-    #meta-contents[hidden] ytd-expander.ytd-video-secondary-info-renderer[collapsed] {
-        --ytd-expander-collapsed-height: 100% i if descriptionExpanded;
-    }
-
-    if (watchpageFullWidth) {
-        ytd-watch-flexy[flexy][is-two-columns_][is-extra-wide-video_] #primary.ytd-watch-flexy, ytd-watch-flexy[flexy][is-two-columns_][is-four-three-to-sixteen-nine-video_] #primary.ytd-watch-flexy {
-            max-width: 100%;
-        }
-
-        ytd-watch-flexy[flexy][is-two-columns_]:not([is-four-three-to-sixteen-nine-video_]):not([is-extra-wide-video_]) #primary.ytd-watch-flexy {
-            max-width: 100%;
-            #player.ytd-watch-flexy {
-                margin: 0 auto;
-                max-width: calc((100vh - (var(--ytd-watch-flexy-masthead-height) + var(--ytd-margin-6x) + var(--ytd-watch-flexy-space-below-player))) * 1.7777777778);
-                min-width: calc(var(--ytd-watch-flexy-min-player-height) * 1.7777777778);
             }
         }
     }
@@ -1306,6 +1287,59 @@ Support me: https://ko-fi.com/sapondanaisriwan
     /* ⚒️ Custom Video Details */
     if (customVideoPage=="Enabled") {
 
+        #meta-contents[hidden] ytd-expander.ytd-video-secondary-info-renderer[collapsed] {
+            --ytd-expander-collapsed-height: 100% i if descriptionExpanded;
+        }
+        
+        if (fullVideoPlayer) {
+            ytd-watch-flexy:not([fullscreen]) {
+                .html5-video-container {
+                    height: 100%;
+                }
+
+                .ytp-fit-cover-video .html5-main-video {
+                    left: 0 i;
+                    width: 100% i;
+                    height: 100% i;
+                    object-fit: cover;
+                }
+            }
+        }
+        
+        if (displayDislikeText !="None") {
+            languages= {
+                "English": "dislike",
+                "Thai": "ไม่ชอบ",
+                "Filipino": "ayaw",
+                "Chinese": "不喜欢",
+                "Japanese": "嫌い",
+                "Korean": "싫어함",
+                "Russia": "Не нравится",
+                "French": "Je n'aime pas"
+            }
+
+            for language in languages {
+                if (language==displayDislikeText) {
+                    selectLanguage=languages[displayDislikeText]
+                }
+            }
+
+            #segmented-dislike-button > ytd-toggle-button-renderer > yt-button-shape > button {
+
+                &:not(:has(div.cbox.yt-spec-button-shape-next--button-text-content > span)) {
+                    & {
+                        margin: 0 24px;
+                    }
+
+                    &::after {
+                        content: selectLanguage;
+                        text-transform: uppercase;
+                        padding-left: 6px;
+                    }
+                }
+            }
+        }
+        
         ytd-live-chat-frame {
             display: none if hideLiveChat;
         }
@@ -1481,55 +1515,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     /* "⚒️ Custom Appearance" */
     if (customAppearance=="Enabled") {
-
-        if (fullVideoPlayer) {
-            ytd-watch-flexy:not([fullscreen]) {
-                .html5-video-container {
-                    height: 100%;
-                }
-
-                .ytp-fit-cover-video .html5-main-video {
-                    left: 0 i;
-                    width: 100% i;
-                    height: 100% i;
-                    object-fit: cover;
-                }
-            }
-        }
-
-        if (displayDislikeText !="None") {
-            languages= {
-                "English": "dislike",
-                "Thai": "ไม่ชอบ",
-                "Filipino": "ayaw",
-                "Chinese": "不喜欢",
-                "Japanese": "嫌い",
-                "Korean": "싫어함",
-                "Russia": "Не нравится",
-                "French": "Je n'aime pas"
-            }
-
-            for language in languages {
-                if (language==displayDislikeText) {
-                    selectLanguage=languages[displayDislikeText]
-                }
-            }
-
-            #segmented-dislike-button > ytd-toggle-button-renderer > yt-button-shape > button {
-
-                &:not(:has(div.cbox.yt-spec-button-shape-next--button-text-content > span)) {
-                    & {
-                        margin: 0 24px;
-                    }
-
-                    &::after {
-                        content: selectLanguage;
-                        text-transform: uppercase;
-                        padding-left: 6px;
-                    }
-                }
-            }
-        }
         
         /* 🎨 Like/Dislike colors */
         if (customOldLayout=="Enabled" && !oldIcons && hideLikeAnimation) {
