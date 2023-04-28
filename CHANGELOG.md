@@ -2,7 +2,7 @@
 
 ### v2.2.0
 
-Thank you so much to @Raiva48 for letting me borrow her premium account 💖.
+Thank you so much to [@Raiva48](https://github.com/Raiva48) for letting me borrow her premium account 💖.
 
 [Feature]
 - Removed "Watch page full width" option (it's useless when scale size is at 100%).
