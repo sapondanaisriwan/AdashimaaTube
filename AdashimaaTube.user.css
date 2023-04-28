@@ -1148,6 +1148,23 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 background-color: var(--yt-spec-black-1) i;
             }
 
+            /* Live chat */
+            yt-live-chat-renderer {
+                background: var(--yt-spec-general-background-a) i;
+            }
+            #container.yt-live-chat-restricted-participation-renderer,
+            yt-live-chat-message-input-renderer,
+            yt-live-chat-header-renderer {
+                background: var(--yt-spec-brand-background-primary) i;
+            }
+            ytd-live-chat-frame[darker-dark-theme] #show-hide-button.ytd-live-chat-frame {
+                >ytd-button-renderer.ytd-live-chat-frame,
+                >ytd-toggle-button-renderer.ytd-live-chat-frame {
+                    background: var(--yt-spec-brand-background-primary) i;
+                    margin: 0;
+                }
+            }
+            
             #tabs-inner-container.ytd-c4-tabbed-header-renderer, #channel-header.ytd-c4-tabbed-header-renderer {
                 background: var(--yt-spec-general-background-a) i;
             }
@@ -1171,17 +1188,19 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
 
             /* Tap arrow */
+
             ytd-feed-filter-chip-bar-renderer[is-dark-theme] #left-arrow.ytd-feed-filter-chip-bar-renderer::after {
                 background: linear-gradient(to right, var(--yt-spec-brand-background-primary) 20%, rgba(33, 33, 33, 0) 80%) i;
             }
 
+            ytd-feed-filter-chip-bar-renderer[is-dark-theme] #right-arrow.ytd-feed-filter-chip-bar-renderer:before,
             ytd-feed-filter-chip-bar-renderer[darker-dark-theme][is-dark-theme] #right-arrow.ytd-feed-filter-chip-bar-renderer::before {
                 background: linear-gradient(to left, var(--yt-spec-brand-background-primary) 20%, rgba(33, 33, 33, 0) 80%) i;
             }
 
             /* Tap arrow */
-            ytd-feed-filter-chip-bar-renderer[darker-dark-theme] #left-arrow-button.ytd-feed-filter-chip-bar-renderer,
-            ytd-feed-filter-chip-bar-renderer[darker-dark-theme] #right-arrow-button.ytd-feed-filter-chip-bar-renderer {
+            #left-arrow-button.ytd-feed-filter-chip-bar-renderer,
+            #right-arrow-button.ytd-feed-filter-chip-bar-renderer {
                 background-color: var(--yt-spec-brand-background-primary) i;
             }
 
@@ -2228,7 +2247,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
 
         /* Search box */
-        ytd-multi-page-menu-renderer[sheets-refresh],
+        ytd-multi-page-menu-renderer,
         ytd-playlist-panel-renderer[modern-panels]:not([within-miniplayer]) #container.ytd-playlist-panel-renderer,
         ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #container.ytd-searchbox,
         ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #search-icon-legacy.ytd-searchbox,
