@@ -127,7 +127,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         --yt-spec-brand-background-primary: rgba(255, 255, 255, 0.98);
         --yt-spec-10-percent-layer: rgba(0, 0, 0, 0.1);
     }
-
+    
     /* Variables */
     i=!important;
     t=transparent;
@@ -1135,7 +1135,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
             #container.yt-live-chat-restricted-participation-renderer,
             yt-live-chat-message-input-renderer,
-            yt-live-chat-header-renderer {
+            yt-live-chat-header-renderer,
+            yt-live-chat-ticker-renderer {
                 background: var(--yt-spec-brand-background-primary) i;
             }
             ytd-live-chat-frame[darker-dark-theme] #show-hide-button.ytd-live-chat-frame {
