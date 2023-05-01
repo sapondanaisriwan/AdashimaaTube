@@ -1,0 +1,28 @@
+name: Bug report 🐛
+description: Create a report to help us improve.
+title: "[Bug]: "
+labels: ["bug"]
+assignees:
+  - sapondanaisriwan
+body:
+  - type: textarea
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+      placeholder: A bug happened! 💀
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Screenshots
+      description: If applicable, add screenshots to help explain your problem.
+      placeholder: Paste the image here.
+  - type: textarea
+    attributes:
+      label: What browser are you using?
+      description: Specify the browser name and version. Please do an online search for help if you are not familiar with how to get this information.
+      placeholder: "Ex: Microsoft Edge Version 112.0.1722.64 (Official build) (64-bit)."
+  - type: textarea
+    attributes:
+      label: What version of AdashimaaTube are you using?
+      placeholder: "v2.2.0"
