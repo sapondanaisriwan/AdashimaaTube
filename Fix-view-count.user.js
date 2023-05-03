@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        Fix live steam view count
+// @name        Fix live stream view count
 // @version     1.0.0
 // @author      sapondanaisriwan
 // @namespace   https://github.com/sapondanaisriwan/AdashimaaTube
