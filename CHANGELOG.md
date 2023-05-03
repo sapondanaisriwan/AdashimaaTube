@@ -1,5 +1,14 @@
 ## Changelog
 
+### v2.2.1
+
+[Feature]
+- Add Hide Donation.
+
+[Bug]
+- Fix live stream background color.
+- [Fix live stream view count](https://github.com/sapondanaisriwan/AdashimaaTube/raw/master/Fix-view-count.user.js) (Optional).
+
 ### v2.2.0
 
 Thank you so much to [@Raiva48](https://github.com/Raiva48) for letting me borrow her premium account 💖.
