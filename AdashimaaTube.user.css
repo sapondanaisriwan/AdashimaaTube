@@ -24,12 +24,6 @@
 @var range videoPerRow                 "  ⚙️ Videos Per Rows" [5, 1, 15, 1]
 @var checkbox hideProfile              "  🫣 Hide Channel Profile" 1
 
-@var select subPage                    "  🔔 Subscriptions Page" ["Enabled", "Disabled"]
-@var checkbox channelGrid              "    ↳ Channel Grid" 1
-@var checkbox subPageLayoutFix         "    ↳ Layout Fix" 1
-
-@var select homePage                   "  🏠 Home Page" ["Enabled", "Disabled"]
-@var checkbox homePageLayoutFix        "    ↳ Layout Fix" 1
 @var select channelPage                "  📺 Channel Page" ["Enabled", "Disabled"]
 @var checkbox sortByOldest             "    ↳ Sort By Oldest" 0
 @var checkbox channelSearchResults     "    ↳ Search Result Grid " 1
@@ -37,6 +31,11 @@
 @var checkbox channelGrouping          "    ↳ Channel Grouping" 0
 @var checkbox hideChannel              "    ↳ Hide Channel" 0
 @var checkbox hideRightSidebar         "    ↳ Hide Right Sidebar" 0
+@var select subPage                    "  🔔 Subscriptions Page" ["Enabled", "Disabled"]
+@var checkbox channelGrid              "    ↳ Channel Grid" 1
+@var checkbox subPageLayoutFix         "    ↳ Layout Fix" 1
+@var select homePage                   "  🏠 Home Page" ["Enabled", "Disabled"]
+@var checkbox homePageLayoutFix        "    ↳ Layout Fix" 1
 @var select hashtagPage                "  🔖 Hashtag Page" ["Enabled", "Disabled"]
 
 @var select customAppearance           "⚒️ Youtube Appearance" ["Enabled", "Disabled"]
@@ -70,7 +69,7 @@
 @var checkbox antiShorts               "  ❌ Hide-Shorts" 0
 @var checkbox hideAnnotation           "  ❌ Hide Annotations" 0
 @var checkbox channelHandle            "  ❌ Hide Channel Handles" 0
-
+@var checkbox hideDonation             "  💵 Hide Donation Shelf" 0
 @var checkbox hideRightSideVideos      "  🎦 Hide Right Side Videos" 0
 @var checkbox hideLikeAnimation        "  👍 Hide Like Animation" 0
 @var checkbox hideLiveChat             "  💬 Hide Live Chat" 0
@@ -280,6 +279,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     
                     #contents.ytd-rich-grid-renderer > ytd-rich-section-renderer {
                         
+                        &:has(ytd-inline-survey-renderer.ytd-rich-section-renderer),
                         &:has(ytd-brand-video-singleton-renderer) {
                             display: none;
                         }
@@ -1288,6 +1288,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
     /* ⚒️ Custom Video Details */
     if (customVideoPage=="Enabled") {
 
+        
+        #donation-shelf.ytd-watch-flexy {
+            display: none if hideDonation;
+        }
+        
         #meta-contents[hidden] ytd-expander.ytd-video-secondary-info-renderer[collapsed] {
             --ytd-expander-collapsed-height: 100% i if descriptionExpanded;
         }
