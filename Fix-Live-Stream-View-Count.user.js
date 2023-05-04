@@ -5,7 +5,7 @@
 // @grant          none
 // @version        1.0.0
 // @author         sapondanaisriwan
-// @description    Auto update life stream view count
+// @description    Auto update live stream view count
 // @license        MIT
 // @icon           https://i.imgur.com/I9uDrsq.png
 // @homepageURL   https://github.com/sapondanaisriwan/AdashimaaTube
