@@ -1,49 +1,79 @@
 // ==UserScript==
-// @name        Fix live stream view count
-// @version     1.0.0
-// @author      sapondanaisriwan
-// @namespace   https://github.com/sapondanaisriwan/AdashimaaTube
-// @description Fix view count for AdashimaaTube
-// @match       https://www.youtube.com/watch?v=*
-// @grant       none
-// @icon        https://user-images.githubusercontent.com/64634605/235854015-81c5986d-b858-4f64-b14c-93bba56ba265.png
+// @name           Fix live stream view count
+// @namespace      https://github.com/sapondanaisriwan/AdashimaaTube
+// @match          https://www.youtube.com/watch?v=*
+// @grant          none
+// @version        1.0.0
+// @author         sapondanaisriwan
+// @description    Auto update life stream view count
+// @license        MIT
+// @icon           https://i.imgur.com/I9uDrsq.png
+// @homepageURL   https://github.com/sapondanaisriwan/AdashimaaTube
+// @updateURL     https://github.com/sapondanaisriwan/AdashimaaTube/raw/main/Fix-view-count.user.js
+// @supportURL    https://github.com/sapondanaisriwan/AdashimaaTube/issues
 // ==/UserScript==
+
+/*
+If you want to submit a bug or request a feature please report via github issue. Since I receive so many emails, I can't reply to them all.
+Contact: sapondanaisriwan@gmail.com
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+Support me: https://ko-fi.com/sapondanaisriwan
+*/
 
 // Enable strict mode to catch common coding mistakes
 "use strict";
 
-document.addEventListener("yt-navigate-finish", main);
+const messages = {
+  updatedViewCount: "Update: View Count",
+};
 
-async function main() {
-  const viewEle = await waitUntilExists("#info-container.ytd-watch-metadata");
-  const observer = new MutationObserver(updateViewCount);
-  observer.observe(viewEle, { childList: true, subtree: true });
-}
+const selectors = {
+  infoContainer: "#info-container.ytd-watch-metadata",
+  newViewCount: "#info-container.ytd-watch-metadata span",
+  oldViewCount: "span.ytd-video-view-count-renderer",
+  ytFinish: "yt-navigate-finish",
+};
 
-function updateViewCount() {
-  document.querySelector("span.ytd-video-view-count-renderer").textContent =
-    document.querySelector(
-      "#info-container.ytd-watch-metadata span"
-    ).textContent;
-  console.log("Update: View Count");
-}
+const cLogStyles = "color: green; font-size: 16px";
+const config = { childList: true, subtree: true };
 
-function waitUntilExists(selector) {
+const select = (selector) => document.querySelector(selector);
+const cLog = (msg) => console.log(`%c${msg}`, cLogStyles);
+
+const waitForElement = (selector) => {
   return new Promise((resolve) => {
-    const element = document.querySelector(selector);
+    const element = select(selector);
     if (element) {
       resolve(element);
       return;
     }
 
-    const observer = new MutationObserver((mutations) => {
-      const element = document.querySelector(selector);
+    const observer = new MutationObserver(() => {
+      const element = select(selector);
       if (element) {
         resolve(element);
         observer.disconnect();
       }
     });
 
-    observer.observe(document.body, { childList: true, subtree: true });
+    observer.observe(document.body, config);
   });
-}
+};
+
+const updateViewCount = () => {
+  const newViewCount = select(selectors.newViewCount);
+  const oldViewCount = select(selectors.oldViewCount);
+  oldViewCount.textContent = newViewCount.textContent;
+  cLog(messages.updatedViewCount);
+};
+
+const run = async () => {
+  const infoContainer = await waitForElement(selectors.infoContainer);
+  const observer = new MutationObserver(updateViewCount);
+  observer.observe(infoContainer, config);
+};
+
+document.addEventListener(selectors.ytFinish, run);
