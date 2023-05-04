@@ -9,7 +9,7 @@
 // @license        MIT
 // @icon           https://i.imgur.com/I9uDrsq.png
 // @homepageURL   https://github.com/sapondanaisriwan/AdashimaaTube
-// @updateURL     https://github.com/sapondanaisriwan/AdashimaaTube/raw/main/Fix-view-count.user.js
+// @updateURL     https://github.com/sapondanaisriwan/AdashimaaTube/raw/main/Fix-Live-Stream-View-Count.user.js
 // @supportURL    https://github.com/sapondanaisriwan/AdashimaaTube/issues
 // ==/UserScript==
 
