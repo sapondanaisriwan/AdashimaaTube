@@ -1,5 +1,17 @@
 ## Changelog
 
+### v2.2.2
+
+[Bug]
+- Fixed roundness around search box.
+- Fixed Subscribe, Join button and notification bell are misplaced, and left sidebar background color.  ([#92][92]).
+
+[92]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/92
+
+Please stop update.
+
+![](https://user-images.githubusercontent.com/64634605/236369579-1d37629f-4291-462a-85e8-1582b2d62504.png)
+
 ### v2.2.1
 
 [Feature]
