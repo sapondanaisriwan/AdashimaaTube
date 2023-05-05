@@ -1237,7 +1237,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             
             #buttons > ytd-toggle-button-renderer,
             #action-button > ytd-button-renderer,
-            #sponsor-button > ytd-button-renderer {
+            #sponsor-button > [button-renderer] {
                 > yt-button-shape > button {
                     &.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal,
                     &.yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline,
@@ -1251,7 +1251,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     }
                 }
             }
-
+            
             /* Join btn */
 /*             .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--outline {
                 color: var(--yt-spec-call-to-action);
