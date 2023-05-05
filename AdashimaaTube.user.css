@@ -1222,21 +1222,19 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
 
             /* 🌑 Dark Navigation Bar */
-            html[dark] {
-                ytd-masthead {
-                    background: var(--yt-spec-brand-background-solid);
-                }
-
-                ytd-mini-guide-renderer,
-                ytd-mini-guide-entry-renderer[darker-dark-theme] {
-                    background-color: var(--yt-spec-brand-background-solid);
-                }
-
-                #guide-content.ytd-app {
-                    background: var(--yt-spec-brand-background-solid);
-                }
+            ytd-masthead {
+                background: var(--yt-spec-brand-background-primary);
             }
 
+            ytd-mini-guide-renderer,
+            ytd-mini-guide-entry-renderer {
+                background-color: var(--yt-spec-brand-background-primary);
+            }
+                
+            #guide-content.ytd-app {
+                background: var(--yt-spec-brand-background-primary) i;
+            }
+            
             #buttons > ytd-toggle-button-renderer,
             #action-button > ytd-button-renderer,
             #sponsor-button > ytd-button-renderer {
@@ -1757,9 +1755,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
                             display: none;
                         }
 
-/*                         ::before {
+                        ::before {
                             filter: invert();
-                        } */
+                        }
                     }
                 }
             }
@@ -2375,7 +2373,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         yt-channel-thumbnail-with-link-renderer[style_=CHANNEL_THUMBNAIL_STYLE_BOXART_ROUNDED] #avatar.yt-channel-thumbnail-with-link-renderer,
 
         /* Collapse Navbar */
-        ytd-mini-guide-entry-renderer[guide-refresh],
+        ytd-mini-guide-entry-renderer,
 
         ytd-universal-watch-card-renderer[rounded] #hero.ytd-universal-watch-card-renderer,
         .ytp-videowall-still-round-large .ytp-videowall-still-image,
