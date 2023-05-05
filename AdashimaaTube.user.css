@@ -1757,9 +1757,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
                             display: none;
                         }
 
-                        ::before {
+/*                         ::before {
                             filter: invert();
-                        }
+                        } */
                     }
                 }
             }
@@ -1939,6 +1939,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
         }
 
+        yt-smartimation.ytd-subscribe-button-renderer {
+            display: flex;
+        }
+        
         /* Remove Unsubscribe button from bell icon flyout menu */
         @css {
             ytd-menu-service-item-renderer[use-icons]:has(tp-yt-paper-item[style-target="host"] > yt-icon.ytd-menu-service-item-renderer > svg > g path[d^="M13.72,11.93C15.58,11.59,17,9.96,17,8c0-2.21-1.79-4-4-4S9,5.79,9,8c0,1.96,1.42,3.59,3.28,3.93"]) {
