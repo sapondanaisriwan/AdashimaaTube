@@ -69,6 +69,7 @@
 @var checkbox antiShorts               "  ❌ Hide-Shorts" 0
 @var checkbox hideAnnotation           "  ❌ Hide Annotations" 0
 @var checkbox channelHandle            "  ❌ Hide Channel Handles" 0
+@var checkbox hideRecommendPL          "  ❌ Hide Recommended" 0
 @var checkbox hideDonation             "  💵 Hide Donation Shelf" 0
 @var checkbox hideRightSideVideos      "  🎦 Hide Right Side Videos" 0
 @var checkbox hideLikeAnimation        "  👍 Hide Like Animation" 0
@@ -1112,15 +1113,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     border-bottom-color: var(--yt-spec-text-primary) i;
                 }
             }
-
-            /* Remove recommend videos */
-            ytd-item-section-renderer[is-playlist-video-container] {
-                display: none;
-            }
-
-            ytd-section-list-renderer:not([hide-bottom-separator]):not([page-subtype=history]):not([page-subtype=memberships-and-purchases]):not([page-subtype=ypc-offers]) #contents.ytd-section-list-renderer > *.ytd-section-list-renderer:not(:last-child):not(ytd-page-introduction-renderer):not([item-dismissed]).ytd-section-list-renderer:not([has-destination-shelf-renderer]).ytd-section-list-renderer:not(ytd-minor-moment-header-renderer) {
-                border-bottom: none;
-            }
         }
 
         if (oldBackground) {
@@ -1286,6 +1278,18 @@ Support me: https://ko-fi.com/sapondanaisriwan
     /* ⚒️ Custom Video Details */
     if (customVideoPage=="Enabled") {
 
+        /* ❌ Hide Recommended Section */
+        if (hideRecommendPL) {
+            
+            /* Remove recommend videos */
+            ytd-item-section-renderer[is-playlist-video-container] {
+                display: none;
+            }
+
+            ytd-section-list-renderer:not([hide-bottom-separator]):not([page-subtype=history]):not([page-subtype=memberships-and-purchases]):not([page-subtype=ypc-offers]) #contents.ytd-section-list-renderer > *.ytd-section-list-renderer:not(:last-child):not(ytd-page-introduction-renderer):not([item-dismissed]).ytd-section-list-renderer:not([has-destination-shelf-renderer]).ytd-section-list-renderer:not(ytd-minor-moment-header-renderer) {
+                border-bottom: none i;
+            }
+        }
         
         #donation-shelf.ytd-watch-flexy {
             display: none if hideDonation;
