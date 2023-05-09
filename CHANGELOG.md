@@ -1,5 +1,14 @@
 ## Changelog
 
+### v2.2.4 & v2.2.5
+
+- Temporary fix for RYD (it may have the overlapping issue)
+
+Before
+![](https://i.imgur.com/JNWOqKc.png)
+After
+![](https://i.imgur.com/FNR0tIH.png)
+
 ### v2.2.3
 
 [Feature]
