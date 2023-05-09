@@ -1,5 +1,15 @@
 ## Changelog
 
+### v2.2.3
+
+[Feature]
+- Added "Hide recommended videos under playlist" option. 
+
+[Bug]
+- Fixed hide thanks and clip not working ([#72][72]).
+
+[72]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/72
+
 ### v2.2.2
 
 [Bug]
