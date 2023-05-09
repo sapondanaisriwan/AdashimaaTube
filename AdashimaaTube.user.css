@@ -1817,15 +1817,69 @@ Support me: https://ko-fi.com/sapondanaisriwan
     /* REVERT WATCH PAGE */
     if (customOldLayout=="Enabled" && oldWatchpage) {
 
-        ytd-watch-metadata {
+/*         ytd-watch-metadata {
             display: none i;
-        }
+        } */
 
         #meta-contents[hidden],
         #info-contents[hidden] {
             display: block i;
         }
 
+        /* Temporary fix */
+        ytd-watch-metadata[description-collapsed] #description.ytd-watch-metadata {
+            display: none;
+        }
+        
+        #owner.ytd-watch-metadata {
+            visibility: hidden;
+        }
+       
+        ytd-video-primary-info-renderer #container > :not(#info){
+            display: none;
+        }
+        
+        ytd-video-primary-info-renderer[flex-menu-enabled] #menu-container.ytd-video-primary-info-renderer {
+            display: none;
+        }
+        
+        ytd-video-primary-info-renderer[flex-menu-enabled] #info.ytd-video-primary-info-renderer {
+            top: 38px;
+            position: absolute;
+        }
+        
+        ytd-video-primary-info-renderer {
+            padding: 0 i;
+            border: none;
+        }
+        
+        ytd-watch-metadata.ytd-watch-flexy {
+            margin-top: 24px;
+            margin-bottom: 0;
+        }
+        
+        .item.ytd-watch-metadata {
+            margin-top: 0;
+        }
+        
+        #title #super-title[hidden] {
+            display: block i;
+        }
+        
+        h1.ytd-watch-metadata {
+            font-family: "Roboto", sans-serif;
+            font-weight: 400;
+            font-size: 1.8rem;
+        }
+        
+/*         ytd-video-primary-info-renderer[has-date-text] #info-text.ytd-video-primary-info-renderer {
+            display: flex i;
+        }
+        
+        ytd-video-primary-info-renderer #container > :not(#info) {
+            display: none i;
+        } */
+        
         #comment-teaser.ytd-watch-metadata {
             display: none;
         }
