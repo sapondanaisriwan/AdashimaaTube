@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        2.2.4
+@version        2.2.5
 @license        MIT
 @preprocessor   stylus
 
@@ -1843,9 +1843,17 @@ Support me: https://ko-fi.com/sapondanaisriwan
             display: none;
         }
         
-        ytd-video-primary-info-renderer[flex-menu-enabled] #info.ytd-video-primary-info-renderer {
-            top: 38px;
+        ytd-video-primary-info-renderer {
             position: absolute;
+        }
+        
+        #info-contents {
+            bottom: 45px;
+            position: relative;
+        }
+        
+        #owner.ytd-watch-metadata {
+            min-width: unset;
         }
         
         ytd-video-primary-info-renderer {
