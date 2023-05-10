@@ -1,4 +1,11 @@
 ## Changelog
+ 
+### v2.2.6
+
+I forgot 🥹
+
+![gay scene](https://github.com/sapondanaisriwan/AdashimaaTube/assets/64634605/982acee6-652e-46e7-9e55-9bf3a00c79ac)
+
 
 ### v2.2.4 & v2.2.5
 
