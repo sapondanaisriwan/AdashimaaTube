@@ -12,7 +12,7 @@
 
 @var select customOldLayout            "⚒️ Old Layout" ["Enabled", "Disabled"]
 @var range borderRadius                "  ⚙️ Border Radius" [0, 0, 40, 1, 'px']
-@var range buttonRadius                "  ⚙️ Buttons Radius" [2, 2, 18, 1, 'px']
+@var range buttonRadius                "  ⚙️ Buttons Radius" [2, 0, 18, 1, 'px']
 @var range profileRadius               "  ⚙️ Profiles Radius" [50, 0, 50, 1, '%']
 @var checkbox oldWatchpage             "  📺 Old Watchpage" 1
 @var checkbox oldBackground            "  🖼️ Old Background" 1
