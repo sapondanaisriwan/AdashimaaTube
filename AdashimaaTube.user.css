@@ -1831,10 +1831,15 @@ Support me: https://ko-fi.com/sapondanaisriwan
             display: none;
         }
         
+        /* Hide license */
+        ytd-watch-metadata ytd-metadata-row-container-renderer {
+            display: none;
+        }
+        
         #owner.ytd-watch-metadata {
             visibility: hidden;
         }
-       
+        
         ytd-video-primary-info-renderer #container > :not(#info){
             display: none;
         }
