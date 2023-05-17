@@ -1,5 +1,13 @@
 ## Changelog
  
+### v2.2.7
+
+Since RYD doesn't care about us, the overlapping issue may still exist with this version. 
+- Fixed the old icons not working.
+- The hashtags above the title is now displayed.
+
+![image](https://github.com/sapondanaisriwan/AdashimaaTube/assets/64634605/3fa256d0-86ec-4d78-83d8-471358c1c6af)
+
 ### v2.2.6
 
 I forgot 🥹
