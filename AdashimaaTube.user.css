@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        2.2.7
+@version        2.2.8
 @license        MIT
 @preprocessor   stylus
 
@@ -2211,6 +2211,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
         #avatar-editor.ytd-c4-tabbed-header-renderer {
             --ytd-channel-avatar-editor-size: 80px;
         }
+        
+        ytd-guide-entry-renderer {
+            width: 100% i;
+        }
+        
     }
 
     if (customOldLayout=="Enabled") {
