@@ -1,5 +1,12 @@
 ## Changelog
  
+### v2.2.8
+
+I'm broke and my PayPal account has been banned, so I'm unable to accept donations. [@Raiva](https://github.com/Raiva48) (x3) is to be greatly thanked for allowing me to use her premium account.
+
+[Bug]
+- Minor fix for old icons.
+
 ### v2.2.7
 
 Since RYD doesn't care about us, the overlapping issue may still exist with this version. 
