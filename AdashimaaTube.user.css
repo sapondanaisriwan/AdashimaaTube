@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        2.2.8
+@version        2.2.9
 @license        MIT
 @preprocessor   stylus
 
@@ -1570,12 +1570,12 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
 
         /* Comments section */
-        #like-button yt-button-shape button[aria-pressed="true"] yt-icon {
+        #like-button yt-button-shape button[aria-pressed="true"] path {
             fill: var(--color1) i if (likeDislike=="Navy-Blue");
             fill: var(--like-lime) i if (likeDislike=="Classic");
         }
 
-        #dislike-button yt-button-shape button[aria-pressed="true"] yt-icon {
+        #dislike-button yt-button-shape button[aria-pressed="true"] path {
             fill: var(--color1) i if (likeDislike=="Navy-Blue");
             fill: var(--dislike-red) i if (likeDislike=="Classic");
         }
@@ -3069,6 +3069,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
             /* Liked */
             ytd-comment-action-buttons-renderer [d="M3,11h3v10H3V11z M18.77,11h-4.23l1.52-4.94C16.38,5.03,15.54,4,14.38,4c-0.58,0-1.14,0.24-1.52,0.65L7,11v10h10.43 c1.06,0,1.98-0.67,2.19-1.61l1.34-6C21.23,12.15,20.18,11,18.77,11z"] {
                 d: path("M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z");
+            }
+            
+            ytd-comment-replies-renderer path[d='M18.4 14.6 12 8.3l-6.4 6.3.8.8L12 9.7l5.6 5.7z'],
+            ytd-comment-replies-renderer path[d='m18 9.28-6.35 6.35-6.37-6.35.72-.71 5.64 5.65 5.65-5.65z'] {
+                color: inherit !important;
             }
         }
 
