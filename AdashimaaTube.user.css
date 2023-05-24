@@ -2688,7 +2688,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             unicode-range: U+0076, U+0069, U+0064, U+0065, U+006F, U+0073, U+006E, U+0067;
         }
 
-        ytd-thumbnail-overlay-bottom-panel-renderer {
+        #thumbnail:not([href*="start_radio"]) ytd-thumbnail-overlay-bottom-panel-renderer {
             width: 40%;
             height: 100%;
             left: unset i;
