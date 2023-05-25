@@ -2333,6 +2333,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             border-radius: profileRadius;
         }
 
+        #home-page-skeleton .rich-thumbnail,
         /* Search box */
         ytd-multi-page-menu-renderer,
         ytd-playlist-panel-renderer[modern-panels]:not([within-miniplayer]) #container.ytd-playlist-panel-renderer,
