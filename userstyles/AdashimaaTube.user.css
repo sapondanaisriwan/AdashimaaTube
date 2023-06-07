@@ -1897,6 +1897,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
             z-index: 1;
         }
         
+        #top-row.ytd-watch-metadata {
+            border-bottom: 1px solid var(--yt-spec-10-percent-layer);
+            padding-bottom: 10px;
+        }
+        
 /*         ytd-video-primary-info-renderer[has-date-text] #info-text.ytd-video-primary-info-renderer {
             display: flex i;
         }
