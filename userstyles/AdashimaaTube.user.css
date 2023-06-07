@@ -10,6 +10,7 @@
 @license        MIT
 @preprocessor   stylus
 
+@var range shortsPerRow                "⚙️ Shorts Per Rows (Beta)" [12, 1, 12, 1]
 @var checkbox playlistOverlay          "🥶 Old Playlist Overlay (Beta)" 1
 @var select customOldLayout            "⚒️ Old Layout" ["Enabled", "Disabled"]
 @var range borderRadius                "  ⚙️ Border Radius" [0, 0, 40, 1, 'px']
@@ -200,6 +201,19 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
     }
 
+    ytd-rich-shelf-renderer {
+        --ytd-rich-grid-slim-items-per-row: shortsPerRow;
+    }
+
+    #contents.ytd-rich-shelf-renderer {
+        ytd-rich-item-renderer[is-slim-media] {
+            display: none i;
+        }
+        ytd-rich-item-renderer[is-slim-media]:nth-child(-n + {shortsPerRow}) {
+            display: block i;
+        }
+    }
+    
     /* ------ Beta ------ */
     if (videoList) {
         /* 
