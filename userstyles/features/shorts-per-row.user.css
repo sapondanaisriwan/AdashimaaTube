@@ -1,0 +1,28 @@
+/* ==UserStyle==
+@name           Shorts Per Rows
+@author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan)
+@description    If you want to submit a bug or request a feature please report via github issue. Since I receive so many emails, I can't reply to them all.
+@namespace      https://userstyles.world/user/sapondanaisriwan
+@homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
+@supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
+@version        1.0.0
+@license        MIT
+@preprocessor   stylus
+@var range shortsPerRow                 "⚙️ Shorts Per Rows" [1, 1, 12, 1]
+==/UserStyle== */
+@-moz-document domain("youtube.com") {
+  i=!important;
+
+  ytd-rich-shelf-renderer {
+      --ytd-rich-grid-slim-items-per-row: shortsPerRow;
+  }
+
+  #contents.ytd-rich-shelf-renderer {
+      ytd-rich-item-renderer[is-slim-media] {
+          display: none i;
+      }
+      ytd-rich-item-renderer[is-slim-media]:nth-child(-n + {shortsPerRow}) {
+          display: block i;
+      }
+  }
+}
