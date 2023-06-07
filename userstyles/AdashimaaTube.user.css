@@ -6,10 +6,9 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        2.2.9
+@version        2.3.0
 @license        MIT
 @preprocessor   stylus
-
 
 @var checkbox playlistOverlay          "🥶 Old Playlist Overlay (Beta)" 1
 @var select customOldLayout            "⚒️ Old Layout" ["Enabled", "Disabled"]
