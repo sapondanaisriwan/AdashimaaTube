@@ -1379,8 +1379,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
             #items > ytd-reel-item-renderer,
             #related > ytd-watch-next-secondary-results-renderer > #items > ytd-compact-video-renderer,
             #items > ytd-grid-video-renderer,
-            #contents > ytd-grid-video-renderer {
-                &:has(#dismissible > ytd-thumbnail > a#thumbnail[href^="/shorts/"]) {
+            #contents > ytd-rich-item-renderer {
+                &:has(a[href^="/shorts/"]) {
                     display: none;
                 }
             }
