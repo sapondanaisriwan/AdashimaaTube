@@ -1,5 +1,22 @@
 ## Changelog
  
+### v2.3.0
+Happy Birth Day To Me 🎂💖
+
+[Feature]
+- Add option for customizing the shorts per row (I'm hoping I'm the first who done this feature 😂).
+- Add "Old playlist overlay" option [#110][110].
+
+[Bug]
+- Fix hide shorts doesn't work on subscription page [#116][116].
+- Fix thin line under toolbar [#113][113].
+
+![image](https://github.com/sapondanaisriwan/sapondanaisriwan/assets/64634605/5b9908da-c87a-4fb3-a433-cd6be6528d1e)
+
+[110]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/110
+[113]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/113
+[116]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/116
+
 ### v2.2.8
 
 I'm broke and my PayPal account has been banned, so I'm unable to accept donations. [@Raiva](https://github.com/Raiva48) (x3) is to be greatly thanked for allowing me to use her premium account.
