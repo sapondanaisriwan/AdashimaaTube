@@ -1402,6 +1402,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 }
             }
 
+            /* FireFox users  */
+            #contents > ytd-rich-item-renderer:has(a[href^="/shorts/"]) {
+                display: none i;
+            }
+
             ytd-watch-flexy #contents.ytd-item-section-renderer > ytd-reel-shelf-renderer.ytd-item-section-renderer {
                 display: none;
             }
