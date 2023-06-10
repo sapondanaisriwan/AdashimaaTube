@@ -1421,7 +1421,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
 
             #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer,
-            ytd-mini-guide-entry-renderer[guide-refresh] a.ytd-mini-guide-entry-renderer {
+            ytd-mini-guide-entry-renderer a.ytd-mini-guide-entry-renderer{
                 &[title="Shorts"] {
                     display: none;
                 }
