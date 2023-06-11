@@ -6,11 +6,11 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        2.3.0
+@version        2.3.1
 @license        MIT
 @preprocessor   stylus
 
-@var range shortsPerRow                "🥶 Shorts Per Rows (Beta)" [12, 1, 12, 1]
+@var range shortsPerRow                "🥶 Shorts Per Row (Beta)" [12, 1, 12, 1]
 @var checkbox playlistOverlay          "🥶 Old Playlist Overlay (Beta)" 1
 @var select customOldLayout            "⚒️ Old Layout" ["Enabled", "Disabled"]
 @var range borderRadius                "  ⚙️ Border Radius" [0, 0, 40, 1, 'px']
