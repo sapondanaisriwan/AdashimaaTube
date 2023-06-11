@@ -6,11 +6,11 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        2.3.0
+@version        2.3.1
 @license        MIT
 @preprocessor   stylus
 
-@var range shortsPerRow                "🥶 Shorts Per Rows (Beta)" [12, 1, 12, 1]
+@var range shortsPerRow                "🥶 Shorts Per Row (Beta)" [12, 1, 12, 1]
 @var checkbox playlistOverlay          "🥶 Old Playlist Overlay (Beta)" 1
 @var select customOldLayout            "⚒️ Old Layout" ["Enabled", "Disabled"]
 @var range borderRadius                "  ⚙️ Border Radius" [0, 0, 40, 1, 'px']
@@ -23,7 +23,7 @@
 @var checkbox oldSearchBox             "  🔎 Old Search box" 0
 
 @var select customMoreVideos           "⚒️ Video Appearance" ["Enabled", "Disabled"]
-@var range videoPerRow                 "  ⚙️ Videos Per Rows" [5, 1, 15, 1]
+@var range videoPerRow                 "  ⚙️ Videos Per Rows" [6, 1, 15, 1]
 @var checkbox hideProfile              "  🫣 Hide Channel Profile" 1
 
 @var select channelPage                "  📺 Channel Page" ["Enabled", "Disabled"]
@@ -36,6 +36,7 @@
 @var select subPage                    "  🔔 Subscriptions Page" ["Enabled", "Disabled"]
 @var checkbox channelGrid              "    ↳ Channel Grid" 1
 @var checkbox subPageLayoutFix         "    ↳ Layout Fix" 1
+@var checkbox subPageNoWidthLimit      "    ↳ No Width Limit" 0
 @var select homePage                   "  🏠 Home Page" ["Enabled", "Disabled"]
 @var checkbox homePageLayoutFix        "    ↳ Layout Fix" 1
 @var select hashtagPage                "  🔖 Hashtag Page" ["Enabled", "Disabled"]
@@ -140,6 +141,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
         margin-bottom: 40px;
     }
 
+    noWidthLimit() {
+        width: calc(100% - 2 * 1vw) i;
+        max-width: calc(var(--video-per-row) * (var(--ytd-rich-grid-item-max-width) + var(--ytd-rich-grid-item-margin))) i;
+    }
+    
     fixYoutubeLayout() {
         ytd-rich-grid-row,
         ytd-rich-grid-row #contents {
@@ -277,8 +283,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 }
 
                 #contents.ytd-rich-grid-renderer {
-                    width: calc(100% - 2 * 1vw);
-                    max-width: calc(var(--ytd-rich-grid-items-per-row) * (var(--ytd-rich-grid-item-max-width) + var(--ytd-rich-grid-item-margin)));
+                    noWidthLimit();
                 }
             }
             
@@ -404,30 +409,41 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 }
             }
             
+            /* https://stylus-lang.com/docs/interpolation.html#selector-interpolation */
+            sideNavbar = "ytd-two-column-browse-results-renderer.grid.grid-disabled";
+            openSideNavbar = "[mini-guide-visible] " + sideNavbar;
+            closedSideNavbar = ":not([mini-guide-visible]) " + sideNavbar;
+            
             [page-subtype="subscriptions"] {
-                &[mini-guide-visible] ytd-two-column-browse-results-renderer.grid.grid-disabled {
+                &{openSideNavbar} {
                     max-width: var(--ytd-grid-max-width);
                 }
                 @media screen and (max-width: 1170px) { // width <= 1170px
-                    &[mini-guide-visible] ytd-two-column-browse-results-renderer.grid.grid-disabled {
+                    &{openSideNavbar} {
                         width: var(--ytd-grid-4-columns-width);
                     }
                 }
                 @media screen and (min-width: 1171px) { // width >= 1171px
-                    &[mini-guide-visible] ytd-two-column-browse-results-renderer.grid.grid-disabled,
-                    &:not([mini-guide-visible]) ytd-two-column-browse-results-renderer.grid.grid-disabled {
+                    &{openSideNavbar},
+                    &{closedSideNavbar} {
                         width: var(--ytd-grid-5-columns-width);
                     }
                 }
                 @media screen and (min-width: 1440px) { // width >= 1440px
-                    &[mini-guide-visible] ytd-two-column-browse-results-renderer.grid.grid-disabled {
+                    &{openSideNavbar} {
                         width: var(--ytd-grid-6-columns-width);
                     }
                 }
                 @media screen and (min-width: 1553px) { // width >= 1553px
-                    &:not([mini-guide-visible]) ytd-two-column-browse-results-renderer.grid.grid-disabled {
+                    &{closedSideNavbar} {
                         width: var(--ytd-grid-6-columns-width);
                     }
+                }
+            }
+
+            if (subPageNoWidthLimit) {
+                [page-subtype="subscriptions"] {sideNavbar} {
+                    noWidthLimit();
                 }
             }
             
@@ -950,8 +966,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     --ytd-rich-grid-items-per-row: var(--video-per-row) i;
                     #contents.ytd-rich-grid-renderer {
                         fixYoutubeLayout();
-                        width: calc(100% - 2 * 1vw);
-                        max-width: calc(var(--ytd-rich-grid-items-per-row) * (var(--ytd-rich-grid-item-max-width) + var(--ytd-rich-grid-item-margin)));
+                        noWidthLimit();
                     }
                 }
                 ytd-feed-filter-chip-bar-renderer,
