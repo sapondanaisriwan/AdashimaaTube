@@ -29,14 +29,17 @@
 @var select channelPage                "  📺 Channel Page" ["Enabled", "Disabled"]
 @var checkbox sortByOldest             "    ↳ Sort By Oldest" 0
 @var checkbox channelSearchResults     "    ↳ Search Result Grid " 1
+
 @var select searchPage                 "  🔎 Search Page" ["Disabled", "Enabled", "Auto"]
 @var checkbox channelGrouping          "    ↳ Channel Grouping" 0
 @var checkbox hideChannel              "    ↳ Hide Channel" 0
 @var checkbox hideRightSidebar         "    ↳ Hide Right Sidebar" 0
+@var checkbox searchPageNoLimitWidth   "    ↳ No Limit Width" 0
+
 @var select subPage                    "  🔔 Subscriptions Page" ["Enabled", "Disabled"]
 @var checkbox channelGrid              "    ↳ Channel Grid" 1
 @var checkbox subPageLayoutFix         "    ↳ Layout Fix" 1
-@var checkbox subPageNoWidthLimit      "    ↳ No Width Limit" 0
+@var checkbox subPageNoWidthLimit      "    ↳ No Limit Width" 0
 @var select homePage                   "  🏠 Home Page" ["Enabled", "Disabled"]
 @var checkbox homePageLayoutFix        "    ↳ Layout Fix" 1
 @var select hashtagPage                "  🔖 Hashtag Page" ["Enabled", "Disabled"]
@@ -141,7 +144,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         margin-bottom: 40px;
     }
 
-    noWidthLimit() {
+    noLimitWidth() {
         width: calc(100% - 2 * 1vw) i;
         max-width: calc(var(--video-per-row) * (var(--ytd-rich-grid-item-max-width) + var(--ytd-rich-grid-item-margin))) i;
     }
@@ -283,7 +286,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 }
 
                 #contents.ytd-rich-grid-renderer {
-                    noWidthLimit();
+                    noLimitWidth();
                 }
             }
             
@@ -443,7 +446,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
             if (subPageNoWidthLimit) {
                 [page-subtype="subscriptions"] {sideNavbar} {
-                    noWidthLimit();
+                    noLimitWidth();
                 }
             }
             
@@ -568,6 +571,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     display: none;
                 }
 
+                ytd-two-column-search-results-renderer.ytd-search,
+                #primary.ytd-two-column-search-results-renderer {
+                    max-width: 100% if searchPageNoLimitWidth;
+                }
+                
                 \ytd-channel-renderer {
                     order: -1 if channelGrouping;
                     display: none if hideChannel;
@@ -797,7 +805,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     align-items: center;
                     justify-content: center;
                 }
-
+            
                 ytd-video-renderer[use-search-ui] .text-wrapper.ytd-video-renderer {
                     max-width: unset;
                     width: 100%;
@@ -966,7 +974,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     --ytd-rich-grid-items-per-row: var(--video-per-row) i;
                     #contents.ytd-rich-grid-renderer {
                         fixYoutubeLayout();
-                        noWidthLimit();
+                        noLimitWidth();
                     }
                 }
                 ytd-feed-filter-chip-bar-renderer,
@@ -987,7 +995,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     fixYoutubeLayout();
                 }
             }
-
+            
             /* 🔃 Sort by Oldest (Beta) */
             if (sortByOldest) {
                 [page-subtype="channels"] #contents.ytd-rich-grid-renderer {
