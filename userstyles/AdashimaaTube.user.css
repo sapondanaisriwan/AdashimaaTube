@@ -29,6 +29,7 @@
 @var select channelPage                "  📺 Channel Page" ["Enabled", "Disabled"]
 @var checkbox sortByOldest             "    ↳ Sort By Oldest" 0
 @var checkbox channelSearchResults     "    ↳ Search Result Grid " 1
+@var checkbox channelNoLimitWidth   "    ↳ No Limit Width" 0
 
 @var select searchPage                 "  🔎 Search Page" ["Disabled", "Enabled", "Auto"]
 @var checkbox channelGrouping          "    ↳ Channel Grouping" 0
@@ -988,11 +989,21 @@ Support me: https://ko-fi.com/sapondanaisriwan
         /* ⚒️ Custom Channel Page */
         if (channelPage=="Enabled") {
             /* 🏠 Number Of Videos Per Row */
-            [page-subtype="channels"] ytd-rich-grid-renderer {
-                --ytd-rich-grid-items-per-row: var(--video-per-row) i;
-                /* Set to be treated as if they were the children of their parent element */
-                #contents {
-                    fixYoutubeLayout();
+            [page-subtype="channels"] {
+                
+                ytd-rich-grid-renderer {
+                    --ytd-rich-grid-items-per-row: var(--video-per-row) i;
+                    /* Set to be treated as if they were the children of their parent element */
+                    #contents {
+                        fixYoutubeLayout();
+                    }   
+                }
+
+                if (channelNoLimitWidth) {
+                    ytd-two-column-browse-results-renderer.grid:not(.grid-disabled):has(ytd-rich-grid-renderer:not([is-shorts-grid])) {
+                        max-width: 100% i;
+                        width: 100% i;
+                    }   
                 }
             }
             
