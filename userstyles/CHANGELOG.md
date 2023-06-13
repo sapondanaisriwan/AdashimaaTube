@@ -1,5 +1,17 @@
 ## Changelog
 
+
+### v2.3.2
+
+[Feature]
+- Remove necessary thing under description [#126][126].
+- Add the option "No limit width" for channel page and search page.
+- Add auto calculating video per row for channel page and search page.
+
+![](https://i.imgur.com/uKYggIO.jpeg)
+
+[126]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/126
+
 ### v2.3.1
 
 [Feature]
