@@ -1966,6 +1966,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
             font-size: 1.8rem;
         }
 
+        /* Remove unnecessary description */
+        ytd-video-description-infocards-section-renderer {
+            display: none;
+        }
+        
         /* ----- Reverts Videos title (New UI) ----- */
         #video-title.ytd-rich-grid-slim-media,
         #video-title.ytd-rich-grid-media {
