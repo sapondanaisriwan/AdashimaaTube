@@ -1019,12 +1019,13 @@ Support me: https://ko-fi.com/sapondanaisriwan
                         /* I'm not good at css please let me know if you have a better way */
                         #contents.ytd-rich-grid-renderer {
                             display: grid;
-                            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                            grid-template-columns: repeat(auto-fit, minmax(246px, 1fr));
                             gap: 40px 16px;
                         }
+                        
                         ytd-rich-item-renderer {
                             width: 100% i;
-                            margin: 0;
+                            margin: 0 i;
                         }
                     }
                 }
