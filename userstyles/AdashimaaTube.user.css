@@ -26,10 +26,10 @@
 @var range videoPerRow                 "  ⚙️ Videos Per Rows" [6, 1, 15, 1]
 @var checkbox hideProfile              "  🫣 Hide Channel Profile" 1
 
-@var select channelPage                "  📺 Channel Page" ["Enabled", "Disabled"]
+@var select channelPage                "  📺 Channel Page" ["Enabled", "Auto","Disabled"]
 @var checkbox sortByOldest             "    ↳ Sort By Oldest" 0
 @var checkbox channelSearchResults     "    ↳ Search Result Grid " 1
-@var checkbox channelNoLimitWidth   "    ↳ No Limit Width" 0
+@var checkbox channelNoLimitWidth      "    ↳ No Limit Width" 0
 
 @var select searchPage                 "  🔎 Search Page" ["Disabled", "Enabled", "Auto"]
 @var checkbox channelGrouping          "    ↳ Channel Grouping" 0
@@ -986,13 +986,16 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
         }
         
+        gridContainer = "ytd-two-column-browse-results-renderer.grid:not(.grid-disabled):has(ytd-rich-grid-renderer:not([is-shorts-grid]))"
+        
         /* ⚒️ Custom Channel Page */
-        if (channelPage=="Enabled") {
+        if (channelPage=="Enabled" || channelPage=="Auto") {
+            
             /* 🏠 Number Of Videos Per Row */
             [page-subtype="channels"] {
                 
                 ytd-rich-grid-renderer {
-                    --ytd-rich-grid-items-per-row: var(--video-per-row) i;
+                    --ytd-rich-grid-items-per-row: var(--video-per-row) i if channelPage=="Enabled";
                     /* Set to be treated as if they were the children of their parent element */
                     #contents {
                         fixYoutubeLayout();
@@ -1000,10 +1003,30 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 }
 
                 if (channelNoLimitWidth) {
-                    ytd-two-column-browse-results-renderer.grid:not(.grid-disabled):has(ytd-rich-grid-renderer:not([is-shorts-grid])) {
+                    {gridContainer} {
                         max-width: 100% i;
                         width: 100% i;
-                    }   
+                        #primary.ytd-two-column-browse-results-renderer {
+                            padding-inline: 20px;
+                        }
+                    }
+                }
+                
+                /* Dynamic Video Per Rows */
+                if (channelPage=="Auto") {
+                    {gridContainer} {
+                        
+                        /* I'm not good at css please let me know if you have a better way */
+                        #contents.ytd-rich-grid-renderer {
+                            display: grid;
+                            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                            gap: 40px 16px;
+                        }
+                        ytd-rich-item-renderer {
+                            width: 100% i;
+                            margin: 0;
+                        }
+                    }
                 }
             }
             
