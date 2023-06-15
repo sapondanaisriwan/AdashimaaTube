@@ -1,5 +1,11 @@
 ## Changelog
 
+### v2.3.3
+
+[Bug]
+- Fix the description has 2 "Subscribed" buttons [#132][132].
+
+[132]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/126
 
 ### v2.3.2
 
