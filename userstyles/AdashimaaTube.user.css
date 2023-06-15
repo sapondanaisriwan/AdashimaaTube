@@ -2104,10 +2104,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 padding-right: 4px;
             }
 
-            /* Removes down arrow and "Subscribed"*/
+            /* Removes down arrow and "Subscribed" */
             > div {
                 &.cbox.yt-spec-button-shape-next--button-text-content,
-                &.yt-spec-button-shape-next__secondary-icon {
+                &.yt-spec-button-shape-next__secondary-icon,
+                &.yt-spec-button-shape-next__button-text-content {
                     display: none;
                 }
             }
