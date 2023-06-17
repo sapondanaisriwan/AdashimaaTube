@@ -3259,11 +3259,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
             filter: invert(0);
         }
 
-        #menu-container ytd-button-renderer yt-button-shape button span,
-        #flexible-item-buttons yt-button-shape button span,
-        #top-level-buttons-computed > ytd-button-renderer > yt-button-shape > button > div.cbox.yt-spec-button-shape-next--button-text-content > span,
-        .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-end span,
-        #segmented-like-button > ytd-toggle-button-renderer > yt-button-shape > button > div.cbox.yt-spec-button-shape-next--button-text-content > span {
+        #flexible-item-buttons span,
+        #top-level-buttons-computed span {
             color: #909090;
         }
     }
