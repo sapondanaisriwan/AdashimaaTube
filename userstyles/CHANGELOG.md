@@ -1,5 +1,13 @@
 ## Changelog
 
+### v2.3.4
+
+- Revert filter bar on the search page [#108][108].
+- Removed the "Sort by oldest" option.
+- Fixed the tab bar's incorrect background on the channel page.
+
+[108]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/108
+
 ### v2.3.3
 
 [Bug]
