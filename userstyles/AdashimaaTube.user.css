@@ -1271,12 +1271,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 background: linear-gradient(to left, var(--ytd-chip-cloud-background, var(--yt-spec-general-background-a)) 10%, rgba(249, 249, 249, 0) 90%) i;
             }
 
-            /* light theme tap on the channel page*/
-            ytd-feed-filter-chip-bar-renderer[darker-dark-theme][component-style="FEED_FILTER_CHIP_BAR_STYLE_TYPE_HASHTAG_LANDING_PAGE"] #chips-wrapper.ytd-feed-filter-chip-bar-renderer,
-            ytd-feed-filter-chip-bar-renderer[darker-dark-theme][component-style="FEED_FILTER_CHIP_BAR_STYLE_TYPE_CHANNEL_PAGE_GRID"] #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
+            /* light theme tap on the channel page */
+            ytd-feed-filter-chip-bar-renderer[component-style="FEED_FILTER_CHIP_BAR_STYLE_TYPE_HASHTAG_LANDING_PAGE"] #chips-wrapper.ytd-feed-filter-chip-bar-renderer,
+            ytd-feed-filter-chip-bar-renderer[component-style="FEED_FILTER_CHIP_BAR_STYLE_TYPE_CHANNEL_PAGE_GRID"] #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
                 background-color: var(--yt-spec-general-background-b) i;
             }
-
             yt-chip-cloud-chip-renderer[chip-style="STYLE_DEFAULT"],
             yt-chip-cloud-chip-renderer[chip-style="STYLE_HOME_FILTER"],
             yt-chip-cloud-chip-renderer[chip-style="STYLE_REFRESH_TO_NOVEL_CHIP"] {
@@ -2816,10 +2815,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
     ytd-search {
         padding: 16px 24px i;
         
-        ytd-channel-renderer {
-            margin-top: 16px i;
-        }
-        
         #filter-button {
             button {
                 flex-direction: row-reverse;
@@ -2838,7 +2833,30 @@ Support me: https://ko-fi.com/sapondanaisriwan
         
         #chip-bar.ytd-search-header-renderer {
             display: none;
-        }   
+        }
+        
+        ytd-button-renderer.ytd-item-section-renderer,
+        ytd-compact-radio-renderer.ytd-item-section-renderer,
+        ytd-compact-video-renderer.ytd-item-section-renderer,
+        ytd-compact-movie-renderer.ytd-item-section-renderer,
+        ytd-compact-playlist-renderer.ytd-item-section-renderer,
+        ytd-emergency-onebox-renderer.ytd-item-section-renderer,
+        ytd-feed-nudge-renderer.ytd-item-section-renderer,
+        ytd-movie-renderer.ytd-item-section-renderer,
+        ytd-playlist-renderer.ytd-item-section-renderer,
+        ytd-show-renderer.ytd-item-section-renderer,
+        ytd-radio-renderer.ytd-item-section-renderer,
+        yt-search-no-results-renderer.ytd-item-section-renderer,
+        ytd-video-renderer.ytd-item-section-renderer,
+        ytd-channel-renderer.ytd-item-section-renderer,
+        ytd-promoted-sparkles-text-search-renderer.ytd-item-section-renderer,
+        ytd-web-answer-renderer.ytd-item-section-renderer,
+        ytd-clarification-renderer.ytd-item-section-renderer,
+        ytd-info-panel-container-renderer.ytd-item-section-renderer,
+        ytd-continuation-item-renderer.ytd-item-section-renderer,
+        ytd-compact-promoted-item-renderer.ytd-item-section-renderer {
+            margin-top: 16px i;
+        }
     }
 
     if (customOldLayout=="Enabled" && oldIcons) {
