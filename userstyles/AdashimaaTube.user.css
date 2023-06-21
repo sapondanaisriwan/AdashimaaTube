@@ -27,7 +27,6 @@
 @var checkbox hideProfile              "  🫣 Hide Channel Profile" 1
 
 @var select channelPage                "  📺 Channel Page" ["Enabled", "Auto","Disabled"]
-@var checkbox sortByOldest             "    ↳ Sort By Oldest" 0
 @var checkbox channelSearchResults     "    ↳ Search Result Grid " 1
 @var checkbox channelNoLimitWidth      "    ↳ No Limit Width" 0
 
@@ -212,18 +211,21 @@ Support me: https://ko-fi.com/sapondanaisriwan
     }
 
 
+    isShortsSlim = "ytd-rich-item-renderer[is-slim-media]"
+    
     ytd-rich-shelf-renderer[is-shorts] {
         --ytd-rich-grid-slim-items-per-row: shortsPerRow;
         &[is-show-more-hidden] {
-            ytd-rich-item-renderer[is-slim-media] {
+            {isShortsSlim} {
                 display: block i;
             }
         }
+
         #contents.ytd-rich-shelf-renderer {
-            ytd-rich-item-renderer[is-slim-media] {
+            {isShortsSlim} {
                 display: none;
             }
-            ytd-rich-item-renderer[is-slim-media]:nth-child(-n + {shortsPerRow}) {
+            {isShortsSlim}:nth-child(-n + {shortsPerRow}) {
                 display: block i;
             }
         }
@@ -1028,17 +1030,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
                             margin: 0 i;
                         }
                     }
-                }
-            }
-            
-            /* 🔃 Sort by Oldest (Beta) */
-            if (sortByOldest) {
-                [page-subtype="channels"] #contents.ytd-rich-grid-renderer {
-                    /* 
-                        I know it's funny but you will learn something new with this project :)
-                    */
-                    flex-flow: row-reverse wrap-reverse;
-                    justify-content: flex-end;
                 }
             }
         }
