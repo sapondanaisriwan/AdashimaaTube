@@ -574,6 +574,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     display: none;
                 }
 
+                #header.ytd-search,
                 ytd-two-column-search-results-renderer.ytd-search,
                 #primary.ytd-two-column-search-results-renderer {
                     max-width: 100% if searchPageNoLimitWidth;
@@ -2810,10 +2811,36 @@ Support me: https://ko-fi.com/sapondanaisriwan
         display: none;
     }
     
-    /* Remove parentheses Credit to decembre, Pabli */
-    /*     span.ytp-menu-label-secondary {
-        clip-path: inset(-3px 4px 0px 4px);
-    } */
+    /* CSS for new layout for search page */
+
+    ytd-search {
+        padding: 16px 24px i;
+        
+        ytd-channel-renderer {
+            margin-top: 16px i;
+        }
+        
+        #filter-button {
+            button {
+                flex-direction: row-reverse;
+                padding: 0;
+            }
+            .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-trailing .yt-spec-button-shape-next__icon {
+                margin-right: 6px;
+                margin-left: 0;
+            }
+        }
+
+        ytd-search-header-renderer {
+            height: 36px i;
+            border-bottom: 1px solid var(--yt-spec-10-percent-layer);
+        }
+        
+        #chip-bar.ytd-search-header-renderer {
+            display: none;
+        }   
+    }
+
     if (customOldLayout=="Enabled" && oldIcons) {
         
         svg:not(:root) {
