@@ -63,7 +63,6 @@ This is why you should consider using AdashimaaTube! 🥶
 - Options to hide the buttons for Share, Download, Clip, Thanks, Save, Comments, End cards, Game Section and Music Section.
 - Red subscribe button.
 - Restore to the old video container and the old icons.
-- Sort by oldest.
 - Subscriptions/Search results in a grid layout.
 - Watched Overlay.
 
@@ -100,12 +99,10 @@ This is why you should consider using AdashimaaTube! 🥶
 | **Anti-Shorts**  | **Display full title for videos** |
 |     :---:      |     :---:      |
 | ![](https://i.imgur.com/eDLCDxX.png)  | ![](https://i.imgur.com/7bzDqov.png) |
-| **Sort by oldest**  | **Watched overlay** |
-| ![](https://i.imgur.com/pTSgSL5.png))  | ![](https://i.imgur.com/rVZ5JVL.png) |
+| **Restore Old Icons**  | **Watched overlay** |
+| ![](https://i.imgur.com/Tt20AIK.png)  | ![](https://i.imgur.com/rVZ5JVL.png) |
 | **Clean Video Container**  | **More Animations** |
 | ![](https://i.imgur.com/m2iiTls.png)  | ![](https://user-images.githubusercontent.com/64634605/204840268-319b8ab0-0cce-4012-b91a-61925f7c0357.gif) |
-| **Restore Old Icons** |
-| ![](https://i.imgur.com/Tt20AIK.png) |
 
 ## 📂 Installation
 You have to install [Stylus](https://add0n.com/stylus.html) and then click on the install AdashimaaTube below. If still no any changes install [Stylus-Beta](https://chrome.google.com/webstore/detail/stylus-beta/apmmpaebfobifelkijhaljbmpcgbjbdo) instead.
@@ -147,7 +144,7 @@ AdashimaaTube-Legacy is suitable for legacy browser. You can install it from [he
 
 You need the most up-to-date version of your web browser. For the best experience, update your browser or switch to another one. If you still prefer to use an old browser, we also have [AdashimaaTube-Legacy][legacy] available.
 
-[legacy]: https://github.com/sapondanaisriwan/AdashimaaTube/raw/master/AdashimaaTube%20Legacy.user.css
+[legacy]: https://github.com/sapondanaisriwan/AdashimaaTube/raw/master/userstyles/AdashimaaTube%20Legacy.user.css
 
 For instructions on how to upgrade, visit your browser's help resources:
 - [Google Chrome](https://www.google.com/chrome/)
