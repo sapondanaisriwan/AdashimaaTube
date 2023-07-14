@@ -312,7 +312,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     #contents.ytd-rich-grid-renderer > ytd-rich-section-renderer {
                         
                         &:has(ytd-inline-survey-renderer.ytd-rich-section-renderer),
-                        &:has(ytd-brand-video-singleton-renderer) {
+                        &:has(ytd-brand-video-singleton-renderer),
+                        &:has(ytd-statement-banner-renderer) {
                             display: none;
                         }
                         
