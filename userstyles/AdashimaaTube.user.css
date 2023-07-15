@@ -2442,8 +2442,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
         ytd-macro-markers-list-item-renderer[rounded] #thumbnail.ytd-macro-markers-list-item-renderer,
         ytd-thumbnail[size=large] a.ytd-thumbnail,
         ytd-thumbnail[size=large]:before,
-        ytd-expandable-metadata-renderer[round-container]:not([is-expanded]),
-        ytd-expandable-metadata-renderer[round-container]:not([is-expanded]) #header.ytd-expandable-metadata-renderer:hover,
+        ytd-expandable-metadata-renderer:not([is-expanded]),
+        ytd-expandable-metadata-renderer:not([is-expanded]) #header.ytd-expandable-metadata-renderer:hover,
         ytd-playlist-thumbnail[size=large] a.ytd-playlist-thumbnail,
         ytd-playlist-thumbnail[size=large]:before,
         .image-wrapper.ytd-hero-playlist-thumbnail-renderer,
@@ -2578,8 +2578,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
         tp-yt-paper-item.ytd-guide-entry-renderer {
             --paper-item-focused-before-border-radius: borderRadius i;
         }
-        
-        ytd-expandable-metadata-renderer[round-container]:not([is-expanded]) {
+
+        ytd-expandable-metadata-renderer:not([is-expanded]) {
             --yt-img-border-radius: borderRadius;
         }
 
