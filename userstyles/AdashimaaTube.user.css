@@ -1907,6 +1907,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
             display: none;
         }
         
+        #actions.ytd-watch-metadata {
+            min-width: unset;
+        }
+        
         /* Hide license */
         ytd-watch-metadata ytd-metadata-row-container-renderer {
             display: none;
