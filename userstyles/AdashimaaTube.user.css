@@ -307,9 +307,12 @@ Support me: https://ko-fi.com/sapondanaisriwan
                         margin-top: 0;
                     }
                     
-                    ytd-rich-section-renderer
-                    
                     #contents.ytd-rich-grid-renderer > ytd-rich-section-renderer {
+                        
+                        // hide show more btn
+                        ytd-rich-shelf-renderer:not([is-shorts], is-post) .button-container.ytd-rich-shelf-renderer {
+                            display: none;
+                        }
                         
                         &:has(ytd-inline-survey-renderer.ytd-rich-section-renderer),
                         &:has(ytd-brand-video-singleton-renderer),
