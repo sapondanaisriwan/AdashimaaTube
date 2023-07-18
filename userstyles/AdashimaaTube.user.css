@@ -6,12 +6,10 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        2.3.4
+@version        2.3.5
 @license        MIT
 @preprocessor   stylus
 
-@var range shortsPerRow                "🥶 Shorts Per Row (Beta)" [12, 1, 12, 1]
-@var checkbox playlistOverlay          "🥶 Old Playlist Overlay (Beta)" 1
 @var select customOldLayout            "⚒️ Old Layout" ["Enabled", "Disabled"]
 @var range borderRadius                "  ⚙️ Border Radius" [0, 0, 40, 1, 'px']
 @var range buttonRadius                "  ⚙️ Buttons Radius" [2, 0, 18, 1, 'px']
@@ -19,11 +17,13 @@
 @var checkbox oldWatchpage             "  📺 Old Watchpage" 1
 @var checkbox oldBackground            "  🖼️ Old Background" 1
 @var checkbox oldPlaylists             "  ▶️ Old Playlist" 1
+@var checkbox playlistOverlay          "  ▶️ Old Playlist Overlay" 1
 @var checkbox oldIcons                 "  🧓 Old Icons" 0
 @var checkbox oldSearchBox             "  🔎 Old Search box" 0
 
 @var select customMoreVideos           "⚒️ Video Appearance" ["Enabled", "Disabled"]
 @var range videoPerRow                 "  ⚙️ Videos Per Rows" [6, 1, 15, 1]
+@var range shortsPerRow                "  🩳 Shorts Per Row" [12, 1, 12, 1]
 @var checkbox hideProfile              "  🫣 Hide Channel Profile" 1
 
 @var select channelPage                "  📺 Channel Page" ["Enabled", "Auto","Disabled"]
@@ -46,9 +46,7 @@
 
 @var select customAppearance           "⚒️ Youtube Appearance" ["Enabled", "Disabled"]
 @var checkbox blueCheckMark            "  ✅ Blue Check Mark" 0
-@var checkbox searchBox                "  🌑 Dark Search Box" 0
 @var checkbox scroll_Bar               "  🌑 Dark Scroll Bar" 1
-@var checkbox displayVideoCount        "  📻 Display Videos Count" 0
 
 @var checkbox displayFullTitle         "  🎦 Full Title For Videos" 0
 @var select likeDislike                "  🎨 Like/Dislike colors" ['None', 'Navy-Blue', 'Classic']
@@ -68,13 +66,10 @@
     "Français": "French"
 }
 @var checkbox descriptionExpanded      "  📭 Description Expanded" 0
-@var checkbox videoList                "  📜 Right Side Scrollbar" 0
 
-@var checkbox fullVideoPlayer          "  🎦 Full Video Player" 0
 @var checkbox hideTaps                 "  ❌ Hide Taps" 0
-@var checkbox antiShorts               "  ❌ Hide-Shorts" 0
+@var checkbox antiShorts               "  ❌ Hide Shorts" 0
 @var checkbox hideAnnotation           "  ❌ Hide Annotations" 0
-@var checkbox channelHandle            "  ❌ Hide Channel Handles" 0
 @var checkbox hideRecommendPL          "  ❌ Hide Recommended" 0
 @var checkbox hideDonation             "  💵 Hide Donation Shelf" 0
 @var checkbox hideRightSideVideos      "  🎦 Hide Right Side Videos" 0
@@ -84,6 +79,7 @@
 @var checkbox downloadBtn              "  ⬇️ Hide Download Button" 0
 @var checkbox clipBtn                  "  ✂️ Hide Clip Button" 0
 @var checkbox thanksBtn                "  🙏 Hide Thanks Button" 0
+@var checkbox tranScriptBtn            "  📜 Hide Transcript Button" 0
 @var checkbox saveBtn                  "  💾 Hide Save Button" 0
 @var checkbox textBtn                  "  💬 Hide Text Buttons" 0
 @var checkbox endCards                 "  💳 Hide End Screen" 0
@@ -210,56 +206,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
     }
 
-
-    isShortsSlim = "ytd-rich-item-renderer[is-slim-media]"
-    
-    ytd-rich-shelf-renderer[is-shorts] {
-        --ytd-rich-grid-slim-items-per-row: shortsPerRow;
-        &[is-show-more-hidden] {
-            {isShortsSlim} {
-                display: block i;
-            }
-        }
-
-        #contents.ytd-rich-shelf-renderer {
-            {isShortsSlim} {
-                display: none;
-            }
-            {isShortsSlim}:nth-child(-n + {shortsPerRow}) {
-                display: block i;
-            }
-        }
-    }
-    
-    /* ------ Beta ------ */
-    if (videoList) {
-        /* 
-            When an element with a position: sticky style is wrapped, which was defined position: sticky will not stick????.
-        */
-        ytd-watch-flexy[cinematics-enabled] #secondary.ytd-watch-flexy #secondary-inner.ytd-watch-flexy {
-            overflow-y: auto;
-            overflow-x: hidden;
-
-            top: 0;
-            position: sticky;
-
-            height: 100vh;
-            width: var(--ytd-watch-flexy-sidebar-width);
-            &::-webkit-scrollbar {
-                width: 16px;
-            }
-
-            &::-webkit-scrollbar-thumb {
-                height: 56px;
-                border-radius: 8px;
-                border: 4px solid transparent;
-                background-clip: content-box;
-                background-color: var(--yt-spec-text-secondary);
-            }
-        }
-    }
-
-    /* ------ End ------ */
     /* Fixed when zoom out and a blank box caused by Adblock */
     if (customMoreVideos=="Disabled") || (homePage=="Disabled") {
         [page-subtype="home"] {
@@ -277,6 +223,26 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     if (customMoreVideos=="Enabled") {
 
+        isShortsSlim = "ytd-rich-item-renderer[is-slim-media]"
+
+        ytd-rich-shelf-renderer[is-shorts] {
+            --ytd-rich-grid-slim-items-per-row: shortsPerRow;
+            &[is-show-more-hidden] {
+                {isShortsSlim} {
+                    display: block i;
+                }
+            }
+
+            #contents.ytd-rich-shelf-renderer {
+                {isShortsSlim} {
+                    display: none;
+                }
+                {isShortsSlim}:nth-child(-n + {shortsPerRow}) {
+                    display: block i;
+                }
+            }
+        }
+ 
         /* ⚒️ Custom Homepage */
         if (homePage=="Enabled") {
             /* 🏠 Number Of Videos Per Row */
@@ -310,7 +276,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     #contents.ytd-rich-grid-renderer > ytd-rich-section-renderer {
                         
                         // hide show more btn
-                        ytd-rich-shelf-renderer:not([is-shorts], is-post) .button-container.ytd-rich-shelf-renderer {
+                        ytd-rich-shelf-renderer:not([is-shorts], [is-post]) .button-container.ytd-rich-shelf-renderer {
                             display: none;
                         }
                         
@@ -1372,21 +1338,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
             --ytd-expander-collapsed-height: 100% i if descriptionExpanded;
         }
         
-        if (fullVideoPlayer) {
-            ytd-watch-flexy:not([fullscreen]) {
-                .html5-video-container {
-                    height: 100%;
-                }
-
-                .ytp-fit-cover-video .html5-main-video {
-                    left: 0 i;
-                    width: 100% i;
-                    height: 100% i;
-                    object-fit: cover;
-                }
-            }
-        }
-        
         if (displayDislikeText !="None") {
             languages= {
                 "English": "dislike",
@@ -1427,14 +1378,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
         ytd-watch-flexy[cinematics-enabled] #secondary.ytd-watch-flexy {
             display: none if hideRightSideVideos;
-        }
-
-        /* 🫣 Hide Channel Handles > @username... */
-        #channel-handle,
-
-        /* Search page */
-        #metadata.ytd-channel-renderer > span:nth-child(-n + 2) {
-            display: none i if channelHandle;
         }
 
         .annotation {
@@ -1541,7 +1484,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             display: none if commentSection;
         }
 
-        #flexible-item-buttons > ytd-button-renderer > yt-button-shape {
+        #flexible-item-buttons yt-button-shape {
 
             /* Support all language except the browser that does not support :has */
             /* 🙏 Hide Thanks Button */
@@ -1557,6 +1500,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 display: none if clipBtn;
             }
 
+            &:has([d="M6 6H3v1h3V6zm15 5h-3v1h3v-1zM6 16H3v1h3v-1zM21 6H8v1h13V6zm-5 5H3v1h13v-1zm5 5H8v1h13v-1z"]) {
+                display: none if tranScriptBtn;
+            }
+            
             /* 💾 Hide Save Button */
             &:has(path[d="M22\,13h-4v4h-2v-4h-4v-2h4V7h2v4h4V13z M14\,7H2v1h12V7z M2\,12h8v-1H2V12z M2\,16h8v-1H2V16z"]) {
                 display: none if saveBtn;
@@ -1693,26 +1640,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
         }
 
-        /* 📻 Display Videos Count */
-        if (displayVideoCount) {
-
-            .meta-item.ytd-c4-tabbed-header-renderer {
-                margin-right: 8px;
-            }
-
-            #videos-count[hidden] {
-                display: inline-block i;
-            }
-
-            ytd-c4-tabbed-header-renderer[use-modern-style] {
-                #subscriber-count,
-                #videos-count {
-                    display: inline-block i;
-                }
-            }
-        }
-
-
         /* 🎬 More Animations */
         if (moreAnimation) {
             @keyframes slideInUp {
@@ -1808,51 +1735,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
         }
 
-        /* 🌑 Dark Search Box */
-        /* Dark search box credit to Mikey(Vednoc). He is awesome */
-        if (searchBox) {
-            div.gstl_50.sbdd_a {
-                > div > div[class] {
-                    border: 1px solid #333 i;
-                    background-color: #222 i;
-                    > div {
-                        background-color: #222 i;
-                    }
-                }
-
-                ul {
-                    > li {
-                        color: #ccc i;
-                        span {
-                            color: #ccc i;
-                        }
-
-                        b {
-                            color: #f1f1f1 i;
-                        }
-
-                        &:hover,
-                        &.sbsb_d {
-                            background-color: #333 i;
-                        }
-
-                        &:last-child {
-                            display: none;
-                        }
-
-                        ::before {
-                            filter: invert();
-                        }
-                    }
-                }
-            }
-
-            .sbsb_i {
-                color: #5e97d2 i;
-                text-decoration-color: initial;
-            }
-        }
-
         /* 🌑 Dark Scroll Bar */
         if (scroll_Bar) {
             /* scrollbar */
@@ -1885,7 +1767,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         /* ✅ Blue Check Mark */
         if (blueCheckMark) {
             @css {
-                [d="M12,2C6.5,2,2,6.5,2,12c0,5.5,4.5,10,10,10s10-4.5,10-10C22,6.5,17.5,2,12,2z M9.8,17.3l-4.2-4.1L7,11.8l2.8,2.7L17,7.4 l1.4,1.4L9.8,17.3z"] {
+                [d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zM9.8 17.3l-4.2-4.1L7 11.8l2.8 2.7L17 7.4l1.4 1.4-8.6 8.5z"] {
                     color: #1d9bf0;
                     d: path("M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z");
                 }
@@ -2774,7 +2656,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         font-family: "no-parens", "Roboto", sans-serif;
     }
 
-    if playlistOverlay {
+    if (playlistOverlay && customOldLayout == "Enabled") {
         
         @font-face {
             CSSHack(); 
@@ -2931,6 +2813,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             "M17,13h-4v4h-2v-4H7v-2h4V7h2v4h4V13z M12,3c-4.96,0-9,4.04-9,9s4.04,9,9,9c4.96,0,9-4.04,9-9S16.96,3,12,3 M12,2 c5.52,0,10,4.48,10,10s-4.48,10-10,10C6.48,22,2,17.52,2,12S6.48,2,12,2L12,2z":"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z",
             "M17 13h-4v4h-2v-4H7v-2h4V7h2v4h4v2zM12 3c-4.96 0-9 4.04-9 9s4.04 9 9 9 9-4.04 9-9-4.04-9-9-9m0-1c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2z":"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z",
             /* Trending */
+            "M19 3.87v9.77C19 17.7 15.86 21 12 21s-7-3.3-7-7.37v-.13c0-1.06.22-2.13.62-3.09.5-1.19 1.29-2.21 2.27-2.97.85-.66 1.83-1.14 2.87-1.65.39-.19.77-.38 1.15-.58.36-.19.72-.38 1.08-.56v3.22l1.55-1.04L19 3.87M20 2l-6 4V3c-.85.44-1.7.88-2.55 1.33-1.41.74-2.9 1.34-4.17 2.32-1.13.87-2.02 2.05-2.58 3.37-.46 1.09-.7 2.29-.7 3.48v.14C4 18.26 7.58 22 12 22s8-3.74 8-8.36V2zM9.45 12.89 14 10v5.7c0 1.82-1.34 3.3-3 3.3s-3-1.47-3-3.3c0-1.19.58-2.23 1.45-2.81z":"M17.53 11.2c-.23-.3-.5-.56-.76-.82-.65-.6-1.4-1.03-2.03-1.66-1.46-1.46-1.78-3.87-.85-5.72-.9.23-1.75.75-2.45 1.32C8.9 6.4 7.9 10.07 9.1 13.22c.04.1.08.2.08.33 0 .22-.15.42-.35.5-.22.1-.46.04-.64-.12-.06-.05-.1-.1-.15-.17-1.1-1.43-1.28-3.48-.53-5.12C5.87 10 5 12.3 5.12 14.47c.04.5.1 1 .27 1.5.14.6.4 1.2.72 1.73 1.04 1.73 2.87 2.97 4.84 3.22 2.1.27 4.35-.12 5.96-1.6 1.8-1.66 2.45-4.3 1.5-6.6l-.13-.26c-.2-.45-.47-.87-.78-1.25zm-3.1 6.3c-.28.24-.73.5-1.08.6-1.1.38-2.2-.16-2.88-.82 1.2-.28 1.9-1.16 2.1-2.05.17-.8-.14-1.46-.27-2.23-.12-.74-.1-1.37.2-2.06.15.38.35.76.58 1.06.76 1 1.95 1.44 2.2 2.8.04.14.06.28.06.43.03.82-.32 1.72-.92 2.26z",
             "M14.72,17.84c-0.32,0.27-0.83,0.53-1.23,0.66c-1.34,0.33-2.41-0.34-2.62-0.46c-0.21-0.11-0.78-0.38-0.78-0.38 s0.35-0.11,0.41-0.13c1.34-0.54,1.89-1.24,2.09-2.11c0.2-0.84-0.16-1.56-0.31-2.39c-0.12-0.69-0.11-1.28,0.12-1.9 c0.02-0.05,0.12-0.43,0.12-0.43s0.11,0.35,0.13,0.41c0.71,1.51,2.72,2.18,3.07,3.84c0.03,0.15,0.05,0.3,0.05,0.46 C15.8,16.3,15.4,17.26,14.72,17.84z M12.4,4.34c-0.12,0.08-0.22,0.15-0.31,0.22c-2.99,2.31-2.91,5.93-2.31,8.55l0.01,0.03l0.01,0.03 c0.06,0.35-0.05,0.7-0.28,0.96c-0.24,0.26-0.58,0.41-0.95,0.41c-0.44,0-0.85-0.2-1.22-0.6c-0.67-0.73-1.17-1.57-1.5-2.46 c-0.36,0.77-0.75,1.98-0.67,3.19c0.04,0.51,0.12,1,0.25,1.43c0.18,0.6,0.43,1.16,0.75,1.65c1.05,1.66,2.88,2.82,4.78,3.05 c0.42,0.05,0.85,0.08,1.26,0.08c1.34,0,3.25-0.27,4.74-1.57c1.77-1.56,2.35-3.99,1.44-6.06c-0.04-0.1-0.06-0.14-0.09-0.19 l-0.04-0.08c-0.21-0.42-0.47-0.81-0.75-1.14c-0.24-0.3-0.48-0.56-0.79-0.83c-0.3-0.27-0.64-0.51-1-0.77 c-0.46-0.33-0.93-0.67-1.38-1.09C12.98,7.83,12.3,6.11,12.4,4.34 M14.41,2c0,0-0.2,0.2-0.56,0.99c-0.66,1.92-0.15,3.95,1.34,5.39 c0.73,0.69,1.61,1.17,2.36,1.84c0.32,0.29,0.62,0.59,0.89,0.93c0.36,0.42,0.66,0.89,0.91,1.38c0.05,0.1,0.1,0.2,0.14,0.3 c1.12,2.55,0.36,5.47-1.73,7.31C16.23,21.47,14.22,22,12.22,22c-0.47,0-0.95-0.03-1.41-0.09c-2.29-0.28-4.42-1.66-5.63-3.57 c-0.39-0.6-0.68-1.26-0.88-1.93c-0.16-0.54-0.25-1.1-0.29-1.67c-0.12-1.88,0.67-3.63,1.08-4.31c0.41-0.69,1.55-2.18,1.55-2.18 s0,0.03-0.01,0.09C6.41,10.11,7,11.88,8.22,13.22c0.15,0.17,0.27,0.22,0.34,0.22c0.06,0,0.09-0.04,0.08-0.09 C7.79,9.59,8.37,6,11.35,3.7c0.59-0.46,1.51-0.94,1.98-1.18C13.8,2.28,14.41,2,14.41,2L14.41,2z":"M17.53 11.2c-.23-.3-.5-.56-.76-.82-.65-.6-1.4-1.03-2.03-1.66-1.46-1.46-1.78-3.87-.85-5.72-.9.23-1.75.75-2.45 1.32C8.9 6.4 7.9 10.07 9.1 13.22c.04.1.08.2.08.33 0 .22-.15.42-.35.5-.22.1-.46.04-.64-.12-.06-.05-.1-.1-.15-.17-1.1-1.43-1.28-3.48-.53-5.12C5.87 10 5 12.3 5.12 14.47c.04.5.1 1 .27 1.5.14.6.4 1.2.72 1.73 1.04 1.73 2.87 2.97 4.84 3.22 2.1.27 4.35-.12 5.96-1.6 1.8-1.66 2.45-4.3 1.5-6.6l-.13-.26c-.2-.45-.47-.87-.78-1.25zm-3.1 6.3c-.28.24-.73.5-1.08.6-1.1.38-2.2-.16-2.88-.82 1.2-.28 1.9-1.16 2.1-2.05.17-.8-.14-1.46-.27-2.23-.12-.74-.1-1.37.2-2.06.15.38.35.76.58 1.06.76 1 1.95 1.44 2.2 2.8.04.14.06.28.06.43.03.82-.32 1.72-.92 2.26z",
             "M14.72 17.84c-.32.27-.83.53-1.23.66-1.34.33-2.41-.34-2.62-.46-.21-.11-.78-.38-.78-.38l.41-.13c1.34-.54 1.89-1.24 2.09-2.11.2-.84-.16-1.56-.31-2.39-.12-.69-.11-1.28.12-1.9.02-.05.12-.43.12-.43l.13.41c.71 1.51 2.72 2.18 3.07 3.84.03.15.05.3.05.46.03.89-.37 1.85-1.05 2.43zM12.4 4.34c-.12.08-.22.15-.31.22-2.99 2.31-2.91 5.93-2.31 8.55l.01.03.01.03c.06.35-.05.7-.28.96-.24.26-.58.41-.95.41-.44 0-.85-.2-1.22-.6-.67-.73-1.17-1.57-1.5-2.46-.36.77-.75 1.98-.67 3.19.04.51.12 1 .25 1.43.18.6.43 1.16.75 1.65 1.05 1.66 2.88 2.82 4.78 3.05.42.05.85.08 1.26.08 1.34 0 3.25-.27 4.74-1.57 1.77-1.56 2.35-3.99 1.44-6.06-.04-.1-.06-.14-.09-.19l-.04-.08c-.21-.42-.47-.81-.75-1.14-.24-.3-.48-.56-.79-.83-.3-.27-.64-.51-1-.77-.46-.33-.93-.67-1.38-1.09-1.37-1.32-2.05-3.04-1.95-4.81M14.41 2s-.2.2-.56.99c-.66 1.92-.15 3.95 1.34 5.39.73.69 1.61 1.17 2.36 1.84.32.29.62.59.89.93.36.42.66.89.91 1.38.05.1.1.2.14.3 1.12 2.55.36 5.47-1.73 7.31-1.53 1.33-3.54 1.86-5.54 1.86-.47 0-.95-.03-1.41-.09-2.29-.28-4.42-1.66-5.63-3.57-.39-.6-.68-1.26-.88-1.93-.16-.54-.25-1.1-.29-1.67-.12-1.88.67-3.63 1.08-4.31.41-.69 1.55-2.18 1.55-2.18s0 .03-.01.09c-.22 1.77.37 3.54 1.59 4.88.15.17.27.22.34.22.06 0 .09-.04.08-.09C7.79 9.59 8.37 6 11.35 3.7c.59-.46 1.51-.94 1.98-1.18S14.41 2 14.41 2z":"M17.53 11.2c-.23-.3-.5-.56-.76-.82-.65-.6-1.4-1.03-2.03-1.66-1.46-1.46-1.78-3.87-.85-5.72-.9.23-1.75.75-2.45 1.32C8.9 6.4 7.9 10.07 9.1 13.22c.04.1.08.2.08.33 0 .22-.15.42-.35.5-.22.1-.46.04-.64-.12-.06-.05-.1-.1-.15-.17-1.1-1.43-1.28-3.48-.53-5.12C5.87 10 5 12.3 5.12 14.47c.04.5.1 1 .27 1.5.14.6.4 1.2.72 1.73 1.04 1.73 2.87 2.97 4.84 3.22 2.1.27 4.35-.12 5.96-1.6 1.8-1.66 2.45-4.3 1.5-6.6l-.13-.26c-.2-.45-.47-.87-.78-1.25zm-3.1 6.3c-.28.24-.73.5-1.08.6-1.1.38-2.2-.16-2.88-.82 1.2-.28 1.9-1.16 2.1-2.05.17-.8-.14-1.46-.27-2.23-.12-.74-.1-1.37.2-2.06.15.38.35.76.58 1.06.76 1 1.95 1.44 2.2 2.8.04.14.06.28.06.43.03.82-.32 1.72-.92 2.26z",
             /* Music  */
