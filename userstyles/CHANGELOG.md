@@ -1,5 +1,10 @@
 ## Changelog
 
+### v2.3.5
+- Add a "Hide Transcript button" option.
+- The "Blue Check Mark" option was fixed.
+- Remove the unnecessary "Dark Search Box," "Display Videos Count," and "Full Video Player" options.
+
 ### v2.3.4
 
 - Revert filter bar on the search page [#108][108].
