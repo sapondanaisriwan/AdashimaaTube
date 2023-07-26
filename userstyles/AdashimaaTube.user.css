@@ -66,7 +66,6 @@
     "Français": "French"
 }
 @var checkbox descriptionExpanded      "  📭 Description Expanded" 0
-
 @var checkbox hideTaps                 "  ❌ Hide Taps" 0
 @var checkbox antiShorts               "  ❌ Hide Shorts" 0
 @var checkbox hideAnnotation           "  ❌ Hide Annotations" 0
@@ -2663,7 +2662,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             unicode-range: U+0076, U+0069, U+0064, U+0065, U+006F, U+0073, U+006E, U+0067;
         }
 
-        #thumbnail:not([href*="start_radio"]) ytd-thumbnail-overlay-bottom-panel-renderer {
+        a#thumbnail:not([href*="start_radio"]) ytd-thumbnail-overlay-bottom-panel-renderer {
             width: 40%;
             height: 100%;
             left: unset i;
