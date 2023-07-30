@@ -66,7 +66,7 @@
     "Français": "French"
 }
 @var checkbox descriptionExpanded      "  📭 Description Expanded" 0
-@var checkbox hideTaps                 "  ❌ Hide Taps" 0
+@var checkbox hideTabs                 "  ❌ Hide Tabs" 0
 @var checkbox antiShorts               "  ❌ Hide Shorts" 0
 @var checkbox hideAnnotation           "  ❌ Hide Annotations" 0
 @var checkbox hideRecommendPL          "  ❌ Hide Recommended" 0
@@ -1460,10 +1460,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
         }
 
-        /* ❌ Remove Taps */
+        /* ❌ Remove Tabs */
         #header ytd-feed-filter-chip-bar-renderer,
         ytd-watch-next-secondary-results-renderer yt-related-chip-cloud-renderer {
-            display: none if hideTaps;
+            display: none if hideTabs;
         }
 
         /*  ⬇️ Hide Download Button */
@@ -2498,7 +2498,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             border-radius: borderRadius borderRadius 0 0;
         }
         
-        /* Tap (button to sort the videos) */
+        /* Tabs (button to sort the videos) */
         yt-chip-cloud-chip-renderer {
             border-radius: 100vh i;
         }
