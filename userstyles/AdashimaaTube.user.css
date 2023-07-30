@@ -2458,6 +2458,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
         .ytp-tooltip.ytp-rounded-tooltip.ytp-text-detail.ytp-preview,
         #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:hover, #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:focus,
         
+        ytd-feed-nudge-renderer #dismissible.ytd-feed-nudge-renderer:first-child:before,
+        ytd-feed-nudge-renderer #dismissible.ytd-feed-nudge-renderer,
         yt-interaction.ytd-guide-entry-renderer,
         ytd-guide-entry-renderer {
             border-radius: borderRadius i;
