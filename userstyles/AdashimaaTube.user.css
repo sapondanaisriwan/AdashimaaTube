@@ -1357,11 +1357,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
             #segmented-dislike-button > ytd-toggle-button-renderer > yt-button-shape > button {
 
-                &:not(:has(div.cbox.yt-spec-button-shape-next--button-text-content > span)) {
-                    & {
-                        margin: 0 24px;
-                    }
-
+                &:not(:has(div.yt-spec-button-shape-next__button-text-content > span)) {
                     &::after {
                         content: selectLanguage;
                         text-transform: uppercase;
