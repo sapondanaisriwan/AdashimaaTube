@@ -85,6 +85,7 @@
 @var checkbox commentSection           "  💬 Hide Comments" 0
 @var checkbox gameSection              "  🎮 Hide Game Section" 1
 @var checkbox musicSection             "  🎵 Hide Music Section" 0
+@var checkbox chapterSection           "  ❌ Hide Chapters Section" 0
 
 ==/UserStyle== */
 /*
@@ -1360,6 +1361,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 &:not(:has(div.yt-spec-button-shape-next__button-text-content > span)) {
                     &::after {
                         content: selectLanguage;
+                        color: #909090 if oldIcons;
                         text-transform: uppercase;
                         padding-left: 6px;
                     }
@@ -1541,6 +1543,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
         /* ❌ Remove Game Section */
         #contents.ytd-rich-metadata-row-renderer {
             display: none if gameSection;
+        }
+        
+        ytd-horizontal-card-list-renderer.ytd-structured-description-content-renderer {
+            display: none if chapterSection;
         }
     }
 
@@ -2676,8 +2682,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
             justify-content: center i;
             padding-left: 0;
             padding-right: 0;
+            
             path {
-                d: path("M22 7H2v1h20V7zm-9 5H2v-1h11v1zm0 4H2v-1h11v1zm2 3v-8l7 4-7 4z");
+                d: oldIcons ? path("M3.67 8.67h14V11h-14V8.67zm0-4.67h14v2.33h-14V4zm0 9.33H13v2.34H3.67v-2.34zm11.66 0v7l5.84-3.5-5.84-3.5z") : path("M22 7H2v1h20V7zm-9 5H2v-1h11v1zm0 4H2v-1h11v1zm2 3v-8l7 4-7 4z");
             }
 
             yt-formatted-string {
@@ -2841,6 +2848,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
             /* Your videos */
             "M10,8l6,4l-6,4V8L10,8z M21,3v18H3V3H21z M20,4H4v16h16V4z":"M18.45,3.75H5.55a1.81,1.81,0,0,0-1.8,1.8v12.8a1.8,1.8,0,0,0,1.7,1.9h12.9a1.8,1.8,0,0,0,1.9-1.69v-13A1.8,1.8,0,0,0,18.45,3.75Zm-.1,14.6H5.55V5.55h12.8Zm-3.2-6.1-5,3.2V9.05Z",
             "m10 8 6 4-6 4V8zm11-5v18H3V3h18zm-1 1H4v16h16V4z":"M18.45,3.75H5.55a1.81,1.81,0,0,0-1.8,1.8v12.8a1.8,1.8,0,0,0,1.7,1.9h12.9a1.8,1.8,0,0,0,1.9-1.69v-13A1.8,1.8,0,0,0,18.45,3.75Zm-.1,14.6H5.55V5.55h12.8Zm-3.2-6.1-5,3.2V9.05Z",
+            /* Learning */
+            "M16 21h-2.28c-.35.6-.98 1-1.72 1s-1.38-.4-1.72-1H8v-1h8v1zm4-11c0 2.96-1.61 5.54-4 6.92V19H8v-2.08C5.61 15.54 4 12.96 4 10c0-4.42 3.58-8 8-8s8 3.58 8 8zm-5 8v-1.66l.5-.29C17.66 14.8 19 12.48 19 10c0-3.86-3.14-7-7-7s-7 3.14-7 7c0 2.48 1.34 4.8 3.5 6.06l.5.28V18h6z": "M18.45,8.45a8,8,0,0,1-4,6.92V17H12.62V10.09a1.21,1.21,0,1,0-1.28-1.36h0V17H9.59V8.73h0A1.2,1.2,0,0,0,8.38,7.68a1.21,1.21,0,0,0-.1,2.41V17H6.45V15.37a8,8,0,1,1,12-6.92Zm-12,11H8.73a2,2,0,0,0,3.44,0h2.28V18h-8Z",
+            /* Fashion */
+            "M12.5 6.44v-.5C13.36 5.71 14 4.93 14 4c0-1.1-.9-2-2-2s-2 .9-2 2h1c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1h-.5v1.44L4 13h2v6h1v2h1v-2h2v3h1v-3h2v2h1v-2h1v-3h3v-3h2l-7.5-6.56zM6.66 12 12 7.33 17.34 12H6.66zM14 18H7v-5h7v5zm1-3v-2h2v2h-2z":"M22.71,13.44,13.37,8.05h0V6.26h-.69V5.72A2.45,2.45,0,1,0,9.55,3.37h1.36a1.09,1.09,0,1,1,2.18,0A1.18,1.18,0,0,1,12,4.48l-.68,0V6.26h-.69V8.05L1.29,13.44a.5.5,0,0,0,.26.94H7.28v7.13h.64v1.58H9.29V21.51h1.37v1.58H12V21.51H13.4v1.58h1.38V21.51h.54V19.43h1.79v-5h5.34A.5.5,0,0,0,22.71,13.44ZM15.32,13H4.76L12,8.83,19.24,13Z"
         }
 
         navbarIconsClick = {
@@ -3032,6 +3043,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
 
         playlistPageIcons = {
+            "M21 13h1v5l-18.07.03 2.62 2.62-.71.71-3.85-3.86 3.85-3.85.71.71-2.67 2.67L21 17v-4zM3 7l17.12-.03-2.67 2.67.71.71 3.85-3.85-3.85-3.85-.71.71 2.62 2.62L2 6v5h1V7z": "M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z",
+            /* Play all */
+            "M9 5.87 18.2 12 9 18.13V5.87M8 4v16l12-8L8 4z": "M8 5v14l11-7z",
             /* Edit (Pen) */
             "m14.06 7.6 2.34 2.34L6.34 20H4v-2.34L14.06 7.6m0-1.41L3 17.25V21h3.75L17.81 9.94l-3.75-3.75zm3.55-2.14 2.37 2.37-1.14 1.14-2.37-2.37 1.14-1.14m0-1.42-2.55 2.55 3.79 3.79 2.55-2.55-3.79-3.79z":"M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z",
             "M14.06,7.6l2.34,2.34L6.34,20H4v-2.34L14.06,7.6 M14.06,6.19L3,17.25V21h3.75L17.81,9.94L14.06,6.19L14.06,6.19z M17.61,4.05l2.37,2.37l-1.14,1.14l-2.37-2.37L17.61,4.05 M17.61,2.63l-2.55,2.55l3.79,3.79l2.55-2.55L17.61,2.63L17.61,2.63z":"M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z",
@@ -3184,8 +3198,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
 
         #flexible-item-buttons span,
-        #top-level-buttons-computed span {
-            color: #909090;
+        #top-level-buttons-computed span,
+        yt-animated-rolling-number {
+            color: #909090 i;
         }
     }
 }
