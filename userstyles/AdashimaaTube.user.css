@@ -70,6 +70,7 @@
 @var checkbox antiShorts               "  ❌ Hide Shorts" 0
 @var checkbox hideAnnotation           "  ❌ Hide Annotations" 0
 @var checkbox hideRecommendPL          "  ❌ Hide Recommended" 0
+@var checkbox hidecommuPosts           "  ❌ Hide Community Posts" 0
 @var checkbox hideDonation             "  💵 Hide Donation Shelf" 0
 @var checkbox hideRightSideVideos      "  🎦 Hide Right Side Videos" 0
 @var checkbox hideLikeAnimation        "  👍 Hide Like Animation" 0
@@ -1316,6 +1317,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     /* ⚒️ Custom Video Details */
     if (customVideoPage=="Enabled") {
+
+        /* Hide community posts on home page */
+        [page-subtype="home"] ytd-rich-section-renderer:has(ytd-rich-item-renderer[is-post]) {
+            display: none if hidecommuPosts;
+        }
 
         /* ❌ Hide Recommended Section */
         if (hideRecommendPL) {
