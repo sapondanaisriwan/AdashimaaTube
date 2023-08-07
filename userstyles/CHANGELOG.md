@@ -1,5 +1,10 @@
 ## Changelog
 
+### v2.3.6
+- Revert the twitter logo.
+- Add "Hide community post" and "Hide chapter section" options.
+- Fixed minor bugs.
+
 ### v2.3.5
 - Add a "Hide Transcript button" option.
 - The "Blue Check Mark" option was fixed.
