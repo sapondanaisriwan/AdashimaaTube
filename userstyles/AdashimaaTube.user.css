@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        2.3.7
+@version        2.3.8
 @license        MIT
 @preprocessor   stylus
 
@@ -2724,7 +2724,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
     }
     
     /* CSS for new layout for search page */
-
     ytd-search {
         padding: 16px 24px i;
         
@@ -2769,79 +2768,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
         ytd-continuation-item-renderer.ytd-item-section-renderer,
         ytd-compact-promoted-item-renderer.ytd-item-section-renderer {
             margin-top: 16px i;
-        }
-    }
-    
-   /* รักข้างเดียว 🥲 */
-    revertChannelWidth(selector, $margin = false) {
-        for num in (2..6) {
-            ytd-c4-tabbed-header-renderer.grid-{num}-columns {selector} {
-                $column-width = s("var(--columns-width-%s)", num) i;
-                if ($margin) {
-                    margin-left:  $column-width;
-                    margin-right:  $column-width;
-                } else {
-                    padding-right: $column-width;
-                    padding-left: $column-width;
-                }
-            }
-        }
-    }
-    
-    /* Channel Container */
-    revertChannelWidth("#channel-header.ytd-c4-tabbed-header-renderer");
-    /* Channel Tabs */
-    revertChannelWidth("tp-yt-paper-tabs.ytd-c4-tabbed-header-renderer", true);
-    
-    $guide-persistent-and-visible = "ytd-browse[page-subtype=channels][guide-persistent-and-visible] ytd-two-column-browse-results-renderer.grid-disabled[disable-grid-state-aware]"
-    $has-c4-tabbed-header-renderer = "ytd-browse[page-subtype=channels][has-c4-tabbed-header-renderer] ytd-two-column-browse-results-renderer.grid-disabled[disable-grid-state-aware]"
-    
-    if (channelNoLimitWidth) {
-        #primary.ytd-two-column-browse-results-renderer {
-            padding-inline: 20px;
-        }
-    }
-    
-    if (!channelNoLimitWidth) {
-        /* Sidebar expanded */
-        {$guide-persistent-and-visible} {
-            width: var(--ytd-grid-6-columns-width) i;
-        }
-
-        {$guide-persistent-and-visible} {
-            @media Screen and (max-width: 1553px) {
-                width: var(--ytd-grid-5-columns-width) i;
-            }
-            @media Screen and (max-width: 1171px) {
-                width: var(--ytd-grid-3-columns-width) i;
-            }
-            @media Screen and (max-width: 1339px) {
-                &,
-                /{$has-c4-tabbed-header-renderer} {
-                    width: var(--ytd-grid-4-columns-width) i;
-                }
-            }
-        }
-
-        /* Sidebar collapse */
-        ytd-browse[page-subtype="channels"][mini-guide-visible] ytd-two-column-browse-results-renderer.grid-disabled[disable-grid-state-aware] {
-            width: var(--ytd-grid-6-columns-width) i;
-        }
-
-        {$guide-persistent-and-visible},
-        {$has-c4-tabbed-header-renderer} {
-            @media Screen and (max-width: 1385px) {
-                width: var(--ytd-grid-5-columns-width) i;
-            }
-            @media Screen and (max-width: 1171px) {
-                width: var(--ytd-grid-4-columns-width) i;
-            }
-            @media Screen and (max-width: 972px) {
-                width: var(--ytd-grid-3-columns-width) i;
-            }
-            @media Screen and (max-width: 688px) {
-                width: var(--ytd-grid-2-columns-width) i;
-            }
         }
     }
     
