@@ -5,7 +5,6 @@
 @namespace      https://userstyles.world/user/sapondanaisriwan
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
-@updateURL      https://userstyles.world/api/style/6944.user.css
 @version        2.3.6
 @license        MIT
 @preprocessor   stylus
@@ -1365,6 +1364,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
             #segmented-dislike-button > ytd-toggle-button-renderer > yt-button-shape > button {
 
                 &:not(:has(div.yt-spec-button-shape-next__button-text-content > span)) {
+                    & {
+                        margin: 0 20px;
+                    }
                     &::after {
                         content: selectLanguage;
                         color: #909090 if oldIcons;
