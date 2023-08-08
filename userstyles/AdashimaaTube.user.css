@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        2.3.6
+@version        2.3.7
 @license        MIT
 @preprocessor   stylus
 
@@ -965,7 +965,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
         }
         
-        gridContainer = "ytd-two-column-browse-results-renderer.grid:not(.grid-disabled):has(ytd-rich-grid-renderer:not([is-shorts-grid]))"
+        gridContainer = "ytd-two-column-browse-results-renderer:has(ytd-rich-grid-renderer:not([is-shorts-grid]))"
         
         /* ⚒️ Custom Channel Page */
         if (channelPage=="Enabled" || channelPage=="Auto") {
@@ -1003,7 +1003,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                         }
                         
                         ytd-rich-item-renderer {
-                            width: 100% i;
+                            width: 100%;
                             margin: 0 i;
                         }
                     }
@@ -2796,44 +2796,52 @@ Support me: https://ko-fi.com/sapondanaisriwan
     $guide-persistent-and-visible = "ytd-browse[page-subtype=channels][guide-persistent-and-visible] ytd-two-column-browse-results-renderer.grid-disabled[disable-grid-state-aware]"
     $has-c4-tabbed-header-renderer = "ytd-browse[page-subtype=channels][has-c4-tabbed-header-renderer] ytd-two-column-browse-results-renderer.grid-disabled[disable-grid-state-aware]"
     
-    /* Sidebar expanded */
-    {$guide-persistent-and-visible} {
-        width: var(--ytd-grid-6-columns-width) i;
+    if (channelNoLimitWidth) {
+        #primary.ytd-two-column-browse-results-renderer {
+            padding-inline: 20px;
+        }
     }
+    
+    if (!channelNoLimitWidth) {
+        /* Sidebar expanded */
+        {$guide-persistent-and-visible} {
+            width: var(--ytd-grid-6-columns-width) i;
+        }
 
-    {$guide-persistent-and-visible} {
-        @media Screen and (max-width: 1553px) {
-            width: var(--ytd-grid-5-columns-width) i;
-        }
-        @media Screen and (max-width: 1171px) {
-            width: var(--ytd-grid-3-columns-width) i;
-        }
-        @media Screen and (max-width: 1339px) {
-            &,
-            /{$has-c4-tabbed-header-renderer} {
-                width: var(--ytd-grid-4-columns-width) i;
+        {$guide-persistent-and-visible} {
+            @media Screen and (max-width: 1553px) {
+                width: var(--ytd-grid-5-columns-width) i;
+            }
+            @media Screen and (max-width: 1171px) {
+                width: var(--ytd-grid-3-columns-width) i;
+            }
+            @media Screen and (max-width: 1339px) {
+                &,
+                /{$has-c4-tabbed-header-renderer} {
+                    width: var(--ytd-grid-4-columns-width) i;
+                }
             }
         }
-    }
 
-    /* Sidebar collapse */
-    ytd-browse[page-subtype="channels"][mini-guide-visible] ytd-two-column-browse-results-renderer.grid-disabled[disable-grid-state-aware] {
-        width: var(--ytd-grid-6-columns-width) i;
-    }
+        /* Sidebar collapse */
+        ytd-browse[page-subtype="channels"][mini-guide-visible] ytd-two-column-browse-results-renderer.grid-disabled[disable-grid-state-aware] {
+            width: var(--ytd-grid-6-columns-width) i;
+        }
 
-    {$guide-persistent-and-visible},
-    {$has-c4-tabbed-header-renderer} {
-        @media Screen and (max-width: 1385px) {
-            width: var(--ytd-grid-5-columns-width) i;
-        }
-        @media Screen and (max-width: 1171px) {
-            width: var(--ytd-grid-4-columns-width) i;
-        }
-        @media Screen and (max-width: 972px) {
-            width: var(--ytd-grid-3-columns-width) i;
-        }
-        @media Screen and (max-width: 688px) {
-            width: var(--ytd-grid-2-columns-width) i;
+        {$guide-persistent-and-visible},
+        {$has-c4-tabbed-header-renderer} {
+            @media Screen and (max-width: 1385px) {
+                width: var(--ytd-grid-5-columns-width) i;
+            }
+            @media Screen and (max-width: 1171px) {
+                width: var(--ytd-grid-4-columns-width) i;
+            }
+            @media Screen and (max-width: 972px) {
+                width: var(--ytd-grid-3-columns-width) i;
+            }
+            @media Screen and (max-width: 688px) {
+                width: var(--ytd-grid-2-columns-width) i;
+            }
         }
     }
     
