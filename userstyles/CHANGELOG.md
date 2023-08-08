@@ -1,11 +1,22 @@
 ## Changelog
 
+### v2.3.7
+- Revert the new ui changes on channel page.
+
+[Bug]
+
+- Fixed dislike button not in the proper place [#157][157]
+
+[157]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/157
+
 ### v2.3.6
+
 - Revert the twitter logo.
 - Add "Hide community post" and "Hide chapter section" options.
 - Fixed minor bugs.
 
 ### v2.3.5
+
 - Add a "Hide Transcript button" option.
 - The "Blue Check Mark" option was fixed.
 - Remove the unnecessary "Dark Search Box," "Display Videos Count," and "Full Video Player" options.
@@ -21,6 +32,7 @@
 ### v2.3.3
 
 [Bug]
+
 - Fix the description has 2 "Subscribed" buttons [#132][132].
 
 [132]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/126
@@ -28,6 +40,7 @@
 ### v2.3.2
 
 [Feature]
+
 - Remove necessary thing under description [#126][126].
 - Add the option "No limit width" for channel page and search page.
 - Add auto calculating video per row for channel page and search page.
