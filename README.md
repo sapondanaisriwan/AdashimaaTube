@@ -52,7 +52,7 @@ Restore old Youtube layout in 2021-2022 with many customizable options.
 
 ## ⭐ Features
 This is why you should consider using AdashimaaTube! 🥶
-- Anit-Shorts.
+- Anti-Shorts.
 - Blue check mark.
 - Customizable profile radius and border radius.
 - Customizable number of videos per row on Homepage and Channel Page
