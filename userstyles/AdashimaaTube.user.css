@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        2.3.8
+@version        2.3.9
 @license        MIT
 @preprocessor   stylus
 
@@ -2477,7 +2477,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
         ytd-feed-nudge-renderer #dismissible.ytd-feed-nudge-renderer:first-child:before,
         ytd-feed-nudge-renderer #dismissible.ytd-feed-nudge-renderer,
         yt-interaction.ytd-guide-entry-renderer,
-        ytd-guide-entry-renderer {
+        ytd-guide-entry-renderer,
+ 
+        ytd-watch-flexy #ytd-player.ytd-watch-flexy {
             border-radius: borderRadius i;
         }
 
@@ -2769,6 +2771,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
         ytd-compact-promoted-item-renderer.ytd-item-section-renderer {
             margin-top: 16px i;
         }
+    }
+    
+    /* Disable animated icon when mouse hover over the fullscreen icon */
+    [class*="ytp-fullscreen-button-corner"] {
+        transform: none !important;
     }
     
     if (customOldLayout=="Enabled" && oldIcons) {
