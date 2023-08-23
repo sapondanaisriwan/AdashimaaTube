@@ -2186,6 +2186,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
             display: none;
         }
 
+        /* Remove contact link */
+        #container.ytd-channel-header-links-view-model {
+            display: none;
+        }
+        
         #channel-handle.ytd-c4-tabbed-header-renderer {
             font-weight: 400;
         }
