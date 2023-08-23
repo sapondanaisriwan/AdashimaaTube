@@ -1162,7 +1162,15 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
 
         if (oldBackground) {
-
+            
+            #header.ytd-rich-grid-renderer {
+                width: 100%;
+            }
+            
+            yt-chip-cloud-chip-renderer.ytd-feed-filter-chip-bar-renderer:first-of-type {
+                margin-left: 24px;
+            }
+            
             html:not([dark]) ytd-masthead[is-watch-page][theater] {
                 background-color: var(--yt-spec-black-1) i;
             }
@@ -1196,7 +1204,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             ytd-browse[page-subtype="channels"] {
                 background: var(--yt-spec-general-background-b) i;
             }
-
+            
             [page-subtype="home"] #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
                 background-color: var(--yt-spec-brand-background-primary) i;
                 border-top: 1px solid var(--yt-spec-10-percent-layer) i;
@@ -1802,6 +1810,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
             display: block i;
         }
 
+        /* Remove morden description when expaneded */
+        #description.ytd-watch-metadata {
+            display: none;
+        }
+        
         /* Temporary fix */
         ytd-watch-metadata[description-collapsed] #description.ytd-watch-metadata {
             display: none;
