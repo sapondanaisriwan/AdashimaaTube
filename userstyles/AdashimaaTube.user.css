@@ -1193,6 +1193,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 }
             }
             
+            /* Tabs container on hashtag page */
+            #tabs-inner-container.ytd-hashtag-header-renderer { 
+                background: var(--yt-spec-general-background-a) i;
+            }
+            
             #tabs-inner-container.ytd-c4-tabbed-header-renderer, #channel-header.ytd-c4-tabbed-header-renderer {
                 background: var(--yt-spec-general-background-a) i;
             }
