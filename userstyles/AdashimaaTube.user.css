@@ -1983,6 +1983,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
             border-radius: buttonRadius i;
         }
 
+        /* fix bell Icon is misaligned when subscribed (ui changes) */
+        .smartimation__content > __slot-el {
+            display: flex i;
+        }
+        
         yt-button-shape.ytd-subscribe-button-renderer[hidden] {
             display: block i;
             > .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
