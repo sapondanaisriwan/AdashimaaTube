@@ -1,5 +1,11 @@
 ## Changelog
 
+### v2.4.1
+- Fixed bell Icon is misaligned when subscribed [#163][163].
+- Disable "Hide game section" by default.
+
+[163]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/163
+
 ### v2.4.0
 - ขี้เกียจเขียน เอาเป็นว่าขอเขียนอวดแฟนหน่อยค่ะ ภูมิใจมากที่มีแฟนเป็นโง่ สภาพคนเมาตอนรถติดไฟแดง
 https://github.com/sapondanaisriwan/AdashimaaTube/assets/64634605/113c0639-667f-4a98-ad73-08ee132993dd
