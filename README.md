@@ -105,8 +105,8 @@ This is why you should consider using AdashimaaTube! 🥶
 | ![](https://i.imgur.com/m2iiTls.png)  | ![](https://user-images.githubusercontent.com/64634605/204840268-319b8ab0-0cce-4012-b91a-61925f7c0357.gif) |
 
 ## 📂 Installation
-You have to install [Stylus](https://add0n.com/stylus.html) and then click on the install AdashimaaTube below. If still no any changes install [Stylus-Beta](https://chrome.google.com/webstore/detail/stylus-beta/apmmpaebfobifelkijhaljbmpcgbjbdo) instead.
-
+You have to install [Stylus](https://add0n.com/stylus.html) and then click on the install AdashimaaTube below.
+ 
 [![][chrome-badge]][chrome-link]
 [![][firefox-badge]][firefox-link]
 
@@ -122,6 +122,13 @@ You have to install [Stylus](https://add0n.com/stylus.html) and then click on th
 [install-link]: https://userstyles.world/style/6944/old-youtube-layout-in-2021-2022
 
 https://user-images.githubusercontent.com/64634605/211514908-83d88cf8-3e07-4d34-8069-9013bb99d8d7.mp4
+
+Note: If you received the new ui changes please follow these steps.
+1. Install [Violentmonkey](https://violentmonkey.github.io/#installation) or [Tampermonkey](https://www.tampermonkey.net/#download) extension.
+2. Install [revert-ui-changes.user.js](./userscripts/revert-ui-changes.user.js) and [revert-video-list.user.css](./userstyles/features/revert-video-list.user.css).
+3. Done and enjoy :)
+
+![](https://i.imgur.com/7mAbOq3.jpeg)
 
 If you are Firefox users you need to follow these steps
 1. Go to the Firefox `about:config` page.
