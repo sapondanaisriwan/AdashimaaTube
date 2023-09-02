@@ -1,0 +1,75 @@
+/* ==UserStyle==
+@name           Revert video list
+@author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan)
+@description    If you want to submit a bug or request a feature please report via github issue. Since I receive so many emails, I can't reply to them all.
+@namespace      https://userstyles.world/user/sapondanaisriwan
+@homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
+@supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
+@version        1.0.0
+@license        MIT
+@preprocessor   stylus
+==/UserStyle== */
+@-moz-document domain("youtube.com") {
+
+  i=!important;
+  t=transparent;
+
+  ytd-watch-flexy {
+      #comment-teaser.ytd-watch-metadata {
+          display: none;
+      }
+
+      #dismissible.ytd-rich-grid-media {
+          flex-direction: row;
+      }
+
+      #attached-survey.ytd-rich-grid-media,
+      #avatar-link.ytd-rich-grid-media {
+          display: none;
+      }
+
+      ytd-thumbnail.ytd-rich-grid-media,
+      ytd-playlist-thumbnail.ytd-rich-grid-media {
+          margin-right: 8px;
+          height: 94px;
+          width: 168px;
+      }
+
+      ytd-rich-item-renderer,
+      ytd-rich-grid-row #contents.ytd-rich-grid-row {
+          margin: 0;
+      }
+
+      ytd-rich-item-renderer[reduced-bottom-margin] {
+          margin-top: 8px;
+          margin-bottom: 0;
+      }
+
+      ytd-video-meta-block[rich-meta] #metadata-line.ytd-video-meta-block,
+      #channel-name.ytd-video-meta-block {
+          font-family: "Roboto", "Arial", sans-serif;
+          font-size: 1.2rem;
+          line-height: 1.8rem;
+          font-weight: 400;
+      }
+
+      #video-title.ytd-rich-grid-media {
+          margin: 0 0 4px 0;
+          display: block;
+          margin: 0 0 4px 0;
+          font-family: "Roboto", "Arial", sans-serif;
+          font-size: 1.4rem;
+          line-height: 2rem;
+          font-weight: 500;
+          overflow: hidden;
+          display: block;
+          max-height: 4rem;
+          -webkit-line-clamp: 2;
+          display: box;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          text-overflow: ellipsis;
+          white-space: normal;
+      }
+  }
+}
