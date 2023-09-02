@@ -10,7 +10,7 @@
 // @icon           https://i.imgur.com/I9uDrsq.png
 // @run-at         document-start
 // @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
-// @updateURL      https://github.com/sapondanaisriwan/AdashimaaTube/raw/main/Fix-Live-Stream-View-Count.user.js
+// @updateURL      https://github.com/sapondanaisriwan/AdashimaaTube/raw/master/userscripts/revert-ui-changes.user.js
 // @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 // ==/UserScript==
 
