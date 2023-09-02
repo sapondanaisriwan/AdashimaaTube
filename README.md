@@ -75,6 +75,7 @@ This is why you should consider using AdashimaaTube! 🥶
 ## 📷 Screenshots
 | **Before** | **After** |
 |     :---:      |     :---:      |
+| ![][b7]  | ![][a7] |
 | ![][b1]  | ![][a1] |
 | ![][b2]  | ![][a2] |
 | ![][b3]  | ![][a3] |
@@ -88,6 +89,7 @@ This is why you should consider using AdashimaaTube! 🥶
 [b4]: ./asset/images/before/ch-search-before.png
 [b5]: ./asset/images/before/subp-ch-before.png
 [b6]: ./asset/images/before/sp-before.png
+[b7]: https://i.imgur.com/75H2QOQ.jpeg
 
 [a1]: ./asset/images/after/hp-after.png
 [a2]: ./asset/images/after/wp-after.png
@@ -95,6 +97,7 @@ This is why you should consider using AdashimaaTube! 🥶
 [a4]: ./asset/images/after/ch-search-after.png
 [a5]: ./asset/images/after/subp-ch-after.png
 [a6]: ./asset/images/after/sp-after.png
+[a7]: https://i.imgur.com/a71Tqix.jpeg
 
 | **Anti-Shorts**  | **Display full title for videos** |
 |     :---:      |     :---:      |
@@ -123,14 +126,14 @@ You have to install [Stylus](https://add0n.com/stylus.html) and then click on th
 
 https://user-images.githubusercontent.com/64634605/211514908-83d88cf8-3e07-4d34-8069-9013bb99d8d7.mp4
 
-Note: If you received the new ui changes please follow these steps.
+**Note:** If you received the new ui changes please follow these steps.
 1. Install [Violentmonkey](https://violentmonkey.github.io/#installation) or [Tampermonkey](https://www.tampermonkey.net/#download) extension.
-2. Install [revert-ui-changes.user.js](./userscripts/revert-ui-changes.user.js) and [revert-video-list.user.css](./userstyles/features/revert-video-list.user.css).
+2. Install [revert-ui-changes.user.js](https://github.com/sapondanaisriwan/AdashimaaTube/raw/master/userscripts/revert-ui-changes.user.js) and [revert-video-list.user.css](https://github.com/sapondanaisriwan/AdashimaaTube/raw/master/userstyles/features/revert-video-list.user.css).
 3. Done and enjoy :)
 
 ![](https://i.imgur.com/7mAbOq3.jpeg)
 
-If you are Firefox users you need to follow these steps
+**Note:** If you are Firefox users you need to follow these steps
 1. Go to the Firefox `about:config` page.
 2. Search and toggle `layout.css.has-selector.enabled`.
 
