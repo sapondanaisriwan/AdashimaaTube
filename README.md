@@ -131,7 +131,7 @@ https://user-images.githubusercontent.com/64634605/211514908-83d88cf8-3e07-4d34-
 2. Install [revert-ui-changes.user.js](https://github.com/sapondanaisriwan/AdashimaaTube/raw/master/userscripts/revert-ui-changes.user.js) and [revert-video-list.user.css](https://github.com/sapondanaisriwan/AdashimaaTube/raw/master/userstyles/features/revert-video-list.user.css).
 3. Done and enjoy :)
 
-![](https://i.imgur.com/7mAbOq3.jpeg)
+![](https://i.imgur.com/75H2QOQ.jpeg)
 
 **Note:** If you are Firefox users you need to follow these steps
 1. Go to the Firefox `about:config` page.
