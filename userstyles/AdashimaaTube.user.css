@@ -1988,10 +1988,19 @@ Support me: https://ko-fi.com/sapondanaisriwan
             display: flex i;
         }
         
-        yt-button-shape.ytd-subscribe-button-renderer[hidden] {
-            display: block i;
-            > .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
-                Unsubscribe();
+        #notification-preference-toggle-button:not([hidden]) + yt-animated-action #notification-preference-button.ytd-subscribe-button-renderer[invisible], #subscribe-button-shape.ytd-subscribe-button-renderer[invisible] {
+            pointer-events: auto;
+            visibility: visible;
+            position: static;
+        }
+        
+        yt-button-shape.ytd-subscribe-button-renderer {
+            &[hidden],
+            &[invisible] {
+                display: block i;
+                > .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+                    Unsubscribe();
+                }
             }
         }
 
@@ -2181,61 +2190,106 @@ Support me: https://ko-fi.com/sapondanaisriwan
         display: none;
     }
 
-    ytd-c4-tabbed-header-renderer[use-modern-style] {
-        #avatar.ytd-c4-tabbed-header-renderer {
-            width: 80px;
-            height: 80px;
-            margin: 0 24px 0 0;
-            flex: none;
-            overflow: hidden;
+    ytd-c4-tabbed-header-renderer {
+        &[use-page-header-style] {
+            #avatar-editor.ytd-c4-tabbed-header-renderer {
+                --ytd-channel-avatar-editor-size: 80px;
+            }
+            #avatar.ytd-c4-tabbed-header-renderer {
+                width: 80px;
+                height: 80px;
+                margin: 0 24px 0 0;
+                flex: none;
+                overflow: hidden;
+            }
+            
+            #channel-name.ytd-c4-tabbed-header-renderer {
+                font-size: 2.4rem;
+                font-weight: 400;
+                line-height: 3rem;
+            }
+            
+            #inner-header-container.ytd-c4-tabbed-header-renderer {
+                margin-top: 0;
+                align-items: center;
+                flex-direction: row;
+            }
+            
+            #meta.ytd-c4-tabbed-header-renderer {
+                flex-basis: 0.000000001px;
+            }
+            #buttons.ytd-c4-tabbed-header-renderer {
+                flex-direction: row-reverse;
+                .channel-action.ytd-c4-tabbed-header-renderer:not(:empty)+.channel-action.ytd-c4-tabbed-header-renderer:not(:empty) {
+                    margin-right: 8px;
+                    margin-left: 0;
+                }
+            }
+            .page-header-banner.ytd-c4-tabbed-header-renderer {
+                border-radius: 0;
+                margin-left: 0;
+                margin-right: 0;
+            }
+            /* Hide links */
+            #channel-header-links {
+                display: none;
+            }
         }
+        &[use-modern-style] {
+            #avatar.ytd-c4-tabbed-header-renderer {
+                width: 80px;
+                height: 80px;
+                margin: 0 24px 0 0;
+                flex: none;
+                overflow: hidden;
+            }
 
-        #channel-name.ytd-c4-tabbed-header-renderer {
-            margin-bottom: 0;
-        }
+            #channel-name.ytd-c4-tabbed-header-renderer {
+                margin-bottom: 0;
+            }
 
-        #channel-header-container.ytd-c4-tabbed-header-renderer {
-            padding-top: 0;
-            align-items: center;
-        }
+            #channel-header-container.ytd-c4-tabbed-header-renderer {
+                padding-top: 0;
+                align-items: center;
+            }
 
-        #inner-header-container.ytd-c4-tabbed-header-renderer {
-            margin-top: 0;
-            align-items: center;
-        }
+            #inner-header-container.ytd-c4-tabbed-header-renderer {
+                margin-top: 0;
+                align-items: center;
+            }
 
-        /* Remove videos count*/
-        #videos-count {
-            display: none;
-        }
+            /* Remove videos count*/
+            #videos-count {
+                display: none;
+            }
 
-        /* Remove contact link */
-        #container.ytd-channel-header-links-view-model {
-            display: none;
-        }
-        
-        #channel-handle.ytd-c4-tabbed-header-renderer {
-            font-weight: 400;
-        }
+            /* Remove contact link */
+            #container.ytd-channel-header-links-view-model {
+                display: none;
+            }
 
-        /* Force new line */
-        .meta-item.ytd-c4-tabbed-header-renderer {
-            display: block;
-        }
+            #channel-handle.ytd-c4-tabbed-header-renderer {
+                font-weight: 400;
+            }
 
-        /* Reverse order of the Subscribe and Join button  */
-        #buttons.ytd-c4-tabbed-header-renderer {
-            flex-direction: row-reverse;
-        }
+            /* Force new line */
+            .meta-item.ytd-c4-tabbed-header-renderer {
+                display: block;
+            }
 
-        #avatar-editor.ytd-c4-tabbed-header-renderer {
-            --ytd-channel-avatar-editor-size: 80px;
+            /* Reverse order of the Subscribe and Join button  */
+            #buttons.ytd-c4-tabbed-header-renderer {
+                flex-direction: row-reverse;
+            }
+
+            #avatar-editor.ytd-c4-tabbed-header-renderer {
+                --ytd-channel-avatar-editor-size: 80px;
+            }
+
+            ytd-guide-entry-renderer {
+                width: 100% i;
+            }
         }
-        
-        ytd-guide-entry-renderer {
-            width: 100% i;
-        }
-        
     }
 
     if (customOldLayout=="Enabled") {
@@ -2715,6 +2769,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             unicode-range: U+0076, U+0069, U+0064, U+0065, U+006F, U+0073, U+006E, U+0067;
         }
 
+        // not mixes playlist
         a#thumbnail:not([href*="start_radio"]) ytd-thumbnail-overlay-bottom-panel-renderer {
             width: 40%;
             height: 100%;
@@ -2732,6 +2787,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
             padding-left: 0;
             padding-right: 0;
             
+            margin-right: 0;
+            margin-bottom: 0;
+            border-radius: 0;
             path {
                 d: oldIcons ? path("M3.67 8.67h14V11h-14V8.67zm0-4.67h14v2.33h-14V4zm0 9.33H13v2.34H3.67v-2.34zm11.66 0v7l5.84-3.5-5.84-3.5z") : path("M22 7H2v1h20V7zm-9 5H2v-1h11v1zm0 4H2v-1h11v1zm2 3v-8l7 4-7 4z");
             }
@@ -2742,6 +2800,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 font-family: "no-parens", "Roboto", sans-serif;
             }
         }   
+    }
+    
+    /* Remove thumbnail stack */
+    yt-collections-stack {
+        display: none;
     }
     
     /* Remove shop section */
@@ -2804,6 +2867,16 @@ Support me: https://ko-fi.com/sapondanaisriwan
     /* Disable animated icon when mouse hover over the fullscreen icon */
     [class*="ytp-fullscreen-button-corner"] {
         transform: none !important;
+    }
+    
+    ytd-thumbnail-overlay-bottom-panel-renderer[use-modern-collections-v2] {
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        height: 24px;
+        margin: 0;
+        border-radius: 0;
     }
     
     if (customOldLayout=="Enabled" && oldIcons) {
