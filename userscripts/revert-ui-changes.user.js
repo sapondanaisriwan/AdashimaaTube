@@ -31,6 +31,21 @@ Support me: https://ko-fi.com/sapondanaisriwan
 const flagsToAssign = {
   kevlar_watch_grid: false,
   kevlar_watch_grid_hide_chips: false,
+
+  // fix the old description data is missing
+  kevlar_watch_metadata_refresh_no_old_secondary_data: false,
+
+  enable_channel_page_header_profile_section: false,
+  kevlar_modern_sd_v2: false,
+
+  kevlar_watch_comments_panel_button: false,
+  smartimation_background: false,
+
+  web_animated_actions: false,
+  web_modern_collections_v2: false,
+  // https://i.imgur.com/DEl82Nt.png
+  web_modern_tabs: false,
+  web_enable_youtab: false,
 };
 
 const updateFlags = () => {
