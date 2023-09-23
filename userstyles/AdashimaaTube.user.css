@@ -283,8 +283,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
                         
                         /* Remove game card shelf #118 */
                         &:has(ytd-rich-item-renderer[is-game-card-shelf]),
-                        /* Remove media ads */
-                        &:has(ytd-rich-item-renderer[is-slim-media]) {
+                        /* Remove movie ads */
+                        &:has(ytd-rich-shelf-renderer[is-movie]) {
                             display: none i;
                         }
                         
