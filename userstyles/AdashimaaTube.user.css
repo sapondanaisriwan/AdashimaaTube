@@ -282,7 +282,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     #contents.ytd-rich-grid-renderer > ytd-rich-section-renderer {
                         
                         /* Remove game card shelf #118 */
-                        &:has(ytd-rich-item-renderer[is-game-card-shelf]) {
+                        &:has(ytd-rich-item-renderer[is-game-card-shelf]),
+                        /* Remove media ads */
+                        &:has(ytd-rich-item-renderer[is-slim-media]) {
                             display: none i;
                         }
                         
