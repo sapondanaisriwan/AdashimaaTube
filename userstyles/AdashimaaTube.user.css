@@ -281,6 +281,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     
                     #contents.ytd-rich-grid-renderer > ytd-rich-section-renderer {
                         
+                        /* Remove game card shelf #118 */
+                        &:has(ytd-rich-item-renderer[is-game-card-shelf]) {
+                            display: none i;
+                        }
+                        
                         // hide show more btn
                         ytd-rich-shelf-renderer:not([is-shorts], [is-post]) .button-container.ytd-rich-shelf-renderer {
                             display: none;
