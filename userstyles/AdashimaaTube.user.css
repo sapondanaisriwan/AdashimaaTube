@@ -284,7 +284,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                         /* Remove game card shelf #118 */
                         &:has(ytd-rich-item-renderer[is-game-card-shelf]),
                         /* Remove movie ads */
-                        &:has(ytd-rich-shelf-renderer[is-movie]) {
+                        &:has(ytd-rich-item-renderer[is-link-card-full-width]) {
                             display: none i;
                         }
                         
