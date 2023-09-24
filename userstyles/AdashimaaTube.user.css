@@ -1844,11 +1844,19 @@ Support me: https://ko-fi.com/sapondanaisriwan
         #owner.ytd-watch-metadata {
             visibility: hidden;
         }
-        
+
         .super-title.ytd-video-primary-info-renderer:not([is-empty]) {
             display: block i;
             margin-top: -55px;
             margin-bottom: 40px;
+        }
+        
+        ytd-watch-flexy #below.ytd-watch-flexy:has(ytd-watch-metadata #title.ytd-watch-metadata ytd-badge-supported-renderer:not([hidden])) {
+            .super-title.ytd-video-primary-info-renderer:not([is-empty]) {
+                display: block i;
+                margin-top: -75px;
+                margin-bottom: 60px;
+            }
         }
         
         ytd-video-primary-info-renderer #container > :not(#info){
