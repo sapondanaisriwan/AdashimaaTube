@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        2.4.2
+@version        2.4.3
 @license        MIT
 @preprocessor   stylus
 
@@ -66,12 +66,12 @@
     "Français": "French"
 }
 @var checkbox descriptionExpanded      "  📭 Description Expanded" 0
-@var checkbox hideMoviesSection        "  ❌ Hide Movies Section" 1
 @var checkbox hideTabs                 "  ❌ Hide Tabs" 0
 @var checkbox antiShorts               "  ❌ Hide Shorts" 0
 @var checkbox hideAnnotation           "  ❌ Hide Annotations" 0
 @var checkbox hideRecommendPL          "  ❌ Hide Recommended" 0
 @var checkbox hidecommuPosts           "  ❌ Hide Community Posts" 0
+@var checkbox hideMoviesSection        "  ❌ Hide Movies Section" 1
 @var checkbox hideDonation             "  💵 Hide Donation Shelf" 0
 @var checkbox hideRightSideVideos      "  🎦 Hide Right Side Videos" 0
 @var checkbox hideLikeAnimation        "  👍 Hide Like Animation" 0
