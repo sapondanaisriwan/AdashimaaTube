@@ -1,5 +1,12 @@
 ## Changelog
 
+### v2.4.3
+- Fixed overlapped elements [#169][169].
+- Added an option to hide movies section on homepage [#168][168].
+
+[169]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/169
+[168]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/168
+
 ### v2.4.1
 - Fixed bell Icon is misaligned when subscribed [#163][163].
 - Disable "Hide game section" by default.
