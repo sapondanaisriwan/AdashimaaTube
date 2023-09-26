@@ -66,6 +66,7 @@
     "Français": "French"
 }
 @var checkbox descriptionExpanded      "  📭 Description Expanded" 0
+@var checkbox hideMoviesSection        "  ❌ Hide Movies Section" 1
 @var checkbox hideTabs                 "  ❌ Hide Tabs" 0
 @var checkbox antiShorts               "  ❌ Hide Shorts" 0
 @var checkbox hideAnnotation           "  ❌ Hide Annotations" 0
@@ -87,7 +88,6 @@
 @var checkbox gameSection              "  🎮 Hide Game Section" 0
 @var checkbox musicSection             "  🎵 Hide Music Section" 0
 @var checkbox chapterSection           "  ❌ Hide Chapters Section" 0
-
 ==/UserStyle== */
 /*
 Please report bugs via my email, github issue and discord(If I have some free time, I'll fix them)
@@ -282,9 +282,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     #contents.ytd-rich-grid-renderer > ytd-rich-section-renderer {
                         
                         /* Remove game card shelf #118 */
-                        &:has(ytd-rich-item-renderer[is-game-card-shelf]),
-                        /* Remove movie ads */
-                        &:has(ytd-rich-shelf-renderer[has-paygated-featured-badge]) {
+                        &:has(ytd-rich-item-renderer[is-game-card-shelf]) {
                             display: none i;
                         }
                         
@@ -1344,8 +1342,13 @@ Support me: https://ko-fi.com/sapondanaisriwan
     if (customVideoPage=="Enabled") {
 
         /* Hide community posts on home page */
-        [page-subtype="home"] ytd-rich-section-renderer:has(ytd-rich-item-renderer[is-post]) {
-            display: none if hidecommuPosts;
+        [page-subtype="home"] {
+            ytd-rich-section-renderer:has(ytd-rich-item-renderer[is-post]) {
+                display: none if hidecommuPosts;
+            }
+            ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[has-paygated-featured-badge]) {
+                display: none if hideMoviesSection;
+            }
         }
 
         /* ❌ Hide Recommended Section */
