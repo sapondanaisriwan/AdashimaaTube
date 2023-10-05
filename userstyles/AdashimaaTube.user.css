@@ -1344,11 +1344,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
         /* Hide community posts on home page */
         [page-subtype="home"] {
             ytd-rich-section-renderer:has(ytd-rich-item-renderer[is-post]) {
-                display: none if hidecommuPosts;
+                display: none i if hidecommuPosts;
             }
             ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[has-paygated-featured-badge]),
             ytd-rich-section-renderer:has(img[src*="movieposter"]) {
-                display: none if hideMoviesSection;
+                display: none i if hideMoviesSection;
             }
         }
 
