@@ -1,5 +1,11 @@
 ## Changelog
 
+### v2.4.4
+
+- Fixed "Hide movie section" not working [#170][170].
+
+[170]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/170
+
 ### v2.4.3
 - Fixed overlapped elements [#169][169].
 - Added an option to hide movies section on homepage [#168][168].
