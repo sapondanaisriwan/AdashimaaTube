@@ -162,10 +162,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
     }
     
-    ytd-emergency-onebox-renderer[amsterdam-enabled] {
-        display: none;
-    }
-    
     /* Check if broswer support :has pseudo selectors */
     @css {
         @supports not selector(:has(*)) {
