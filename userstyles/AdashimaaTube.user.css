@@ -162,6 +162,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
     }
     
+    ytd-emergency-onebox-renderer[amsterdam-enabled] {
+        display: none;
+    }
+    
     /* Check if broswer support :has pseudo selectors */
     @css {
         @supports not selector(:has(*)) {
@@ -1346,7 +1350,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
             ytd-rich-section-renderer:has(ytd-rich-item-renderer[is-post]) {
                 display: none if hidecommuPosts;
             }
-            ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[has-paygated-featured-badge]) {
+            ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[has-paygated-featured-badge]),
+            ytd-rich-section-renderer:has(img[src*="movieposter"]) {
                 display: none if hideMoviesSection;
             }
         }
