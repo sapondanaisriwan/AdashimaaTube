@@ -2579,7 +2579,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
         ytd-feed-nudge-renderer #dismissible.ytd-feed-nudge-renderer,
         yt-interaction.ytd-guide-entry-renderer,
         ytd-guide-entry-renderer,
- 
+        
+        ytd-playlist-video-renderer,
+        
         ytd-watch-flexy #ytd-player.ytd-watch-flexy {
             border-radius: borderRadius i;
         }
