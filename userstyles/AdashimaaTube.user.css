@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        2.4.4
+@version        2.4.5
 @license        MIT
 @preprocessor   stylus
 
@@ -1203,6 +1203,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 background: var(--yt-spec-general-background-a) i;
             }
             
+            #page-header.ytd-tabbed-page-header,
             #tabs-inner-container.ytd-c4-tabbed-header-renderer, #channel-header.ytd-c4-tabbed-header-renderer {
                 background: var(--yt-spec-general-background-a) i;
             }
@@ -2582,7 +2583,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
         
         ytd-playlist-video-renderer,
         
-        ytd-watch-flexy #ytd-player.ytd-watch-flexy {
+        ytd-watch-flexy #ytd-player.ytd-watch-flexy,
+        
+        .ytp-tooltip.ytp-rounded-tooltip.ytp-preview:not(.ytp-text-detail), .ytp-tooltip.ytp-rounded-tooltip.ytp-preview:not(.ytp-text-detail) .ytp-tooltip-bg {
             border-radius: borderRadius i;
         }
 
@@ -2902,6 +2905,39 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     .badge-style-type-verified.ytd-badge-supported-renderer {
         display: flex i;
+    }
+    
+    ytd-shelf-renderer #title.ytd-shelf-renderer {
+        color: var(--yt-spec-text-primary);
+        font-family: "Roboto","Arial",sans-serif;
+        font-size: 1.6rem i;
+        line-height: 2.2rem i;
+        font-weight: 500 i;
+        overflow: hidden;
+        display: block i;
+        max-height: 2.2rem i;
+        -webkit-line-clamp: 1 i;
+    }
+    
+    .count-text.ytd-comments-header-renderer {
+        font-family: "Roboto","Arial",sans-serif;
+        font-size: 1.6rem i;
+        line-height: 2.2rem i;
+        font-weight: 400 i;
+    }
+    html:not([dark]) yt-flexible-actions-view-model {
+        .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+            background-color: rgba(0,0,0,0.05) i;
+        }
+    }
+    html[dark] yt-flexible-actions-view-model {
+        .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+            background-color: rgba(255,255,255,0.05) i;
+        }
+    }
+
+    .yt-flexible-actions-view-model-wiz--scrollable {
+        overflow-x: hidden;
     }
     
     if (customOldLayout=="Enabled" && oldIcons) {
