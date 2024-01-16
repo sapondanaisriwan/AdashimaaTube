@@ -2899,6 +2899,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
         margin: 0;
         border-radius: 0;
     }
+
+    .badge-style-type-verified.ytd-badge-supported-renderer {
+        display: flex i;
+    }
     
     if (customOldLayout=="Enabled" && oldIcons) {
         
