@@ -1509,7 +1509,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
         /*  ➡️ Hide Share Button */
         if (shareBtn) {
-            #top-level-buttons-computed > ytd-button-renderer > yt-button-shape > button {
+            #top-level-buttons-computed > ytd-button-renderer > yt-button-view-model > button {
                 display: none;
             }
         }
@@ -1519,7 +1519,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             display: none if commentSection;
         }
 
-        #flexible-item-buttons yt-button-shape {
+        #flexible-item-buttons yt-button-view-model {
 
             /* Support all language except the browser that does not support :has */
             /* 🙏 Hide Thanks Button */
@@ -1904,10 +1904,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
         
         h1.ytd-watch-metadata {
-            font-family: "Roboto", sans-serif;
-            font-weight: 400;
-            font-size: 1.8rem;
-            position: relative;
+            font-family: "Roboto", sans-serif i;
+            font-weight: 400 i;
+            font-size: 1.8rem i;
+            position: relative i;
             z-index: 1;
         }
         
