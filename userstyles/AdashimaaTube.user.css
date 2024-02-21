@@ -6,7 +6,7 @@
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
 @updateURL      https://userstyles.world/api/style/6944.user.css
-@version        2.4.5
+@version        2.4.6
 @license        MIT
 @preprocessor   stylus
 
@@ -2938,6 +2938,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     .yt-flexible-actions-view-model-wiz--scrollable {
         overflow-x: hidden;
+    }
+
+    /* fix yt player 21/02/2024 */
+    ytd-watch-flexy[flexy] #player-container-outer.ytd-watch-flexy {
+        --ytd-watch-flexy-max-player-width: calc((100vh - var(--ytd-watch-flexy-masthead-height) - var(--ytd-margin-6x) - var(--ytd-watch-flexy-space-below-player))*(var(--ytd-watch-flexy-width-ratio)/var(--ytd-watch-flexy-height-ratio))) i;
     }
     
     if (customOldLayout=="Enabled" && oldIcons) {
