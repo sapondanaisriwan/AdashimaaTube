@@ -1,6 +1,6 @@
 <div align="center">
 
-## I will continue on this project after I finish the exam. I may take 2-4 months.
+## It's time to move on to another project :)
 
 </div>
 
