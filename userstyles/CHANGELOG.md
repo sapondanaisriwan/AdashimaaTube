@@ -1,5 +1,9 @@
 ## Changelog
 
+### v2.4.6
+
+- Fixed broken video player resolution
+
 ### v2.4.4
 
 - Fixed "Hide movie section" not working [#170][170].
