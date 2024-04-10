@@ -1,6 +1,6 @@
 <div align="center">
 
-## It's time to move on to another project :)
+## If I have time, I'll continue working on this project ;)
 
 </div>
 
@@ -73,7 +73,7 @@ This is why you should consider using AdashimaaTube! 🥶
 
 ### 🔧 Menu Options
 
-<img src="https://i.imgur.com/qA5JT7a.png" sytle="text-align: center"/>
+<img src="https://i.imgur.com/f4X0Cf2.png" sytle="text-align: center"/>
 </div>
 
 ## 📷 Screenshots
