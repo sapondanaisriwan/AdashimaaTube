@@ -1,8 +1,19 @@
 ## Changelog
 
+### v2.4.7
+- Fixed: the left-side thumbnails on the watch page are too large. [#182][182]
+
+Before
+![before](https://i.imgur.com/X39Mewu.png)
+
+After
+![after](https://i.imgur.com/W6FpHty.png)
+
+[182]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/170
+
 ### v2.4.6
 
-- Fixed broken video player resolution
+- Fixed broken video player resolution.
 
 ### v2.4.4
 
