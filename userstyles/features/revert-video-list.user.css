@@ -5,71 +5,79 @@
 @namespace      https://userstyles.world/user/sapondanaisriwan
 @homepageURL    https://github.com/sapondanaisriwan/AdashimaaTube
 @supportURL     https://github.com/sapondanaisriwan/AdashimaaTube/issues
-@version        1.0.0
+@version        1.0.1
 @license        MIT
 @preprocessor   stylus
 ==/UserStyle== */
 @-moz-document domain("youtube.com") {
 
-  i=!important;
-  t=transparent;
+    i=!important;
+    t=transparent;
 
-  ytd-watch-grid {
-      #comment-teaser.ytd-watch-metadata {
-          display: none;
-      }
+    ytd-watch-next-secondary-results-renderer {
+        ytd-rich-grid-renderer[reduced-top-margin] #contents.ytd-rich-grid-renderer {
+            gap: 8px;
+        }
 
-      #dismissible.ytd-rich-grid-media {
-          flex-direction: row;
-      }
+        h3.ytd-rich-grid-media {
+            margin-top: 0;
+        }
 
-      #attached-survey.ytd-rich-grid-media,
-      #avatar-link.ytd-rich-grid-media {
-          display: none;
-      }
+        #comment-teaser.ytd-watch-metadata {
+            display: none;
+        }
 
-      ytd-thumbnail.ytd-rich-grid-media,
-      ytd-playlist-thumbnail.ytd-rich-grid-media {
-          margin-right: 8px;
-          height: 94px;
-          width: 168px;
-      }
+        #dismissible.ytd-rich-grid-media {
+            flex-direction: row;
+        }
 
-      ytd-rich-item-renderer,
-      ytd-rich-grid-row #contents.ytd-rich-grid-row {
-          margin: 0;
-      }
+        #attached-survey.ytd-rich-grid-media,
+        #avatar-link.ytd-rich-grid-media {
+            display: none;
+        }
 
-      ytd-rich-item-renderer[reduced-bottom-margin] {
-          margin-top: 8px;
-          margin-bottom: 0;
-      }
+        ytd-thumbnail.ytd-rich-grid-media,
+        ytd-playlist-thumbnail.ytd-rich-grid-media {
+            margin-right: 8px;
+            height: 94px;
+            width: 168px;
+        }
 
-      ytd-video-meta-block[rich-meta] #metadata-line.ytd-video-meta-block,
-      #channel-name.ytd-video-meta-block {
-          font-family: "Roboto", "Arial", sans-serif;
-          font-size: 1.2rem;
-          line-height: 1.8rem;
-          font-weight: 400;
-      }
+        ytd-rich-item-renderer,
+        ytd-rich-grid-row #contents.ytd-rich-grid-row {
+            margin: 0;
+        }
 
-      #video-title.ytd-rich-grid-media {
-          margin: 0 0 4px 0;
-          display: block;
-          margin: 0 0 4px 0;
-          font-family: "Roboto", "Arial", sans-serif;
-          font-size: 1.4rem;
-          line-height: 2rem;
-          font-weight: 500;
-          overflow: hidden;
-          display: block;
-          max-height: 4rem;
-          -webkit-line-clamp: 2;
-          display: box;
-          display: -webkit-box;
-          -webkit-box-orient: vertical;
-          text-overflow: ellipsis;
-          white-space: normal;
-      }
-  }
+        ytd-rich-item-renderer[reduced-bottom-margin] {
+            margin-top: 8px;
+            margin-bottom: 0;
+        }
+
+        ytd-video-meta-block[rich-meta] #metadata-line.ytd-video-meta-block,
+        #channel-name.ytd-video-meta-block {
+            font-family: "Roboto", "Arial", sans-serif;
+            font-size: 1.2rem;
+            line-height: 1.8rem;
+            font-weight: 400;
+        }
+
+        #video-title.ytd-rich-grid-media {
+            margin: 0 0 4px 0;
+            display: block;
+            margin: 0 0 4px 0;
+            font-family: "Roboto", "Arial", sans-serif;
+            font-size: 1.4rem;
+            line-height: 2rem;
+            font-weight: 500;
+            overflow: hidden;
+            display: block;
+            max-height: 4rem;
+            -webkit-line-clamp: 2;
+            display: box;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+            white-space: normal;
+        }
+    }
 }
