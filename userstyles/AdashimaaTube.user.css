@@ -2945,6 +2945,73 @@ Support me: https://ko-fi.com/sapondanaisriwan
         --ytd-watch-flexy-max-player-width: calc((100vh - var(--ytd-watch-flexy-masthead-height) - var(--ytd-margin-6x) - var(--ytd-watch-flexy-space-below-player))*(var(--ytd-watch-flexy-width-ratio)/var(--ytd-watch-flexy-height-ratio))) i;
     }
     
+    ytd-watch-next-secondary-results-renderer {
+        ytd-rich-grid-renderer[reduced-top-margin] #contents.ytd-rich-grid-renderer {
+            gap: 8px;
+        }
+
+        h3.ytd-rich-grid-media {
+            margin-top: 0;
+        }
+
+        #comment-teaser.ytd-watch-metadata {
+            display: none;
+        }
+
+        #dismissible.ytd-rich-grid-media {
+            flex-direction: row;
+        }
+
+        #attached-survey.ytd-rich-grid-media,
+        #avatar-link.ytd-rich-grid-media {
+            display: none;
+        }
+
+        ytd-thumbnail.ytd-rich-grid-media,
+        ytd-playlist-thumbnail.ytd-rich-grid-media {
+            margin-right: 8px;
+            height: 94px;
+            width: 168px;
+        }
+
+        ytd-rich-item-renderer,
+        ytd-rich-grid-row #contents.ytd-rich-grid-row {
+            margin: 0;
+        }
+
+        ytd-rich-item-renderer[reduced-bottom-margin] {
+            margin-top: 8px;
+            margin-bottom: 0;
+        }
+
+        ytd-video-meta-block[rich-meta] #metadata-line.ytd-video-meta-block,
+        #channel-name.ytd-video-meta-block {
+            font-family: "Roboto", "Arial", sans-serif;
+            font-size: 1.2rem;
+            line-height: 1.8rem;
+            font-weight: 400;
+        }
+
+        #video-title.ytd-rich-grid-media {
+            margin: 0 0 4px 0;
+            display: block;
+            margin: 0 0 4px 0;
+            font-family: "Roboto", "Arial", sans-serif;
+            font-size: 1.4rem;
+            line-height: 2rem;
+            font-weight: 500;
+            overflow: hidden;
+            display: block;
+            max-height: 4rem;
+            -webkit-line-clamp: 2;
+            display: box;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+            white-space: normal;
+        }
+    }
+    
     if (customOldLayout=="Enabled" && oldIcons) {
         
         svg:not(:root) {
