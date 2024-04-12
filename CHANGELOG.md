@@ -1,5 +1,13 @@
 ## Changelog
 
+### v1.0.1 (revert-ui-changes.user.js)
+- Fixed: Full screen icon are overlapping with other elements [#183][183]
+
+![12-04-24_11-02](https://github.com/sapondanaisriwan/AdashimaaTube/assets/64634605/0409638a-e259-4cff-bf0f-834f6ee2785e)
+
+[183]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/183
+
+
 ### v2.4.7
 - Fixed: the left-side thumbnails on the watch page are too large. [#182][182]
 
@@ -9,7 +17,7 @@ Before
 After
 ![after](https://i.imgur.com/W6FpHty.png)
 
-[182]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/170
+[182]: https://github.com/sapondanaisriwan/AdashimaaTube/issues/182
 
 ### v2.4.6
 
