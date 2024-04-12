@@ -29,7 +29,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
 // Define the flags to assign to the EXPERIMENT_FLAGS object
 const flagsToAssign = {
-    "kevlar_watch_grid": false,
+    kevlar_watch_grid: false,
     kevlar_watch_grid_hide_chips: false,
 
     // fix the old description data is missing
